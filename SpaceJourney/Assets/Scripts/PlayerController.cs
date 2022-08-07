@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+   
     private Player playerInput;
+
+    public Transform cameraMain;
 
     private CharacterController controller;
 
@@ -13,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private bool groundedPlayer;
 
+    private Transform child;
 
     [SerializeField]
     private float playerSpeed = 2.0f;
@@ -22,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float gravityValue = -9.81f;
+
+    [SerializeField]
+    private float rotationSpeed = 4f;
 
     private void Awake() {
         playerInput = new Player();
@@ -35,22 +41,27 @@ public class PlayerController : MonoBehaviour
     private void OnDisable(){
         playerInput.Disable();
     }
-
+    
     private void Start()
     {
-        
+        child = transform.GetChild(0).transform;
     }
 
     void Update()
     {
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
-
+ 
+        //get joystick input
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-        Vector3 move = new Vector3(movementInput.x, 0f, movementInput.y);
+        //move to the direction base on the camera's facing
+        Vector3 move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
+        //avoid moving on y axis 
+        move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -66,5 +77,11 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (movementInput != Vector2.zero){
+            Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
+            child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
+       
     }
 }
