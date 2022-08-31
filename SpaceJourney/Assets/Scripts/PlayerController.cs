@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
    
+
+    
     private Player playerInput;
 
     public Transform cameraMain;
@@ -18,16 +21,36 @@ public class PlayerController : MonoBehaviour
     private Transform child;
 
     [SerializeField]
+    private GameObject interactbtn;
+
+    [SerializeField]
     private float playerSpeed = 2.0f;
 
     [SerializeField]
-    private float jumpHeight = 1.0f;
+    private float jumpHeight = 0.5f;
 
     [SerializeField]
     private float gravityValue = -9.81f;
 
     [SerializeField]
     private float rotationSpeed = 4f;
+
+    private bool interactive;
+
+    // [SerializeField]
+    // private Transform interactablePoint;
+    
+    // [SerializeField]
+    // private float interactablePointRadius = 0.3f;
+
+    // [SerializeField]
+    // private LayerMask interactableMask;
+
+    // [SerializeField]
+    // private int objectToInteract;
+
+    // private readonly Collider[] interactCollider = new Collider[1];
+        
 
     private void Awake() {
         playerInput = new Player();
@@ -45,6 +68,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         child = transform.GetChild(0).transform;
+        interactbtn.SetActive(false);
+        interactive = false;
+        
     }
 
     void Update()
@@ -72,7 +98,7 @@ public class PlayerController : MonoBehaviour
         // Changes the height position of the player..
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -82,6 +108,38 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
             child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
-       
+
+        if (interactive == true){
+            interactbtn.SetActive(true);
+        }
+        else {
+            interactbtn.SetActive(false);
+        }
+
+        //detect if there is an npc nearby
+        // objectToInteract = Physics.OverlapSphereNonAlloc(interactablePoint.position, 
+        //     interactablePointRadius, interactCollider, interactableMask);
+
+        // if (objectToInteract > 0){
+        //     interactbtn.SetActive(true);
+        // }
+        // else{
+        //     interactbtn.SetActive(false);
+        // }
     }
+
+    public void OnTriggerEnter(Collider other){
+        if (other.tag == "NPC"){
+            interactive = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other){
+        if (other.tag == "NPC"){
+            
+            interactive = false;
+        }
+    }
+
+
 }
