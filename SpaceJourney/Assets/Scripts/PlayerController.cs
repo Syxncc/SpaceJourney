@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
    
-
-    
     private Player playerInput;
+
+    private Animator animator;
 
     public Transform cameraMain;
 
@@ -33,9 +33,11 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
 
     [SerializeField]
-    private float rotationSpeed = 4f;
+    private float rotationSpeed = 0.1f;
 
     private bool interactive;
+
+    
 
     // [SerializeField]
     // private Transform interactablePoint;
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
         playerInput = new Player();
         controller = GetComponent<CharacterController>();
+        // playerAnimation = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable(){
@@ -68,6 +71,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         child = transform.GetChild(0).transform;
+        animator = GetComponentInChildren<Animator>();
+        
         interactbtn.SetActive(false);
         interactive = false;
         
@@ -84,30 +89,51 @@ public class PlayerController : MonoBehaviour
  
         //get joystick input
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
+
+    
+
+        
         //move to the direction base on the camera's facing
         Vector3 move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
         //avoid moving on y axis 
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
+        //Move();
 
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
+            animator.SetBool("isMoving", true);
+            
+            Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
+            child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
+            
+        }
+        else if (move == Vector3.zero){
+            animator.SetBool("isMoving", false);
+            
         }
 
         // Changes the height position of the player..
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
         {
+            
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+            animator.SetBool("isJumping", true);
+            
+        }
+        else if (groundedPlayer){
+            animator.SetBool("isJumping", false);
+            
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if (movementInput != Vector2.zero){
-            Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
-            child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
-        }
+        // if (movementInput != Vector2.zero){
+        //     Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
+        //     child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
+        // }
 
         if (interactive == true){
             interactbtn.SetActive(true);
@@ -115,6 +141,8 @@ public class PlayerController : MonoBehaviour
         else {
             interactbtn.SetActive(false);
         }
+
+        
 
         //detect if there is an npc nearby
         // objectToInteract = Physics.OverlapSphereNonAlloc(interactablePoint.position, 
@@ -140,6 +168,5 @@ public class PlayerController : MonoBehaviour
             interactive = false;
         }
     }
-
 
 }
