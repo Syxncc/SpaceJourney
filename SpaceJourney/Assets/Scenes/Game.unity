@@ -5499,10 +5499,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 2051325985}
+  jumpButtonGracePeriod: 0
   interactbtn: {fileID: 1397920259}
   playerSpeed: 10
   jumpHeight: 3
-  gravityValue: -9.81
+  gravityValue: -50
   rotationSpeed: 0.1
 --- !u!143 &1003564244
 CharacterController:

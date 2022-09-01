@@ -12,11 +12,21 @@ public class PlayerController : MonoBehaviour
 
     public Transform cameraMain;
 
+    public float jumpButtonGracePeriod;
+
+    private float? lastGroundedTime;
+
+    private float? jumpButtonPressedTime;
+
+    
+
     private CharacterController controller;
 
     private Vector3 playerVelocity;
 
     private bool groundedPlayer;
+
+    //private bool movingDir = false; 
 
     private Transform child;
 
@@ -30,7 +40,7 @@ public class PlayerController : MonoBehaviour
     private float jumpHeight = 0.5f;
 
     [SerializeField]
-    private float gravityValue = -9.81f;
+    private float gravityValue = 9.81f;
 
     [SerializeField]
     private float rotationSpeed = 0.1f;
@@ -102,30 +112,70 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero)
         {
+            //movingDir = true;
             gameObject.transform.forward = move;
-            animator.SetBool("isMoving", true);
+            if (playerInput.PlayerMain.Jump.triggered){
+                
+                animator.SetBool("isMoving", false);
+                animator.SetBool("isJumping", true);
+                
+            }
+            else{
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isMoving", true);
+            }
+
+            
+            
             
             Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
             child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
             
         }
         else if (move == Vector3.zero){
+            //movingDir = false;
             animator.SetBool("isMoving", false);
             
         }
 
-        // Changes the height position of the player..
-        if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
+        //JUMP
+        if (groundedPlayer){
+            lastGroundedTime = Time.time;
+        }
+        if (playerInput.PlayerMain.Jump.triggered){
+            jumpButtonPressedTime = Time.time;
+        }
+
+        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
-            
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
-            animator.SetBool("isJumping", true);
-            
-        }
-        else if (groundedPlayer){
             animator.SetBool("isJumping", false);
+
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod){
+
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+                
+                animator.SetBool("isJumping", true);
+ 
+                jumpButtonPressedTime = null;
+                lastGroundedTime = null; 
+
+            }
             
         }
+
+
+
+
+        // Changes the height position of the player..
+        // if (groundedPlayer)
+        // {
+        //     animator.SetBool("isJumping", false);
+        //     if (playerInput.PlayerMain.Jump.triggered){
+        //         playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+        //         animator.SetBool("isJumping", true);
+        //     }
+            
+        // }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
@@ -168,5 +218,21 @@ public class PlayerController : MonoBehaviour
             interactive = false;
         }
     }
+
+    // public void Jump(){
+    //     if (groundedPlayer)
+    //     {
+            
+    //         playerVelocity.y += Mathf.Sqrt(jumpHeight * -.0f * gravityValue);
+    //         animator.SetBool("isJumping", true);
+            
+            
+    //     }
+        
+    //     playerVelocity.y += gravityValue * Time.deltaTime;
+    //     controller.Move(playerVelocity * Time.deltaTime);
+
+    //     animator.SetBool("isJumping", false);
+    // }
 
 }
