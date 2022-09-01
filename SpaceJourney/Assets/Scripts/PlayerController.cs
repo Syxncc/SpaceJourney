@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private GameObject interactbtn;
 
     [SerializeField]
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 10.0f;
 
     [SerializeField]
     private float jumpHeight = 0.5f;
