@@ -112,41 +112,32 @@ public partial class @Player : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""SpaceShipMain"",
-            ""id"": ""e6d7c4ac-8eb0-45e0-b1b8-68a806d9ee63"",
+            ""name"": ""ShipMain"",
+            ""id"": ""05351310-0f03-438a-8307-69829d6d57d7"",
             ""actions"": [
-                {
-                    ""name"": ""Attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""b2ad9a26-e322-4b31-802a-932c053d7504"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Accelerate"",
-                    ""type"": ""Button"",
-                    ""id"": ""9fffa6ca-719d-467e-b170-ace6e4ecb2db"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""bc1a5217-4bd9-4663-9b5c-6cbb8e298f42"",
+                    ""id"": ""76715299-4c52-44ed-9a9f-901770ad8aff"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6332c37-9f90-4a44-81da-e3728cabe2ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""9227de42-73ff-4f13-9ed7-f5b77f1bf047"",
+                    ""id"": ""2f89a728-05ec-4038-aeb3-e8ab6926d6e3"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -157,23 +148,12 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""72397841-3516-4870-8532-7d16cadb5d8c"",
+                    ""id"": ""0047566c-5f43-4456-b881-d48f6c2198b0"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""56e26d70-29c5-413c-ba43-f75d549a162a"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -188,11 +168,10 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMain_Jump = m_PlayerMain.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMain_Look = m_PlayerMain.FindAction("Look", throwIfNotFound: true);
         m_PlayerMain_Interact = m_PlayerMain.FindAction("Interact", throwIfNotFound: true);
-        // SpaceShipMain
-        m_SpaceShipMain = asset.FindActionMap("SpaceShipMain", throwIfNotFound: true);
-        m_SpaceShipMain_Attack = m_SpaceShipMain.FindAction("Attack", throwIfNotFound: true);
-        m_SpaceShipMain_Accelerate = m_SpaceShipMain.FindAction("Accelerate", throwIfNotFound: true);
-        m_SpaceShipMain_Move = m_SpaceShipMain.FindAction("Move", throwIfNotFound: true);
+        // ShipMain
+        m_ShipMain = asset.FindActionMap("ShipMain", throwIfNotFound: true);
+        m_ShipMain_Move = m_ShipMain.FindAction("Move", throwIfNotFound: true);
+        m_ShipMain_Shoot = m_ShipMain.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,54 +285,46 @@ public partial class @Player : IInputActionCollection2, IDisposable
     }
     public PlayerMainActions @PlayerMain => new PlayerMainActions(this);
 
-    // SpaceShipMain
-    private readonly InputActionMap m_SpaceShipMain;
-    private ISpaceShipMainActions m_SpaceShipMainActionsCallbackInterface;
-    private readonly InputAction m_SpaceShipMain_Attack;
-    private readonly InputAction m_SpaceShipMain_Accelerate;
-    private readonly InputAction m_SpaceShipMain_Move;
-    public struct SpaceShipMainActions
+    // ShipMain
+    private readonly InputActionMap m_ShipMain;
+    private IShipMainActions m_ShipMainActionsCallbackInterface;
+    private readonly InputAction m_ShipMain_Move;
+    private readonly InputAction m_ShipMain_Shoot;
+    public struct ShipMainActions
     {
         private @Player m_Wrapper;
-        public SpaceShipMainActions(@Player wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Attack => m_Wrapper.m_SpaceShipMain_Attack;
-        public InputAction @Accelerate => m_Wrapper.m_SpaceShipMain_Accelerate;
-        public InputAction @Move => m_Wrapper.m_SpaceShipMain_Move;
-        public InputActionMap Get() { return m_Wrapper.m_SpaceShipMain; }
+        public ShipMainActions(@Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_ShipMain_Move;
+        public InputAction @Shoot => m_Wrapper.m_ShipMain_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_ShipMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(SpaceShipMainActions set) { return set.Get(); }
-        public void SetCallbacks(ISpaceShipMainActions instance)
+        public static implicit operator InputActionMap(ShipMainActions set) { return set.Get(); }
+        public void SetCallbacks(IShipMainActions instance)
         {
-            if (m_Wrapper.m_SpaceShipMainActionsCallbackInterface != null)
+            if (m_Wrapper.m_ShipMainActionsCallbackInterface != null)
             {
-                @Attack.started -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnAttack;
-                @Accelerate.started -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnAccelerate;
-                @Accelerate.performed -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnAccelerate;
-                @Accelerate.canceled -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnAccelerate;
-                @Move.started -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_SpaceShipMainActionsCallbackInterface.OnMove;
+                @Move.started -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnMove;
+                @Shoot.started -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnShoot;
             }
-            m_Wrapper.m_SpaceShipMainActionsCallbackInterface = instance;
+            m_Wrapper.m_ShipMainActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
-                @Accelerate.started += instance.OnAccelerate;
-                @Accelerate.performed += instance.OnAccelerate;
-                @Accelerate.canceled += instance.OnAccelerate;
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
-    public SpaceShipMainActions @SpaceShipMain => new SpaceShipMainActions(this);
+    public ShipMainActions @ShipMain => new ShipMainActions(this);
     public interface IPlayerMainActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -361,10 +332,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
-    public interface ISpaceShipMainActions
+    public interface IShipMainActions
     {
-        void OnAttack(InputAction.CallbackContext context);
-        void OnAccelerate(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

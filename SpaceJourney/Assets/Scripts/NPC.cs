@@ -7,10 +7,21 @@ public class NPC : MonoBehaviour
 
 
     public DialogueTrigger trigger;
+    //public Transform transform;
 
     //public GameObject objectToFind;
 
-    // public void OnTriggerEnter(Collider other){
+    public void OnCollisionEnter(Collision collision){
+        
+        
+        
+    }
+
+
+
+
+
+
     //     if (other.tag == "NPC"){
 
     //         DialogueTrigger dialTrig = other.GetChildComponent<DialogueTrigger>();
@@ -23,7 +34,7 @@ public class NPC : MonoBehaviour
 
             
     //     }
-    // }
+    
 
     // public void OnTriggerExit(Collider other){
     //     if (other.tag == "NPC"){
