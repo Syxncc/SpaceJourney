@@ -12,7 +12,14 @@ public class Bullet : MonoBehaviour
     }
     
     void OnCollisionEnter(Collision collision){
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Asteroid"){
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
+        
+        
     }
 }

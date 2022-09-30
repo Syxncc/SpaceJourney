@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     
 
-    private CharacterController controller;
+    public CharacterController controller;
 
     private Vector3 playerVelocity;
 
@@ -66,8 +66,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake() {
         playerInput = new Player();
-        controller = GetComponent<CharacterController>();
-        // playerAnimation = GetComponentInChildren<Animator>();
+        //controller = GetComponent<CharacterController>();
+        
     }
 
     private void OnEnable(){
@@ -99,10 +99,8 @@ public class PlayerController : MonoBehaviour
  
         //get joystick input
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-
-    
-
         
+
         //move to the direction base on the camera's facing
         Vector3 move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
         //avoid moving on y axis 

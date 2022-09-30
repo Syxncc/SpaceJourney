@@ -9,12 +9,14 @@ public class DialogueManagement : MonoBehaviour
 
     public GameObject ControlUI;
     
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+    public Text nameText;
+    public Text dialogueText;
 
     public Animator animator;
 
     private Queue<string> sentences;
+
+    public bool endOfConvo = false;
 
     void Start()
     {
@@ -56,6 +58,7 @@ public class DialogueManagement : MonoBehaviour
     void EndDialogue(){
         animator.SetBool("isOpen", false);
         ControlUI.SetActive(true);
+        endOfConvo = true;
     }
     
 }
