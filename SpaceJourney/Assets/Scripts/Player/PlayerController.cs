@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private float? jumpButtonPressedTime;
 
-    
+    public Quest quest;
 
     public CharacterController controller;
 
@@ -183,12 +183,12 @@ public class PlayerController : MonoBehaviour
         //     child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
         // }
 
-        // if (interactive == true){
-        //     interactbtn.SetActive(true);
-        // }
-        // else {
-        //     interactbtn.SetActive(false);
-        // }
+        if (interactive == true){
+            interactbtn.SetActive(true);
+        }
+        else {
+            interactbtn.SetActive(false);
+        }
 
         
 
@@ -204,18 +204,18 @@ public class PlayerController : MonoBehaviour
         // }
     }
 
-    // public void OnTriggerEnter(Collider other){
-    //     if (other.tag == "NPC"){
-    //         interactive = true;
-    //     }
-    // }
+    public void OnTriggerEnter(Collider other){
+        if (other.tag == "NPC"){
+            interactive = true;
+        }
+    }
 
-    // public void OnTriggerExit(Collider other){
-    //     if (other.tag == "NPC"){
+    public void OnTriggerExit(Collider other){
+        if (other.tag == "NPC"){
             
-    //         interactive = false;
-    //     }
-    // }
+            interactive = false;
+        }
+    }
 
     // public void Jump(){
     //     if (groundedPlayer)

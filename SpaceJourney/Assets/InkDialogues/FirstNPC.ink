@@ -1,2 +1,2 @@
-My Name is Max 
-Welcome to the Space Lab
+You Are Free to Roam around the Space Lab!
+You can also ask some of the crew.
