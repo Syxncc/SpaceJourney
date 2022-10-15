@@ -1,3 +1,2 @@
 Hi I'm Gab!
-You can check the request board to gain quests
-Have Fun!
+Feel Free to roam around the Space Lab

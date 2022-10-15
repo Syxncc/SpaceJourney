@@ -8,6 +8,8 @@ public class DialTrig : MonoBehaviour
     [SerializeField]
     private GameObject interactbtn;
     public bool aDialogueQuest;
+    public bool shop;
+    
 
     public QuestGiver theQuest;
 

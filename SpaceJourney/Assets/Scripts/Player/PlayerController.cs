@@ -158,6 +158,8 @@ public class PlayerController : MonoBehaviour
                 lastGroundedTime = null; 
 
             }
+
+            
             
         }
 
@@ -214,6 +216,12 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "NPC"){
             
             interactive = false;
+        }
+    }
+
+    public void CheckTalk(string targetNPCTalk, string npcName){
+        if (targetNPCTalk == npcName){
+            quest.Complete();
         }
     }
 

@@ -7,9 +7,15 @@ using UnityEngine.UI;
 public class DIalogueCol : MonoBehaviour
 {
 
+    public GameObject shopUI;
+    public GameObject UI;
+    public PlayerController player;
     
     private TextAsset inkJSONS;
     private DialTrig trig;
+    public bool shop;
+    
+    
     public Text nonPlayerName;
 
     public QuestGiver questGive;
@@ -36,7 +42,7 @@ public class DIalogueCol : MonoBehaviour
             inkJSONS = trig.inkJSON;
             nonPlayerName.text = trig.noName;
             Debug.Log(inkJSONS);
-            
+            shop = trig.shop;
             
         }
     }
@@ -49,8 +55,15 @@ public class DIalogueCol : MonoBehaviour
 
     public void BtnIsPressed(){
         DialMan.GetInstance().EnterDialogueMode(inkJSONS);
+
         if (trig.aDialogueQuest){
             questGive.AcceptQuest();
         }
+
+        if(player.quest.isActive){
+            player.CheckTalk(player.quest.goal.targetNPCTalk, trig.noName);
+        }
     }
+
+
 }

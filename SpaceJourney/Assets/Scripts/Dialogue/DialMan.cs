@@ -8,7 +8,12 @@ public class DialMan : MonoBehaviour
 {
     public GameObject ControlUI;
     public Animator animator;
+
+    public GameObject shopUI;
     
+    public DIalogueCol collector;
+    
+
     private bool isPressed;
     public Text dialogueText;
 
@@ -80,6 +85,11 @@ public class DialMan : MonoBehaviour
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
         ControlUI.SetActive(true);
+
+        if(collector.shop){
+            shopUI.SetActive(true);
+            ControlUI.SetActive(false);
+        }
 
         
     }
