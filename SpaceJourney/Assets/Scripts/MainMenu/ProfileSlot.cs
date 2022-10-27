@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ProfileSlot : MonoBehaviour
 {
+    public int slotID;
     public bool thisFull; 
     public GameObject empty; 
     public GameObject full;
+    public GameObject xbtn;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,14 @@ public class ProfileSlot : MonoBehaviour
     {
         if (thisFull){
             full.SetActive(true);
+            xbtn.SetActive(true);
+            empty.SetActive(false);
         }
         else {
             full.SetActive(false);
+            xbtn.SetActive(false);
+            empty.SetActive(true);
+
         }
     }
 
