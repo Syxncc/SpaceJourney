@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour
     private GameObject interactbtn;
 
     [SerializeField]
-    private float playerSpeed = 10.0f;
+    public float playerSpeed = 10.0f;
 
     [SerializeField]
-    private float jumpHeight = 0.5f;
+    public float jumpHeight = 0.5f;
 
     [SerializeField]
     private float gravityValue = 9.81f;

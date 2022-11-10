@@ -12,7 +12,7 @@ public class DialMan : MonoBehaviour
     public GameObject shopUI;
     
     public DIalogueCol collector;
-    
+    public DialTrig trigs;
 
     private bool isPressed;
     public Text dialogueText;
@@ -22,6 +22,8 @@ public class DialMan : MonoBehaviour
     public bool dialogueIsPlaying{get; private set;}
 
     private static DialMan instance;
+
+    private int intervalCounter;
 
     // [SerializeField]
     // private GameObject[] choices;
@@ -46,6 +48,7 @@ public class DialMan : MonoBehaviour
     {
         dialogueIsPlaying = false;
         isPressed = false;
+        intervalCounter = 0;
         
 
         // choicesText = new Text[choices.Length];
@@ -65,6 +68,7 @@ public class DialMan : MonoBehaviour
         }
 
         if(isPressed){
+            
             ContinueStory();
             isPressed = false;
         }
@@ -95,21 +99,52 @@ public class DialMan : MonoBehaviour
     }
 
     public void ContinueStory(){
+        Debug.Log(intervalCounter);
+
+        
         if (currentStory.canContinue){
+
+            if (intervalCounter == trigs.choiceInterval){
+                trigs.choice1.SetActive(true);
+                trigs.choice2.SetActive(true);
+                trigs.choicesActive = true;
+            }
+            else {
+                dialogueText.text = currentStory.Continue();
             
-            dialogueText.text = currentStory.Continue();
+            }
+            
+            
             //DisplayChoices();
         }
         else {
             dialogueIsPlaying = false;
             ExitDialogueMode();
         }
+        intervalCounter++;
     }
 
     
 
     public void ConIsPressed(){
+        if (trigs.choicesActive == true){
+            isPressed = false;
+        }
+        else {
+            isPressed = true;
+        }
+        
+    }
+
+    public void ChoiceHasSelected (){
+        trigs.choicesActive = false;
         isPressed = true;
+        trigs.choice1.SetActive(false);
+        trigs.choice2.SetActive(false);
+    }
+
+    public void GetChoice(DialTrig trig){
+        trigs = trig;
     }
 
     // private void DisplayChoices(){

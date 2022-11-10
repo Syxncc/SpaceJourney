@@ -43,6 +43,7 @@ public class DIalogueCol : MonoBehaviour
             nonPlayerName.text = trig.noName;
             Debug.Log(inkJSONS);
             shop = trig.shop;
+            DialMan.GetInstance().GetChoice(trig);
             
         }
     }
@@ -55,6 +56,7 @@ public class DIalogueCol : MonoBehaviour
 
     public void BtnIsPressed(){
         DialMan.GetInstance().EnterDialogueMode(inkJSONS);
+        
 
         if (trig.aDialogueQuest){
             questGive.AcceptQuest();

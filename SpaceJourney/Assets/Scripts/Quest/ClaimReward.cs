@@ -35,4 +35,6 @@ public class ClaimReward : MonoBehaviour
         questTexts.SetActive(false);
 
     }
+
+    
 }

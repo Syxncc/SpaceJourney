@@ -27,9 +27,9 @@ public class ProfileSlot : MonoBehaviour
             full.SetActive(false);
             xbtn.SetActive(false);
             empty.SetActive(true);
-
         }
     }
+
 
     
 }
