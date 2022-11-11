@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QuestGiver : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class QuestGiver : MonoBehaviour
             claimReward.quest = quest;
             claimReward.questTexts.SetActive(true);
             acceptable = false;
+            
         }
 
         

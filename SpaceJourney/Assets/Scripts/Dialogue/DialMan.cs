@@ -99,21 +99,21 @@ public class DialMan : MonoBehaviour
     }
 
     public void ContinueStory(){
-        Debug.Log(intervalCounter);
+        
 
         
         if (currentStory.canContinue){
 
-            if (intervalCounter == trigs.choiceInterval){
-                trigs.choice1.SetActive(true);
-                trigs.choice2.SetActive(true);
-                trigs.choicesActive = true;
-            }
-            else {
-                dialogueText.text = currentStory.Continue();
+            // if (intervalCounter == trigs.choiceInterval){
+            //     trigs.choice1.SetActive(true);
+            //     trigs.choice2.SetActive(true);
+            //     trigs.choicesActive = true;
+            // }
+            // else {
+            //     dialogueText.text = currentStory.Continue();
             
-            }
-            
+            // }
+            dialogueText.text = currentStory.Continue();
             
             //DisplayChoices();
         }
@@ -121,27 +121,28 @@ public class DialMan : MonoBehaviour
             dialogueIsPlaying = false;
             ExitDialogueMode();
         }
-        intervalCounter++;
+        // intervalCounter++;
     }
 
     
 
     public void ConIsPressed(){
-        if (trigs.choicesActive == true){
-            isPressed = false;
-        }
-        else {
-            isPressed = true;
-        }
+        // if (trigs.choicesActive == true){
+        //     isPressed = false;
+        // }
+        // else {
+        //     isPressed = true;
+        // }
+        isPressed = true;
         
     }
 
-    public void ChoiceHasSelected (){
-        trigs.choicesActive = false;
-        isPressed = true;
-        trigs.choice1.SetActive(false);
-        trigs.choice2.SetActive(false);
-    }
+    // public void ChoiceHasSelected (){
+    //     trigs.choicesActive = false;
+    //     isPressed = true;
+    //     trigs.choice1.SetActive(false);
+    //     trigs.choice2.SetActive(false);
+    // }
 
     public void GetChoice(DialTrig trig){
         trigs = trig;

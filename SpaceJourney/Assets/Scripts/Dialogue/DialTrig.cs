@@ -8,16 +8,16 @@ public class DialTrig : MonoBehaviour
     [SerializeField]
     private GameObject interactbtn;
     
-    public bool hasChoices;
-    public int choiceInterval = 0;
-    public GameObject choice1;
-    public GameObject choice2;
-    public Text choice1Txtbx;
-    public Text choice2Txtbx;
-    public bool choicesActive;
+    // public bool hasChoices;
+    // public int choiceInterval = 0;
+    // public GameObject choice1;
+    // public GameObject choice2;
+    // public Text choice1Txtbx;
+    // public Text choice2Txtbx;
+    // public bool choicesActive;
 
-    public string choicetxt1;
-    public string choicetxt2;
+    // public string choicetxt1;
+    // public string choicetxt2;
 
     public bool aDialogueQuest;
     public bool shop;
@@ -57,10 +57,10 @@ public class DialTrig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasChoices){
-            choice1Txtbx.text = choicetxt1;
-            choice2Txtbx.text = choicetxt2;
-        }
+        // if (hasChoices){
+        //     choice1Txtbx.text = choicetxt1;
+        //     choice2Txtbx.text = choicetxt2;
+        // }
         // if (playerInRange){
             
             
