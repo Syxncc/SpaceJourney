@@ -5,9 +5,10 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public Quest quest;
-
+    
+    
     //quest slot 
-    public GameObject[] questPanel;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,10 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void NextQuest(){
         
     }
 

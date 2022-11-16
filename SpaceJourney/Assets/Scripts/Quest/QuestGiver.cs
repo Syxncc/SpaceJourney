@@ -7,10 +7,14 @@ using TMPro;
 public class QuestGiver : MonoBehaviour
 {
     public Quest quest;
+    
     public ClaimReward claimReward;
     public PlayerController player;
     private bool acceptable = true;
     
+    public Text distanceText;
+    public Transform checkpoint; 
+    public float distance;
 
     // public QuestSlotHandler[] questSlot;
 
@@ -42,11 +46,15 @@ public class QuestGiver : MonoBehaviour
         //     }
         // }
 
+        distance = (checkpoint.transform.position - player.transform.position).magnitude;
+        distanceText.text = distance.ToString("F1") + "m";
+
     }
 
     public void AcceptQuest(){
-
+        
         if(acceptable && !player.quest.isActive){
+            quest.Clear();
             titleText.text = quest.title;
             descText.text = quest.description;
             goldRewardText.text = quest.goldReward.ToString();
@@ -58,7 +66,6 @@ public class QuestGiver : MonoBehaviour
             
         }
 
-        
     }
 
     

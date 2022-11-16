@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
     private bool interactive;
 
+    [SerializeField]
+    private float forceMagnitude;
+
     
 
     // [SerializeField]
@@ -240,5 +243,20 @@ public class PlayerController : MonoBehaviour
 
     //     animator.SetBool("isJumping", false);
     // }
+    private void OnControllerColliderHit(ControllerColliderHit hit){
+        
+        Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
+        if (rigidbody !=null){
+            if (hit.collider.tag == "ObjectPush"){
+                
+                Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
+                forceDirection.y = 0;
+                forceDirection.Normalize();
+
+                rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            }
+            
+        }    
+    }
 }

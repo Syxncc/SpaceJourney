@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ClaimReward : MonoBehaviour
 {
     public Quest quest;
+    
     public GameObject questTexts;
     public Text currentGoldText;
     public int currentGold;
@@ -29,6 +30,7 @@ public class ClaimReward : MonoBehaviour
 
     public void Claimed(){
         currentGold = currentGold + quest.goldReward;
+        
     }
 
     public void ClearQuest(){

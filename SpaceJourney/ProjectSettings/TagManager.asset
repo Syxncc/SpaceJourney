@@ -9,6 +9,7 @@ TagManager:
   - Planet
   - Asteroid
   - ShopNPC
+  - ObjectPush
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,7 @@ public class DIalogueCol : MonoBehaviour
     public PlayerController player;
     
     private TextAsset inkJSONS;
-    private DialTrig trig;
+    public DialTrig trig;
     public bool shop;
     
     
@@ -43,7 +43,7 @@ public class DIalogueCol : MonoBehaviour
             nonPlayerName.text = trig.noName;
             Debug.Log(inkJSONS);
             shop = trig.shop;
-            DialMan.GetInstance().GetChoice(trig);
+            //DialMan.GetInstance().GetChoice(trig);
             
         }
     }
@@ -59,6 +59,7 @@ public class DIalogueCol : MonoBehaviour
         
 
         if (trig.aDialogueQuest){
+            Debug.Log("Accepted");
             questGive.AcceptQuest();
         }
 

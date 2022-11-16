@@ -6,7 +6,9 @@ using UnityEngine;
 public class Quest
 {
     public bool isActive;
-    public GameObject claim;
+    // public GameObject claim;
+    public ClaimReward claimRewards;
+    
 
     public string id;
     public string title;
@@ -18,9 +20,22 @@ public class Quest
     
     public void Complete(){
         
-        claim.SetActive(true);
+        
+        // claim.SetActive(true);
         isActive = false;
+        claimRewards.Claimed();
+        
         
     }
+
+    public void Clear(){
+        
+        claimRewards.ClearQuest();
+        
+        
+        
+    }
+
+
     
 }

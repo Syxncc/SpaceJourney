@@ -25,6 +25,8 @@ public class DialMan : MonoBehaviour
 
     private int intervalCounter;
 
+    //public NPCMover NPCMover;
+
     // [SerializeField]
     // private GameObject[] choices;
     // private Text[] choicesText;
@@ -62,6 +64,8 @@ public class DialMan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         //return right away if dialogue isn't playing
         if (!dialogueIsPlaying){
             return;
@@ -77,6 +81,7 @@ public class DialMan : MonoBehaviour
     }
 
     public void EnterDialogueMode(TextAsset inkJSON){
+        
         animator.SetBool("isOpen", true);
         
         currentStory = new Story(inkJSON.text);
@@ -86,6 +91,7 @@ public class DialMan : MonoBehaviour
     }
 
     private void ExitDialogueMode(){
+        
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
         ControlUI.SetActive(true);
@@ -144,9 +150,9 @@ public class DialMan : MonoBehaviour
     //     trigs.choice2.SetActive(false);
     // }
 
-    public void GetChoice(DialTrig trig){
-        trigs = trig;
-    }
+    // public void GetChoice(DialTrig trig){
+    //     trigs = trig;
+    // }
 
     // private void DisplayChoices(){
     //     List<Choice> currentChoices = currentStory.currentChoices;
@@ -167,5 +173,12 @@ public class DialMan : MonoBehaviour
     //         choices[i].gameObject.SetActive(false);
     //     }
     // }
-    
+
+    // private void OnTriggerEnter(Collider other) {
+    //     if (other.tag == "NPC"){
+    //         NPCMover = other.gameObject.GetComponent<NPCMover>();
+            
+            
+    //     }
+    // }
 }
