@@ -45,10 +45,36 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 0.1f;
 
+    [SerializeField]
+    private float dashSpeed = 20f;
+
+    [SerializeField]
+    private float dashTime = 0.25f;
+
     private bool interactive;
 
     [SerializeField]
     private float forceMagnitude;
+
+    private Vector3 move;
+
+    public Slider staminaBar;
+
+    [SerializeField]
+    private float maxStamina = 100f;
+
+    
+    private float currentStamina; 
+
+    [SerializeField]
+    private float jumpCost = 10f;
+    [SerializeField]
+    private float dashCost = 10f;
+
+    [SerializeField]
+    private float regenCost = 5f;
+
+
 
     
 
@@ -83,6 +109,10 @@ public class PlayerController : MonoBehaviour
     
     private void Start()
     {
+        currentStamina = maxStamina;
+        staminaBar.maxValue = maxStamina;
+        staminaBar.value = maxStamina;
+
         child = transform.GetChild(0).transform;
         animator = GetComponentInChildren<Animator>();
         
@@ -93,6 +123,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (currentStamina != 100){
+            RegenStamina(regenCost);
+        }
+        
+        staminaBar.value = currentStamina;
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -102,10 +137,13 @@ public class PlayerController : MonoBehaviour
  
         //get joystick input
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
+        if(movementInput == new Vector2(0,0)){
+            movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
         
 
         //move to the direction base on the camera's facing
-        Vector3 move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
+        move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
         //avoid moving on y axis 
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
@@ -149,10 +187,11 @@ public class PlayerController : MonoBehaviour
 
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
+            
             animator.SetBool("isJumping", false);
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod){
-
+                DecreaseStamina(jumpCost);
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 
                 animator.SetBool("isJumping", true);
@@ -165,28 +204,10 @@ public class PlayerController : MonoBehaviour
             
             
         }
-
-
-
-
-        // Changes the height position of the player..
-        // if (groundedPlayer)
-        // {
-        //     animator.SetBool("isJumping", false);
-        //     if (playerInput.PlayerMain.Jump.triggered){
-        //         playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
-        //         animator.SetBool("isJumping", true);
-        //     }
-            
-        // }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        // if (movementInput != Vector2.zero){
-        //     Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
-        //     child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
-        // }
+
 
         if (interactive == true){
             interactbtn.SetActive(true);
@@ -194,19 +215,6 @@ public class PlayerController : MonoBehaviour
         else {
             interactbtn.SetActive(false);
         }
-
-        
-
-        //detect if there is an npc nearby
-        // objectToInteract = Physics.OverlapSphereNonAlloc(interactablePoint.position, 
-        //     interactablePointRadius, interactCollider, interactableMask);
-
-        // if (objectToInteract > 0){
-        //     interactbtn.SetActive(true);
-        // }
-        // else{
-        //     interactbtn.SetActive(false);
-        // }
     }
 
     public void OnTriggerEnter(Collider other){
@@ -228,21 +236,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // public void Jump(){
-    //     if (groundedPlayer)
-    //     {
-            
-    //         playerVelocity.y += Mathf.Sqrt(jumpHeight * -.0f * gravityValue);
-    //         animator.SetBool("isJumping", true);
-            
-            
-    //     }
-        
-    //     playerVelocity.y += gravityValue * Time.deltaTime;
-    //     controller.Move(playerVelocity * Time.deltaTime);
-
-    //     animator.SetBool("isJumping", false);
-    // }
     private void OnControllerColliderHit(ControllerColliderHit hit){
         
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
@@ -258,5 +251,30 @@ public class PlayerController : MonoBehaviour
             }
             
         }    
+    }
+
+    public void DashPlayer(){
+        DecreaseStamina(dashCost);
+        StartCoroutine(Dash());
+        
+        
+    }
+
+    IEnumerator Dash(){
+        float startTime = Time.time;
+        Debug.LogError("Dash");
+        
+        while(Time.time < startTime + dashTime){
+            controller.Move(move * dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    private void RegenStamina(float regenCost){
+        currentStamina += regenCost * Time.deltaTime;
+    }
+
+    private void DecreaseStamina(float decreaseCost){
+        currentStamina -= decreaseCost;
     }
 }

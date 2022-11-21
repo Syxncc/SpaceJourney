@@ -8,6 +8,7 @@ public class NPCPath : MonoBehaviour
     [SerializeField] private float pathSize = 1f;
 
     public bool oneWay;
+
     private void OnDrawGizmos() {
         foreach(Transform t in transform){
             Gizmos.color = Color.blue;
@@ -30,10 +31,6 @@ public class NPCPath : MonoBehaviour
         if (currentPath == null){
             return transform.GetChild(0);
         }
-        
-        
-        
-        
 
         if (currentPath.GetSiblingIndex() <  transform.childCount - 1){
             return transform.GetChild(currentPath.GetSiblingIndex() + 1);
@@ -41,7 +38,6 @@ public class NPCPath : MonoBehaviour
         else {
             return transform.GetChild(0);
         }
-        
         
     }
 }

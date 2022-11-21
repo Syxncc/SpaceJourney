@@ -6,65 +6,16 @@ using TMPro;
 
 public class QuestGiver : MonoBehaviour
 {
-    public Quest quest;
-    
-    public ClaimReward claimReward;
+    public QuestBase quest;
     public PlayerController player;
-    private bool acceptable = true;
     
     public Text distanceText;
-    public Transform checkpoint; 
     public float distance;
-
-    // public QuestSlotHandler[] questSlot;
-
-    public Text titleText;
-    public Text descText;
-    public Text goldRewardText;
 
     public void Update(){
 
-        // if(!questSlot[0].isEmpty && !questSlot[1].isEmpty && !questSlot[2].isEmpty){
-        //     Debug.Log("Finish Current Quest");
-        // }
-        // else {
-        //     for(int i = 0; i <3 ; i++){
-                
-        //         if (questSlot[i].isEmpty){
-        //             Debug.Log(questSlot[i]);
-        //             Debug.Log("Quest Slot " + i);
-
-        //             questSlot[i].gameObject.SetActive(true);
-
-        //             titleText = questSlot[i].text1;
-        //             descText = questSlot[i].text2;
-        //             goldRewardText = questSlot[i].text3;
-
-        //             questSlot[i].isEmpty = false;
-        //             break;
-        //         }
-        //     }
-        // }
-
-        distance = (checkpoint.transform.position - player.transform.position).magnitude;
+        distance = (transform.position - player.transform.position).magnitude;
         distanceText.text = distance.ToString("F1") + "m";
-
-    }
-
-    public void AcceptQuest(){
-        
-        if(acceptable && !player.quest.isActive){
-            quest.Clear();
-            titleText.text = quest.title;
-            descText.text = quest.description;
-            goldRewardText.text = quest.goldReward.ToString();
-            quest.isActive = true;
-            player.quest = quest;
-            claimReward.quest = quest;
-            claimReward.questTexts.SetActive(true);
-            acceptable = false;
-            
-        }
 
     }
 

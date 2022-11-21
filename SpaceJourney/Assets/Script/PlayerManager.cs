@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public Quest quest;
-    
-    
-    //quest slot 
-    
+    public int gold;
+    public int gem;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +18,4 @@ public class QuestManager : MonoBehaviour
     {
         
     }
-
-    public void NextQuest(){
-        
-    }
-
-    
 }

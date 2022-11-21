@@ -24,8 +24,8 @@ public class ClaimReward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentGoldText.text = currentGold.ToString();
-        currentGemText.text = currentGem.ToString();
+        currentGoldText.text = GameManager.instance.playerManager.gold.ToString();
+        currentGemText.text = GameManager.instance.playerManager.gem.ToString();
     }
 
     public void Claimed(){

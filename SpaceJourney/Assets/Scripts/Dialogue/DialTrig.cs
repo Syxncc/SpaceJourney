@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialTrig : MonoBehaviour
 {
+    public Profile profile;
     [SerializeField]
     private GameObject interactbtn;
     
@@ -52,6 +53,7 @@ public class DialTrig : MonoBehaviour
     void Start()
     {
         // nonPlayerName.text = noName;
+        noName = profile.name;
     }
 
     // Update is called once per frame
@@ -72,7 +74,6 @@ public class DialTrig : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player"){
-            
             playerInRange = true;
 
         }

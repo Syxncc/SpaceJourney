@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class DialMan : MonoBehaviour
 {
+   
+    public static DialMan instance;
+    private QuestBase quest;
+
     public GameObject ControlUI;
     public Animator animator;
 
@@ -21,28 +25,21 @@ public class DialMan : MonoBehaviour
 
     public bool dialogueIsPlaying{get; private set;}
 
-    private static DialMan instance;
-
-    private int intervalCounter;
-
+    public QuestBase CompleteQuest {get;set;}
     //public NPCMover NPCMover;
 
     // [SerializeField]
     // private GameObject[] choices;
     // private Text[] choicesText;
 
-
+    public void SetQuest(QuestBase quest){
+        this.quest = quest;
+    }
     private void Awake(){
-        if (instance != null){
-            Debug.LogWarning("Found more than one Dial Man");
+        if (instance == null){
+            instance = this;
         }
-        instance = this;
     }
-
-    public static DialMan GetInstance(){
-        return instance;
-    }
-
     
 
     // Start is called before the first frame update
@@ -50,7 +47,7 @@ public class DialMan : MonoBehaviour
     {
         dialogueIsPlaying = false;
         isPressed = false;
-        intervalCounter = 0;
+        
         
 
         // choicesText = new Text[choices.Length];
@@ -81,7 +78,9 @@ public class DialMan : MonoBehaviour
     }
 
     public void EnterDialogueMode(TextAsset inkJSON){
-        
+        if(GameManager.instance.onTalkNPCCallback != null) {
+            GameManager.instance.onTalkNPCCallback.Invoke(trigs.profile);
+        }
         animator.SetBool("isOpen", true);
         
         currentStory = new Story(inkJSON.text);
@@ -91,10 +90,17 @@ public class DialMan : MonoBehaviour
     }
 
     private void ExitDialogueMode(){
+        if(quest != null){
+            QuestManager.instance.SetQuestUI(quest);
+            ControlUI.SetActive(false);
+        }
+        else {
+            ControlUI.SetActive(true);
+        }
         
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
-        ControlUI.SetActive(true);
+        
 
         if(collector.shop){
             shopUI.SetActive(true);
@@ -110,35 +116,21 @@ public class DialMan : MonoBehaviour
         
         if (currentStory.canContinue){
 
-            // if (intervalCounter == trigs.choiceInterval){
-            //     trigs.choice1.SetActive(true);
-            //     trigs.choice2.SetActive(true);
-            //     trigs.choicesActive = true;
-            // }
-            // else {
-            //     dialogueText.text = currentStory.Continue();
-            
-            // }
             dialogueText.text = currentStory.Continue();
             
-            //DisplayChoices();
+            
         }
         else {
             dialogueIsPlaying = false;
             ExitDialogueMode();
         }
-        // intervalCounter++;
+        
     }
 
     
 
     public void ConIsPressed(){
-        // if (trigs.choicesActive == true){
-        //     isPressed = false;
-        // }
-        // else {
-        //     isPressed = true;
-        // }
+       
         isPressed = true;
         
     }

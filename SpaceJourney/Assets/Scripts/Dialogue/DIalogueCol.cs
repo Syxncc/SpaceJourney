@@ -37,12 +37,22 @@ public class DIalogueCol : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "NPC"){
-            trig = other.gameObject.GetComponent<DialTrig>();
             questGive = other.gameObject.GetComponent<QuestGiver>();
-            inkJSONS = trig.inkJSON;
-            nonPlayerName.text = trig.noName;
-            Debug.Log(inkJSONS);
-            shop = trig.shop;
+            if(questGive.quest.isCompleted == false){
+                trig = other.gameObject.GetComponent<DialTrig>();
+                DialMan.instance.trigs = trig;
+                inkJSONS = trig.inkJSON;
+                nonPlayerName.text = trig.noName;
+                Debug.Log(inkJSONS);
+                shop = trig.shop;
+            }else{
+                //Put here dialog that for not quest
+                Debug.LogError("Hello I don't have a dialogue");
+                trig = other.gameObject.GetComponent<DialTrig>();
+                DialMan.instance.trigs = trig;
+                inkJSONS = trig.inkJSON;
+                nonPlayerName.text = trig.noName;
+            }
             //DialMan.GetInstance().GetChoice(trig);
             
         }
@@ -55,12 +65,11 @@ public class DIalogueCol : MonoBehaviour
     }
 
     public void BtnIsPressed(){
-        DialMan.GetInstance().EnterDialogueMode(inkJSONS);
+        DialMan.instance.EnterDialogueMode(inkJSONS);
         
 
         if (trig.aDialogueQuest){
-            Debug.Log("Accepted");
-            questGive.AcceptQuest();
+            DialMan.instance.SetQuest(questGive.quest);
         }
 
         if(player.quest.isActive){

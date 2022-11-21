@@ -20,6 +20,8 @@ public class NPCMover : MonoBehaviour
 
     public bool standby; 
 
+    public GameObject NPCTextName;
+
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,8 @@ public class NPCMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        NPCTextName.transform.LookAt(player);
+        NPCTextName.transform.Rotate(-40,180,0);
         if (standby){
             animator.SetBool("isMoving", false);
         }
