@@ -6,31 +6,13 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 00060754500c5a5d08595a2745220744474e4f2c752b22617e704b60e4b7646e
+      value: 5200035751575c5e5d0c0a2446250c44434f4c7d792a25617b281b65b6e56160
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 015456055500590c5858557542710c441315417d287c776429281f64e6e6626e
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 02060d510354515f0e560871467a5b44404e1e2c2d7d23667a791f36b2e26369
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 550901005405085d0b0a597340710e4410154f7a2f2c733229794b60e7b2673b
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 57000250500d5e0b5a0b092611250944454f4c7a7e7922647f2a486bbab2626e
-      flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 54050456565051585d59547248255b44154e4c2c297c2569747d4a31e7b0673d
-      flags: 0
-    RecentlyUsedSceneGuid-6:
       value: 0700575554055059090c597611270a44154f19782e7a7e63757c4f6be7b66068
       flags: 0
-    UnityRemoteDevice:
-      value: 2d5e5a03
-      flags: 0
-    UnityRemoteJoystickSource:
-      value: 315459091150
+    RecentlyUsedSceneGuid-2:
+      value: 54050456565051585d59547248255b44154e4c2c297c2569747d4a31e7b0673d
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
@@ -40,7 +22,7 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 2
+  m_DesiredImportWorkerCount: 3
   m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
