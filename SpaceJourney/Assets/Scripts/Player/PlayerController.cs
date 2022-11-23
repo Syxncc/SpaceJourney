@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private GameObject interactbtn;
 
     [SerializeField]
-    public float playerSpeed = 10.0f;
+    public float playerSpeed;
 
     [SerializeField]
     public float jumpHeight = 0.5f;
@@ -69,28 +69,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpCost = 10f;
     [SerializeField]
-    private float dashCost = 10f;
+    private float decreaseCostOvertime = 10f;
 
     [SerializeField]
-    private float regenCost = 5f;
-
-
+    private float regenCost = 5.00f;
 
     
 
-    // [SerializeField]
-    // private Transform interactablePoint;
+    private bool isSprinting = false;
+
+    private float sprintingSpeed = 20f;
+
+    private float walkingSpeed = 10f;
+
     
-    // [SerializeField]
-    // private float interactablePointRadius = 0.3f;
-
-    // [SerializeField]
-    // private LayerMask interactableMask;
-
-    // [SerializeField]
-    // private int objectToInteract;
-
-    // private readonly Collider[] interactCollider = new Collider[1];
         
 
     private void Awake() {
@@ -123,8 +115,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (currentStamina != 100){
+        
+        if (currentStamina < 100){
             RegenStamina(regenCost);
+        }
+
+        if (isSprinting == true){
+            playerSpeed = sprintingSpeed;
+        }
+        else{
+            playerSpeed = walkingSpeed;
         }
         
         staminaBar.value = currentStamina;
@@ -189,12 +189,28 @@ public class PlayerController : MonoBehaviour
         {
             
             animator.SetBool("isJumping", false);
+            animator.SetBool("isJumpSprinting", false);
+            animator.SetBool("isJumpMoving", false);
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod){
-                DecreaseStamina(jumpCost);
+                DecreaseStaminaNormal(jumpCost);
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 
-                animator.SetBool("isJumping", true);
+                if (move != Vector3.zero && isSprinting){
+                    Debug.LogError("isJumpSprinting");
+                    animator.SetBool("isJumpSprinting", true);
+                }
+                else if (move != Vector3.zero && !isSprinting){
+                    Debug.LogError("isJumpMoving");
+                    animator.SetBool("isJumpMoving", true);
+                }
+                else {
+                    Debug.LogError("isJumping");
+                    animator.SetBool("isJumping", true);
+                }
+        
+                
+                
  
                 jumpButtonPressedTime = null;
                 lastGroundedTime = null; 
@@ -207,7 +223,13 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-
+        if (move != Vector3.zero && isSprinting){
+            animator.SetBool("isSprinting", true);
+            DecreaseStaminaOvertime();
+        }
+        else {
+            animator.SetBool("isSprinting", false);
+        }
 
         if (interactive == true){
             interactbtn.SetActive(true);
@@ -253,28 +275,44 @@ public class PlayerController : MonoBehaviour
         }    
     }
 
-    public void DashPlayer(){
-        DecreaseStamina(dashCost);
-        StartCoroutine(Dash());
+    // public void DashPlayer(){
+    //     DecreaseStamina(dashCost);
+    //     StartCoroutine(Dash());
         
         
-    }
+    // }
 
-    IEnumerator Dash(){
-        float startTime = Time.time;
-        Debug.LogError("Dash");
+    // IEnumerator Dash(){
+    //     float startTime = Time.time;
+    //     Debug.LogError("Dash");
         
-        while(Time.time < startTime + dashTime){
-            controller.Move(move * dashSpeed * Time.deltaTime);
-            yield return null;
-        }
-    }
+    //     while(Time.time < startTime + dashTime){
+    //         controller.Move(move * dashSpeed * Time.deltaTime);
+    //         yield return null;
+    //     }
+    // }
 
     private void RegenStamina(float regenCost){
         currentStamina += regenCost * Time.deltaTime;
     }
 
-    private void DecreaseStamina(float decreaseCost){
+    private void DecreaseStaminaOvertime(){
+        
+        currentStamina -= decreaseCostOvertime * Time.deltaTime;
+        
+    }
+
+    private void DecreaseStaminaNormal(float decreaseCost){
         currentStamina -= decreaseCost;
+        
+    }
+
+    public void HoldSprint(){
+        isSprinting = true;
+        
+    }
+
+    public void ReleaseSprint(){
+        isSprinting = false;
     }
 }
