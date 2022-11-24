@@ -28,15 +28,15 @@ public class ClaimReward : MonoBehaviour
         currentGemText.text = GameManager.instance.playerManager.gem.ToString();
     }
 
-    public void Claimed(){
-        currentGold = currentGold + quest.goldReward;
+    // public void Claimed(){
+    //     currentGold = currentGold + quest.goldReward;
         
-    }
+    // }
 
-    public void ClearQuest(){
-        questTexts.SetActive(false);
+    // public void ClearQuest(){
+    //     questTexts.SetActive(false);
 
-    }
+    // }
 
     
 }

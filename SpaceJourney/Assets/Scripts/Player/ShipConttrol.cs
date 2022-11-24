@@ -22,6 +22,7 @@ public class ShipConttrol : MonoBehaviour
 
     public bool moveButton;
     public bool shootButton;
+    public bool boostButton;
 
     private void Awake() {
         shipInput = new Player();
@@ -49,7 +50,14 @@ public class ShipConttrol : MonoBehaviour
         Vector2 movementInput = shipInput.ShipMain.Move.ReadValue<Vector2>();
 
         if (moveButton){
-            thrust = 1f;
+            if (boostButton){
+                Debug.LogError("Boosting");
+                thrust = 3f;
+            }
+            else {
+                thrust = 1f;
+            }
+            
         }
         else {
             thrust = 0f;
@@ -87,6 +95,14 @@ public class ShipConttrol : MonoBehaviour
 
     public void ReleaseShoot(){
         shootButton = false;
+    }
+
+    public void HoldBoost(){
+        boostButton = true;
+    }
+
+    public void ReleaseBoost(){
+        boostButton = false;
     }
 
 }

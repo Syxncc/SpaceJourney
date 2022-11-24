@@ -26,8 +26,6 @@ public class PlayerController : MonoBehaviour
 
     private bool groundedPlayer;
 
-    //private bool movingDir = false; 
-
     private Transform child;
 
     [SerializeField]
@@ -36,8 +34,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float playerSpeed;
 
-    [SerializeField]
-    public float jumpHeight = 0.5f;
+    // [SerializeField]
+    // public float jumpHeight = 0.5f; //ups
 
     [SerializeField]
     private float gravityValue = 9.81f;
@@ -45,11 +43,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 0.1f;
 
-    [SerializeField]
-    private float dashSpeed = 20f;
+    // [SerializeField]
+    // private float dashSpeed = 20f;
 
-    [SerializeField]
-    private float dashTime = 0.25f;
+    // [SerializeField]
+    // private float dashTime = 0.25f;
 
     private bool interactive;
 
@@ -60,27 +58,27 @@ public class PlayerController : MonoBehaviour
 
     public Slider staminaBar;
 
-    [SerializeField]
-    private float maxStamina = 100f;
+    // [SerializeField]
+    // private float maxStamina = 100f; //ups 
 
     
     private float currentStamina; 
 
-    [SerializeField]
-    private float jumpCost = 10f;
-    [SerializeField]
-    private float decreaseCostOvertime = 10f;
+    // [SerializeField]
+    // private float jumpCost = 10f;
+    // [SerializeField]
+    // private float decreaseCostOvertime = 10f;
 
-    [SerializeField]
-    private float regenCost = 5.00f;
+    // [SerializeField]
+    // private float regenCost = 5.00f;
 
     
 
     private bool isSprinting = false;
 
-    private float sprintingSpeed = 20f;
+    // private float sprintingSpeed = 20f; //ups
 
-    private float walkingSpeed = 10f;
+    // private float walkingSpeed = 10f;  //ups
 
     
         
@@ -101,9 +99,9 @@ public class PlayerController : MonoBehaviour
     
     private void Start()
     {
-        currentStamina = maxStamina;
-        staminaBar.maxValue = maxStamina;
-        staminaBar.value = maxStamina;
+        currentStamina = GameManager.instance.playerManager.maxStamina;
+        staminaBar.maxValue = GameManager.instance.playerManager.maxStamina;
+        staminaBar.value = GameManager.instance.playerManager.maxStamina;
 
         child = transform.GetChild(0).transform;
         animator = GetComponentInChildren<Animator>();
@@ -115,16 +113,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
-        if (currentStamina < 100){
-            RegenStamina(regenCost);
+        staminaBar.maxValue = GameManager.instance.playerManager.maxStamina;
+        if (currentStamina < GameManager.instance.playerManager.maxStamina){
+            RegenStamina(GameManager.instance.playerManager.regenCost);
         }
 
         if (isSprinting == true){
-            playerSpeed = sprintingSpeed;
+            playerSpeed = GameManager.instance.playerManager.sprintingSpeed;
         }
         else{
-            playerSpeed = walkingSpeed;
+            playerSpeed = GameManager.instance.playerManager.walkingSpeed;
         }
         
         staminaBar.value = currentStamina;
@@ -144,14 +142,15 @@ public class PlayerController : MonoBehaviour
 
         //move to the direction base on the camera's facing
         move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
+
         //avoid moving on y axis 
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
-        //Move();
+        
 
         if (move != Vector3.zero)
         {
-            //movingDir = true;
+            
             gameObject.transform.forward = move;
             if (playerInput.PlayerMain.Jump.triggered){
                 
@@ -178,6 +177,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //JUMP
+        
         if (groundedPlayer){
             lastGroundedTime = Time.time;
         }
@@ -191,45 +191,49 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", false);
             animator.SetBool("isJumpSprinting", false);
             animator.SetBool("isJumpMoving", false);
+            
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod){
-                DecreaseStaminaNormal(jumpCost);
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
-                
-                if (move != Vector3.zero && isSprinting){
-                    Debug.LogError("isJumpSprinting");
-                    animator.SetBool("isJumpSprinting", true);
+                if (currentStamina < GameManager.instance.playerManager.jumpCost){
+                    Debug.LogError("Low Stamina");
                 }
-                else if (move != Vector3.zero && !isSprinting){
-                    Debug.LogError("isJumpMoving");
-                    animator.SetBool("isJumpMoving", true);
-                }
-                else {
-                    Debug.LogError("isJumping");
-                    animator.SetBool("isJumping", true);
-                }
-        
+                else{
+                    DecreaseStaminaNormal(GameManager.instance.playerManager.jumpCost);
+                    playerVelocity.y += Mathf.Sqrt(GameManager.instance.playerManager.jumpHeight * -2.0f * gravityValue);
                 
-                
- 
-                jumpButtonPressedTime = null;
-                lastGroundedTime = null; 
+                    if (move != Vector3.zero){
+
+                        if (isSprinting){
+                            Debug.LogError("isJumpSprinting");
+                            animator.SetBool("isJumpSprinting", true);
+                        
+                        }
+                        else {
+                            Debug.LogError("isJumpMoving");
+                            animator.SetBool("isJumpMoving", true);
+                        }
+                    
+                    }
+                    else {
+                        Debug.LogError("isJumping");
+                        animator.SetBool("isJumping", true);
+                    }
+
+                    jumpButtonPressedTime = null;
+                    lastGroundedTime = null;
+                }
 
             }
 
-            
-            
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
         if (move != Vector3.zero && isSprinting){
-            animator.SetBool("isSprinting", true);
+            
             DecreaseStaminaOvertime();
         }
-        else {
-            animator.SetBool("isSprinting", false);
-        }
+        
 
         if (interactive == true){
             interactbtn.SetActive(true);
@@ -293,12 +297,12 @@ public class PlayerController : MonoBehaviour
     // }
 
     private void RegenStamina(float regenCost){
-        currentStamina += regenCost * Time.deltaTime;
+        currentStamina += GameManager.instance.playerManager.regenCost * Time.deltaTime;
     }
 
     private void DecreaseStaminaOvertime(){
         
-        currentStamina -= decreaseCostOvertime * Time.deltaTime;
+        currentStamina -= GameManager.instance.playerManager.decreaseCostOvertime * Time.deltaTime;
         
     }
 
@@ -308,7 +312,14 @@ public class PlayerController : MonoBehaviour
     }
 
     public void HoldSprint(){
-        isSprinting = true;
+        if (currentStamina < GameManager.instance.playerManager.decreaseCostOvertime){
+            Debug.LogError("Insufficient Stamina");
+            isSprinting = false;
+        }
+        else {
+            isSprinting = true;
+        }
+        
         
     }
 

@@ -22,15 +22,15 @@ public class Quest
         
         
         // claim.SetActive(true);
-        isActive = false;
-        claimRewards.Claimed();
+        // isActive = false;
+        // claimRewards.Claimed();
         
         
     }
 
     public void Clear(){
         
-        claimRewards.ClearQuest();
+        // claimRewards.ClearQuest();
         
         
         

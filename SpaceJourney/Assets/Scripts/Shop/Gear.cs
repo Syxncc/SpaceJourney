@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Gear : MonoBehaviour
 {
-    public PlayerController player;
+    
     public ClaimReward bank;
     public GameObject [] levelBar;
     public GameObject promptNoCoin;
@@ -66,10 +66,21 @@ public class Gear : MonoBehaviour
     }
 
     public void increaseSpeed(){
-        player.playerSpeed = player.playerSpeed + 0.5f;
+        GameManager.instance.playerManager.walkingSpeed += 0.5f;
+        GameManager.instance.playerManager.sprintingSpeed += 0.5f;
     }
 
     public void increaseJumpHeight(){
-        player.jumpHeight = player.jumpHeight + 0.2f;
+        GameManager.instance.playerManager.jumpHeight += 0.2f;
+        //player.jumpHeight = player.jumpHeight + 0.2f;
+    }
+
+    public void decreaseStaminaConsumption(){
+        GameManager.instance.playerManager.decreaseCostOvertime -= 0.5f;
+        GameManager.instance.playerManager.jumpCost -= 0.2f;
+    }
+
+    public void increasePower(){
+
     }
 }
