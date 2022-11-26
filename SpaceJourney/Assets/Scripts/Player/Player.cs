@@ -187,6 +187,15 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Boost"",
+                    ""type"": ""Button"",
+                    ""id"": ""195406f3-6576-479c-9dc2-e364e266d491"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -204,7 +213,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0047566c-5f43-4456-b881-d48f6c2198b0"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -266,6 +275,17 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce423020-fafc-42eb-a333-ff7111a7b7e6"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +302,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_ShipMain = asset.FindActionMap("ShipMain", throwIfNotFound: true);
         m_ShipMain_Move = m_ShipMain.FindAction("Move", throwIfNotFound: true);
         m_ShipMain_Shoot = m_ShipMain.FindAction("Shoot", throwIfNotFound: true);
+        m_ShipMain_Boost = m_ShipMain.FindAction("Boost", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -400,12 +421,14 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private IShipMainActions m_ShipMainActionsCallbackInterface;
     private readonly InputAction m_ShipMain_Move;
     private readonly InputAction m_ShipMain_Shoot;
+    private readonly InputAction m_ShipMain_Boost;
     public struct ShipMainActions
     {
         private @Player m_Wrapper;
         public ShipMainActions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_ShipMain_Move;
         public InputAction @Shoot => m_Wrapper.m_ShipMain_Shoot;
+        public InputAction @Boost => m_Wrapper.m_ShipMain_Boost;
         public InputActionMap Get() { return m_Wrapper.m_ShipMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -421,6 +444,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnShoot;
+                @Boost.started -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnBoost;
+                @Boost.performed -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnBoost;
+                @Boost.canceled -= m_Wrapper.m_ShipMainActionsCallbackInterface.OnBoost;
             }
             m_Wrapper.m_ShipMainActionsCallbackInterface = instance;
             if (instance != null)
@@ -431,6 +457,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Boost.started += instance.OnBoost;
+                @Boost.performed += instance.OnBoost;
+                @Boost.canceled += instance.OnBoost;
             }
         }
     }
@@ -446,5 +475,6 @@ public partial class @Player : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnBoost(InputAction.CallbackContext context);
     }
 }

@@ -100,12 +100,6 @@ public class DialMan : MonoBehaviour
         
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
-        
-
-        if(collector.shop){
-            shopUI.SetActive(true);
-            ControlUI.SetActive(false);
-        }
 
         
     }

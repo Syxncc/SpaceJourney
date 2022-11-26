@@ -99,9 +99,9 @@ public class PlayerController : MonoBehaviour
     
     private void Start()
     {
-        currentStamina = GameManager.instance.playerManager.maxStamina;
-        staminaBar.maxValue = GameManager.instance.playerManager.maxStamina;
-        staminaBar.value = GameManager.instance.playerManager.maxStamina;
+        currentStamina = PlayerManager.maxStamina;
+        staminaBar.maxValue = PlayerManager.maxStamina;
+        staminaBar.value = PlayerManager.maxStamina;
 
         child = transform.GetChild(0).transform;
         animator = GetComponentInChildren<Animator>();
@@ -113,8 +113,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        staminaBar.maxValue = GameManager.instance.playerManager.maxStamina;
-        if (currentStamina < GameManager.instance.playerManager.maxStamina){
+        staminaBar.maxValue = PlayerManager.maxStamina;
+        if (currentStamina < PlayerManager.maxStamina){
             RegenStamina(GameManager.instance.playerManager.regenCost);
         }
 
@@ -244,23 +244,22 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other){
-        if (other.tag == "NPC"){
+        if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC"){
             interactive = true;
         }
     }
 
     public void OnTriggerExit(Collider other){
-        if (other.tag == "NPC"){
-            
+        if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC"){
             interactive = false;
         }
     }
 
-    public void CheckTalk(string targetNPCTalk, string npcName){
-        if (targetNPCTalk == npcName){
-            quest.Complete();
-        }
-    }
+    // public void CheckTalk(string targetNPCTalk, string npcName){
+    //     if (targetNPCTalk == npcName){
+    //         quest.Complete();
+    //     }
+    // }
 
     private void OnControllerColliderHit(ControllerColliderHit hit){
         

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipConttrol : MonoBehaviour
 {
@@ -18,11 +19,14 @@ public class ShipConttrol : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 900;
 
-
-
     public bool moveButton;
     public bool shootButton;
     public bool boostButton;
+
+    public Slider boostStaminaBar;
+    public Slider fireStaminaBar;
+    private float boostcurrentStamina;
+    private float firecurrentStamina;
 
     private void Awake() {
         shipInput = new Player();
@@ -41,18 +45,40 @@ public class ShipConttrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        boostcurrentStamina = PlayerManager.maxStamina;
+        firecurrentStamina = PlayerManager.maxStamina;
+
+        boostStaminaBar.maxValue = PlayerManager.maxStamina;
+        boostStaminaBar.value = PlayerManager.maxStamina;
+
+        fireStaminaBar.maxValue = PlayerManager.maxStamina;
+        fireStaminaBar.value = PlayerManager.maxStamina;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Stamina
+        boostStaminaBar.maxValue = PlayerManager.maxStamina;
+        fireStaminaBar.maxValue = PlayerManager.maxStamina;
+
+        if (firecurrentStamina < PlayerManager.maxStamina){
+            RegenFireStamina(GameManager.instance.playerManager.regenCost);
+        }
+        if (boostcurrentStamina < PlayerManager.maxStamina){
+            RegenBoostStamina(GameManager.instance.playerManager.regenCost);
+        }
+        
+        boostStaminaBar.value = boostcurrentStamina;
+        fireStaminaBar.value = firecurrentStamina;
+        
         Vector2 movementInput = shipInput.ShipMain.Move.ReadValue<Vector2>();
 
         if (moveButton){
             if (boostButton){
-                Debug.LogError("Boosting");
-                thrust = 3f;
+                DecreaseStaminaBoostOvertime();
+                thrust = PlayerManager.thrustBoosted;
             }
             else {
                 thrust = 1f;
@@ -65,6 +91,8 @@ public class ShipConttrol : MonoBehaviour
 
         
 
+        
+
         transform.Rotate(-movementInput.y * lookRateSpeed * Time.deltaTime, 
             movementInput.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
 
@@ -73,11 +101,31 @@ public class ShipConttrol : MonoBehaviour
         transform.position += transform.forward* activeForwardSpeed* Time.deltaTime; 
 
         if (shootButton){//shipInput.ShipMain.Shoot.triggered
+            DecreaseStaminaFiringOvertime();
             var bullet1 = Instantiate(bulletPrefab, bulletSpawnPoint1.position, bulletSpawnPoint1.rotation);
             bullet1.GetComponent<Rigidbody>().velocity= bulletSpawnPoint1.forward * bulletSpeed;
             var bullet2 = Instantiate(bulletPrefab, bulletSpawnPoint2.position, bulletSpawnPoint2.rotation);
             bullet2.GetComponent<Rigidbody>().velocity= bulletSpawnPoint2.forward * bulletSpeed;
         }
+
+        
+
+        if (Input.GetKeyDown(KeyCode.Space)){
+            shootButton = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space)){
+            shootButton = false;
+        } 
+
+        if (Input.GetKeyDown(KeyCode.UpArrow)){
+            boostButton = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow)){
+            boostButton = false;
+        } 
+
         
     }
 
@@ -103,6 +151,22 @@ public class ShipConttrol : MonoBehaviour
 
     public void ReleaseBoost(){
         boostButton = false;
+    }
+
+    private void RegenFireStamina(float regenCost){
+        firecurrentStamina += GameManager.instance.playerManager.regenCost * Time.deltaTime;
+    }
+
+    private void RegenBoostStamina(float regenCost){
+        boostcurrentStamina += GameManager.instance.playerManager.regenCost * Time.deltaTime;
+    }
+
+    private void DecreaseStaminaFiringOvertime(){
+        firecurrentStamina -= PlayerManager.firingStaminaCost * Time.deltaTime;
+    }
+
+    private void DecreaseStaminaBoostOvertime(){
+        boostcurrentStamina -= PlayerManager.boostStaminaCost * Time.deltaTime;
     }
 
 }

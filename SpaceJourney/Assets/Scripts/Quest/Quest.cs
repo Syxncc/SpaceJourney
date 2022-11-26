@@ -7,7 +7,7 @@ public class Quest
 {
     public bool isActive;
     // public GameObject claim;
-    public ClaimReward claimRewards;
+
     
 
     public string id;

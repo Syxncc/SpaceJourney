@@ -32,7 +32,13 @@ public class NPCMover : MonoBehaviour
         transform.position = currentPath.position;
 
         currentPath = path.GetNextPath(currentPath);
-        transform.LookAt(currentPath);
+        if (standby){
+
+        }
+        else {
+            transform.LookAt(currentPath);
+        }
+        
         animator.SetBool("isMoving", true);
     }
 

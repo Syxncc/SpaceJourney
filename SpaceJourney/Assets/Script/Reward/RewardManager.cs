@@ -15,7 +15,7 @@ public class RewardManager : MonoBehaviour
     }
 
     public void ClaimRewards(QuestBase quest){
-        GameManager.instance.playerManager.gold += quest.rewards.goldReward;
+        PlayerManager.playergold += quest.rewards.goldReward;
         //Debug.LogError(GameManager.instance.playerManager.gold.ToString());
         // questRewardUI.SetActive(true);
         // questName.text = quest.questName;

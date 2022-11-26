@@ -10,6 +10,9 @@ TagManager:
   - Asteroid
   - ShopNPC
   - ObjectPush
+  - UpgradeNPC
+  - TradeNPC
+  - LaunchNPC
   layers:
   - Default
   - TransparentFX

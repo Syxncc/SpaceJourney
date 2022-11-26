@@ -18,4 +18,6 @@ public class GameManager : MonoBehaviour
 
     public RewardManager rewardManager;
     public PlayerManager playerManager;
+    public ShopManager shopManager;
+    
 }
