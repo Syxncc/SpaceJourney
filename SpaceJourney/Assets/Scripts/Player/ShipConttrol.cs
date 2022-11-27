@@ -19,14 +19,18 @@ public class ShipConttrol : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 900;
 
-    public bool moveButton;
-    public bool shootButton;
-    public bool boostButton;
+    private bool moveButton;
+    private bool shootButton;
+    private bool boostButton;
 
     public Slider boostStaminaBar;
     public Slider fireStaminaBar;
     private float boostcurrentStamina;
     private float firecurrentStamina;
+
+    public GameObject boostTrail;
+    public GameObject normalTrail;
+
 
     private void Awake() {
         shipInput = new Player();
@@ -77,11 +81,25 @@ public class ShipConttrol : MonoBehaviour
 
         if (moveButton){
             if (boostButton){
-                DecreaseStaminaBoostOvertime();
-                thrust = PlayerManager.thrustBoosted;
+                
+                if (boostcurrentStamina >= 0){
+                    DecreaseStaminaBoostOvertime();
+                    boostTrail.SetActive(true);
+                    normalTrail.SetActive(false);
+                    
+                    thrust = PlayerManager.thrustBoosted;
+                }
+                else {
+                    thrust = 1f;
+                    boostTrail.SetActive(false);
+                    normalTrail.SetActive(true);
+                }
+                
             }
             else {
                 thrust = 1f;
+                boostTrail.SetActive(false);
+                normalTrail.SetActive(true);
             }
             
         }
@@ -89,23 +107,31 @@ public class ShipConttrol : MonoBehaviour
             thrust = 0f;
         }
 
-        
-
-        
-
-        transform.Rotate(-movementInput.y * lookRateSpeed * Time.deltaTime, 
-            movementInput.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
+        transform.Rotate(-movementInput.y * lookRateSpeed * Time.deltaTime, movementInput.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
 
         activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, thrust * forwardSpeed, forwardAcceleration * Time.deltaTime);
         
         transform.position += transform.forward* activeForwardSpeed* Time.deltaTime; 
+        
 
         if (shootButton){//shipInput.ShipMain.Shoot.triggered
-            DecreaseStaminaFiringOvertime();
-            var bullet1 = Instantiate(bulletPrefab, bulletSpawnPoint1.position, bulletSpawnPoint1.rotation);
-            bullet1.GetComponent<Rigidbody>().velocity= bulletSpawnPoint1.forward * bulletSpeed;
-            var bullet2 = Instantiate(bulletPrefab, bulletSpawnPoint2.position, bulletSpawnPoint2.rotation);
-            bullet2.GetComponent<Rigidbody>().velocity= bulletSpawnPoint2.forward * bulletSpeed;
+
+
+            if (firecurrentStamina >= 0){
+                       
+                DecreaseStaminaFiringOvertime();
+                var bullet1 = Instantiate(bulletPrefab, bulletSpawnPoint1.position, bulletSpawnPoint1.rotation);
+                bullet1.GetComponent<Rigidbody>().velocity= bulletSpawnPoint1.forward * bulletSpeed;
+                var bullet2 = Instantiate(bulletPrefab, bulletSpawnPoint2.position, bulletSpawnPoint2.rotation);
+                bullet2.GetComponent<Rigidbody>().velocity= bulletSpawnPoint2.forward * bulletSpeed;
+                
+            }
+            else {
+                shootButton = false;
+            }
+
+            
+            
         }
 
         
@@ -162,6 +188,7 @@ public class ShipConttrol : MonoBehaviour
     }
 
     private void DecreaseStaminaFiringOvertime(){
+        
         firecurrentStamina -= PlayerManager.firingStaminaCost * Time.deltaTime;
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.3270211, g: 0.28962654, b: 0.32214934, a: 1}
+  m_IndirectSpecularColor: {r: 0.32619315, g: 0.2897147, b: 0.32137078, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23817,7 +23817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &885795050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55485,7 +55485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b42c3dbaf6be940a660f792285d265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: ca9728b49e0209a41b20a82957cfa847, type: 2}
+  quest: {fileID: 11400000, guid: d439722acab95274bb72865b3241fa64, type: 2}
   player: {fileID: 1003564243}
   distanceText: {fileID: 1099597876}
   distance: 0
@@ -55507,7 +55507,7 @@ MonoBehaviour:
   shop: 0
   theQuest: {fileID: 2068498847}
   noName: Jett
-  inkJSON: {fileID: 4900000, guid: bb5fb31be22674d4faf874d292b949a6, type: 3}
+  inkJSON: {fileID: 4900000, guid: e7cd6904240d1e842abea42bb23940aa, type: 3}
 --- !u!135 &2068498849
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -55622,7 +55622,7 @@ MonoBehaviour:
   shop: 0
   theQuest: {fileID: 2075785707}
   noName: Terence
-  inkJSON: {fileID: 4900000, guid: bb5fb31be22674d4faf874d292b949a6, type: 3}
+  inkJSON: {fileID: 4900000, guid: 59d8b953b6f06fc45a341d75dde86e90, type: 3}
 --- !u!135 &2075785709
 SphereCollider:
   m_ObjectHideFlags: 0

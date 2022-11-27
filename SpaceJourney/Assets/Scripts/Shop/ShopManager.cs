@@ -20,9 +20,11 @@ public class ShopManager : MonoBehaviour
         redtxt.text = PlayerManager.playerredgem.ToString();
         
     }
-    public void DeductPrice(int gearPrice){
-        PlayerManager.playergold -= gearPrice;
-    }
+    // public void DeductPrice(int gearPrice){
+    //     Debug.LogError("DEDUCTED");
+    //     PlayerManager.playergold -= gearPrice;
+    //     Debug.LogError(PlayerManager.playergold);
+    // }
 
 
     public void increaseWalkSpeed(){

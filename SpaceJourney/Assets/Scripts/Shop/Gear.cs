@@ -44,7 +44,7 @@ public class Gear : MonoBehaviour
             }
             else {
                 enableBar();
-                GameManager.instance.shopManager.DeductPrice(price);
+                //GameManager.instance.shopManager.DeductPrice(price);
                 IncreasePrice();
             }
         }
@@ -55,7 +55,7 @@ public class Gear : MonoBehaviour
         level++;
         levelBar[countBar].SetActive(true);
         countBar++;
-        PlayerManager.playergold -=  - price; 
+        PlayerManager.playergold -= price; 
         
     }
 

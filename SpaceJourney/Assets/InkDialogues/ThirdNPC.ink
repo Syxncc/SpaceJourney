@@ -1,2 +1,2 @@
-You can move freely using the Joystick
-And Jump button to jump obstacles
+Oh HI, Name is Jett
+Sorry I kinda busy right now.
