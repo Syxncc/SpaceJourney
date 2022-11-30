@@ -6,6 +6,7 @@ using TMPro;
 
 public class QuestGiver : MonoBehaviour
 {
+    
     public QuestBase quest;
     public PlayerController player;
     

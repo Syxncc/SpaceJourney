@@ -10,6 +10,7 @@ public class DIalogueCol : MonoBehaviour
 
     public ShopUIButton shopUI;
     public GameObject UI;
+    public GameObject loadingScene;
     public PlayerController player;
     
     private TextAsset inkJSONS;
@@ -39,7 +40,8 @@ public class DIalogueCol : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "NPC"){
+        if (other.tag == "NPC")
+        {
             Debug.LogError("NPC");
             
             questGive = other.gameObject.GetComponent<QuestGiver>();
@@ -94,7 +96,8 @@ public class DIalogueCol : MonoBehaviour
         }
         else if (isLaunch){
             Debug.LogError("Launching");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            loadingScene.SetActive(true);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
             isLaunch = false;
         }
         else {
