@@ -57643,8 +57643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25bc172c083a2c449b1beb74131dce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 101051392}
-  target: {fileID: 1979170547}
 --- !u!1 &2055216841
 GameObject:
   m_ObjectHideFlags: 0
