@@ -32,8 +32,6 @@ public class PlayerManager : MonoBehaviour
     public Text currentGoldText;
     public Text PlayerNameText;
 
-    
-
     void Update()
     {
         currentGoldText.text = playergold.ToString();

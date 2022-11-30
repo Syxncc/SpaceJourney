@@ -25,8 +25,6 @@ public class DialTrig : MonoBehaviour
 
     public QuestGiver theQuest;
 
-    public GameObject tutorial;
-    
     public string noName;
     // public Text nonPlayerName;
     // public Player playerInput;
@@ -40,6 +38,9 @@ public class DialTrig : MonoBehaviour
         playerInRange = false;
         // playerInput = new Player();
     }
+    
+    
+
     // private void OnEnable(){
     //     playerInput.Enable();
     // }
@@ -69,11 +70,6 @@ public class DialTrig : MonoBehaviour
         // else {
             
         // }
-    }
-
-    public void tutorials()
-    {
-        tutorial.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other) {

@@ -1,5 +1,4 @@
-Welcome to Space laboratory!
-I'm Mariel
-It seems like you're new here
-Now look for terrence, he can teach you how things work
-He's near us so you don't have to go far.
+Hey! Are you new? 
+This is the first time seeing you here at the lab
+If you are new to this lab you can approach Terence, He can tour you around
+He is somewhere inside the lab. 

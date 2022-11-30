@@ -26,9 +26,6 @@ public class DialMan : MonoBehaviour
     public bool dialogueIsPlaying{get; private set;}
 
     public QuestBase CompleteQuest {get;set;}
-
-    public bool isTerrence = false;
-
     //public NPCMover NPCMover;
 
     // [SerializeField]
@@ -47,7 +44,7 @@ public class DialMan : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         dialogueIsPlaying = false;
         isPressed = false;
         
@@ -75,8 +72,6 @@ public class DialMan : MonoBehaviour
             
             ContinueStory();
             isPressed = false;
-
-            
         }
         
         
@@ -106,11 +101,13 @@ public class DialMan : MonoBehaviour
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
 
-        trigs.tutorials();
-            
+        
     }
 
     public void ContinueStory(){
+        
+
+        
         if (currentStory.canContinue){
 
             dialogueText.text = currentStory.Continue();
@@ -120,9 +117,6 @@ public class DialMan : MonoBehaviour
         else {
             dialogueIsPlaying = false;
             ExitDialogueMode();
-
-            
-
         }
         
     }
