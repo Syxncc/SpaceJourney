@@ -10,6 +10,16 @@ public class ShopManager : MonoBehaviour
     public Text greentxt;
     public Text redtxt;
 
+    public static int walkLevel;
+    public static int sprintLevel;
+    public static int jumpLevel;
+    public static int jumpStaminaLevel;
+    public static int sprintStaminaLevel;
+    public static int boostLevel;
+    public static int speedLevel;
+    public static int bulletOverheatingLevel;
+
+
 
     // Update is called once per frame
     void Update()

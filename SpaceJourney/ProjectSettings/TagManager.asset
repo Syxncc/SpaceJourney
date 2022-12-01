@@ -14,6 +14,10 @@ TagManager:
   - TradeNPC
   - LaunchNPC
   - Earth
+  - Mercury
+  - Venus
+  - Mars
+  - Asteroid Belt
   layers:
   - Default
   - TransparentFX

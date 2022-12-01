@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.32619315, g: 0.2897147, b: 0.32137078, a: 1}
+  m_IndirectSpecularColor: {r: 0.32696944, g: 0.28958488, b: 0.3222681, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3714,6 +3714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: 
   levelBar:
   - {fileID: 1097398650}
   - {fileID: 1657506419}
@@ -7070,6 +7071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Walk
   levelBar:
   - {fileID: 923467402}
   - {fileID: 1717101579}
@@ -7206,6 +7208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: 
   levelBar:
   - {fileID: 141822518}
   - {fileID: 1977263966}
@@ -14323,6 +14326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Bullet Overheating
   levelBar:
   - {fileID: 864702827}
   - {fileID: 401672229}
@@ -16198,6 +16202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Boost
   levelBar:
   - {fileID: 1336988581}
   - {fileID: 303081228}
@@ -18315,6 +18320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Sprint
   levelBar:
   - {fileID: 1622556557}
   - {fileID: 263505815}
@@ -21014,6 +21020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: 
   levelBar:
   - {fileID: 793198342}
   - {fileID: 1795162374}
@@ -24001,6 +24008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: 
   levelBar:
   - {fileID: 855424369}
   - {fileID: 1874209096}
@@ -40655,6 +40663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Speed
   levelBar:
   - {fileID: 566452925}
   - {fileID: 2107827987}
@@ -50124,6 +50133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Jump Stamina
   levelBar:
   - {fileID: 638063835}
   - {fileID: 97525676}
@@ -51543,6 +51553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Sprint Stamina
   levelBar:
   - {fileID: 901713702}
   - {fileID: 677127787}
@@ -59347,6 +59358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d60dd470f8a2f441b7a516cc1950d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearName: Jump
   levelBar:
   - {fileID: 1130830284}
   - {fileID: 373820004}
