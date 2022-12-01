@@ -32,7 +32,7 @@ public class PlanetRequirement : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision other) 
+    public void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.CompareTag("Earth")){
             planetName = "Earth";
@@ -120,7 +120,7 @@ public class PlanetRequirement : MonoBehaviour
 
     public void requirement()
     {
-        requirements.SetActive(true);
+        //requirements.SetActive(true);
         if(planetName.Equals("Earth")){
             requirementText.text = "Welcome Back! Have fun in your travel around the space";
             requirements.SetActive(true);

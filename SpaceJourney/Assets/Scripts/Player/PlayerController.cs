@@ -198,6 +198,7 @@ public class PlayerController : MonoBehaviour
                     Debug.LogError("Low Stamina");
                 }
                 else{
+                    AudioManager.instance.PlaySFX("Jump");
                     DecreaseStaminaNormal(GameManager.instance.playerManager.jumpCost);
                     playerVelocity.y += Mathf.Sqrt(GameManager.instance.playerManager.jumpHeight * -2.0f * gravityValue);
                 
