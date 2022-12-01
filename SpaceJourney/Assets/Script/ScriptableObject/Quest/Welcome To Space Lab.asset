@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
   m_Name: Welcome To Space Lab
   m_EditorClassIdentifier: 
+  questID: 
   questName: Welcome To Space Lab
   questDescription: Go to the Main Lobby, to find Terence.
   isCompleted: 1
   rewards:
     goldReward: 50
+    xpReward: 110
   objectives:
   - requiredProfile: {fileID: 11400000, guid: 72defdc293f7c0d4e8aa0d33cb018c65, type: 2}
     requiredAmount: 1

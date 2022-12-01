@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
   m_Name: Talk to Mariel
   m_EditorClassIdentifier: 
+  questID: 
   questName: 
   questDescription: 
   isCompleted: 0
   rewards:
     goldReward: 100
+    xpReward: 0
   objectives:
   - requiredProfile: {fileID: 11400000, guid: c83a07379f40915438e96bd131c61014, type: 2}
     requiredAmount: 1

@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
   m_Name: Talk to Jett
   m_EditorClassIdentifier: 
+  questID: 
   questName: Talk to Jett
   questDescription: Talk to Mariel
   isCompleted: 0
   rewards:
     goldReward: 50
+    xpReward: 80
   objectives:
   - requiredProfile: {fileID: 11400000, guid: c2ffe8312bd47ea4ea551fcc81440839, type: 2}
     requiredAmount: 1

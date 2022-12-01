@@ -16,6 +16,7 @@ public class RewardManager : MonoBehaviour
 
     public void ClaimRewards(QuestBase quest){
         PlayerManager.playergold += quest.rewards.goldReward;
+        PlayerManager.currentXP += quest.rewards.xpReward;
         //Debug.LogError(GameManager.instance.playerManager.gold.ToString());
         // questRewardUI.SetActive(true);
         // questName.text = quest.questName;

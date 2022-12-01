@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestBase : ScriptableObject
 {
+    public string questID;
     public string questName = "";
     [TextArea(5,10)]
     public string questDescription = "";
@@ -16,6 +17,7 @@ public class QuestBase : ScriptableObject
     [System.Serializable]
     public class Rewards{
         public int goldReward;
+        public int xpReward;
     }
 
     public Rewards rewards;
