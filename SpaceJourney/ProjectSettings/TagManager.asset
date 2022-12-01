@@ -13,6 +13,7 @@ TagManager:
   - UpgradeNPC
   - TradeNPC
   - LaunchNPC
+  - Earth
   layers:
   - Default
   - TransparentFX

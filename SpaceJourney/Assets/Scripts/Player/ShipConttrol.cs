@@ -30,6 +30,7 @@ public class ShipConttrol : MonoBehaviour
 
     public GameObject boostTrail;
     public GameObject normalTrail;
+   
 
 
     private void Awake() {
@@ -44,7 +45,7 @@ public class ShipConttrol : MonoBehaviour
         shipInput.Disable();
     }
     
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -195,5 +196,7 @@ public class ShipConttrol : MonoBehaviour
     private void DecreaseStaminaBoostOvertime(){
         boostcurrentStamina -= PlayerManager.boostStaminaCost * Time.deltaTime;
     }
+
+    
 
 }

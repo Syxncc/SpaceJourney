@@ -2,26 +2,149 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlanetRequirement : MonoBehaviour
 {
+
     public GameObject spaceShip;
     public GameObject planet;
 
     public GameObject requirements;
-    public GameObject UI1;
-    public GameObject UI2;
-    public GameObject UI3;
-    public GameObject UI4;
+    public GameObject landButton;
+    public GameObject loadingScene;
 
     
-    public void OnTriggerEnter(Collider other) {
+    //public bool isPressed;
+    public string planetName;
+
+    public TextMeshProUGUI requirementText;
+    
+
+    
+    public void OnTriggerEnter(Collider other) 
+    {
+        
         Debug.Log("may nangyare");
-        requirements.SetActive(true);
-        UI1.SetActive(false);
-        UI2.SetActive(false);
-        UI3.SetActive(false);
-        UI4.SetActive(false);
+        //requirements.SetActive(true);
+        
+        requirement();
+    }
+
+    public void Earth()
+    {
+        loadingScene.SetActive(true);
+        // AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
+    }
+
+    public void Mars()
+    {
+        loadingScene.SetActive(true);
+        // AsyncOperation operation = SceneManager.LoadSceneAsync(3);
+        SceneManager.LoadScene(3);
+    }
+
+    public void Mercury()
+    {
+        loadingScene.SetActive(true);
+        // AsyncOperation operation = SceneManager.LoadSceneAsync(4);
+        SceneManager.LoadScene(4);
+    }
+
+    public void Venus()
+    {
+        loadingScene.SetActive(true);
+        // AsyncOperation operation = SceneManager.LoadSceneAsync(5);
+        SceneManager.LoadScene(5);
+    }
+    public void AsteoidBelt()
+    {
+        loadingScene.SetActive(true);
+        // AsyncOperation operation = SceneManager.LoadSceneAsync(6);
+        SceneManager.LoadScene(6);
+    }
+
+    // public void landing()
+    // {
+    //     if(planetName.Equals("Earth"))
+    //     {
+    //         loadingScene.SetActive(true);
+    //         // AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+    //         SceneManager.LoadScene(1);
+    //     }
+    //     else if(planetName.Equals("Mars"))
+    //     {
+    //         loadingScene.SetActive(true);
+    //         // AsyncOperation operation = SceneManager.LoadSceneAsync(3);
+    //         SceneManager.LoadScene(3);
+    //     }
+    //     else if(planetName.Equals("Mercury"))
+    //     {
+    //         loadingScene.SetActive(true);
+    //         // AsyncOperation operation = SceneManager.LoadSceneAsync(4);
+    //         SceneManager.LoadScene(4);
+    //     }
+    //     else if(planetName.Equals("Venus"))
+    //     {
+    //         loadingScene.SetActive(true);
+    //         // AsyncOperation operation = SceneManager.LoadSceneAsync(5);
+    //         SceneManager.LoadScene(5);
+    //     }
+    //     else if(planetName.Equals("Asteroid Belt"))
+    //     {
+    //         loadingScene.SetActive(true);
+    //         // AsyncOperation operation = SceneManager.LoadSceneAsync(6);
+    //         SceneManager.LoadScene(6);
+    //     }
+    // }
+
+    public void requirement()
+    {
+        
+        if(planetName.Equals("Earth"))
+        {
+            requirementText.text = "Welcome Back! Have fun in your travel around the space";
+            requirements.SetActive(true);
+        }
+        else if(planetName.Equals("Mars"))
+        {
+            requirementText.text = "Player Requirement\n\n Walk - lvl.4\n Sprint - lvl.4\n Earth InfoCard";
+            requirements.SetActive(true);
+        }
+        else if(planetName.Equals("Mercury"))
+        {
+            requirementText.text = "Player Requirement\n\n Jump Stamina - lvl.3\n Sprint Stamina - lvl.3\n Walk - lvl.4\n Sprint - lvl.4\n Mars InfoCard";
+            requirements.SetActive(true);
+        }
+        else if(planetName.Equals("Venus"))
+        {
+            requirementText.text = "Player Requirement\n\n Jump Stamina - lvl.5\n Sprint Stamina - lvl.5\n Jump - lvl.3\n Mercury InfoCard";
+            requirements.SetActive(true);
+        }
+        else if(planetName.Equals("Asteroid Belt"))
+        {
+            requirementText.text = "Spaceship Requirement\n\n Speed - lvl.3\n Boost - lvl.3\n Earth InfoCard\nMars InfoCard\nMercury InfoCard\nVenus InfoCard";
+            requirements.SetActive(true);
+        }
+        // else if (planetName.Equals("Jupiter"))
+        // {
+            
+        // }
+        // else if (planetName.Equals("Saturn"))
+        // {
+            
+        // }
+        // else if (planetName.Equals("Uranus"))
+        // {
+            
+        // }
+        // else if (planetName.Equals("Neptune"))
+        // {
+            
+        // }
+
     }
     
     // Start is called before the first frame update
@@ -33,6 +156,6 @@ public class PlanetRequirement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //requirements.SetActive(false);
     }
 }
