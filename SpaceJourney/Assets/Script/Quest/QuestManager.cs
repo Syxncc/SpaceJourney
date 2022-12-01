@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour
         }
     }
     public GameObject questUI;
+    public GameObject questText;
     public Text questName;
     public Text questDescription;
     public Text questGoldReward;
@@ -19,6 +20,7 @@ public class QuestManager : MonoBehaviour
     public QuestBase CurrentQuest {get; set;}
 
     public void SetQuestUI(QuestBase newQuest){
+        questText.SetActive(true);
         CurrentQuest = newQuest;
         questUI.SetActive(true);
         questName.text = newQuest.questName;
