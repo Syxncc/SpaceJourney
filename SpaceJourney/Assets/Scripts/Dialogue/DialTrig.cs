@@ -25,6 +25,7 @@ public class DialTrig : MonoBehaviour
 
     public QuestGiver theQuest;
 
+    public GameObject RewardUI;
     public GameObject tutorial;
     
     public string noName;
@@ -69,6 +70,10 @@ public class DialTrig : MonoBehaviour
         // else {
             
         // }
+    }
+    public void rewardUI()
+    {
+        RewardUI.SetActive(true);
     }
 
     public void tutorials()

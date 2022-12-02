@@ -29,6 +29,7 @@ public class RewardManager : MonoBehaviour
                 }
                 
             }
+
         }
         else if (quest.rewards.infoCardsCategory == "Constellations"){
             for(int i = 0; i < infoCardsPlanet.Length; i++){
@@ -45,9 +46,10 @@ public class RewardManager : MonoBehaviour
             Debug.LogError("NO INFOCARDS REWARDS SET");
         }
         //Debug.LogError(GameManager.instance.playerManager.gold.ToString());
-        // questRewardUI.SetActive(true);
+        
         // questName.text = quest.questName;
+        //questRewardUI.SetActive(true);
     }
-
+    
 
 }

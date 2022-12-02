@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -25,7 +26,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("Main BG");
+        if(SceneManager.GetActiveScene().buildIndex.Equals(0))
+        {
+            PlayMusic("Main BG");
+        }
+        
     }
 
     public void PlayMusic(string name) 

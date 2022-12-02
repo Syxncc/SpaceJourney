@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour
         greenGemText.text = playergreengem.ToString();
         PlayerNameText.text = userName;
 
-        if (currentXP > currentMaxXP){
+        if (currentXP >= currentMaxXP){
             tempXP = currentXP - currentMaxXP;
             currentXP = tempXP;
             playerLevel++;

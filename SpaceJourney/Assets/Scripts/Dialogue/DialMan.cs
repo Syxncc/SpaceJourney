@@ -105,8 +105,10 @@ public class DialMan : MonoBehaviour
         
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
-
+        
+        trigs.rewardUI();
         trigs.tutorials();
+        
             
     }
 
