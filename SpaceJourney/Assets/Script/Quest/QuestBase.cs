@@ -18,6 +18,8 @@ public class QuestBase : ScriptableObject
     public class Rewards{
         public int goldReward;
         public int xpReward;
+        public string infoCards;
+        public string infoCardsCategory;
     }
 
     public Rewards rewards;

@@ -16,6 +16,7 @@ public class QuestManager : MonoBehaviour
     public Text questName;
     public Text questDescription;
     public Text questGoldReward;
+    public Text questXPReward;
 
     public QuestBase CurrentQuest {get; set;}
 
@@ -26,5 +27,6 @@ public class QuestManager : MonoBehaviour
         questName.text = newQuest.questName;
         questDescription.text = newQuest.questDescription;
         questGoldReward.text = newQuest.rewards.goldReward.ToString();
+        questXPReward.text = newQuest.rewards.xpReward.ToString();
     }
 }
