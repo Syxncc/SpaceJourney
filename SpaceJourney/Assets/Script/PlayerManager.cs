@@ -9,10 +9,10 @@ public class PlayerManager : MonoBehaviour
     
     public string userName;
 
-    public static int playergold = 10000;
-    public static int playerbluegem = 1;
-    public static int playergreengem = 5;
-    public static int playerredgem = 10;
+    public static int playergold;
+    public static int playerbluegem;
+    public static int playergreengem;
+    public static int playerredgem;
     public static int playerLevel;
     
     public static int currentMaxXP = 100;
