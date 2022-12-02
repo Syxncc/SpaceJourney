@@ -19,8 +19,6 @@ public class ShopManager : MonoBehaviour
     public static int speedLevel;
     public static int bulletOverheatingLevel;
 
-
-
     // Update is called once per frame
     void Update()
     {

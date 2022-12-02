@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     
     public string userName;
 
-    public static int playergold = 0;
+    public static int playergold = 10000;
     public static int playerbluegem = 1;
     public static int playergreengem = 5;
     public static int playerredgem = 10;

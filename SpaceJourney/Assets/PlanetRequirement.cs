@@ -29,7 +29,7 @@ public class PlanetRequirement : MonoBehaviour
     }
 
     void Update(){
-        
+        Debug.LogError(planetName);
     }
 
     public void OnTriggerEnter(Collider other) 
@@ -89,27 +89,27 @@ public class PlanetRequirement : MonoBehaviour
     public void landing()
     {
         if (requirementPassed){
-            if(planetName.Equals("Earth")){
+            if(planetName == "Earth"){
                 loadingScene.SetActive(true);
                 // AsyncOperation operation = SceneManager.LoadSceneAsync(1);
                 SceneManager.LoadScene(1);
             }
-            else if(planetName.Equals("Mars")){
+            else if(planetName=="Mars"){
                 loadingScene.SetActive(true);
                 // AsyncOperation operation = SceneManager.LoadSceneAsync(3);
                 SceneManager.LoadScene(3);
             }
-            else if(planetName.Equals("Mercury")){
+            else if(planetName == "Mercury"){
                 loadingScene.SetActive(true);
                 // AsyncOperation operation = SceneManager.LoadSceneAsync(4);
                 SceneManager.LoadScene(4);
             }
-            else if(planetName.Equals("Venus")){
+            else if(planetName == "Venus"){
                 loadingScene.SetActive(true);
                 // AsyncOperation operation = SceneManager.LoadSceneAsync(5);
                 SceneManager.LoadScene(5);
             }
-            else if(planetName.Equals("Asteroid Belt")){
+            else if(planetName =="Asteroid Belt"){
                 loadingScene.SetActive(true);
                 // AsyncOperation operation = SceneManager.LoadSceneAsync(6);
                 SceneManager.LoadScene(6);
@@ -124,10 +124,12 @@ public class PlanetRequirement : MonoBehaviour
         if(planetName.Equals("Earth")){
             requirementText.text = "Welcome Back! Have fun in your travel around the space";
             requirements.SetActive(true);
+            requirementPassed = true;
+            landButton.enabled = true;
         }
         else if(planetName.Equals("Mars")){
             if (ShopManager.walkLevel >= 4 && ShopManager.sprintLevel >= 4){
-                requirementText.text = "Player Requirement\n\n Walk - lvl.4\n Sprint - lvl.4\n Earth InfoCard";
+                requirementText.text = "Requirement Fulfilled";
                 requirementPassed = true;
                 landButton.enabled = true;
              
@@ -138,39 +140,46 @@ public class PlanetRequirement : MonoBehaviour
             }
         
         }
-        else if(planetName.Equals("Mercury"))
+        else if(planetName=="Mercury")
         {
-            requirementText.text = "Player Requirement\n\n Jump Stamina - lvl.3\n Sprint Stamina - lvl.3\n Walk - lvl.4\n Sprint - lvl.4\n Mars InfoCard";
-            requirements.SetActive(true);
+            if (ShopManager.jumpStaminaLevel >= 4 && ShopManager.sprintLevel >= 4){
+                requirementText.text = "Requirement Fulfilled";
+                requirementPassed = true;
+                landButton.enabled = true;
+             
+            }
+            else{
+                requirementText.text = "Player Requirement\n\n Jump Stamina - lvl.3\n Sprint Stamina - lvl.3\n Walk - lvl.4\n Sprint - lvl.4\n Mars InfoCard";
+                landButton.enabled = false;
+            }
+
         }
         else if(planetName.Equals("Venus"))
         {
-            requirementText.text = "Player Requirement\n\n Jump Stamina - lvl.5\n Sprint Stamina - lvl.5\n Jump - lvl.3\n Mercury InfoCard";
-            requirements.SetActive(true);
+            if (ShopManager.jumpStaminaLevel >= 4 && ShopManager.sprintStaminaLevel >= 4){
+                requirementText.text = "Requirement Fulfilled";
+                requirementPassed = true;
+                landButton.enabled = true;
+             
+            }
+            else{
+                requirementText.text = "Player Requirement\n\n Jump Stamina - lvl.5\n Sprint Stamina - lvl.5\n Jump - lvl.3\n Mercury InfoCard";
+                landButton.enabled = false;
+            }
+            
         }
         else if(planetName.Equals("Asteroid Belt"))
         {
-            requirementText.text = "Spaceship Requirement\n\n Speed - lvl.3\n Boost - lvl.3\n Earth InfoCard\nMars InfoCard\nMercury InfoCard\nVenus InfoCard";
-            requirements.SetActive(true);
+            if (ShopManager.speedLevel >= 3 && ShopManager.boostLevel >= 3){
+                requirementText.text = "Requirement Fulfilled";
+                requirementPassed = true;
+                landButton.enabled = true;
+            }
+            else{
+                requirementText.text = "Spaceship Requirement\n\n Speed - lvl.3\n Boost - lvl.3\n Earth InfoCard\nMars InfoCard\nMercury InfoCard\nVenus InfoCard";
+                landButton.enabled = false;
+            }
         }
-
-        
-        // else if (planetName.Equals("Jupiter"))
-        // {
-            
-        // }
-        // else if (planetName.Equals("Saturn"))
-        // {
-            
-        // }
-        // else if (planetName.Equals("Uranus"))
-        // {
-            
-        // }
-        // else if (planetName.Equals("Neptune"))
-        // {
-            
-        // }
 
     }
 
