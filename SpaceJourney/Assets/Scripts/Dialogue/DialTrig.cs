@@ -8,7 +8,7 @@ public class DialTrig : MonoBehaviour
     public Profile profile;
     [SerializeField]
     private GameObject interactbtn;
-    
+
     // public bool hasChoices;
     // public int choiceInterval = 0;
     // public GameObject choice1;
@@ -22,54 +22,31 @@ public class DialTrig : MonoBehaviour
 
     public bool aDialogueQuest;
     public bool shop;
+    public bool isForLaunching;
 
     public QuestGiver theQuest;
 
     public GameObject RewardUI;
     public GameObject tutorial;
-    
-    public string noName;
-    // public Text nonPlayerName;
-    // public Player playerInput;
+
+    [HideInInspector]
+    public string npcName;
     private bool playerInRange;
 
     [Header("Ink JSON")]
-    [SerializeField] 
+    [SerializeField]
     public TextAsset inkJSON;
-    
-    private void Awake(){
-        playerInRange = false;
-        // playerInput = new Player();
-    }
-    // private void OnEnable(){
-    //     playerInput.Enable();
-    // }
+    public TextAsset defaultDialogue;
 
-    // private void OnDisable(){
-    //     playerInput.Disable();
-    // }
-    
+    private void Awake()
+    {
+        playerInRange = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        // nonPlayerName.text = noName;
-        noName = profile.name;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // if (hasChoices){
-        //     choice1Txtbx.text = choicetxt1;
-        //     choice2Txtbx.text = choicetxt2;
-        // }
-        // if (playerInRange){
-            
-            
-        // }
-        // else {
-            
-        // }
+        npcName = profile.name;
     }
     public void rewardUI()
     {
@@ -77,26 +54,29 @@ public class DialTrig : MonoBehaviour
     }
 
     public void tutorials()
-    {
-        tutorial.SetActive(true);
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player"){
-            playerInRange = true;
-
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if (other.tag == "Player"){
-            
-            playerInRange = false;
-        }
-    }
-
-    // public void BtnIsPressed(){
-    //     DialMan.GetInstance().EnterDialogueMode(inkJSON);
-    // }
     
+    {   
+        if (tutorial!= null){
+             tutorial.SetActive(true);
+        }
+       
+    }
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.tag == "Player")
+    //     {
+    //         // playerInRange = true;
+    //         // Debug.LogError("I can talk to npc");
+    //     }
+    // }
+
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.tag == "Player")
+    //     {
+    //         playerInRange = false;
+    //     }
+    // }
+
 }

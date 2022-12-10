@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialMan : MonoBehaviour
 {
-   
+
     public static DialMan instance;
     private QuestBase quest;
 
@@ -14,7 +14,7 @@ public class DialMan : MonoBehaviour
     public Animator animator;
 
     public GameObject shopUI;
-    
+
     public DIalogueCol collector;
     public DialTrig trigs;
 
@@ -23,9 +23,13 @@ public class DialMan : MonoBehaviour
 
     private Story currentStory;
 
-    public bool dialogueIsPlaying{get; private set;}
+    public bool dialogueIsPlaying { get; private set; }
+    public GameObject dialogueUI;
+    public GameObject imagesStoryPanel;
+    public RawImage imagePanel;
+    private Texture[] storyImages;
+    private int currentStoryImageIndex = 0;
 
-    public QuestBase CompleteQuest {get;set;}
 
     public bool isTerrence = false;
 
@@ -35,23 +39,27 @@ public class DialMan : MonoBehaviour
     // private GameObject[] choices;
     // private Text[] choicesText;
 
-    public void SetQuest(QuestBase quest){
-        this.quest = quest;
-    }
-    private void Awake(){
-        if (instance == null){
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
             instance = this;
         }
     }
-    
+
+    public void SetQuest(QuestBase quest)
+    {
+        this.quest = quest;
+    }
+
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         dialogueIsPlaying = false;
         isPressed = false;
-        
-        
+
 
         // choicesText = new Text[choices.Length];
         // int index = 0;
@@ -64,77 +72,100 @@ public class DialMan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         //return right away if dialogue isn't playing
-        if (!dialogueIsPlaying){
+        if (!dialogueIsPlaying)
+        {
             return;
         }
 
-        if(isPressed){
-            
+        if (isPressed)
+        {
             ContinueStory();
             isPressed = false;
-
-            
         }
-        
-        
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON){
-        if(GameManager.instance.onTalkNPCCallback != null) {
+    public void EnterDialogueMode(TextAsset inkJSON, StoryImages storyImages)
+    {
+        if (GameManager.instance.onTalkNPCCallback != null)
+        {
             GameManager.instance.onTalkNPCCallback.Invoke(trigs.profile);
         }
         animator.SetBool("isOpen", true);
-        
+
+        if (storyImages != null)
+        {
+            this.storyImages = storyImages.images;
+            imagesStoryPanel.SetActive(true);
+            imagePanel.texture = this.storyImages[0];
+        }
+
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
-        
+
         ContinueStory();
     }
 
-    private void ExitDialogueMode(){
-        if(quest != null){
+    private void ExitDialogueMode()
+    {
+        if (quest != null)
+        {
+            Debug.LogError("The NPC have quest" + quest.name);
             QuestManager.instance.SetQuestUI(quest);
             ControlUI.SetActive(false);
+            trigs.rewardUI();
+            trigs.tutorials();
         }
-        else {
+        else
+        {
+            imagesStoryPanel.SetActive(false);
             ControlUI.SetActive(true);
+            if (trigs != null && trigs.isForLaunching)
+            {
+                GameManager.instance.ChangeScene();
+            }
         }
-        
+
         animator.SetBool("isOpen", false);
         dialogueIsPlaying = false;
-        
-        trigs.rewardUI();
-        trigs.tutorials();
-        
-            
+
+
+
     }
 
-    public void ContinueStory(){
-        if (currentStory.canContinue){
-
-            dialogueText.text = currentStory.Continue();
-            
-            
+    public void ContinueStory()
+    {
+        if (storyImages != null)
+        {
+            if (storyImages.Length > currentStoryImageIndex)
+            {
+                imagePanel.texture = this.storyImages[currentStoryImageIndex];
+            }
+            else
+            {
+                imagesStoryPanel.SetActive(false);
+            }
         }
-        else {
+        if (currentStory.canContinue)
+        {
+            dialogueText.text = currentStory.Continue();
+        }
+        else
+        {
             dialogueIsPlaying = false;
             ExitDialogueMode();
-
-            
-
         }
-        
+
+        currentStoryImageIndex++;
     }
 
-    
 
-    public void ConIsPressed(){
-       
+
+    public void ConIsPressed()
+    {
+
         isPressed = true;
-        
+
     }
 
     // public void ChoiceHasSelected (){
@@ -171,8 +202,8 @@ public class DialMan : MonoBehaviour
     // private void OnTriggerEnter(Collider other) {
     //     if (other.tag == "NPC"){
     //         NPCMover = other.gameObject.GetComponent<NPCMover>();
-            
-            
+
+
     //     }
     // }
 }

@@ -30,34 +30,40 @@ public class ShipConttrol : MonoBehaviour
 
     public GameObject boostTrail;
     public GameObject normalTrail;
-   
+
+    private PlayerManager playerManager;
 
 
-    private void Awake() {
+
+    private void Awake()
+    {
         shipInput = new Player();
     }
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         shipInput.Enable();
     }
 
-    private void OnDisable(){
+    private void OnDisable()
+    {
         shipInput.Disable();
     }
-    
-    
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        boostcurrentStamina = PlayerManager.maxStamina;
-        firecurrentStamina = PlayerManager.maxStamina;
+        playerManager = GameManager.instance.playerManager;
+        boostcurrentStamina = playerManager.playerProfile.maxStamina;
+        firecurrentStamina = playerManager.playerProfile.maxStamina;
 
-        boostStaminaBar.maxValue = PlayerManager.maxStamina;
-        boostStaminaBar.value = PlayerManager.maxStamina;
+        boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        boostStaminaBar.value = playerManager.playerProfile.maxStamina;
 
-        fireStaminaBar.maxValue = PlayerManager.maxStamina;
-        fireStaminaBar.value = PlayerManager.maxStamina;
+        fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        fireStaminaBar.value = playerManager.playerProfile.maxStamina;
 
     }
 
@@ -65,138 +71,163 @@ public class ShipConttrol : MonoBehaviour
     void Update()
     {
         //Stamina
-        boostStaminaBar.maxValue = PlayerManager.maxStamina;
-        fireStaminaBar.maxValue = PlayerManager.maxStamina;
+        boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
 
-        if (firecurrentStamina < PlayerManager.maxStamina){
-            RegenFireStamina(GameManager.instance.playerManager.regenCost);
+        if (firecurrentStamina < playerManager.playerProfile.maxStamina)
+        {
+            RegenFireStamina(GameManager.instance.playerManager.playerProfile.regenCost);
         }
-        if (boostcurrentStamina < PlayerManager.maxStamina){
-            RegenBoostStamina(GameManager.instance.playerManager.regenCost);
+        if (boostcurrentStamina < playerManager.playerProfile.maxStamina)
+        {
+            RegenBoostStamina(GameManager.instance.playerManager.playerProfile.regenCost);
         }
-        
+
         boostStaminaBar.value = boostcurrentStamina;
         fireStaminaBar.value = firecurrentStamina;
-        
+
         Vector2 movementInput = shipInput.ShipMain.Move.ReadValue<Vector2>();
 
-        if (moveButton){
-            if (boostButton){
-                
-                if (boostcurrentStamina >= 0){
+        if (moveButton)
+        {
+            if (boostButton)
+            {
+
+                if (boostcurrentStamina >= 0)
+                {
                     DecreaseStaminaBoostOvertime();
                     boostTrail.SetActive(true);
                     normalTrail.SetActive(false);
-                    
-                    thrust = PlayerManager.thrustBoosted;
+
+                    thrust = playerManager.playerProfile.thrustBoosted;
                 }
-                else {
+                else
+                {
                     thrust = 1f;
                     boostTrail.SetActive(false);
                     normalTrail.SetActive(true);
                 }
-                
+
             }
-            else {
+            else
+            {
                 thrust = 1f;
                 boostTrail.SetActive(false);
                 normalTrail.SetActive(true);
             }
-            
+
         }
-        else {
+        else
+        {
             thrust = 0f;
         }
 
         transform.Rotate(-movementInput.y * lookRateSpeed * Time.deltaTime, movementInput.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
 
         activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, thrust * forwardSpeed, forwardAcceleration * Time.deltaTime);
-        
-        transform.position += transform.forward* activeForwardSpeed* Time.deltaTime; 
-        
 
-        if (shootButton){//shipInput.ShipMain.Shoot.triggered
+        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
 
 
-            if (firecurrentStamina >= 0){
-                       
+        if (shootButton)
+        {//shipInput.ShipMain.Shoot.triggered
+
+
+            if (firecurrentStamina >= 0)
+            {
+
                 DecreaseStaminaFiringOvertime();
                 var bullet1 = Instantiate(bulletPrefab, bulletSpawnPoint1.position, bulletSpawnPoint1.rotation);
-                bullet1.GetComponent<Rigidbody>().velocity= bulletSpawnPoint1.forward * bulletSpeed;
+                bullet1.GetComponent<Rigidbody>().velocity = bulletSpawnPoint1.forward * bulletSpeed;
                 var bullet2 = Instantiate(bulletPrefab, bulletSpawnPoint2.position, bulletSpawnPoint2.rotation);
-                bullet2.GetComponent<Rigidbody>().velocity= bulletSpawnPoint2.forward * bulletSpeed;
-                
+                bullet2.GetComponent<Rigidbody>().velocity = bulletSpawnPoint2.forward * bulletSpeed;
+
             }
-            else {
+            else
+            {
                 shootButton = false;
             }
 
-            
-            
+
+
         }
 
-        
 
-        if (Input.GetKeyDown(KeyCode.Space)){
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             shootButton = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space)){
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
             shootButton = false;
-        } 
+        }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)){
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
             boostButton = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.UpArrow)){
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
             boostButton = false;
-        } 
+        }
 
-        
+
     }
 
-    public void HoldJoystick(){
+    public void HoldJoystick()
+    {
         moveButton = true;
     }
 
-    public void ReleaseJoystick(){
+    public void ReleaseJoystick()
+    {
         moveButton = false;
     }
 
-    public void HoldShoot(){
+    public void HoldShoot()
+    {
         shootButton = true;
     }
 
-    public void ReleaseShoot(){
+    public void ReleaseShoot()
+    {
         shootButton = false;
     }
 
-    public void HoldBoost(){
+    public void HoldBoost()
+    {
         boostButton = true;
     }
 
-    public void ReleaseBoost(){
+    public void ReleaseBoost()
+    {
         boostButton = false;
     }
 
-    private void RegenFireStamina(float regenCost){
-        firecurrentStamina += GameManager.instance.playerManager.regenCost * Time.deltaTime;
+    private void RegenFireStamina(float regenCost)
+    {
+        firecurrentStamina += GameManager.instance.playerManager.playerProfile.regenCost * Time.deltaTime;
     }
 
-    private void RegenBoostStamina(float regenCost){
-        boostcurrentStamina += GameManager.instance.playerManager.regenCost * Time.deltaTime;
+    private void RegenBoostStamina(float regenCost)
+    {
+        boostcurrentStamina += GameManager.instance.playerManager.playerProfile.regenCost * Time.deltaTime;
     }
 
-    private void DecreaseStaminaFiringOvertime(){
-        
-        firecurrentStamina -= PlayerManager.firingStaminaCost * Time.deltaTime;
+    private void DecreaseStaminaFiringOvertime()
+    {
+
+        firecurrentStamina -= playerManager.playerProfile.firingStaminaCost * Time.deltaTime;
     }
 
-    private void DecreaseStaminaBoostOvertime(){
-        boostcurrentStamina -= PlayerManager.boostStaminaCost * Time.deltaTime;
+    private void DecreaseStaminaBoostOvertime()
+    {
+        boostcurrentStamina -= playerManager.playerProfile.boostStaminaCost * Time.deltaTime;
     }
 
-    
+
 
 }

@@ -15,14 +15,12 @@ MonoBehaviour:
   questID: 
   questName: Welcome To Space Lab
   questDescription: Go to the Main Lobby, to find Terence.
-  isCompleted: 1
   rewards:
     goldReward: 50
     xpReward: 110
-    infoCards: Earth
+    collectibles:
+    - {fileID: 11400000, guid: 20d696c86969aab4f8fe4b8681b7a40a, type: 2}
     infoCardsCategory: Planets
   objectives:
   - requiredProfile: {fileID: 11400000, guid: 72defdc293f7c0d4e8aa0d33cb018c65, type: 2}
-    requiredAmount: 1
-  - requiredProfile: {fileID: 11400000, guid: c2ffe8312bd47ea4ea551fcc81440839, type: 2}
     requiredAmount: 1

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-   
     private Player playerInput;
 
     private Animator animator;
@@ -61,8 +60,8 @@ public class PlayerController : MonoBehaviour
     // [SerializeField]
     // private float maxStamina = 100f; //ups 
 
-    
-    private float currentStamina; 
+
+    private float currentStamina;
 
     // [SerializeField]
     // private float jumpCost = 10f;
@@ -72,59 +71,56 @@ public class PlayerController : MonoBehaviour
     // [SerializeField]
     // private float regenCost = 5.00f;
 
-    
+
 
     private bool isSprinting = false;
 
     // private float sprintingSpeed = 20f; //ups
 
     // private float walkingSpeed = 10f;  //ups
+    private PlayerManager playerManager;
 
-    
-        
 
-    private void Awake() {
+
+    private void Awake()
+    {
         playerInput = new Player();
         //controller = GetComponent<CharacterController>();
-        
+
     }
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         playerInput.Enable();
     }
 
-    private void OnDisable(){
+    private void OnDisable()
+    {
         playerInput.Disable();
     }
-    
+
     private void Start()
     {
-        currentStamina = PlayerManager.maxStamina;
-        staminaBar.maxValue = PlayerManager.maxStamina;
-        staminaBar.value = PlayerManager.maxStamina;
+        playerManager = GameManager.instance.playerManager;
+
+        currentStamina = playerManager.playerProfile.maxStamina;
+        staminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        staminaBar.value = playerManager.playerProfile.maxStamina;
+
 
         child = transform.GetChild(0).transform;
         animator = GetComponentInChildren<Animator>();
-        
+
         interactbtn.SetActive(false);
         interactive = false;
-        
+
     }
 
     void Update()
     {
-        staminaBar.maxValue = PlayerManager.maxStamina;
-        if (currentStamina < PlayerManager.maxStamina){
-            RegenStamina(GameManager.instance.playerManager.regenCost);
-        }
+        // staminaBar.maxValue = playerManager.playerProfile.maxStamina;
 
-        if (isSprinting == true){
-            playerSpeed = GameManager.instance.playerManager.sprintingSpeed;
-        }
-        else{
-            playerSpeed = GameManager.instance.playerManager.walkingSpeed;
-        }
-        
+
         staminaBar.value = currentStamina;
 
         groundedPlayer = controller.isGrounded;
@@ -132,90 +128,117 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
- 
+
         //get joystick input
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-        if(movementInput == new Vector2(0,0)){
+        if (movementInput == new Vector2(0, 0))
+        {
             movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
-        
+
 
         //move to the direction base on the camera's facing
         move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
 
+        //Sprinting
+        if (isSprinting && currentStamina > 0)
+        {
+            playerSpeed = playerManager.playerProfile.sprintingSpeed;
+            StaminaOvertime(false);
+        }
+        else
+        {
+            playerSpeed = playerManager.playerProfile.walkingSpeed;
+            if ((move == Vector3.zero || !isSprinting) && currentStamina < 100)
+            {
+                StaminaOvertime(true);
+            }
+        }
         //avoid moving on y axis 
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
-        
+
 
         if (move != Vector3.zero)
         {
-            
+
             gameObject.transform.forward = move;
-            if (playerInput.PlayerMain.Jump.triggered){
-                
+            if (playerInput.PlayerMain.Jump.triggered)
+            {
+
                 animator.SetBool("isMoving", false);
                 animator.SetBool("isJumping", true);
-                
+
             }
-            else{
+            else
+            {
                 animator.SetBool("isJumping", false);
                 animator.SetBool("isMoving", true);
             }
 
-            
-            
-            
+
+
+
             Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
             child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
-            
+
         }
-        else if (move == Vector3.zero){
+        else if (move == Vector3.zero)
+        {
             //movingDir = false;
             animator.SetBool("isMoving", false);
-            
+
         }
 
         //JUMP
-        
-        if (groundedPlayer){
+
+        if (groundedPlayer)
+        {
             lastGroundedTime = Time.time;
         }
-        if (playerInput.PlayerMain.Jump.triggered){
+        if (playerInput.PlayerMain.Jump.triggered)
+        {
             jumpButtonPressedTime = Time.time;
         }
 
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
-            
+
             animator.SetBool("isJumping", false);
             animator.SetBool("isJumpSprinting", false);
             animator.SetBool("isJumpMoving", false);
-            
 
-            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod){
-                if (currentStamina < GameManager.instance.playerManager.jumpCost){
+
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
+            {
+                if (currentStamina < playerManager.playerProfile.jumpCost)
+                {
                     Debug.LogError("Low Stamina");
                 }
-                else{
+                else
+                {
                     AudioManager.instance.PlaySFX("Jump");
-                    DecreaseStaminaNormal(GameManager.instance.playerManager.jumpCost);
-                    playerVelocity.y += Mathf.Sqrt(GameManager.instance.playerManager.jumpHeight * -2.0f * gravityValue);
-                
-                    if (move != Vector3.zero){
+                    DecreaseStaminaNormal(playerManager.playerProfile.jumpCost);
+                    playerVelocity.y += Mathf.Sqrt(playerManager.playerProfile.jumpHeight * -2.0f * gravityValue);
 
-                        if (isSprinting){
+                    if (move != Vector3.zero)
+                    {
+
+                        if (isSprinting)
+                        {
                             Debug.LogError("isJumpSprinting");
                             animator.SetBool("isJumpSprinting", true);
-                        
+
                         }
-                        else {
+                        else
+                        {
                             Debug.LogError("isJumpMoving");
                             animator.SetBool("isJumpMoving", true);
                         }
-                    
+
                     }
-                    else {
+                    else
+                    {
                         Debug.LogError("isJumping");
                         animator.SetBool("isJumping", true);
                     }
@@ -230,28 +253,35 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if (move != Vector3.zero && isSprinting){
-            
-            DecreaseStaminaOvertime();
-        }
-        
+        // if (move != Vector3.zero && isSprinting)
+        // {
 
-        if (interactive == true){
+        //     StaminaOvertime(-1);
+        // }
+
+
+        if (interactive == true)
+        {
             interactbtn.SetActive(true);
         }
-        else {
+        else
+        {
             interactbtn.SetActive(false);
         }
     }
 
-    public void OnTriggerEnter(Collider other){
-        if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC"){
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC")
+        {
             interactive = true;
         }
     }
 
-    public void OnTriggerExit(Collider other){
-        if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC"){
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC")
+        {
             interactive = false;
         }
     }
@@ -262,68 +292,96 @@ public class PlayerController : MonoBehaviour
     //     }
     // }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit){
-        
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
-        if (rigidbody !=null){
-            if (hit.collider.tag == "ObjectPush"){
-                
+        if (rigidbody != null)
+        {
+            if (hit.collider.tag == "ObjectPush")
+            {
+
                 Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
                 forceDirection.y = 0;
                 forceDirection.Normalize();
 
                 rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
             }
-            
-        }    
+
+        }
     }
 
     // public void DashPlayer(){
     //     DecreaseStamina(dashCost);
     //     StartCoroutine(Dash());
-        
-        
+
+
     // }
 
     // IEnumerator Dash(){
     //     float startTime = Time.time;
     //     Debug.LogError("Dash");
-        
+
     //     while(Time.time < startTime + dashTime){
     //         controller.Move(move * dashSpeed * Time.deltaTime);
     //         yield return null;
     //     }
     // }
 
-    private void RegenStamina(float regenCost){
-        currentStamina += GameManager.instance.playerManager.regenCost * Time.deltaTime;
+    private void StaminaOvertime(bool isIncreasing)
+    {
+        if (isIncreasing && playerManager.playerProfile.maxStamina > currentStamina)
+        {
+            currentStamina += playerManager.playerProfile.regenCost * Time.deltaTime;
+        }
+        else
+        {
+            currentStamina -= playerManager.playerProfile.decreaseCostOvertime * Time.deltaTime;
+        }
     }
 
-    private void DecreaseStaminaOvertime(){
-        
-        currentStamina -= GameManager.instance.playerManager.decreaseCostOvertime * Time.deltaTime;
-        
-    }
+    // private void DecreaseStaminaOvertime()
+    // {
 
-    private void DecreaseStaminaNormal(float decreaseCost){
+    //     currentStamina -= playerManager.playerProfile.decreaseCostOvertime * Time.deltaTime;
+
+    // }
+
+    private void DecreaseStaminaNormal(float decreaseCost)
+    {
         currentStamina -= decreaseCost;
-        
+
     }
 
+<<<<<<< HEAD
+    public void Sprint(bool sprint)
+    {
+        this.isSprinting = sprint;
+=======
     public void HoldSprint(){
-        if (currentStamina < GameManager.instance.playerManager.decreaseCostOvertime){
-            Debug.LogError("Insufficient Stamina");
-            isSprinting = false;
+        if (currentStamina >= 0){
+            if (currentStamina < GameManager.instance.playerManager.decreaseCostOvertime){
+                Debug.LogError("Insufficient Stamina");
+                isSprinting = false;
+            }   
+            else {
+                isSprinting = true;
+            }
+           
         }
         else {
-            isSprinting = true;
+             Debug.LogError(currentStamina);
+            currentStamina = 0;
+            isSprinting = false;
         }
+        
         
         
     }
 
     public void ReleaseSprint(){
         isSprinting = false;
+>>>>>>> 5b744222408cd0875e6e5f3768c13d9bbf9fa062
     }
 }

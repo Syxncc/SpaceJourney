@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
+  m_Name: 04 Travel to Space
+  m_EditorClassIdentifier: 
+  questID: 
+  questName: Travel to Space
+  questDescription: 'Traveling to space is a must. Explore and discover something
+    new. '
+  isAutoQuest: 1
+  rewards:
+    goldReward: 0
+    xpReward: 200
+    collectibles:
+    - {fileID: 11400000, guid: 20d696c86969aab4f8fe4b8681b7a40a, type: 2}
+  objectives:
+  - requiredProfile: {fileID: 11400000, guid: 7a571eb014fe8d44fb422a1e1269dbc3, type: 2}
+    requiredAmount: 1

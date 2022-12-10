@@ -6,13 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    
-    public string userName;
 
-    public static int playergold = 10000;
-    public static int playerbluegem = 1;
-    public static int playergreengem = 5;
-    public static int playerredgem = 10;
+<<<<<<< HEAD
+    public QuestSequence questSequence;
+    public Profile playerProfile;
+    public GameObject playerBody;
+    public PlayerController playerController;
+    // public string userName;
+
+    // public int playergold = 10000;
+    // public int playerbluegem = 1;
+    // public int playergreengem = 5;
+    // public int playerredgem = 10;
+    // public int playerLevel;
+
+    // public int currentMaxXP = 100;
+    // public int currentXP;
+
+    // public float jumpHeight = 0.7f;
+    // public float walkingSpeed = 10f;
+    // public float sprintingSpeed = 20f;
+    // public float regenCost = 5f;
+    // public float decreaseCostOvertime = 15f;
+    // public float jumpCost = 10f;
+    // public float maxStamina = 100f;
+=======
+    public static int playergold;
+    public static int playerbluegem;
+    public static int playergreengem;
+    public static int playerredgem;
     public static int playerLevel;
     
     public static int currentMaxXP = 100;
@@ -25,13 +47,14 @@ public class PlayerManager : MonoBehaviour
     public float decreaseCostOvertime = 15f;
     public float jumpCost = 10f;
     public static float maxStamina = 100f;
+>>>>>>> 5b744222408cd0875e6e5f3768c13d9bbf9fa062
 
     private int addMaxXP = 100;
     private int tempXP;
 
-    public static float thrustBoosted = 3f;
-    public static float boostStaminaCost = 20f;
-    public static float firingStaminaCost = 30f;
+    // public float thrustBoosted = 3f;
+    // public float boostStaminaCost = 20f;
+    // public float firingStaminaCost = 30f;
 
     public Text blueGemText;
     public Text greenGemText;
@@ -42,36 +65,63 @@ public class PlayerManager : MonoBehaviour
     public Text xpText;
 
     public Slider xpBar;
+    public StoryImages storyImages;
+    public TextAsset story;
 
-    void Start(){
-        currentXP = 0;
-        xpBar.maxValue = currentMaxXP;
-        xpBar.value = currentXP;
+    void Start()
+    {
+        // playerProfile.currentXP = 0;
+        xpBar.maxValue = playerProfile.currentMaxXP;
+        xpBar.value = playerProfile.currentXP;
+        if (QuestManager.instance != null)
+        {
+            if (GameManager.instance.playerQuest.isNewGame)
+            {
+                GameManager.instance.playerQuest.isNewGame = false;
+                GameManager.instance.playerQuest.isQuestDone = false;
+                QuestManager.instance.SetQuestUI(GameManager.instance.playerQuest.questSequence[0]);
+                DialMan.instance.EnterDialogueMode(story, storyImages);
+            }
+            else
+            {
+                QuestSequence playerQuest = GameManager.instance.playerManager.questSequence;
+                if ((playerQuest.currentQuestIndex) < playerQuest.questSequence.Length)
+                {
+                    QuestManager.instance.CurrentQuest = GameManager.instance.playerQuest.questSequence[GameManager.instance.playerQuest.currentQuestIndex];
+                }
+                else
+                {
+                    playerQuest.isQuestDone = true;
+                }
+            }
+        }
     }
 
     void Update()
     {
-        PlayerLevelText.text = playerLevel.ToString();
-        xpText.text = currentXP.ToString() + " / " + currentMaxXP.ToString();
-        currentGoldText.text = playergold.ToString();
-        blueGemText.text = playerbluegem.ToString();
-        redGemText.text = playerredgem.ToString();
-        greenGemText.text = playergreengem.ToString();
-        PlayerNameText.text = userName;
+        PlayerLevelText.text = playerProfile.playerLevel.ToString();
+        xpText.text = playerProfile.currentXP.ToString() + " / " + playerProfile.currentMaxXP.ToString();
+        currentGoldText.text = playerProfile.playergold.ToString();
+        blueGemText.text = playerProfile.playerbluegem.ToString();
+        redGemText.text = playerProfile.playerredgem.ToString();
+        greenGemText.text = playerProfile.playergreengem.ToString();
+        PlayerNameText.text = playerProfile.name;
 
-        if (currentXP >= currentMaxXP){
-            tempXP = currentXP - currentMaxXP;
-            currentXP = tempXP;
-            playerLevel++;
+        if (playerProfile.currentXP >= playerProfile.currentMaxXP)
+        {
+            tempXP = playerProfile.currentXP - playerProfile.currentMaxXP;
+            playerProfile.currentXP = tempXP;
+            playerProfile.playerLevel++;
             IncreaseMaxXP();
         }
 
-        xpBar.maxValue = currentMaxXP;
-        xpBar.value = currentXP;
+        xpBar.maxValue = playerProfile.currentMaxXP;
+        xpBar.value = playerProfile.currentXP;
     }
 
-    public void IncreaseMaxXP(){
-        currentMaxXP += addMaxXP;
+    public void IncreaseMaxXP()
+    {
+        playerProfile.currentMaxXP += addMaxXP;
         addMaxXP += 50;
     }
 

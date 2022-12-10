@@ -20,91 +20,118 @@ public class Trading : MonoBehaviour
     public Button maxbtn;
     public Button minbtn;
     public Button exchangebtn;
+    private PlayerManager playerManager;
+
+    void Start()
+    {
+        playerManager = GameManager.instance.playerManager;
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+
         quantityText.text = quantity.ToString();
         displayPrice();
 
-        if (gemType == "Blue"){
-            maxQuantity = PlayerManager.playerbluegem;
+        if (gemType == "Blue")
+        {
+            maxQuantity = playerManager.playerProfile.playerbluegem;
         }
-        else if (gemType == "Green"){
-            maxQuantity = PlayerManager.playergreengem;
+        else if (gemType == "Green")
+        {
+            maxQuantity = playerManager.playerProfile.playergreengem;
         }
-        else if (gemType == "Red"){
-            maxQuantity = PlayerManager.playerredgem;
+        else if (gemType == "Red")
+        {
+            maxQuantity = playerManager.playerProfile.playerredgem;
         }
 
-        if (quantity == maxQuantity){
+        if (quantity == maxQuantity)
+        {
             isMax = true;
         }
-        else {
+        else
+        {
             isMax = false;
         }
 
-        if (quantity == 0){
+        if (quantity == 0)
+        {
             isMin = true;
         }
-        else {
+        else
+        {
             isMin = false;
         }
 
-        if (isMax){
+        if (isMax)
+        {
             maxbtn.interactable = false;
         }
-        else {
+        else
+        {
             maxbtn.interactable = true;
         }
 
-        if (isMin){
+        if (isMin)
+        {
             minbtn.interactable = false;
         }
-        else {
+        else
+        {
             minbtn.interactable = true;
         }
 
-        if (tradingPrice == 0){
+        if (tradingPrice == 0)
+        {
             exchangebtn.interactable = false;
         }
-        else {
+        else
+        {
             exchangebtn.interactable = true;
         }
     }
 
-    public void increaseQuantity(){
-        if (!isMax){
+    public void increaseQuantity()
+    {
+        if (!isMax)
+        {
             quantity++;
         }
-        
+
     }
 
-    public void decreaseQuantity(){
-        if (!isMin){
+    public void decreaseQuantity()
+    {
+        if (!isMin)
+        {
             quantity--;
         }
-        
-        
+
+
     }
 
-    public void displayPrice(){
-        if (quantity != 0){
+    public void displayPrice()
+    {
+        if (quantity != 0)
+        {
             tradingPrice = initialPrice * quantity;
         }
-        else {
+        else
+        {
             tradingPrice = 0;
         }
         tradingText.text = tradingPrice.ToString();
     }
 
-    public void Exchange(){
+    public void Exchange()
+    {
         GameManager.instance.shopManager.deductGem(gemType, quantity);
         GameManager.instance.shopManager.tradeToGold(tradingPrice);
         tradingPrice = 0;
         quantity = 0;
     }
-        
+
 }

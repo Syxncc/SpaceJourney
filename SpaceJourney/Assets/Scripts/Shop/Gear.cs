@@ -6,20 +6,22 @@ using UnityEngine.UI;
 public class Gear : MonoBehaviour
 {
     public string gearName;
-    public GameObject [] levelBar;
-    
+    public GameObject[] levelBar;
+
     public Text pricetxt;
     public int price;
 
     private int level;
-    private int countBar; 
+    private int countBar;
     private int increasePrice = 50;
-    
+
+    private PlayerManager playerManager;
+
     void Start()
     {
         countBar = 0;
         level = 0;
-        
+        playerManager = GameManager.instance.playerManager;
     }
 
     // Update is called once per frame
@@ -28,66 +30,80 @@ public class Gear : MonoBehaviour
         pricetxt.text = "Price: " + price.ToString();
     }
 
-    public void Upgrade() {
-        
+    public void Upgrade()
+    {
+
 
         //check if the level is maxed
-        if (level == 5){
+        if (level == 5)
+        {
             Debug.LogError("Max Level");
             //promptMaxed.SetActive(true);
         }
-        else {
+        else
+        {
             //check if sufficient balance
-            if (price > PlayerManager.playergold){
+            if (price > playerManager.playerProfile.playergold)
+            {
                 Debug.LogError("Inssuficient Gold");
                 //promptNoCoin.SetActive(true);
             }
-            else {
+            else
+            {
                 enableBar();
                 //GameManager.instance.shopManager.DeductPrice(price);
                 IncreasePrice();
             }
         }
-        
     }
 
-    public void enableBar(){
+    public void enableBar()
+    {
         level++;
         levelBar[countBar].SetActive(true);
         countBar++;
-        PlayerManager.playergold -= price;
-        increaseLevel(level); 
-        
+        playerManager.playerProfile.playergold -= price;
+        increaseLevel(level);
+
     }
 
-    public void IncreasePrice(){
+    public void IncreasePrice()
+    {
         price += increasePrice;
         increasePrice += 50;
     }
     public void increaseLevel(int level)
     {
-        if(gearName == "Walk"){
+        if (gearName == "Walk")
+        {
             ShopManager.walkLevel = level;
         }
-        else if(gearName == "Sprint"){
+        else if (gearName == "Sprint")
+        {
             ShopManager.sprintLevel = level;
         }
-        else if(gearName == "Jump"){
+        else if (gearName == "Jump")
+        {
             ShopManager.jumpLevel = level;
         }
-        else if(gearName == "Jump Stamina"){
+        else if (gearName == "Jump Stamina")
+        {
             ShopManager.jumpStaminaLevel = level;
         }
-        else if(gearName == "Sprint Stamina"){
+        else if (gearName == "Sprint Stamina")
+        {
             ShopManager.sprintStaminaLevel = level;
         }
-        else if(gearName == "Boost"){
+        else if (gearName == "Boost")
+        {
             ShopManager.boostLevel = level;
         }
-        else if(gearName == "Speed"){
+        else if (gearName == "Speed")
+        {
             ShopManager.speedLevel = level;
         }
-        else if(gearName == "Bullet Overheating"){
+        else if (gearName == "Bullet Overheating")
+        {
             ShopManager.bulletOverheatingLevel = level;
         }
     }

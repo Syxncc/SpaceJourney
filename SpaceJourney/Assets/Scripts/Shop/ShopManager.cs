@@ -18,68 +18,87 @@ public class ShopManager : MonoBehaviour
     public static int boostLevel;
     public static int speedLevel;
     public static int bulletOverheatingLevel;
+    private PlayerManager playerManager;
+
+    void Start()
+    {
+        playerManager = GameManager.instance.playerManager;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        goldtxt.text = PlayerManager.playergold.ToString();
-        bluetxt.text = PlayerManager.playerbluegem.ToString();
-        greentxt.text = PlayerManager.playergreengem.ToString();
-        redtxt.text = PlayerManager.playerredgem.ToString();
-        
+        goldtxt.text = playerManager.playerProfile.playergold.ToString();
+        bluetxt.text = playerManager.playerProfile.playerbluegem.ToString();
+        greentxt.text = playerManager.playerProfile.playergreengem.ToString();
+        redtxt.text = playerManager.playerProfile.playerredgem.ToString();
+
     }
     // public void DeductPrice(int gearPrice){
     //     Debug.LogError("DEDUCTED");
-    //     PlayerManager.playergold -= gearPrice;
-    //     Debug.LogError(PlayerManager.playergold);
+    //     playerManager.playerProfile.playergold -= gearPrice;
+    //     Debug.LogError(playerManager.playerProfile.playergold);
     // }
 
 
-    public void increaseWalkSpeed(){
-        GameManager.instance.playerManager.walkingSpeed += 0.5f;
+    public void increaseWalkSpeed()
+    {
+        GameManager.instance.playerManager.playerProfile.walkingSpeed += 0.5f;
     }
 
-    public void increaseSprintingSpeed(){
-        GameManager.instance.playerManager.sprintingSpeed += 0.5f;
+    public void increaseSprintingSpeed()
+    {
+        GameManager.instance.playerManager.playerProfile.sprintingSpeed += 0.5f;
     }
 
-    public void increaseJumpHeight(){
-        GameManager.instance.playerManager.jumpHeight += 0.2f;
+    public void increaseJumpHeight()
+    {
+        GameManager.instance.playerManager.playerProfile.jumpHeight += 0.2f;
     }
 
-    public void decreaseStaminaSprint(){
-        GameManager.instance.playerManager.decreaseCostOvertime -= 0.5f;
+    public void decreaseStaminaSprint()
+    {
+        GameManager.instance.playerManager.playerProfile.decreaseCostOvertime -= 0.5f;
     }
 
-    public void decreaseStaminaJump(){
-        GameManager.instance.playerManager.jumpCost -= 0.2f; 
+    public void decreaseStaminaJump()
+    {
+        GameManager.instance.playerManager.playerProfile.jumpCost -= 0.2f;
     }
 
-    public void incnreaseBoostPower(){
-        PlayerManager.thrustBoosted -= 0.2f; 
+    public void incnreaseBoostPower()
+    {
+        playerManager.playerProfile.thrustBoosted -= 0.2f;
     }
 
-    public void decreaseBoostStaminaCost(){
-        PlayerManager.boostStaminaCost -= 1f; 
+    public void decreaseBoostStaminaCost()
+    {
+        playerManager.playerProfile.boostStaminaCost -= 1f;
     }
 
-    public void decreaseFiringStaminaCost(){
-        PlayerManager.firingStaminaCost -= 2f; 
+    public void decreaseFiringStaminaCost()
+    {
+        playerManager.playerProfile.firingStaminaCost -= 2f;
     }
-    
-    public void deductGem(string gemType, int quantity){
-        if (gemType == "Blue"){
-            PlayerManager.playerbluegem -= quantity;
+
+    public void deductGem(string gemType, int quantity)
+    {
+        if (gemType == "Blue")
+        {
+            playerManager.playerProfile.playerbluegem -= quantity;
         }
-        else if (gemType == "Green"){
-            PlayerManager.playergreengem -= quantity;
+        else if (gemType == "Green")
+        {
+            playerManager.playerProfile.playergreengem -= quantity;
         }
-        else if (gemType == "Red"){
-           PlayerManager.playerredgem -= quantity;
+        else if (gemType == "Red")
+        {
+            playerManager.playerProfile.playerredgem -= quantity;
         }
     }
 
-    public void tradeToGold(int tradingPrice){
-        PlayerManager.playergold += tradingPrice;
+    public void tradeToGold(int tradingPrice)
+    {
+        playerManager.playerProfile.playergold += tradingPrice;
     }
 }

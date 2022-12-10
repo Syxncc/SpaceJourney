@@ -29,7 +29,7 @@ public class PlanetRequirement : MonoBehaviour
     }
 
     void Update(){
-        Debug.LogError(planetName);
+        // Debug.LogError(planetName);
     }
 
     public void OnTriggerEnter(Collider other) 
@@ -91,28 +91,28 @@ public class PlanetRequirement : MonoBehaviour
         if (requirementPassed){
             if(planetName == "Earth"){
                 loadingScene.SetActive(true);
-                // AsyncOperation operation = SceneManager.LoadSceneAsync(1);
-                SceneManager.LoadScene(1);
+                AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+                //SceneManager.LoadScene(1);
             }
             else if(planetName=="Mars"){
                 loadingScene.SetActive(true);
-                // AsyncOperation operation = SceneManager.LoadSceneAsync(3);
-                SceneManager.LoadScene(3);
+                AsyncOperation operation = SceneManager.LoadSceneAsync(3);
+                //SceneManager.LoadScene(3);
             }
             else if(planetName == "Mercury"){
                 loadingScene.SetActive(true);
-                // AsyncOperation operation = SceneManager.LoadSceneAsync(4);
-                SceneManager.LoadScene(4);
+                AsyncOperation operation = SceneManager.LoadSceneAsync(4);
+                //SceneManager.LoadScene(4);
             }
             else if(planetName == "Venus"){
                 loadingScene.SetActive(true);
-                // AsyncOperation operation = SceneManager.LoadSceneAsync(5);
-                SceneManager.LoadScene(5);
+                AsyncOperation operation = SceneManager.LoadSceneAsync(5);
+                //SceneManager.LoadScene(5);
             }
             else if(planetName =="Asteroid Belt"){
                 loadingScene.SetActive(true);
-                // AsyncOperation operation = SceneManager.LoadSceneAsync(6);
-                SceneManager.LoadScene(6);
+                AsyncOperation operation = SceneManager.LoadSceneAsync(6);
+                //SceneManager.LoadScene(6);
             }
         }
         

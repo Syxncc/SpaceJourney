@@ -6,30 +6,36 @@ using UnityEngine;
 public class QuestDestroy : QuestBase
 {
     [System.Serializable]
-     public class Objectives{
+    public class Objectives
+    {
         public Profile requiredProfile;
         public int requiredAmount;
-        
-     }
+
+    }
 
     public Objectives[] objectives;
 
-     public override void InitializeQuest(){
+    public override void InitializeQuest()
+    {
         RequiredAmount = new int[objectives.Length];
 
-        for (int i = 0; i < objectives.Length; i++){
+        for (int i = 0; i < objectives.Length; i++)
+        {
             RequiredAmount[i] = objectives[i].requiredAmount;
         }
         // GameManager.instance.onItemDestroyCallback += ItemDestroy;
         base.InitializeQuest();
-     }
+    }
 
-     private void ItemDestroy(Profile destroyedItem){
-        for(int i = 0; i < objectives.Length; i++){
-            if(destroyedItem == objectives[i].requiredProfile){
+    private void ItemDestroy(Profile destroyedItem)
+    {
+        for (int i = 0; i < objectives.Length; i++)
+        {
+            if (destroyedItem == objectives[i].requiredProfile)
+            {
                 CurrentAmount[i]++;
             }
         }
-        Evaluate();
-     }
+        Evaluate(false);
+    }
 }
