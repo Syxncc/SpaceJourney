@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.32619315, g: 0.2897147, b: 0.32137078, a: 1}
+  m_IndirectSpecularColor: {r: 0.32696944, g: 0.28958488, b: 0.3222681, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4780,10 +4780,6 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5753915557183472201, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
-      propertyPath: m_TagString
-      value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 384723805285289422, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
       propertyPath: m_IsActive
@@ -11763,6 +11759,20 @@ GameObject:
   m_PrefabInstance: {fileID: 197034853}
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &431753633
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431753631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4607373722890543514, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
+--- !u!64 &431753637
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43323,7 +43333,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.5922618, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -50079,7 +50089,7 @@ MonoBehaviour:
   theQuest: {fileID: 1737944630}
   RewardUI: {fileID: 0}
   tutorial: {fileID: 0}
-  noName: Mariel
+  noName: ngdngdndg
   inkJSON: {fileID: 4900000, guid: bb5fb31be22674d4faf874d292b949a6, type: 3}
 --- !u!135 &1737944632
 SphereCollider:
@@ -59702,7 +59712,7 @@ MonoBehaviour:
   aDialogueQuest: 1
   shop: 0
   theQuest: {fileID: 2075785707}
-  RewardUI: {fileID: 1801572803}
+  RewardUI: {fileID: 0}
   tutorial: {fileID: 37825496}
   noName: Terence
   inkJSON: {fileID: 4900000, guid: 59d8b953b6f06fc45a341d75dde86e90, type: 3}

@@ -312,22 +312,13 @@ public class PlayerController : MonoBehaviour
     }
 
     public void HoldSprint(){
-        if (currentStamina >= 0){
-            if (currentStamina < GameManager.instance.playerManager.decreaseCostOvertime){
-                Debug.LogError("Insufficient Stamina");
-                isSprinting = false;
-            }   
-            else {
-                isSprinting = true;
-            }
-           
-        }
-        else {
-             Debug.LogError(currentStamina);
-            currentStamina = 0;
+        if (currentStamina < GameManager.instance.playerManager.decreaseCostOvertime){
+            Debug.LogError("Insufficient Stamina");
             isSprinting = false;
         }
-        
+        else {
+            isSprinting = true;
+        }
         
         
     }

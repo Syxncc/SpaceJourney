@@ -77,12 +77,8 @@ public class DialTrig : MonoBehaviour
     }
 
     public void tutorials()
-    
-    {   
-        if (tutorial!= null){
-             tutorial.SetActive(true);
-        }
-       
+    {
+        tutorial.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other) {
