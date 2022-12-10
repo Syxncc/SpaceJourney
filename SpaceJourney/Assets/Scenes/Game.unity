@@ -52389,18 +52389,11 @@ MonoBehaviour:
   shop: 0
   isForLaunching: 0
   theQuest: {fileID: 1737944630}
-<<<<<<< HEAD
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 37825496}
   npcName: 
   inkJSON: {fileID: 4900000, guid: 257c726b83c51a548af6e3270b8cfc07, type: 3}
   defaultDialogue: {fileID: 4900000, guid: ceeac04c322fd764a9b1709d937e00c4, type: 3}
-=======
-  RewardUI: {fileID: 0}
-  tutorial: {fileID: 0}
-  noName: Mariel
-  inkJSON: {fileID: 4900000, guid: bb5fb31be22674d4faf874d292b949a6, type: 3}
->>>>>>> 5b744222408cd0875e6e5f3768c13d9bbf9fa062
 --- !u!135 &1737944632
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -62154,16 +62147,10 @@ MonoBehaviour:
   isForLaunching: 0
   theQuest: {fileID: 2075785707}
   RewardUI: {fileID: 1801572803}
-<<<<<<< HEAD
   tutorial: {fileID: 961967993}
   npcName: 
   inkJSON: {fileID: 4900000, guid: ec3df984c1452904fad535360cd29d99, type: 3}
   defaultDialogue: {fileID: 4900000, guid: ceeac04c322fd764a9b1709d937e00c4, type: 3}
-=======
-  tutorial: {fileID: 37825496}
-  noName: Terence
-  inkJSON: {fileID: 4900000, guid: 59d8b953b6f06fc45a341d75dde86e90, type: 3}
->>>>>>> 5b744222408cd0875e6e5f3768c13d9bbf9fa062
 --- !u!135 &2075785709
 SphereCollider:
   m_ObjectHideFlags: 0

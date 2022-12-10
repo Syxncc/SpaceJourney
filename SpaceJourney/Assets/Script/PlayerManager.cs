@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
 
-<<<<<<< HEAD
     public QuestSequence questSequence;
     public Profile playerProfile;
     public GameObject playerBody;
@@ -30,24 +29,6 @@ public class PlayerManager : MonoBehaviour
     // public float decreaseCostOvertime = 15f;
     // public float jumpCost = 10f;
     // public float maxStamina = 100f;
-=======
-    public static int playergold;
-    public static int playerbluegem;
-    public static int playergreengem;
-    public static int playerredgem;
-    public static int playerLevel;
-    
-    public static int currentMaxXP = 100;
-    public static int currentXP;
-    
-    public float jumpHeight = 0.7f;
-    public float walkingSpeed = 10f;
-    public float sprintingSpeed = 20f;
-    public float regenCost = 5f;
-    public float decreaseCostOvertime = 15f;
-    public float jumpCost = 10f;
-    public static float maxStamina = 100f;
->>>>>>> 5b744222408cd0875e6e5f3768c13d9bbf9fa062
 
     private int addMaxXP = 100;
     private int tempXP;
