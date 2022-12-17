@@ -48,18 +48,19 @@ public class DialTrig : MonoBehaviour
     {
         npcName = profile.name;
     }
-    public void rewardUI()
-    {
-        RewardUI.SetActive(true);
-    }
+    // public void rewardUI()
+    // {
+    //     RewardUI.SetActive(true);
+    // }
 
     public void tutorials()
-    
-    {   
-        if (tutorial!= null){
-             tutorial.SetActive(true);
+
+    {
+        if (tutorial != null)
+        {
+            tutorial.SetActive(true);
         }
-       
+
     }
 
     // private void OnTriggerEnter(Collider other)

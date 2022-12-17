@@ -52,7 +52,7 @@ public class DIalogueCol : MonoBehaviour
             trig = other.gameObject.GetComponent<DialTrig>();
             DialMan.instance.trigs = trig;
             nonPlayerName.text = trig.npcName;
-            if (questGive != null && playerQuest.questSequence[playerQuest.currentQuestIndex].GetType() != System.Type.GetType("QuestDestination") && (questGive.CurrentQuest() || haveQuestTalk((QuestTalk)playerQuest.questSequence[playerQuest.currentQuestIndex], trig.profile)))
+            if (questGive != null && playerQuest.questSequence.Length > playerQuest.currentQuestIndex && playerQuest.questSequence[playerQuest.currentQuestIndex].GetType() != System.Type.GetType("QuestDestination") && (questGive.CurrentQuest() || haveQuestTalk((QuestTalk)playerQuest.questSequence[playerQuest.currentQuestIndex], trig.profile)))
             {
                 // trig = other.gameObject.GetComponent<DialTrig>();
                 DialMan.instance.SetQuest(questGive.quest);
@@ -106,11 +106,17 @@ public class DIalogueCol : MonoBehaviour
 
         if (isTradeNPC)
         {
-            shopUI.ShowTradeUI();
+            if (shopUI != null)
+            {
+                shopUI.ShowTradeUI();
+            }
         }
         else if (isUpgradeNPC)
         {
-            shopUI.ShowUpgradeUI();
+            if (shopUI != null)
+            {
+                shopUI.ShowUpgradeUI();
+            }
         }
         else
         {

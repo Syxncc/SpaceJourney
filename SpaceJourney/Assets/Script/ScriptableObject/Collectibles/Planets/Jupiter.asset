@@ -9,8 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
+  m_Script: {fileID: 11500000, guid: 769ab4554e0912145b4993cdcc82fb62, type: 3}
   m_Name: Jupiter
   m_EditorClassIdentifier: 
   name: Jupiter
-  isUnlock: 0
+  isUnlockCollectible: 0
+  planetScene: 0
+  planetRequirement:
+    walk: 0
+    sprint: 0
+    jump: 0
+    sprintStamina: 0
+    jumpStamina: 0
+    spaceshipBoost: 0
+    spaceshipSpeed: 0
+    spaceshipBulletOverheating: 0
+    collectibles: []

@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86564ef82ddbada488e52110606a45f7, type: 3}
   m_Name: Player Profile
   m_EditorClassIdentifier: 
-  name: You
-  playergold: 1950
+  name: Player Profile
+  positionX: 130.66875
+  positionY: -12.132131
+  positionZ: 50.347126
+  currentScene: -1
+  playergold: 10050
   playerbluegem: 1
   playergreengem: 5
   playerredgem: 10
-  playerLevel: 9
-  currentMaxXP: 1050
-  currentXP: 490
+  playerLevel: 16
+  currentMaxXP: 1750
+  currentXP: 1340
   jumpHeight: 5
-  walkingSpeed: 10
+  walkingSpeed: 30
   sprintingSpeed: 20
   regenCost: 5
   decreaseCostOvertime: 15

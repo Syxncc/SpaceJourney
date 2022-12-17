@@ -9,9 +9,9 @@ public class LocationDetector : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.instance.PopUpNotification("You found \"" + location.name + "\"!");
             if (GameManager.instance.onDestinationCallback != null)
             {
+                GameManager.instance.PopUpNotification("You found \"" + location.name + "\"!");
                 GameManager.instance.onDestinationCallback.Invoke(location);
             }
         }

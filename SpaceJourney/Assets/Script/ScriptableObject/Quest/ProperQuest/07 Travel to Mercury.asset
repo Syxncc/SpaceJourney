@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa817b392e44e84aba429993f690e41, type: 3}
+  m_Name: 07 Travel to Mercury
+  m_EditorClassIdentifier: 
+  questID: 
+  questName: Travel to Mercury
+  questDescription: Your colleague says there is a trreasure in Mercury. Check it
+    out maybe it can help you to travel.
+  isAutoQuest: 1
+  rewards:
+    goldReward: 100
+    xpReward: 200
+    collectibles: []
+  objectives:
+  - requiredLocation: {fileID: 11400000, guid: e581af983e451ca40a5c302371a09f5d, type: 2}
+    requiredAmount: 1

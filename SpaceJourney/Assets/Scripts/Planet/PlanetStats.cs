@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlanetStats : MonoBehaviour
 {
+    public Collectible planetProfile;
     // public string planetName;
 
     // public GameObject requirements;
@@ -13,13 +14,13 @@ public class PlanetStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // public void OnCollisionEnter(Collision other) 
@@ -29,14 +30,15 @@ public class PlanetStats : MonoBehaviour
     //     }
     // }
 
-    public void OnTriggerEnter(Collider other) 
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player"){
-           Debug.LogError("Wieeee");
+        if (other.tag == "Player")
+        {
+            Debug.LogError("Wieeee");
         }
     }
-        
-        
+
+
 
 
 }

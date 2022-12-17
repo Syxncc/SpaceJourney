@@ -32,6 +32,8 @@ public class ShipConttrol : MonoBehaviour
     public GameObject normalTrail;
 
     private PlayerManager playerManager;
+    private Vector2 movementInput;
+    public int playerMove = 1;
 
 
 
@@ -86,7 +88,7 @@ public class ShipConttrol : MonoBehaviour
         boostStaminaBar.value = boostcurrentStamina;
         fireStaminaBar.value = firecurrentStamina;
 
-        Vector2 movementInput = shipInput.ShipMain.Move.ReadValue<Vector2>();
+        movementInput = shipInput.ShipMain.Move.ReadValue<Vector2>();
 
         if (moveButton)
         {
@@ -126,7 +128,7 @@ public class ShipConttrol : MonoBehaviour
 
         activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, thrust * forwardSpeed, forwardAcceleration * Time.deltaTime);
 
-        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
+        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime * playerMove;
 
 
         if (shootButton)
@@ -147,8 +149,6 @@ public class ShipConttrol : MonoBehaviour
             {
                 shootButton = false;
             }
-
-
 
         }
 
@@ -177,6 +177,11 @@ public class ShipConttrol : MonoBehaviour
 
     }
 
+    public Vector2 GetPlayerMovement()
+    {
+        return movementInput;
+    }
+
     public void HoldJoystick()
     {
         moveButton = true;
@@ -189,6 +194,7 @@ public class ShipConttrol : MonoBehaviour
 
     public void HoldShoot()
     {
+        GameManager.instance.SaveCurrentCharacterPosition();
         shootButton = true;
     }
 

@@ -39,6 +39,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (player.currentScene != -1 && !playerQuest.isTravel)
+        {
+            playerManager.playerBody.transform.position = player.CharacterPosition();
+            if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
+            {
+                SceneManager.LoadScene(player.currentScene);
+            }
+        }
+        else
+        {
+            playerQuest.isTravel = false;
+        }
+
         if (notification != null)
         {
             notificationAnimator = notification.GetComponent<Animator>();
@@ -54,12 +67,13 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        player.currentScene = -1;
         playerQuest.currentQuestIndex = 0;
         playerQuest.isQuestDone = false;
         ResetPlayerStats();
         foreach (Collectible collectible in collectibles)
         {
-            collectible.isUnlock = false;
+            collectible.isUnlockCollectible = false;
         }
     }
 
@@ -89,12 +103,23 @@ public class GameManager : MonoBehaviour
         return playerQuest.isQuestDone;
     }
 
-    public void ChangeScene()
+    public void ChangeScene(int sceneIndex)
     {
         // ui.SetActive(false);
         Debug.LogError("Launching");
         loadingScene.SetActive(true);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        playerQuest.isTravel = true;
+    }
+
+    public void SaveCurrentCharacterPosition()
+    {
+        Vector3 playerPosition = playerManager.playerBody.transform.position;
+        player.positionX = playerPosition.x;
+        player.positionY = playerPosition.y;
+        player.positionZ = playerPosition.z;
+
+        player.currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
 }

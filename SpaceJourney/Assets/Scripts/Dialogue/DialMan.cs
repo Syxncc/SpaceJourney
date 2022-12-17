@@ -87,10 +87,6 @@ public class DialMan : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON, StoryImages storyImages)
     {
-        if (GameManager.instance.onTalkNPCCallback != null)
-        {
-            GameManager.instance.onTalkNPCCallback.Invoke(trigs.profile);
-        }
         animator.SetBool("isOpen", true);
 
         if (storyImages != null)
@@ -113,16 +109,18 @@ public class DialMan : MonoBehaviour
             Debug.LogError("The NPC have quest" + quest.name);
             QuestManager.instance.SetQuestUI(quest);
             ControlUI.SetActive(false);
-            trigs.rewardUI();
             trigs.tutorials();
         }
         else
         {
-            imagesStoryPanel.SetActive(false);
+            if (imagesStoryPanel != null)
+            {
+                imagesStoryPanel.SetActive(false);
+            }
             ControlUI.SetActive(true);
             if (trigs != null && trigs.isForLaunching)
             {
-                GameManager.instance.ChangeScene();
+                GameManager.instance.ChangeScene(2);
             }
         }
 
@@ -130,6 +128,10 @@ public class DialMan : MonoBehaviour
         dialogueIsPlaying = false;
 
 
+        if (GameManager.instance.onTalkNPCCallback != null && trigs != null)
+        {
+            GameManager.instance.onTalkNPCCallback.Invoke(trigs.profile);
+        }
 
     }
 

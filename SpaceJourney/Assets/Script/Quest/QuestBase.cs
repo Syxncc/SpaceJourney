@@ -42,18 +42,15 @@ public class QuestBase : ScriptableObject
         // gameManager.rewardManager.ClaimRewards(this);
         Debug.LogError("Quest is Completed");
         QuestSequence playerQuest = gameManager.playerManager.questSequence;
-        if ((playerQuest.currentQuestIndex) < playerQuest.questSequence.Length)
+        if ((playerQuest.currentQuestIndex) < playerQuest.questSequence.Length - 1)
         {
             playerQuest.currentQuestIndex++;
-            if ((playerQuest.questSequence.Length - playerQuest.currentQuestIndex) == 1 && playerQuest.questSequence[playerQuest.currentQuestIndex].isAutoQuest)
+            Debug.LogError(playerQuest.questSequence.Length + " " + playerQuest.currentQuestIndex);
+            if (playerQuest.questSequence[playerQuest.currentQuestIndex].isAutoQuest)
             {
                 Debug.LogError("Working");
                 QuestManager.instance.SetQuestUI(playerQuest.questSequence[playerQuest.currentQuestIndex]);
             }
-        }
-        else
-        {
-            playerQuest.isQuestDone = true;
         }
 
         // if (isDelayingNotification)
@@ -64,6 +61,7 @@ public class QuestBase : ScriptableObject
         // else
         // {
         gameManager.rewardManager.ClaimRewards(this);
+        gameManager.SaveCurrentCharacterPosition();
         // }
         gameManager.onTalkNPCCallback = null;
         gameManager.onDestinationCallback = null;

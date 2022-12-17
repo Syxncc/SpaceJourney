@@ -6,5 +6,10 @@ using UnityEngine;
 public class Collectible : ScriptableObject
 {
     public string name = "";
-    public bool isUnlock = false;
+    public bool isUnlockCollectible = false;
+
+    private void OnValidate()
+    {
+        name = System.IO.Path.GetFileNameWithoutExtension(UnityEditor.AssetDatabase.GetAssetPath(this));
+    }
 }

@@ -49,6 +49,8 @@ public class PlayerManager : MonoBehaviour
     public StoryImages storyImages;
     public TextAsset story;
 
+    public ShipConttrol shipControl;
+
     void Start()
     {
         // playerProfile.currentXP = 0;

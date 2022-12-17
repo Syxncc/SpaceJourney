@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86564ef82ddbada488e52110606a45f7, type: 3}
+  m_Name: Mercury Maze Treasure
+  m_EditorClassIdentifier: 
+  name: 
+  positionX: 0
+  positionY: 0
+  positionZ: 0
+  currentScene: 0
+  playergold: 10000
+  playerbluegem: 1
+  playergreengem: 5
+  playerredgem: 10
+  playerLevel: 0
+  currentMaxXP: 100
+  currentXP: 0
+  jumpHeight: 0.7
+  walkingSpeed: 10
+  sprintingSpeed: 20
+  regenCost: 5
+  decreaseCostOvertime: 15
+  jumpCost: 10
+  maxStamina: 100
+  thrustBoosted: 3
+  boostStaminaCost: 20
+  firingStaminaCost: 30

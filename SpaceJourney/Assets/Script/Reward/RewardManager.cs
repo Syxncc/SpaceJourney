@@ -37,50 +37,13 @@ public class RewardManager : MonoBehaviour
             {
                 if (collectibles[i].name == quest.rewards.collectibles[j].name)
                 {
-                    collectibles[i].isUnlock = true;
+                    collectibles[i].isUnlockCollectible = true;
                     rewards += "\nYou received " + collectibles[i].name + " Information";
                     Debug.LogError("I get a collectible reward");
                 }
             }
         }
         GameManager.instance.PopUpNotification(rewards);
-        // if (quest.rewards.infoCardsCategory == "Planets")
-        // {
-
-        //     for (int i = 0; i < collectibles.Length; i++)
-        //     {
-        //         if (collectibles[i].infoName == quest.rewards.infoCards)
-        //         {
-        //             collectibles[i].isUnlock = true;
-        //             break;
-        //         }
-
-        //     }
-
-        // }
-        // else if (quest.rewards.infoCardsCategory == "Constellations")
-        // {
-        //     for (int i = 0; i < infoCardsPlanet.Length; i++)
-        //     {
-        //         if (infoCardsPlanet[i].infoName == quest.rewards.infoCards)
-        //         {
-        //             infoCardsPlanet[i].unlock = true;
-        //             break;
-        //         }
-        //     }
-        // }
-        // else if (quest.rewards.infoCardsCategory == "Others")
-        // {
-
-        // }
-        // else
-        // {
-        //     Debug.LogError("NO INFOCARDS REWARDS SET");
-        // }
-        //Debug.LogError(GameManager.instance.playerManager.playerProfile.gold.ToString());
-
-        // questName.text = quest.questName;
-        //questRewardUI.SetActive(true);
     }
 
 

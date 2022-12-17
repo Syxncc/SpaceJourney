@@ -18,6 +18,7 @@ TagManager:
   - Venus
   - Mars
   - Asteroid Belt
+  - Planets
   layers:
   - Default
   - TransparentFX

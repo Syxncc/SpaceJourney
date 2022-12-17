@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Player Quests
   m_EditorClassIdentifier: 
   isNewGame: 0
-  currentQuestIndex: 3
+  isTravel: 0
+  currentQuestIndex: 0
   questSequence:
   - {fileID: 11400000, guid: 3377dc92a2428a24e8f64bf2f4829f63, type: 2}
   - {fileID: 11400000, guid: addfba45b9dbaa648b353960010934a3, type: 2}
   - {fileID: 11400000, guid: d023aebb2c6bd5d4ea493358b12629b7, type: 2}
   - {fileID: 11400000, guid: cdd2027e96681264285d31019fc15205, type: 2}
+  - {fileID: 11400000, guid: 1f1a90ffc334fbe4dbf0156b16e8d10d, type: 2}
+  - {fileID: 11400000, guid: 884fc8a1d018bdb47aca826fc50c3ba8, type: 2}
+  - {fileID: 11400000, guid: daddd1b068c24c94fbfa4e975a85a208, type: 2}
+  - {fileID: 11400000, guid: c7f7c0a8f59e05b4b97e15ba4373f2f3, type: 2}
+  - {fileID: 11400000, guid: a41e54febb68c5e4f89bc813d0cbbcc1, type: 2}
   isQuestDone: 0

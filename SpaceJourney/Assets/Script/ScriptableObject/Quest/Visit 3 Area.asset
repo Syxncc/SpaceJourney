@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa817b392e44e84aba429993f690e41, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
   m_Name: Visit 3 Area
   m_EditorClassIdentifier: 
   questID: 
-  questName: Visit 3 Area
+  questName: 
   questDescription: 'You are now can freely visit any area. Jett suggested you to
     visit 3 area.
 
@@ -27,15 +27,9 @@ MonoBehaviour:
     3. Spaceship Take Off and Landing Area
 
 '
+  isAutoQuest: 0
   rewards:
-    goldReward: 100
-    xpReward: 50
+    goldReward: 0
+    xpReward: 0
     collectibles: []
-    infoCardsCategory: 
-  objectives:
-  - requiredLocation: {fileID: 11400000, guid: b32f8e8d6a044444d8e19375415ea824, type: 2}
-    requiredAmount: 1
-  - requiredLocation: {fileID: 11400000, guid: c0ddd94d6198d4645a53bc7f0b71216d, type: 2}
-    requiredAmount: 1
-  - requiredLocation: {fileID: 11400000, guid: d0b4ba1b165eeda4d89362345c772016, type: 2}
-    requiredAmount: 1
+  objectives: []

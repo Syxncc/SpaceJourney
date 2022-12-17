@@ -5537,17 +5537,29 @@ MonoBehaviour:
   rewardManager: {fileID: 0}
   playerManager: {fileID: 0}
   shopManager: {fileID: 0}
+  loadingScene: {fileID: 0}
   notification: {fileID: 0}
   playerQuest: {fileID: 11400000, guid: b0457cd516bb49c4e843fa730b7b60ee, type: 2}
   collectibles:
-  - {fileID: 11400000, guid: 20d696c86969aab4f8fe4b8681b7a40a, type: 2}
-  - {fileID: 11400000, guid: 0bbf0669a83044440a03ec3dfa0573bf, type: 2}
+  - {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}
+  - {fileID: 11400000, guid: 8d843456814ddc749a31bd76641262b8, type: 2}
+  - {fileID: 11400000, guid: 8af976c066de6264c90cbb1e375584b2, type: 2}
   - {fileID: 11400000, guid: 5ff80b280cb6d144698fac12f7acdcf2, type: 2}
-  - {fileID: 11400000, guid: 5a67dbbe147c1e845abe1a4918929d6f, type: 2}
+  - {fileID: 11400000, guid: be7fc4aebf75056408f59603ffab7edf, type: 2}
   - {fileID: 11400000, guid: a15e4eb64384a634e9181bbb93baad16, type: 2}
   - {fileID: 11400000, guid: ed0f2ffd046581d479e77a6fe24fa6a3, type: 2}
   - {fileID: 11400000, guid: f62511191b1a1434ea3c946991d4dff7, type: 2}
   - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 62b37d3b0d5519b4590c084700e4dfcf, type: 2}
+  - {fileID: 11400000, guid: 3e4f58b81c620ab4da9ea76c847f5cca, type: 2}
+  - {fileID: 11400000, guid: 69fa34f208d183a429bdd97af90e3a20, type: 2}
+  - {fileID: 11400000, guid: 23976eef42daa0e43828cc8939ca7d2e, type: 2}
+  - {fileID: 11400000, guid: d2cff91d2c4f5a34eb3f9c557388d2ef, type: 2}
+  - {fileID: 11400000, guid: f7c2c5b2919285a418d32e081cfcc408, type: 2}
+  - {fileID: 11400000, guid: 5d9d4c3c1f7a7cd4dab85cc58e0da28e, type: 2}
+  - {fileID: 11400000, guid: 9103738f4ef1b5b4d8445e43f45e83b5, type: 2}
+  - {fileID: 11400000, guid: b2c8cc209bbdd594596114142aa30bc6, type: 2}
+  - {fileID: 11400000, guid: 80d88accc8709b842a4138dc349e5a62, type: 2}
   player: {fileID: 11400000, guid: f9954afe0d0851848804d5cca15b7ed2, type: 2}
 --- !u!1 &1149678736
 GameObject:

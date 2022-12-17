@@ -11,30 +11,15 @@ public class InfoCards : MonoBehaviour
     public GameObject cardInfo;
     public GameObject backButton;
 
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     lockInfo.SetActive(true);
-    // }
-
     // Update is called once per frame
     void Update()
     {
-        lockInfo.SetActive(!planet.isUnlock);
-        // cardInfo.SetActive(planet.isUnlock);
-        // if (planet.isUnlock){
-        //     lockInfo.SetActive(false);
-
-        // }
-        // else {
-        //     lockInfo.SetActive(true);
-        //     cardInfo.SetActive(false);
-        // }
+        lockInfo.SetActive(!planet.isUnlockCollectible);
     }
 
     public void OpenCard()
     {
-        cardInfo.SetActive(planet.isUnlock);
-        backButton.SetActive(planet.isUnlock);
+        cardInfo.SetActive(planet.isUnlockCollectible);
+        backButton.SetActive(planet.isUnlockCollectible);
     }
 }

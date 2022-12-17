@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa817b392e44e84aba429993f690e41, type: 3}
+  m_Name: 08 Mercury Maze
+  m_EditorClassIdentifier: 
+  questID: 
+  questName: Mercury Maze
+  questDescription: 'Our mission here is to go to the other side of the maze. Our
+    spaceship is there
+
+    Objectives:
+
+    - Go to the other side of the maze.'
+  isAutoQuest: 0
+  rewards:
+    goldReward: 100
+    xpReward: 200
+    collectibles:
+    - {fileID: 11400000, guid: be7fc4aebf75056408f59603ffab7edf, type: 2}
+  objectives:
+  - requiredLocation: {fileID: 11400000, guid: 95b0bcfc9173b354ca1d7e994b3b8061, type: 2}
+    requiredAmount: 1

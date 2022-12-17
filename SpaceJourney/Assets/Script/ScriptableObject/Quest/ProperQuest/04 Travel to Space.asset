@@ -18,10 +18,9 @@ MonoBehaviour:
     new. '
   isAutoQuest: 1
   rewards:
-    goldReward: 0
+    goldReward: 100
     xpReward: 200
-    collectibles:
-    - {fileID: 11400000, guid: 20d696c86969aab4f8fe4b8681b7a40a, type: 2}
+    collectibles: []
   objectives:
   - requiredProfile: {fileID: 11400000, guid: 7a571eb014fe8d44fb422a1e1269dbc3, type: 2}
     requiredAmount: 1
