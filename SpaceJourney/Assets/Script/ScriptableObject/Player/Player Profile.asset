@@ -24,7 +24,7 @@ MonoBehaviour:
   playerLevel: 16
   currentMaxXP: 1750
   currentXP: 1340
-  jumpHeight: 5
+  jumpHeight: 30
   walkingSpeed: 10
   sprintingSpeed: 20
   regenCost: 5

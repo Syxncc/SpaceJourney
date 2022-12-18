@@ -11,11 +11,21 @@ public class NPCMove : MonoBehaviour
 
     public Transform[] idlePath;
     private bool isIdle = false;
+    Transform currentPosition;
+    int randomPosition;
+
+    private float timeLeft = 0;
+    public int selectedIdleTime = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        if (idlePath.Length > 0)
+        {
+            IsIdle();
+        }
     }
 
     // Update is called once per frame
@@ -35,45 +45,66 @@ public class NPCMove : MonoBehaviour
     {
         if (isIdle)
         {
-            int idleTime = Random.Range(0, 60);
-            StartCoroutine(IdleTime(idleTime));
+            if (timeLeft <= 0)
+            {
+                int idleTime = Random.Range(3, selectedIdleTime);
+                timeLeft = idleTime;
+                Debug.LogError(idleTime);
+            }
+            else
+            {
+                IdleTime();
+            }
         }
         else
         {
-            int randomPosition = Random.Range(1, idlePath.Length);
-            Transform currentPosition = idlePath[randomPosition - 1];
             if (currentPosition != null)
             {
-                navMeshAgent.SetDestination(currentPosition.position);
-                if (Vector3.Distance(currentPosition.position, transform.position) < 1)
+                if (Vector3.Distance(currentPosition.position, transform.position) <= 6)
                 {
                     IsIdle();
+                }
+                else
+                {
+                    if (timeLeft < 1)
+                    {
+                        navMeshAgent.SetDestination(currentPosition.position);
+                    }
                 }
             }
         }
     }
 
-    IEnumerator IdleTime(float delayTime)
+    void IdleTime()
     {
-        Debug.LogError("Start Idling");
-        // suspend execution for 5 seconds
-        yield return new WaitForSeconds(delayTime);
-        Debug.LogError("End Idling");
-        IsIdle();
+        timeLeft -= Time.deltaTime;
+        Debug.LogError(timeLeft);
+        if (timeLeft < 1)
+        {
+            IsIdle();
+        }
     }
+
 
     void IsIdle()
     {
-        int maxRange = Random.Range(1000, 5000);
+        Debug.LogError("Checking Where Going");
+        int maxRange = Random.Range(0, 100);
         int idleChance = Random.Range(0, maxRange);
-        int rangeNum = Random.Range(0, 500);
+        int rangeNum = Random.Range(50, maxRange);
         int startRange = Random.Range(0, maxRange);
         int endRange = startRange + rangeNum;
-        Debug.Log(idleChance + " " + startRange + " " + endRange);
+
         if (idleChance >= startRange && idleChance <= endRange)
         {
+            Debug.LogError("Is Idle");
             isIdle = true;
+            timeLeft = 0;
+            return;
         }
+        randomPosition = Random.Range(0, idlePath.Length-1);
+        currentPosition = idlePath[randomPosition];
+        Debug.LogError("Is going");
         isIdle = false;
     }
 

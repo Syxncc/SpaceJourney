@@ -9,7 +9,6 @@ public class LocationDetector : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.LogError("I detected the pakyer");
             if (GameManager.instance.onDestinationCallback != null)
             {
                 GameManager.instance.PopUpNotification("You found \"" + location.name + "\"!");
