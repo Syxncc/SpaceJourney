@@ -16,7 +16,7 @@ MonoBehaviour:
   positionX: -850
   positionY: 10.185934
   positionZ: -223
-  currentScene: 5
+  currentScene: -1
   playergold: 11200
   playerbluegem: 1
   playergreengem: 5
@@ -24,9 +24,9 @@ MonoBehaviour:
   playerLevel: 16
   currentMaxXP: 1750
   currentXP: 1340
-  jumpHeight: 30
-  walkingSpeed: 10
-  sprintingSpeed: 20
+  jumpHeight: 10
+  walkingSpeed: 20
+  sprintingSpeed: 30
   regenCost: 5
   decreaseCostOvertime: 15
   jumpCost: 10
