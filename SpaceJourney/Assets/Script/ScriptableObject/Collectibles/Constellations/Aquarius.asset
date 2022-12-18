@@ -12,5 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Aquarius
   m_EditorClassIdentifier: 
-  name: 
+  name: Aquarius
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 9b9ddd3df9002e14bb292cc036dca140, type: 2}
+  - {fileID: 11400000, guid: 1b56b7ca4fbf070499f1581f142c49bb, type: 2}
+  - {fileID: 11400000, guid: 184c418905988584296edec40f209ba6, type: 2}
+  - {fileID: 11400000, guid: 0bbd3a189bf7bb848868be37f2607e38, type: 2}
+  - {fileID: 11400000, guid: 3246d98751bee214a9b3b68cf8d534a1, type: 2}
+  - {fileID: 11400000, guid: 1e1ae84a70ae39749a161278fa8ac3ce, type: 2}
+  - {fileID: 11400000, guid: e0e8c486fc1d8a44fbebf987dd1b8963, type: 2}
+  - {fileID: 11400000, guid: 0310ac0420f9fee4caa1d64b58728a45, type: 2}
+  - {fileID: 11400000, guid: 02eb041b083252848a51d914dcf0de07, type: 2}
+  - {fileID: 11400000, guid: c117e9a10ee616240b05612744c3def9, type: 2}
+  - {fileID: 11400000, guid: ce8a97c2e2cf57a4eab8385af178b5ef, type: 2}
+  - {fileID: 11400000, guid: 987afcc4a8fa6cd41862b7eace02fe6a, type: 2}
+  - {fileID: 11400000, guid: bf8fe131267b5e84e9c01492ad02a80d, type: 2}
+  - {fileID: 11400000, guid: 969fa889de25f7b408ffa8d11a7abdf2, type: 2}
+  - {fileID: 11400000, guid: b5029b43e6f1d0c4e8522eccfd2928bb, type: 2}
+  - {fileID: 11400000, guid: 1e2b27631ad29d9468f1c57d4895670b, type: 2}
+  - {fileID: 11400000, guid: 278c873e986a27f44ad14501b5e19e73, type: 2}

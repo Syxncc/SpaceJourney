@@ -12,5 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Pisces
   m_EditorClassIdentifier: 
-  name: 
+  name: Pisces
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 154016218cb7a894388fdb51d6a17a6a, type: 2}
+  - {fileID: 11400000, guid: 8aa94aec8b547164fb57d7de0ba1ca14, type: 2}
+  - {fileID: 11400000, guid: 631bd0b45c55d4147a477bd04376290a, type: 2}
+  - {fileID: 11400000, guid: 50adbaceac087384e9fe98eb6d832f11, type: 2}
+  - {fileID: 11400000, guid: 0f1e6d1d0c335bd438526a96509eaa73, type: 2}
+  - {fileID: 11400000, guid: 9228e2b2d9301c9468ffd6d57aade137, type: 2}
+  - {fileID: 11400000, guid: 5f7aff0e1c0bb6a4ebbc7eb26ea7245b, type: 2}
+  - {fileID: 11400000, guid: b6576fa6f924ab345a8b7261c5d4da67, type: 2}
+  - {fileID: 11400000, guid: 05bf0a06ad165724e9d91b7f030bebd8, type: 2}
+  - {fileID: 11400000, guid: 6171b7defda3ff9498ec4bc94629b6f5, type: 2}
+  - {fileID: 11400000, guid: 5e9231f580d249e4586e4c00a22a35ce, type: 2}
+  - {fileID: 11400000, guid: af34fca83530cfb4c861fc41dc09b406, type: 2}
+  - {fileID: 11400000, guid: c86d5abf6c1a5f648ad4dde3031b2ca7, type: 2}
+  - {fileID: 11400000, guid: 5b561f81aa0f0e14698f29344a4e9462, type: 2}
+  - {fileID: 11400000, guid: 99d0f88b4f8c4cd42a59c78f47c70f07, type: 2}
+  - {fileID: 11400000, guid: 7946047f2e20fda47a023323023b8530, type: 2}

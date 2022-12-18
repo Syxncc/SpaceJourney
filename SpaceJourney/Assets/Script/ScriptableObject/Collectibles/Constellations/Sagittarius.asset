@@ -12,5 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Sagittarius
   m_EditorClassIdentifier: 
-  name: 
+  name: Sagittarius
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 30e9224c927fe574999020b3f9c0df30, type: 2}
+  - {fileID: 11400000, guid: 477d6af398cd3704daf7a36505155df9, type: 2}
+  - {fileID: 11400000, guid: 147fdf1aacd0e3d4a9d627a0983a40ac, type: 2}
+  - {fileID: 11400000, guid: 851efe115253e1d4e8dd2b18060cd292, type: 2}
+  - {fileID: 11400000, guid: 456d46e0a098cad468bc6b6243ca53f0, type: 2}
+  - {fileID: 11400000, guid: 7bc0ebf7f69467041a52b0168a3b4c2c, type: 2}
+  - {fileID: 11400000, guid: 4f4199183be6c9b4d830d440e86c33d3, type: 2}
+  - {fileID: 11400000, guid: 1f3206db7692c5f41bb89e42718481e3, type: 2}
+  - {fileID: 11400000, guid: 66c63f7919cb0e04c99fbf7f4a04cdd1, type: 2}
+  - {fileID: 11400000, guid: 020a1fd436a557a499f73e88dfbc6684, type: 2}
+  - {fileID: 11400000, guid: d779543b6f87c6b42b72b0fd69f53cf1, type: 2}
+  - {fileID: 11400000, guid: 0c560b6d97822de4ab8a6c833ddfedff, type: 2}
+  - {fileID: 11400000, guid: 7f4e2d95b8e7779409814fe5755aa69f, type: 2}
+  - {fileID: 11400000, guid: e2ecc44e115ccb6488e2b922c03a78a1, type: 2}
+  - {fileID: 11400000, guid: 4ed9b4d91618558449a5cf7ecf200e9d, type: 2}
+  - {fileID: 11400000, guid: 268ab521096594a42a38b7774f8b774f, type: 2}
+  - {fileID: 11400000, guid: 982783629aa2a9546a3480411506782e, type: 2}
+  - {fileID: 11400000, guid: 2e4376326ac61584da94e8b430e7f234, type: 2}

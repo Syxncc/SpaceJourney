@@ -12,5 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Gemini
   m_EditorClassIdentifier: 
-  name: 
+  name: Gemini
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 2a277e3bccfc7c04fadd1ae06652f996, type: 2}
+  - {fileID: 11400000, guid: 257a60a07df4ed847abc16411984b2f4, type: 2}
+  - {fileID: 11400000, guid: 7150c44d3c43c874ba11c154ef9a535f, type: 2}
+  - {fileID: 11400000, guid: 3dd8b2af30278504ab2456ab079bf264, type: 2}
+  - {fileID: 11400000, guid: 1657be2f9416b0a4ab6b31012c170dc7, type: 2}
+  - {fileID: 11400000, guid: 40bf935aedd6eee43a5d1f5926c21308, type: 2}
+  - {fileID: 11400000, guid: b6373a5926e6d4f4fab46f70c89d5245, type: 2}
+  - {fileID: 11400000, guid: 0336cd178b9fe3e449e265f359fb9094, type: 2}
+  - {fileID: 11400000, guid: 8363bc041007d93479ba3b2ad0436bff, type: 2}
+  - {fileID: 11400000, guid: 92b3f968071441042b17af7a30bd9b16, type: 2}
+  - {fileID: 11400000, guid: bd066be0875f25344965ddf10e412cf7, type: 2}
+  - {fileID: 11400000, guid: 1540de9e61b610341b7a093b1ba43173, type: 2}
+  - {fileID: 11400000, guid: a4bc1a9cbe3eab540923b3848e9ee3f8, type: 2}
+  - {fileID: 11400000, guid: 70eff270227925f42bf836e1a1099d2c, type: 2}
+  - {fileID: 11400000, guid: 96feeda8508274e4eb889eceb2e9a73b, type: 2}
+  - {fileID: 11400000, guid: 23774987dbd1f2141bcccb49f31a3606, type: 2}

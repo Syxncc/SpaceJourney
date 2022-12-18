@@ -118,9 +118,18 @@ public class DialMan : MonoBehaviour
                 imagesStoryPanel.SetActive(false);
             }
             ControlUI.SetActive(true);
-            if (trigs != null && trigs.isForLaunching)
+            if (trigs != null)
             {
-                GameManager.instance.ChangeScene(2);
+                if (trigs.isForLaunching)
+                {
+
+                    GameManager.instance.ChangeScene(2);
+                }
+                else if (trigs.isForSightseeing)
+                {
+
+                    GameManager.instance.ChangeScene(7);
+                }
             }
         }
 

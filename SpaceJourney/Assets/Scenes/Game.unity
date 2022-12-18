@@ -3848,6 +3848,7 @@ MonoBehaviour:
   aDialogueQuest: 0
   shop: 1
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 0}
   RewardUI: {fileID: 0}
   tutorial: {fileID: 0}
@@ -3904,6 +3905,7 @@ MonoBehaviour:
   aDialogueQuest: 0
   shop: 0
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 1737944630}
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 37825496}
@@ -4318,6 +4320,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: -435889124135253022, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
+      propertyPath: m_Name
+      value: Observer
+      objectReference: {fileID: 0}
+    - target: {fileID: -435889124135253022, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 384723805285289422, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4532,6 +4542,7 @@ MonoBehaviour:
   aDialogueQuest: 0
   shop: 0
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 1737944630}
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 37825496}
@@ -34041,6 +34052,7 @@ MonoBehaviour:
   aDialogueQuest: 0
   shop: 0
   isForLaunching: 1
+  isForSightseeing: 0
   theQuest: {fileID: 1737944630}
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 37825496}
@@ -38823,6 +38835,7 @@ MonoBehaviour:
   aDialogueQuest: 0
   shop: 0
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 0}
   RewardUI: {fileID: 0}
   tutorial: {fileID: 0}
@@ -44142,6 +44155,43 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 709537145318746522, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
+--- !u!135 &1934164275
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934164268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: -14.69416, y: -4.452485, z: -0.045587238}
+--- !u!114 &1934164276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934164268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80da75d04f42f1547b34773ca2aa467c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 0}
+  interactbtn: {fileID: 0}
+  aDialogueQuest: 0
+  shop: 0
+  isForLaunching: 0
+  isForSightseeing: 1
+  theQuest: {fileID: 0}
+  RewardUI: {fileID: 0}
+  tutorial: {fileID: 0}
+  npcName: 
+  inkJSON: {fileID: 4900000, guid: 83779abf22d24824692334328dc9ce79, type: 3}
+  defaultDialogue: {fileID: 4900000, guid: 83779abf22d24824692334328dc9ce79, type: 3}
 --- !u!1 &1935228304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8800238943130225417, guid: 6e1a5f3b1d7e0504f8e5150dc2d9ed59, type: 3}
@@ -44742,6 +44792,7 @@ MonoBehaviour:
   aDialogueQuest: 0
   shop: 0
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 1737944630}
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 37825496}
@@ -46902,6 +46953,7 @@ MonoBehaviour:
   aDialogueQuest: 1
   shop: 0
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 0}
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 961967993}
@@ -47036,6 +47088,7 @@ MonoBehaviour:
   aDialogueQuest: 1
   shop: 0
   isForLaunching: 0
+  isForSightseeing: 0
   theQuest: {fileID: 2075785707}
   RewardUI: {fileID: 1801572803}
   tutorial: {fileID: 961967993}
@@ -48304,7 +48357,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -0.0067352615}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: 3.9650335e-33}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

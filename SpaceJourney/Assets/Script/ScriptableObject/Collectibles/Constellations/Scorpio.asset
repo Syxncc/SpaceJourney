@@ -12,5 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Scorpio
   m_EditorClassIdentifier: 
-  name: 
+  name: Scorpio
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 3bf5299b537784341bdf373737a5967b, type: 2}
+  - {fileID: 11400000, guid: b2b748ff00a65d14a84eb471d9071130, type: 2}
+  - {fileID: 11400000, guid: 114996c40e40d9b4cb07eb7df1eab55f, type: 2}
+  - {fileID: 11400000, guid: c4c6f6d56b960a34a97f5a996fb3f20d, type: 2}
+  - {fileID: 11400000, guid: 938f1ae7bdd71d7418b702008513b989, type: 2}
+  - {fileID: 11400000, guid: e369892cccf0f54419fcbc8ca641c198, type: 2}
+  - {fileID: 11400000, guid: 7524c89301afaf64c9ef3a09bcff06c6, type: 2}
+  - {fileID: 11400000, guid: a1b663521bfe8b2408dbf34ae496680b, type: 2}
+  - {fileID: 11400000, guid: 20eedf3e36dc73f4e8b0c0aff2723adf, type: 2}
+  - {fileID: 11400000, guid: 2dc03675cf8601343a217557f69019e5, type: 2}
+  - {fileID: 11400000, guid: aa33ed1cae779a84c8efd3a154bdf06d, type: 2}
+  - {fileID: 11400000, guid: 0207f5c8393310b42a1223382c70ac26, type: 2}
+  - {fileID: 11400000, guid: 4390f18f1a4af664c82411cef0b19bb8, type: 2}

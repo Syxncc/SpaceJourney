@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Cancer
   m_EditorClassIdentifier: 
-  name: 
+  name: Cancer
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 2bc210bd5be88e54c8e7d8964524cc83, type: 2}
+  - {fileID: 11400000, guid: a880db74faba7e147a8af14ed4359e2e, type: 2}
+  - {fileID: 11400000, guid: 9732e0ec35b1dc54aa402084f7c80603, type: 2}
+  - {fileID: 11400000, guid: 2602ff0a3522b90439b96581f9010287, type: 2}
+  - {fileID: 11400000, guid: bdc6b0be877db024b92fe558b4b28001, type: 2}

@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Libra
   m_EditorClassIdentifier: 
-  name: 
+  name: Libra
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 9796ff44409446042a3a48e85ca518d5, type: 2}
+  - {fileID: 11400000, guid: e332f489323fcde418958e12656586e2, type: 2}
+  - {fileID: 11400000, guid: 26d12c158e6323647813b99350e970e3, type: 2}
+  - {fileID: 11400000, guid: 9387a343635996f4bb676cb90acba080, type: 2}
+  - {fileID: 11400000, guid: bfda6f92d72c8e14fa2ba80ef17d7577, type: 2}
+  - {fileID: 11400000, guid: d39538c6e1a3e054fb5703eb7213e6f6, type: 2}

@@ -23,6 +23,7 @@ public class DialTrig : MonoBehaviour
     public bool aDialogueQuest;
     public bool shop;
     public bool isForLaunching;
+    public bool isForSightseeing;
 
     public QuestGiver theQuest;
 

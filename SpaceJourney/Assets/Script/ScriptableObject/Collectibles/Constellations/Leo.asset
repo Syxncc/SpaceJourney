@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Leo
   m_EditorClassIdentifier: 
-  name: 
+  name: Leo
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: b8a8e6dcbc42a4b4b98b278f65fafdc0, type: 2}
+  - {fileID: 11400000, guid: 6d7a299b9f62a274293660a23c3bf0ee, type: 2}
+  - {fileID: 11400000, guid: 71966ff5981a0ec42a0359a3b725efa6, type: 2}
+  - {fileID: 11400000, guid: 1d3edcd8090e8aa48b7259e94e56a36c, type: 2}
+  - {fileID: 11400000, guid: 07e3f93e5ca77e1458cd4b5b5804e733, type: 2}
+  - {fileID: 11400000, guid: edb732b1acd0b4144ad633674ca2ee04, type: 2}
+  - {fileID: 11400000, guid: 7c85caec3b27afe40a07c88d841b57e7, type: 2}
+  - {fileID: 11400000, guid: 74ff32c05c8de804b89dc84917477685, type: 2}
+  - {fileID: 11400000, guid: 361a7a238076b604581496256066d795, type: 2}

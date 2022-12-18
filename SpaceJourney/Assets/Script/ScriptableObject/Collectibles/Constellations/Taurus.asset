@@ -12,5 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107982f4385aa1a46a20a44147342688, type: 3}
   m_Name: Taurus
   m_EditorClassIdentifier: 
-  name: 
+  name: Taurus
   isUnlockCollectible: 0
+  constellationDotProfiles:
+  - {fileID: 11400000, guid: 127c44e4b24569e4a8fd1773972ef135, type: 2}
+  - {fileID: 11400000, guid: 1c80183e6774a5045a676186c8535db4, type: 2}
+  - {fileID: 11400000, guid: 80410ceeb8a3f7c479cb9b81fa46af0c, type: 2}
+  - {fileID: 11400000, guid: 640700552eab7304fa55e6430ce8f9b3, type: 2}
+  - {fileID: 11400000, guid: 7f82635b201acb74d9ac2cedd3971401, type: 2}
+  - {fileID: 11400000, guid: 8cd3568016dec3a4aa70e478ddad0e38, type: 2}
+  - {fileID: 11400000, guid: b65bd224374ae554ca2791c3a2d98875, type: 2}
+  - {fileID: 11400000, guid: 9bdf15dd7aa7cd84c99cfecbe82abddb, type: 2}
+  - {fileID: 11400000, guid: eca023fa05b26d34093876ef13fa00a4, type: 2}
+  - {fileID: 11400000, guid: c935042d6787f584e89ac2b35b7e1d3f, type: 2}
+  - {fileID: 11400000, guid: 9ccc2067a3a4bed43b7486520057b616, type: 2}
+  - {fileID: 11400000, guid: e2bc29b5f5e0dac429638d50f888400c, type: 2}
+  - {fileID: 11400000, guid: bf872e980d5afa4448cdb6f303b2d25f, type: 2}
+  - {fileID: 11400000, guid: 9c1eaa9e615a47144a3fbe319b65429d, type: 2}

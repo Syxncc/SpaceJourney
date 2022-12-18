@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AsteroidBelt.unity
     guid: 3bc5938f468ab9844adcffc649106b40
+  - enabled: 1
+    path: Assets/Script/Scene/Constellation].unity
+    guid: ec76e0ece4086de4497fb7590f788c83
   m_configObjects: {}

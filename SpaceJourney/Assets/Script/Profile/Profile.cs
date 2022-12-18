@@ -36,6 +36,7 @@ public class Profile : ScriptableObject
     public float firingStaminaCost = 30f;
 
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if (name != "Player Profile")
@@ -43,6 +44,7 @@ public class Profile : ScriptableObject
             name = System.IO.Path.GetFileNameWithoutExtension(UnityEditor.AssetDatabase.GetAssetPath(this));
         }
     }
+#endif
 
     public Vector3 CharacterPosition()
     {
