@@ -45,7 +45,6 @@ public class Planet : Collectible
                 break;
             }
         }
-        Debug.LogError(isUnlockCollectible);
         return isUnlockCollectible && walk && sprint && jump && sprintStamina && jumpStamina && spaceshipBoost && spaceshipSpeed && spaceshipBulletOverheating;
     }
 

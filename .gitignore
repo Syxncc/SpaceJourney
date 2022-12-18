@@ -60,3 +60,5 @@ crashlytics-build.properties
 
 *.dwlt
 
+SpaceJourney/UserSettings/EditorUserSettings.asset
+SpaceJourney/UserSettings/Layouts/CurrentMaximizeLayout.dwlt

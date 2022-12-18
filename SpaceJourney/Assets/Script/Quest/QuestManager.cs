@@ -13,15 +13,6 @@ public class QuestManager : MonoBehaviour
         {
             instance = this;
 
-            if (GameManager.instance != null)
-            {
-                QuestSequence playerQuest = GameManager.instance.playerQuest;
-                if (CurrentQuest == null && playerQuest.currentQuestIndex != 0 && playerQuest.currentQuestIndex < playerQuest.questSequence.Length - 1)
-                {
-                    CurrentQuest = playerQuest.questSequence[playerQuest.currentQuestIndex];
-                    CurrentQuest.InitializeQuest();
-                }
-            }
         }
     }
     public GameObject questUI;
@@ -36,6 +27,20 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.instance != null)
+        {
+            QuestSequence playerQuest = GameManager.instance.playerQuest;
+            Debug.LogError(CurrentQuest.CurrentAmount.Length);
+            if (playerQuest.currentQuestIndex != 0 && playerQuest.currentQuestIndex < playerQuest.questSequence.Length)
+            {
+                Debug.LogError("I detected the asd");
+                if (CurrentQuest == null)
+                {
+                    CurrentQuest = playerQuest.questSequence[playerQuest.currentQuestIndex];
+                }
+                CurrentQuest.InitializeQuest();
+            }
+        }
     }
 
     public void SetQuestUI(QuestBase newQuest)

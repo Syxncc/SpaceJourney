@@ -13,12 +13,9 @@ TagManager:
   - UpgradeNPC
   - TradeNPC
   - LaunchNPC
-  - Earth
-  - Mercury
-  - Venus
-  - Mars
-  - Asteroid Belt
   - Planets
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -27,7 +24,7 @@ TagManager:
   - Water
   - UI
   - NPC
-  - 
+  - Unwalkable
   - 
   - 
   - 

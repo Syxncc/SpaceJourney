@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -281,6 +282,15 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC")
         {
             interactive = true;
+        }
+
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Enemy")
+        {
+            GameManager.instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

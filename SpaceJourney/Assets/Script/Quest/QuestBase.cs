@@ -52,6 +52,10 @@ public class QuestBase : ScriptableObject
                 QuestManager.instance.SetQuestUI(playerQuest.questSequence[playerQuest.currentQuestIndex]);
             }
         }
+        else
+        {
+            playerQuest.isQuestDone = true;
+        }
 
         // if (isDelayingNotification)
         // {

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Player Profile
   m_EditorClassIdentifier: 
   name: Player Profile
-  positionX: 130.66875
-  positionY: -12.132131
-  positionZ: 50.347126
-  currentScene: -1
-  playergold: 10050
+  positionX: -850
+  positionY: 10.185934
+  positionZ: -223
+  currentScene: 5
+  playergold: 11200
   playerbluegem: 1
   playergreengem: 5
   playerredgem: 10
