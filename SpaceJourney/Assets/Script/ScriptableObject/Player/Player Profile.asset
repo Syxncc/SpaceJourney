@@ -25,7 +25,7 @@ MonoBehaviour:
   currentMaxXP: 1750
   currentXP: 1340
   jumpHeight: 5
-  walkingSpeed: 30
+  walkingSpeed: 10
   sprintingSpeed: 20
   regenCost: 5
   decreaseCostOvertime: 15

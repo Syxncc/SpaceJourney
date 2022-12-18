@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31469443, g: 0.08117804, b: 0.06770011, a: 1}
+  m_IndirectSpecularColor: {r: 0.31469998, g: 0.081188396, b: 0.06770856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1080,9 +1080,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3919627425396145809, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 246
+      objectReference: {fileID: 0}
     - target: {fileID: 3919627425396145810, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919627425396145820, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1563790141}
+    - target: {fileID: 3919627425396145820, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1563790141}
+    - target: {fileID: 3919627425396145820, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919627425396145820, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sprint
       objectReference: {fileID: 0}
     - target: {fileID: 3919627425510853776, guid: d06ebcf5d056db84eaad25b135bd811c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9335,7 +9355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8403565956473278784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -860.05, y: -3.06, z: -240.33}
+  m_LocalPosition: {x: -860.05, y: -2.39, z: -240.33}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
