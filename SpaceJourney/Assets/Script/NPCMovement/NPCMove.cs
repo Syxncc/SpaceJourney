@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class NPCMove : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
+    private Animator animator;
 
     public Transform target;
 
@@ -21,6 +22,7 @@ public class NPCMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (idlePath.Length > 0)
         {
@@ -34,6 +36,7 @@ public class NPCMove : MonoBehaviour
         if (target != null)
         {
             navMeshAgent.SetDestination(target.position);
+            animator.SetBool("isMoving", true);
         }
         else if (idlePath.Length > 0)
         {
@@ -45,6 +48,7 @@ public class NPCMove : MonoBehaviour
     {
         if (isIdle)
         {
+            animator.SetBool("isMoving", false);
             if (timeLeft <= 0)
             {
                 int idleTime = Random.Range(3, selectedIdleTime);
@@ -60,6 +64,7 @@ public class NPCMove : MonoBehaviour
         {
             if (currentPosition != null)
             {
+                animator.SetBool("isMoving", true);
                 if (Vector3.Distance(currentPosition.position, transform.position) <= 6)
                 {
                     IsIdle();
