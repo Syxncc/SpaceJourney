@@ -284,15 +284,20 @@ public class PlayerController : MonoBehaviour
             interactive = true;
         }
 
-    }
-
-    public void OnCollisionEnter(Collision other)
-    {
-        if (other.collider.tag == "Enemy")
+        if (other.GetComponent<Collider>().tag == "Enemy")
         {
             GameManager.instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
         }
+
     }
+
+    // public void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.collider.tag == "Enemy")
+    //     {
+    //         GameManager.instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
+    //     }
+    // }
 
     public void OnTriggerExit(Collider other)
     {

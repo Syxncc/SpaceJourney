@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86564ef82ddbada488e52110606a45f7, type: 3}
-  m_Name: Player Profile
+  m_Name: Upgrade
   m_EditorClassIdentifier: 
-  name: Player Profile
-  positionX: -90
-  positionY: -8.9
-  positionZ: -148.7
-  currentScene: -1
-  playergold: 1000
-  playerbluegem: 0
+  name: Upgrade
+  positionX: 0
+  positionY: 0
+  positionZ: 0
+  currentScene: 0
+  playergold: 10000
+  playerbluegem: 1
   playergreengem: 5
   playerredgem: 10
-  playerLevel: 17
-  currentMaxXP: 1000
+  playerLevel: 0
+  currentMaxXP: 100
   currentXP: 0
-  jumpHeight: 10
-  walkingSpeed: 20
-  sprintingSpeed: 30
+  jumpHeight: 0.7
+  walkingSpeed: 10
+  sprintingSpeed: 20
   regenCost: 5
   decreaseCostOvertime: 15
   jumpCost: 10
