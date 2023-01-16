@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Script/Scene/Constellation].unity
     guid: ec76e0ece4086de4497fb7590f788c83
+  - enabled: 1
+    path: Assets/Scenes/JupiterScene.unity
+    guid: a9e14d4ceb943564baddad3da6fa26a3
+  - enabled: 1
+    path: Assets/Scenes/SaturnScene.unity
+    guid: de39f082f8c25174fbcae5958f9518c9
+  - enabled: 1
+    path: Assets/Scenes/UranusScene.unity
+    guid: 115f4d53291729c4a8b3813d80a621e5
+  - enabled: 1
+    path: Assets/Scenes/NeptuneScene.unity
+    guid: bdc626cad5a592547abd98659854391b
   m_configObjects: {}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Profile", menuName = "ScriptableObject/Profile")]
+[CreateAssetMenu(fileName = "Profile", menuName = "ScriptableObject/Profile/Base")]
 public class Profile : ScriptableObject
 {
     public string name = "";
@@ -11,11 +11,19 @@ public class Profile : ScriptableObject
     public float positionY = 0.0f;
     public float positionZ = 0.0f;
     public int currentScene = 0;
+
+
+    public float spacePositionX = 0.0f;
+    public float spacePositionY = 0.0f;
+    public float spacePositionZ = 0.0f;
     public int playergold = 10000;
     public int playerbluegem = 1;
     public int playergreengem = 5;
     public int playerredgem = 10;
     public int playerLevel;
+
+    public int currentMaxHP = 100;
+    private int currentHP;
 
     public int currentMaxXP = 100;
     public int currentXP;
@@ -46,8 +54,12 @@ public class Profile : ScriptableObject
     }
 #endif
 
-    public Vector3 CharacterPosition()
+    public Vector3 CharacterPosition(bool isInSpace)
     {
+        if (isInSpace)
+        {
+            return new Vector3(spacePositionX, spacePositionY, spacePositionZ);
+        }
         return new Vector3(positionX, positionY, positionZ);
     }
 

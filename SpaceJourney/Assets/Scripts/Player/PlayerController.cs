@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -82,6 +83,21 @@ public class PlayerController : MonoBehaviour
     private PlayerManager playerManager;
 
 
+    protected TouchField touchField;
+    protected float InputRotationX;
+    protected float InputRotationY;
+    public float RotationSpeed = 10;
+    protected Vector3 CharacterPivot;
+    protected Vector3 LookDirection;
+    public Vector3 CameraPivot;
+    public float CameraDistance;
+    public CinemachineFreeLook cinemachineFreeLook;
+
+    private Vector3 characterForward;
+    private Vector3 characterLeft;
+
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
 
     private void Awake()
     {
@@ -120,15 +136,14 @@ public class PlayerController : MonoBehaviour
 
         interactbtn.SetActive(false);
         interactive = false;
-
+        touchField = FindObjectOfType<TouchField>();
+        // touchField.UseFixedUpdate = true;
     }
 
     void Update()
     {
-        // staminaBar.maxValue = playerManager.playerProfile.maxStamina;
-
-
         staminaBar.value = currentStamina;
+        // staminaBar.maxValue = playerManager.playerProfile.maxStamina;
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -143,9 +158,17 @@ public class PlayerController : MonoBehaviour
             movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
 
+        //Touch Input
+        // InputRotationX = InputRotationX + touchField.TouchDist.x * RotationSpeed * Time.deltaTime % 360f * Camera.main.transform.eulerAngles.y;
+        // InputRotationY = Mathf.Clamp(InputRotationY - touchField.TouchDist.y * RotationSpeed * Time.deltaTime, -88f, 88f);
+        // characterForward = Quaternion.AngleAxis(InputRotationX, Vector3.up) * Vector3.forward;
+        // characterLeft = Quaternion.AngleAxis(InputRotationX + 90, Vector3.up) * Vector3.forward;
+        // var runDirection = characterForward * (Input.GetAxisRaw("Vertical") + movementInput.y) + characterLeft * (Input.GetAxisRaw("Horizontal") + movementInput.x);
+        // LookDirection = Quaternion.AngleAxis(InputRotationY, characterLeft) * characterForward;
 
         //move to the direction base on the camera's facing
-        move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
+        // move = (cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x);
+        // move = runDirection;
 
         //Sprinting
         if (isSprinting && currentStamina > 0)
@@ -161,33 +184,45 @@ public class PlayerController : MonoBehaviour
                 StaminaOvertime(true);
             }
         }
+
+        Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y).normalized;
+        if (direction.magnitude >= 0.1f)
+        {
+        }
+
         //avoid moving on y axis 
-        move.y = 0f;
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
-
-        if (move != Vector3.zero)
+        // move.y = 0f;
+        if (direction.magnitude >= 0.1f)
         {
 
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            move = moveDir;
+            controller.Move(move * Time.deltaTime * playerSpeed);
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+        if (move != Vector3.zero)
+        {
             gameObject.transform.forward = move;
             if (playerInput.PlayerMain.Jump.triggered)
             {
-
-                animator.SetBool("isMoving", false);
                 animator.SetBool("isJumping", true);
-
             }
             else
             {
                 animator.SetBool("isJumping", false);
-                animator.SetBool("isMoving", true);
             }
 
 
 
-
-            Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
-            child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
+            // Quaternion rotation = Quaternion.Euler(new Vector3(child.localEulerAngles.x, cameraMain.localEulerAngles.y, child.localEulerAngles.z));
+            // child.rotation = Quaternion.Lerp(child.rotation, rotation, Time.deltaTime * rotationSpeed);
 
         }
         else if (move == Vector3.zero)
@@ -277,6 +312,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        // Camera.main.transform.position = (transform.position + CharacterPivot) - LookDirection * CameraDistance;
+        // Camera.main.transform.rotation = Quaternion.LookRotation(LookDirection, Vector3.up);
+
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "NPC" || other.tag == "UpgradeNPC" || other.tag == "TradeNPC" || other.tag == "LaunchNPC")
@@ -286,7 +328,15 @@ public class PlayerController : MonoBehaviour
 
         if (other.GetComponent<Collider>().tag == "Enemy")
         {
-            GameManager.instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
+            if (GameManager.instance.countdownTimer == null)
+            {
+                GameManager.instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                GameManager.instance.ChangeMessagePopupPanel(true, null, true);
+            }
         }
 
     }

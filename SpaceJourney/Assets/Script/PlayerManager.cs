@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
                 GameManager.instance.playerQuest.isNewGame = false;
                 GameManager.instance.playerQuest.isQuestDone = false;
                 QuestManager.instance.SetQuestUI(GameManager.instance.playerQuest.questSequence[0]);
-                DialMan.instance.EnterDialogueMode(story, storyImages);
+                DialMan.instance.EnterDialogueMode(story, storyImages, null);
             }
             else
             {

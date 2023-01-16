@@ -30,6 +30,8 @@ public class DialMan : MonoBehaviour
     private Texture[] storyImages;
     private int currentStoryImageIndex = 0;
 
+    private GameObject startPanel;
+
 
     public bool isTerrence = false;
 
@@ -85,9 +87,10 @@ public class DialMan : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON, StoryImages storyImages)
+    public void EnterDialogueMode(TextAsset inkJSON, StoryImages storyImages, GameObject startObject)
     {
         animator.SetBool("isOpen", true);
+        startPanel = startObject;
 
         if (storyImages != null)
         {
@@ -106,10 +109,13 @@ public class DialMan : MonoBehaviour
     {
         if (quest != null)
         {
+            // if (QuestManager.instance.CompareQuest(quest, 0) || QuestManager.instance.CompareQuest(quest, -1))
+            // {
             Debug.LogError("The NPC have quest" + quest.name);
             QuestManager.instance.SetQuestUI(quest);
             ControlUI.SetActive(false);
-            trigs.tutorials();
+            trigs?.tutorials();
+            // }
         }
         else
         {
@@ -117,12 +123,10 @@ public class DialMan : MonoBehaviour
             {
                 imagesStoryPanel.SetActive(false);
             }
-            ControlUI.SetActive(true);
             if (trigs != null)
             {
                 if (trigs.isForLaunching)
                 {
-
                     GameManager.instance.ChangeScene(2);
                 }
                 else if (trigs.isForSightseeing)
@@ -132,15 +136,19 @@ public class DialMan : MonoBehaviour
                 }
             }
         }
+        ControlUI.SetActive(true);
 
-        animator.SetBool("isOpen", false);
-        dialogueIsPlaying = false;
-
-
+        if (GameManager.instance.countdownTimer != null)
+        {
+            GameManager.instance.countdownTimer.SetActiveObject(false);
+        }
         if (GameManager.instance.onTalkNPCCallback != null && trigs != null)
         {
             GameManager.instance.onTalkNPCCallback.Invoke(trigs.profile);
         }
+
+        animator.SetBool("isOpen", false);
+        dialogueIsPlaying = false;
 
     }
 

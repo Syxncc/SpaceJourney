@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Venus
   m_EditorClassIdentifier: 
   name: Venus
-  isUnlockCollectible: 0
-  planetScene: 5
+  isUnlockCollectible: 1
+  constellationDotProfiles: []
+  planetScene: 11
   planetRequirement:
     walk: 0
     sprint: 0

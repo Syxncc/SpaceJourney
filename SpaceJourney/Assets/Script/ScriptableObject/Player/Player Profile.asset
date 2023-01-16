@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: Player Profile
   m_EditorClassIdentifier: 
   name: Player Profile
-  positionX: -90
-  positionY: -8.9
-  positionZ: -148.7
-  currentScene: -1
-  playergold: 1000
-  playerbluegem: 0
-  playergreengem: 5
-  playerredgem: 10
-  playerLevel: 17
-  currentMaxXP: 1000
-  currentXP: 0
+  positionX: -46.00771
+  positionY: -51.741093
+  positionZ: 39.626
+  currentScene: 1
+  playergold: 24100
+  playerbluegem: 4
+  playergreengem: 14
+  playerredgem: 25
+  playerLevel: 31
+  currentMaxHP: 100
+  currentMaxXP: 2400
+  currentXP: 250
   jumpHeight: 10
   walkingSpeed: 20
   sprintingSpeed: 30

@@ -55,21 +55,34 @@ public class QuestManager : MonoBehaviour
         questXPReward.text = newQuest.rewards.xpReward.ToString();
     }
 
-    public void SetDoneQuest()
+    public void SetDoneAllQuest()
     {
-        if (GameManager.instance.isDoneQuest())
+        if (GameManager.instance.isDoneAllQuest())
         {
             questName.text = "Unavailable Quest";
             questDescription.text = "You have no available quest.";
+            questGoldReward.text = "0";
+            questXPReward.text = "0";
         }
         else
         {
             QuestSequence playerQuest = GameManager.instance.playerQuest;
             QuestBase newQuest = playerQuest.questSequence[playerQuest.currentQuestIndex];
+            Debug.LogError(newQuest.name);
             questName.text = newQuest.questName;
             questDescription.text = newQuest.questDescription;
             questGoldReward.text = newQuest.rewards.goldReward.ToString();
             questXPReward.text = newQuest.rewards.xpReward.ToString();
         }
+    }
+
+    public bool CompareQuest(QuestBase quest, int adjustIndex)
+    {
+        QuestSequence playerQuest = GameManager.instance.playerQuest;
+        if (playerQuest.currentQuestIndex + adjustIndex < playerQuest.questSequence.Length)
+        {
+            return quest.name == playerQuest.questSequence[playerQuest.currentQuestIndex + adjustIndex].name;
+        }
+        return false;
     }
 }

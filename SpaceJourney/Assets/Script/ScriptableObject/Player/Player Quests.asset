@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNewGame: 0
   isTravel: 0
-  currentQuestIndex: 0
+  currentQuestIndex: 4
   questSequence:
   - {fileID: 11400000, guid: 3377dc92a2428a24e8f64bf2f4829f63, type: 2}
   - {fileID: 11400000, guid: addfba45b9dbaa648b353960010934a3, type: 2}
@@ -25,5 +25,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: daddd1b068c24c94fbfa4e975a85a208, type: 2}
   - {fileID: 11400000, guid: c7f7c0a8f59e05b4b97e15ba4373f2f3, type: 2}
   - {fileID: 11400000, guid: a41e54febb68c5e4f89bc813d0cbbcc1, type: 2}
-  - {fileID: 11400000, guid: 5c48022d67b2fb345be108fd6aeea4fb, type: 2}
+  - {fileID: 11400000, guid: 4b107e94d89c5b24693760d74b745ebd, type: 2}
+  - {fileID: 11400000, guid: 866ea5e263de05548864f3ffc593e483, type: 2}
+  - {fileID: 11400000, guid: ec20c162e5dc3bb418fbc1915c468bc5, type: 2}
+  - {fileID: 11400000, guid: 69ae2bec8c5cc3f419e29a4de4d5c297, type: 2}
+  - {fileID: 11400000, guid: 4bb15facf341b694f89638eb8ad3764c, type: 2}
+  - {fileID: 11400000, guid: 3e1cbd3bbf4ef884499936f226e3458e, type: 2}
+  - {fileID: 11400000, guid: 4ba012a71311d364db29179d7eeb97c3, type: 2}
+  - {fileID: 11400000, guid: 21870ccf67deea04998d5f24c466e36f, type: 2}
+  - {fileID: 11400000, guid: fd7fed226bbc5a34e95c8f73cceacfd8, type: 2}
+  - {fileID: 11400000, guid: e82845c8b820552418961585d1593bf5, type: 2}
   isQuestDone: 0

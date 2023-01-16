@@ -17,7 +17,7 @@ public class QuestDestination : QuestBase
     public override void InitializeQuest()
     {
         RequiredAmount = new int[objectives.Length];
-        Debug.LogError("Quest Started!");
+        Debug.LogError("Quest Started! " + this.name);
         for (int i = 0; i < objectives.Length; i++)
         {
             RequiredAmount[i] = objectives[i].requiredAmount;

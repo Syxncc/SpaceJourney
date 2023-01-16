@@ -38,6 +38,7 @@ public class DialTrig : MonoBehaviour
     [SerializeField]
     public TextAsset inkJSON;
     public TextAsset defaultDialogue;
+    public bool isEvaluateTimer = false;
 
     private void Awake()
     {

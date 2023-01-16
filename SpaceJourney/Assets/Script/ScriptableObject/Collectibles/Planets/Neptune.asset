@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Neptune
   m_EditorClassIdentifier: 
   name: Neptune
-  isUnlockCollectible: 0
-  planetScene: 0
+  isUnlockCollectible: 1
+  constellationDotProfiles: []
+  planetScene: 11
   planetRequirement:
     walk: 0
     sprint: 0
@@ -24,4 +25,5 @@ MonoBehaviour:
     spaceshipBoost: 0
     spaceshipSpeed: 0
     spaceshipBulletOverheating: 0
-    collectibles: []
+    collectibles:
+    - {fileID: 11400000, guid: f62511191b1a1434ea3c946991d4dff7, type: 2}

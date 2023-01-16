@@ -66,6 +66,10 @@ public class DIalogueCol : MonoBehaviour
                 DialMan.instance.SetQuest(null);
                 inkJSONS = trig.defaultDialogue;
             }
+            if (trig.isEvaluateTimer)
+            {
+                GameManager.instance.ChangeMessagePopupPanel(true, null, true);
+            }
 
         }
         else if (other.tag == "TradeNPC")
@@ -124,7 +128,7 @@ public class DIalogueCol : MonoBehaviour
             {
                 DialMan.instance.dialogueUI.SetActive(true);
                 UI.SetActive(false);
-                DialMan.instance.EnterDialogueMode(inkJSONS, null);
+                DialMan.instance.EnterDialogueMode(inkJSONS, null, null);
             }
             else
             {

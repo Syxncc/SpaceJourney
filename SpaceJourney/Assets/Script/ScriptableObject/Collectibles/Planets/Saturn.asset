@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Saturn
   isUnlockCollectible: 0
-  planetScene: 0
+  constellationDotProfiles: []
+  planetScene: 9
   planetRequirement:
     walk: 0
     sprint: 0
@@ -24,4 +25,5 @@ MonoBehaviour:
     spaceshipBoost: 0
     spaceshipSpeed: 0
     spaceshipBulletOverheating: 0
-    collectibles: []
+    collectibles:
+    - {fileID: 11400000, guid: 8af976c066de6264c90cbb1e375584b2, type: 2}

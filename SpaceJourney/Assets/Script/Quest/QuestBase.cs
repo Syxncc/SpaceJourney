@@ -12,6 +12,9 @@ public class QuestBase : ScriptableObject
     public int[] CurrentAmount { get; set; }
     public int[] RequiredAmount { get; set; }
     public bool isAutoQuest = false;
+    public float maxTime = 0;
+    public float currentHighScore = 0;
+    public bool isQuestTimerObjective = false;
     private IEnumerator coroutine;
 
     [System.Serializable]
@@ -56,6 +59,7 @@ public class QuestBase : ScriptableObject
         {
             playerQuest.isQuestDone = true;
         }
+        GameManager.instance.ChangeMessagePopupPanel(false, this, false);
 
         // if (isDelayingNotification)
         // {

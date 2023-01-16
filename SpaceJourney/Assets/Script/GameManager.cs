@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public delegate void OnPushCallback(Profile profile);
     public OnPushCallback onPushCallback;
 
+    public delegate void OnItemDestroyCallback(Profile item);
+    public OnItemDestroyCallback onItemDestroyCallback;
+
     public RewardManager rewardManager;
     public PlayerManager playerManager;
     public ShopManager shopManager;
@@ -35,13 +38,22 @@ public class GameManager : MonoBehaviour
 
     public QuestSequence playerQuest;
     public Collectible[] collectibles;
+    public CountdownTimer countdownTimer;
     public Profile player;
+    public string title;
+    public string message;
 
     void Start()
     {
-        if (player.currentScene != -1 && !playerQuest.isTravel)
+        if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
         {
-            playerManager.playerBody.transform.position = player.CharacterPosition();
+            bool isInSpace = false;
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                Debug.LogError("I am inpsace");
+                isInSpace = true;
+            }
+            playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
             if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
             {
                 SceneManager.LoadScene(player.currentScene);
@@ -57,6 +69,7 @@ public class GameManager : MonoBehaviour
             notificationAnimator = notification.GetComponent<Animator>();
             notificationText = notification.GetComponent<TMP_Text>();
         }
+        countdownTimer = GetComponent<CountdownTimer>();
     }
 
     public void PopUpNotification(string message)
@@ -98,7 +111,7 @@ public class GameManager : MonoBehaviour
         player.firingStaminaCost = 30f;
     }
 
-    public bool isDoneQuest()
+    public bool isDoneAllQuest()
     {
         return playerQuest.isQuestDone;
     }
@@ -108,18 +121,68 @@ public class GameManager : MonoBehaviour
         // ui.SetActive(false);
         Debug.LogError("Launching");
         loadingScene.SetActive(true);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        playerQuest.isTravel = true;
+        if (sceneIndex != -1)
+        {
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+            playerQuest.isTravel = true;
+        }
+        else
+        {
+            Debug.LogError("RESTART");
+            AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void SaveCurrentCharacterPosition()
     {
-        Vector3 playerPosition = playerManager.playerBody.transform.position;
-        player.positionX = playerPosition.x;
-        player.positionY = playerPosition.y;
-        player.positionZ = playerPosition.z;
-
         player.currentScene = SceneManager.GetActiveScene().buildIndex;
+        Vector3 playerPosition = playerManager.playerBody.transform.position;
+        if (player.currentScene != 2)
+        {
+            player.positionX = playerPosition.x;
+            player.positionY = playerPosition.y;
+            player.positionZ = playerPosition.z;
+        }
+        else
+        {
+            player.spacePositionX = playerPosition.x;
+            player.spacePositionY = playerPosition.y;
+            player.spacePositionZ = playerPosition.z;
+        }
+
+    }
+
+    public void IncreaseCount()
+    {
+        if (countdownTimer != null && countdownTimer.timerIsRunning)
+        {
+            countdownTimer.tempTimer += 1;
+            countdownTimer.tempCount += 1;
+            Debug.LogError(countdownTimer.tempCount);
+        }
+    }
+
+    public void ChangeMessagePopupPanel(bool popup, QuestBase quest, bool isLose)
+    {
+        if (countdownTimer != null)
+        {
+            if (quest != null)
+            {
+                if (quest.isQuestTimerObjective && QuestManager.instance.CompareQuest(quest, -1))
+                {
+                    popup = true;
+                    Debug.Log("Popup");
+                }
+            }
+            if (popup)
+            {
+                countdownTimer.ValidateCurrentHighScore(isLose);
+                if (isLose)
+                {
+                    countdownTimer.isStart = true;
+                }
+            }
+        }
     }
 
 }

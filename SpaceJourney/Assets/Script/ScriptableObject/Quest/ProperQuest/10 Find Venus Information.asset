@@ -9,20 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
-  m_Name: 10 Find Venus Planet Information
+  m_Script: {fileID: 11500000, guid: bfa817b392e44e84aba429993f690e41, type: 3}
+  m_Name: 10 Find Venus Information
   m_EditorClassIdentifier: 
   questID: 
-  questName: Find Venus Planet Formation
+  questName: Find Venus Information
   questDescription: Our mission for this planet is to find the information about
     the planet. Be careful, Venus is known as the hottest planet so be careful to
     fall in the planet. We can use the rock to avoid touching the planet.
-  isAutoQuest: 1
+  isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
   rewards:
     goldReward: 1000
-    xpReward: 300
+    xpReward: 150
     collectibles:
     - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
   objectives:
-  - requiredProfile: {fileID: 11400000, guid: 1811ea016ea6f3c41b8f0f898d9cbfe6, type: 2}
+  - requiredLocation: {fileID: 11400000, guid: 4241411d34c0ce44f93f101679dc4cda, type: 2}
     requiredAmount: 1

@@ -9,7 +9,6 @@ public class PlanetRequirement : MonoBehaviour
 {
 
     public GameObject spaceShip;
-    public GameObject planet;
 
     public GameObject requirements;
     public GameObject landButton;
@@ -76,24 +75,28 @@ public class PlanetRequirement : MonoBehaviour
             if (firstEnter)
             {
                 firstEnter = false;
-                Planet collidedPlanet = (Planet)other.GetComponent<PlanetStats>().planetProfile;
-                requirements.SetActive(true);
-                requirementTitle.text = collidedPlanet.name + " Level Requirement";
-                requirementText.text = collidedPlanet.GetPlanetRequirements();
-                Debug.Log(collidedPlanet.isAchieveRequirements());
-                if (collidedPlanet.isAchieveRequirements() || collidedPlanet.name == "Earth")
+                if (other.GetComponent<PlanetStats>() != null)
                 {
-                    Debug.LogError(collidedPlanet.name + " I achieve");
-                    currentPlanetScene = collidedPlanet.planetScene;
-                    landButton.SetActive(true);
-                    if (collidedPlanet.name == "Earth")
+                    Planet collidedPlanet = (Planet)other.GetComponent<PlanetStats>().planetProfile;
+                    requirements.SetActive(true);
+                    requirementTitle.text = collidedPlanet.name + " Level Requirement";
+                    requirementText.text = collidedPlanet.GetPlanetRequirements();
+                    Debug.Log(collidedPlanet.isAchieveRequirements());
+                    if (collidedPlanet.isAchieveRequirements() || collidedPlanet.name == "Earth")
                     {
-                        requirementText.text = "Welcome Back! Have fun in your travel around the space";
+                        GameManager.instance.SaveCurrentCharacterPosition();
+                        Debug.LogError(collidedPlanet.name + " I achieve");
+                        currentPlanetScene = collidedPlanet.planetScene;
+                        landButton.SetActive(true);
+                        if (collidedPlanet.name == "Earth")
+                        {
+                            requirementText.text = "Welcome Back! Have fun in your travel around the space";
+                        }
                     }
-                }
-                else
-                {
-                    landButton.SetActive(false);
+                    else
+                    {
+                        landButton.SetActive(false);
+                    }
                 }
             }
         }

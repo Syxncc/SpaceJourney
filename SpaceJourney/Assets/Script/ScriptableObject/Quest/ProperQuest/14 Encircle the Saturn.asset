@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa817b392e44e84aba429993f690e41, type: 3}
+  m_Name: 14 Encircle the Saturn
+  m_EditorClassIdentifier: 
+  questID: 
+  questName: Encircle Saturn
+  questDescription: You need to encircle the saturn and collect all points.
+  isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  rewards:
+    goldReward: 100
+    xpReward: 200
+    collectibles:
+    - {fileID: 11400000, guid: ed0f2ffd046581d479e77a6fe24fa6a3, type: 2}
+  objectives:
+  - requiredLocation: {fileID: 11400000, guid: 3b8bff6443d462d408f05af37b1d151b, type: 2}
+    requiredAmount: 6

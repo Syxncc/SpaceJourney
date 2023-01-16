@@ -28,7 +28,7 @@ public class QuestGiver : MonoBehaviour
 
     public void Update()
     {
-        if (CurrentQuest() && !GameManager.instance.isDoneQuest())
+        if (CurrentQuest() && !GameManager.instance.isDoneAllQuest())
         {
             distance = (transform.position - player.transform.position).magnitude;
             distanceText.text = distance.ToString("F1") + "m";

@@ -17,6 +17,7 @@ TagManager:
   - Enemy
   - Ground
   - Dot
+  - Bullet
   layers:
   - Default
   - TransparentFX

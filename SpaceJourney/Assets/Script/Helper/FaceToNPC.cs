@@ -14,7 +14,6 @@ public class FaceToNPC : MonoBehaviour
         npcDisplayName = GetComponent<TMP_Text>();
         npcDisplayName.text = npcProfile.name;
         cameraTransform = Camera.main.transform;
-
     }
 
     // Update is called once per frame

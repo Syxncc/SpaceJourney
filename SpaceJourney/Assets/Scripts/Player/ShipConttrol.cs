@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShipConttrol : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class ShipConttrol : MonoBehaviour
     private Vector2 movementInput;
     public int playerMove = 1;
 
+    public GameObject planet;
 
 
     private void Awake()
@@ -57,6 +59,7 @@ public class ShipConttrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.IgnoreCollision(planet.GetComponent<SphereCollider>(), GetComponent<SphereCollider>());
         playerManager = GameManager.instance.playerManager;
         boostcurrentStamina = playerManager.playerProfile.maxStamina;
         firecurrentStamina = playerManager.playerProfile.maxStamina;
@@ -66,6 +69,7 @@ public class ShipConttrol : MonoBehaviour
 
         fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
         fireStaminaBar.value = playerManager.playerProfile.maxStamina;
+        normalTrail.SetActive(true);
 
     }
 
@@ -73,8 +77,8 @@ public class ShipConttrol : MonoBehaviour
     void Update()
     {
         //Stamina
-        boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        // boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        // fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
 
         if (firecurrentStamina < playerManager.playerProfile.maxStamina)
         {
@@ -90,46 +94,27 @@ public class ShipConttrol : MonoBehaviour
 
         movementInput = shipInput.ShipMain.Move.ReadValue<Vector2>();
 
-        if (moveButton)
-        {
-            if (boostButton)
-            {
-
-                if (boostcurrentStamina >= 0)
-                {
-                    DecreaseStaminaBoostOvertime();
-                    boostTrail.SetActive(true);
-                    normalTrail.SetActive(false);
-
-                    thrust = playerManager.playerProfile.thrustBoosted;
-                }
-                else
-                {
-                    thrust = 1f;
-                    boostTrail.SetActive(false);
-                    normalTrail.SetActive(true);
-                }
-
-            }
-            else
-            {
-                thrust = 1f;
-                boostTrail.SetActive(false);
-                normalTrail.SetActive(true);
-            }
-
-        }
-        else
-        {
-            thrust = 0f;
-        }
-
+        // if (!moveButton)
+        // {
+        //     thrust = 0f;
+        // }
         transform.Rotate(-movementInput.y * lookRateSpeed * Time.deltaTime, movementInput.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
 
-        activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, thrust * forwardSpeed, forwardAcceleration * Time.deltaTime);
+        if (boostButton)
+        {
+            // if (boostcurrentStamina >= 0)
+            // {
+            //     DecreaseStaminaBoostOvertime();
 
-        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime * playerMove;
-
+            //     thrust = playerManager.playerProfile.thrustBoosted;
+            // }
+            // else
+            // {
+            thrust = 1f;
+            // }
+            activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, thrust * forwardSpeed, forwardAcceleration * Time.deltaTime);
+            transform.position += transform.forward * activeForwardSpeed * Time.deltaTime * playerMove;
+        }
 
         if (shootButton)
         {//shipInput.ShipMain.Shoot.triggered
@@ -154,22 +139,20 @@ public class ShipConttrol : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             shootButton = true;
         }
-
-        if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.F))
         {
             shootButton = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             boostButton = true;
         }
-
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             boostButton = false;
         }
@@ -182,15 +165,15 @@ public class ShipConttrol : MonoBehaviour
         return movementInput;
     }
 
-    public void HoldJoystick()
-    {
-        moveButton = true;
-    }
+    // public void HoldJoystick()
+    // {
+    //     moveButton = true;
+    // }
 
-    public void ReleaseJoystick()
-    {
-        moveButton = false;
-    }
+    // public void ReleaseJoystick()
+    // {
+    //     moveButton = false;
+    // }
 
     public void HoldShoot()
     {
@@ -198,19 +181,20 @@ public class ShipConttrol : MonoBehaviour
         shootButton = true;
     }
 
+    public void MoveFire(bool isFiring)
+    {
+        shootButton = isFiring;
+        boostButton = isFiring;
+    }
+
     public void ReleaseShoot()
     {
         shootButton = false;
     }
 
-    public void HoldBoost()
+    public void isBoost(bool isBoost)
     {
-        boostButton = true;
-    }
-
-    public void ReleaseBoost()
-    {
-        boostButton = false;
+        boostButton = isBoost;
     }
 
     private void RegenFireStamina(float regenCost)
@@ -235,5 +219,29 @@ public class ShipConttrol : MonoBehaviour
     }
 
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            if (GameManager.instance.countdownTimer == null)
+            {
+                GameManager.instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                if (other.GetComponent<Lifebar>() != null)
+                {
+                    other.GetComponent<Lifebar>().slider.gameObject.SetActive(false);
+                }
+                GameManager.instance.ChangeMessagePopupPanel(true, null, true);
+            }
+        }
 
+        if (other.gameObject.tag == "Planets")
+        {
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Debug.LogError("SADa");
+        }
+    }
 }
