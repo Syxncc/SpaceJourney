@@ -13906,6 +13906,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757608b82193232479bc098d3d5635af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2928509648200035301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2811561569828950078, guid: 09afff3681d8f3e478b8eae291b2e371, type: 3}
+  m_PrefabInstance: {fileID: 1126045436164914139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41245961939371b49b82534db139531b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2928509648848529663 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2811561569184682788, guid: 09afff3681d8f3e478b8eae291b2e371, type: 3}
@@ -15891,6 +15902,10 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 2028833260701722177, guid: 4adf013c42b849148baaefb96319bdcf, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 2928509648200035301}
     - target: {fileID: 2028833260701722177, guid: 4adf013c42b849148baaefb96319bdcf, type: 3}
       propertyPath: fireStaminaBar
       value: 

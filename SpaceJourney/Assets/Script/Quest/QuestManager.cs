@@ -30,7 +30,6 @@ public class QuestManager : MonoBehaviour
         if (GameManager.instance != null)
         {
             QuestSequence playerQuest = GameManager.instance.playerQuest;
-            Debug.LogError(CurrentQuest.CurrentAmount.Length);
             if (playerQuest.currentQuestIndex != 0 && playerQuest.currentQuestIndex < playerQuest.questSequence.Length)
             {
                 Debug.LogError("I detected the asd");

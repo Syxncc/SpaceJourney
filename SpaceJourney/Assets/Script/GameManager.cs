@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
             bool isInSpace = false;
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {
+                player.currentScene = 2;
                 Debug.LogError("I am inpsace");
                 isInSpace = true;
             }

@@ -32,7 +32,7 @@ public class ShipConttrol : MonoBehaviour
     public GameObject boostTrail;
     public GameObject normalTrail;
 
-    private PlayerManager playerManager;
+    public PlayerManager playerManager;
     private Vector2 movementInput;
     public int playerMove = 1;
 
@@ -59,8 +59,6 @@ public class ShipConttrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreCollision(planet.GetComponent<SphereCollider>(), GetComponent<SphereCollider>());
-        playerManager = GameManager.instance.playerManager;
         boostcurrentStamina = playerManager.playerProfile.maxStamina;
         firecurrentStamina = playerManager.playerProfile.maxStamina;
 
@@ -79,7 +77,7 @@ public class ShipConttrol : MonoBehaviour
         //Stamina
         // boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
         // fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-
+        Debug.LogError(playerManager.playerProfile.maxStamina);
         if (firecurrentStamina < playerManager.playerProfile.maxStamina)
         {
             RegenFireStamina(GameManager.instance.playerManager.playerProfile.regenCost);
