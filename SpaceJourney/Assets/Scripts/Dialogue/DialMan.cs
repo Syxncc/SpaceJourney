@@ -115,6 +115,7 @@ public class DialMan : MonoBehaviour
             QuestManager.instance.SetQuestUI(quest);
             ControlUI.SetActive(false);
             trigs?.tutorials();
+            trigs?.rewardUI();
             // }
         }
         else

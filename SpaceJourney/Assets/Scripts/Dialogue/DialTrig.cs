@@ -50,10 +50,15 @@ public class DialTrig : MonoBehaviour
     {
         npcName = profile.name;
     }
-    // public void rewardUI()
-    // {
-    //     RewardUI.SetActive(true);
-    // }
+
+    public void rewardUI()
+    {
+        if (RewardUI != null)
+        {
+            RewardUI.SetActive(true);
+        }
+        
+    }
 
     public void tutorials()
 

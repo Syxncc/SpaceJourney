@@ -21,8 +21,9 @@ MonoBehaviour:
 
     - Go to the other side of the maze.'
   isAutoQuest: 0
-  maxTime: 120
+  maxTime: 900
   currentHighScore: 0
+  isQuestTimerObjective: 0
   rewards:
     goldReward: 100
     xpReward: 200
