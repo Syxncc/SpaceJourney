@@ -77,7 +77,7 @@ public class ShipConttrol : MonoBehaviour
         //Stamina
         // boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
         // fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        Debug.LogError(playerManager.playerProfile.maxStamina);
+        // Debug.LogError(playerManager.playerProfile.maxStamina);
         if (firecurrentStamina < playerManager.playerProfile.maxStamina)
         {
             RegenFireStamina(GameManager.instance.playerManager.playerProfile.regenCost);
@@ -120,7 +120,6 @@ public class ShipConttrol : MonoBehaviour
 
             if (firecurrentStamina >= 0)
             {
-
                 DecreaseStaminaFiringOvertime();
                 var bullet1 = Instantiate(bulletPrefab, bulletSpawnPoint1.position, bulletSpawnPoint1.rotation);
                 bullet1.GetComponent<Rigidbody>().velocity = bulletSpawnPoint1.forward * bulletSpeed;

@@ -159,7 +159,6 @@ public class GameManager : MonoBehaviour
         {
             countdownTimer.tempTimer += 1;
             countdownTimer.tempCount += 1;
-            Debug.LogError(countdownTimer.tempCount);
         }
     }
 
@@ -167,6 +166,7 @@ public class GameManager : MonoBehaviour
     {
         if (countdownTimer != null)
         {
+            Debug.LogError(popup);
             if (quest != null)
             {
                 if (quest.isQuestTimerObjective && QuestManager.instance.CompareQuest(quest, -1))

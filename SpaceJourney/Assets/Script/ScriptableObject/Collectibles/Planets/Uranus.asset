@@ -16,6 +16,7 @@ MonoBehaviour:
   isUnlockCollectible: 1
   constellationDotProfiles: []
   planetScene: 10
+  adjustSpeedMultiplier: 0
   planetRequirement:
     walk: 0
     sprint: 0

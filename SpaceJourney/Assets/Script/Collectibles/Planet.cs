@@ -6,6 +6,7 @@ using UnityEngine;
 public class Planet : Collectible
 {
     public int planetScene;
+    public float adjustSpeedMultiplier;
     [System.Serializable]
     public class PlanetRequirement
     {

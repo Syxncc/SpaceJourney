@@ -51,6 +51,7 @@ public class CountdownTimer : MonoBehaviour
                         Debug.Log("Time has run out!");
                         ValidateCurrentHighScore(true);
                         tempTimer = 0;
+                        isStart = true;
                         timerIsRunning = false;
                     }
                 }

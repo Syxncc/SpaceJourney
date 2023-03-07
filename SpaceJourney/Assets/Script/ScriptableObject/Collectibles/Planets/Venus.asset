@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Venus
   isUnlockCollectible: 1
   constellationDotProfiles: []
-  planetScene: 11
+  planetScene: 5
+  adjustSpeedMultiplier: 0.9499
   planetRequirement:
     walk: 0
     sprint: 0

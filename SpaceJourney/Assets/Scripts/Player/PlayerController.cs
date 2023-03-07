@@ -99,6 +99,8 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    public float  adjustSpeedByPlanet;
+
     private void Awake()
     {
         playerInput = new Player();
@@ -137,7 +139,18 @@ public class PlayerController : MonoBehaviour
         interactbtn.SetActive(false);
         interactive = false;
         touchField = FindObjectOfType<TouchField>();
+        adjustSpeedByPlanet = AdjustSpeedByPlanet();
         // touchField.UseFixedUpdate = true;
+    }
+
+    float AdjustSpeedByPlanet(){
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        foreach(Planet planet in GameManager.instance.collectibles){
+            if(planet.planetScene == currentScene){
+                return planet.adjustSpeedMultiplier;
+            }
+        }
+        return 1;
     }
 
     void Update()
@@ -184,11 +197,7 @@ public class PlayerController : MonoBehaviour
                 StaminaOvertime(true);
             }
         }
-
         Vector3 direction = new Vector3(movementInput.x, 0f, movementInput.y).normalized;
-        if (direction.magnitude >= 0.1f)
-        {
-        }
 
         //avoid moving on y axis 
         // move.y = 0f;
@@ -200,7 +209,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             move = moveDir;
-            controller.Move(move * Time.deltaTime * playerSpeed);
+            controller.Move(move * Time.deltaTime * playerSpeed * adjustSpeedByPlanet);
             animator.SetBool("isMoving", true);
         }
         else
@@ -261,7 +270,7 @@ public class PlayerController : MonoBehaviour
                 {
                     AudioManager.instance.PlaySFX("Jump");
                     DecreaseStaminaNormal(playerManager.playerProfile.jumpCost);
-                    playerVelocity.y += Mathf.Sqrt(playerManager.playerProfile.jumpHeight * -2.0f * gravityValue);
+                    playerVelocity.y += Mathf.Sqrt(playerManager.playerProfile.jumpHeight*adjustSpeedByPlanet * -2.0f * gravityValue);
 
                     if (move != Vector3.zero)
                     {

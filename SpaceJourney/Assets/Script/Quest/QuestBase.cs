@@ -59,7 +59,7 @@ public class QuestBase : ScriptableObject
         {
             playerQuest.isQuestDone = true;
         }
-        GameManager.instance.ChangeMessagePopupPanel(false, this, false);
+        GameManager.instance.ChangeMessagePopupPanel(true, this, false);
 
         // if (isDelayingNotification)
         // {

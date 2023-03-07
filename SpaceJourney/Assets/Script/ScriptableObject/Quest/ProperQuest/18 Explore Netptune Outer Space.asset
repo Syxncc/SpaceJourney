@@ -16,10 +16,14 @@ MonoBehaviour:
   questName: Explore Netptune Outer Space
   questDescription: Explore Netptune Outer Space
   isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
   rewards:
     goldReward: 100
     xpReward: 100
-    collectibles: []
+    collectibles:
+    - {fileID: 11400000, guid: a15e4eb64384a634e9181bbb93baad16, type: 2}
   objectives:
   - requiredLocation: {fileID: 11400000, guid: 55e18cf2854012a43916a2a1acc06070, type: 2}
     requiredAmount: 1

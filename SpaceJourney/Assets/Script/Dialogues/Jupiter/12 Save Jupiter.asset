@@ -18,6 +18,9 @@ MonoBehaviour:
     of Earth. It is large that it can catch all comets and meteors that are going
     to Earth. Now your mission is to destroy 10 Meteors coming to earth
   isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 2
+  isQuestTimerObjective: 0
   rewards:
     goldReward: 100
     xpReward: 100
@@ -25,4 +28,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8af976c066de6264c90cbb1e375584b2, type: 2}
   objectives:
   - requiredProfile: {fileID: 11400000, guid: a29c14e21994e5b4c8570a2523d6d709, type: 2}
-    requiredAmount: 5
+    requiredAmount: 3

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mars
   isUnlockCollectible: 0
+  constellationDotProfiles: []
   planetScene: 3
+  adjustSpeedMultiplier: 0.53
   planetRequirement:
     walk: 0
     sprint: 0

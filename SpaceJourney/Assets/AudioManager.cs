@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
+    public Slider musicSlider, sfxSlider;
+    bool muteMusic, muteSfx;
 
     private void Awake()
     {
@@ -57,7 +60,32 @@ public class AudioManager : MonoBehaviour
         else
         {
             sfxSource.PlayOneShot(s.clip);
-           
+        }
+    }
+
+    public void ChangeVolumeSFX(bool mute){
+        if(mute){
+            muteSfx = !muteSfx;
+        }
+        if(muteSfx){
+            sfxSource.volume = 0;
+            sfxSlider.gameObject.SetActive(false);
+        }else{
+            sfxSlider.gameObject.SetActive(true);
+            sfxSource.volume = sfxSlider.value;
+        }
+    }
+
+    public void ChangeVolumeMusic(bool mute){
+        if(mute){
+            muteMusic = !muteMusic;
+        }
+        if(muteMusic){
+            musicSource.volume = 0;
+            musicSlider.gameObject.SetActive(false);
+        }else{
+            musicSlider.gameObject.SetActive(true);
+            musicSource.volume = musicSlider.value;
         }
     }
    

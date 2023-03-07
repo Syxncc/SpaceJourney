@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 172864225}
   m_Layer: 0
   m_Name: Uranus Enemy (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2226,7 +2226,7 @@ GameObject:
   - component: {fileID: 377218836}
   m_Layer: 0
   m_Name: Uranus Enemy (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3650,7 +3650,7 @@ GameObject:
   - component: {fileID: 537423778}
   m_Layer: 0
   m_Name: Uranus Enemy (9)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3663,7 +3663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537423775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -26.00002, y: -581.18805, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8535,7 +8535,7 @@ GameObject:
   - component: {fileID: 1036244786}
   m_Layer: 0
   m_Name: Uranus Enemy (8)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8548,7 +8548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036244783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 356.00012, y: -35.187996, z: 0.000030517578}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10950,7 +10950,7 @@ GameObject:
   - component: {fileID: 1443062104}
   m_Layer: 0
   m_Name: Uranus Enemy (6)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13207,7 +13207,7 @@ GameObject:
   - component: {fileID: 1730192886}
   m_Layer: 0
   m_Name: Uranus Enemy (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13755,10 +13755,14 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 4ba012a71311d364db29179d7eeb97c3, type: 2}
     - target: {fileID: 1126045436349014575, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: limitCount
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1126045436349014575, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: timeCountType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126045436349014575, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: isUsingLimitCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1126045437187013536, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
@@ -17767,7 +17771,7 @@ GameObject:
   - component: {fileID: 2093985639}
   m_Layer: 0
   m_Name: Uranus Enemy (10)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17780,7 +17784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093985636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -191.00002, y: 407.81198, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -17874,7 +17878,7 @@ GameObject:
   - component: {fileID: 2113554748}
   m_Layer: 0
   m_Name: Uranus Enemy (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17935,7 +17939,7 @@ GameObject:
   - component: {fileID: 2130212478}
   m_Layer: 0
   m_Name: Uranus Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17996,7 +18000,7 @@ GameObject:
   - component: {fileID: 2130522835}
   m_Layer: 0
   m_Name: Uranus Enemy (7)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

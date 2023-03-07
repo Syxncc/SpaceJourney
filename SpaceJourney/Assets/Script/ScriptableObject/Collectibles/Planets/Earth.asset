@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Earth
   isUnlockCollectible: 1
+  constellationDotProfiles: []
   planetScene: 1
+  adjustSpeedMultiplier: 1
   planetRequirement:
     walk: 0
     sprint: 0

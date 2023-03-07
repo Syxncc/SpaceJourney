@@ -1301,6 +1301,10 @@ PrefabInstance:
       propertyPath: startLocation.Array.data[5]
       value: 
       objectReference: {fileID: 10807440}
+    - target: {fileID: 1126045436349014575, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: isUsingLimitCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1126045437366119784, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
