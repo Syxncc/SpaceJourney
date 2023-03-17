@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: Player Profile
   m_EditorClassIdentifier: 
   name: Player Profile
-  positionX: -90.5
-  positionY: 1.8855667
-  positionZ: -145.74008
-  currentScene: 4
-  spacePositionX: -3539.791
-  spacePositionY: 138.1172
-  spacePositionZ: 197.22296
-  playergold: 10900
+  positionX: -300.20605
+  positionY: 522.2207
+  positionZ: -275.61395
+  currentScene: 2
+  spacePositionX: 8166.1816
+  spacePositionY: 251.39287
+  spacePositionZ: 696.209
+  playergold: 12700
   playerbluegem: 1
   playergreengem: 5
   playerredgem: 10
-  playerLevel: 5
+  playerLevel: 7
   currentMaxHP: 100
-  currentMaxXP: 550
-  currentXP: 0
-  jumpHeight: 0.7
-  walkingSpeed: 30
-  sprintingSpeed: 60
+  currentMaxXP: 750
+  currentXP: 50
+  jumpHeight: 7
+  walkingSpeed: 15
+  sprintingSpeed: 20
   regenCost: 5
   decreaseCostOvertime: 15
   jumpCost: 10

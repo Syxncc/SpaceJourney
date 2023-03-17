@@ -109,7 +109,7 @@ public class DialMan : MonoBehaviour
     {
         if (quest != null)
         {
-            // if (QuestManager.instance.CompareQuest(quest, 0) || QuestManager.instance.CompareQuest(quest, -1))
+            // if (QuestManager.instance.CompareQuest(quest, 0) || QuestManager.instance.CompareQuest(quest, 1))
             // {
             Debug.Log("The NPC have quest" + quest.name);
             QuestManager.instance.SetQuestUI(quest);

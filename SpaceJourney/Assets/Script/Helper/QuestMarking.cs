@@ -37,20 +37,29 @@ public class QuestMarking : MonoBehaviour
             }
             else if (profile != null)
             {
-                Debug.Log("Plant found");
                 if (questManager.CurrentQuest.GetType() == System.Type.GetType("QuestTalk"))
                 {
-                    Debug.Log("Plant found2");
+                    questMarking.SetActive(false);
                     QuestTalk quest = (QuestTalk)questManager.CurrentQuest;
                     for (int i = 0; i < quest.objectives.Length; i++)
                     {
-                        Debug.Log(quest.objectives[i].requiredProfile.name + " " + profile.name);
+                        // Debug.Log(quest.objectives[i].requiredProfile.name + " " + profile.name);
                         if (quest.objectives[i].requiredProfile.name == profile.name)
                         {
-                            Debug.Log(quest.CurrentAmount[i] + " " + quest.RequiredAmount[i]);
-                            if (quest.CurrentAmount[i] == quest.RequiredAmount[i])
+                            // Debug.Log(quest + " " + quest.CurrentAmount[i]);
+                            // // Debug.Log(quest.CurrentAmount[i] + " " + quest.RequiredAmount[i]);
+
+                            // Debug.Log("ARRAY " + i);
+                            if (quest.CurrentAmount.Length > i)
                             {
-                                questMarking.SetActive(false);
+                                if (quest.CurrentAmount[i] == quest.RequiredAmount[i])
+                                {
+                                    questMarking.SetActive(false);
+                                }
+                                else
+                                {
+                                    questMarking.SetActive(true);
+                                }
                             }
                             else
                             {

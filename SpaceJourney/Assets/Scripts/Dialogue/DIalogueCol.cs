@@ -106,6 +106,7 @@ public class DIalogueCol : MonoBehaviour
     {
 
 
+        AudioManager.instance.PlaySFX("Talk Button");
         UI.SetActive(false);
 
         if (isTradeNPC)

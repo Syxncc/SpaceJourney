@@ -7858,6 +7858,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 151.24219
       objectReference: {fileID: 0}
+    - target: {fileID: 759097226229393029, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 1126045435721938482, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7917,7 +7921,7 @@ PrefabInstance:
     - target: {fileID: 1126045437187013536, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: planetQuest
       value: 
-      objectReference: {fileID: 11400000, guid: fd7fed226bbc5a34e95c8f73cceacfd8, type: 2}
+      objectReference: {fileID: 11400000, guid: e82845c8b820552418961585d1593bf5, type: 2}
     - target: {fileID: 1126045437187013536, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: questObject
       value: 

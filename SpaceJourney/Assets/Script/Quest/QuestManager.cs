@@ -37,7 +37,12 @@ public class QuestManager : MonoBehaviour
                 {
                     CurrentQuest = playerQuest.questSequence[playerQuest.currentQuestIndex + 1];
                 }
+
+                // if (CurrentQuest != GameManager.instance.playerQuest.questSequence[GameManager.instance.playerQuest.currentQuestIndex])
+                // {
+                Debug.Log("Initiasdlasdih Here 2");
                 CurrentQuest.InitializeQuest();
+                // }
             }
         }
     }
@@ -50,7 +55,6 @@ public class QuestManager : MonoBehaviour
         acceptButton.SetActive(true);
         questName.text = newQuest.questName;
         string questObjectives = newQuest.goalObjectives;
-        Debug.Log(questObjectives);
         questDescription.text = newQuest.questDescription + "\n" + questObjectives;
         questGoldReward.text = newQuest.rewards.goldReward.ToString();
         questXPReward.text = newQuest.rewards.xpReward.ToString();
@@ -81,6 +85,8 @@ public class QuestManager : MonoBehaviour
     public bool CompareQuest(QuestBase quest, int adjustIndex)
     {
         QuestSequence playerQuest = GameManager.instance.playerQuest;
+        Debug.Log(playerQuest.questSequence[playerQuest.currentQuestIndex].name + " " + quest.name);
+
         if (playerQuest.currentQuestIndex + adjustIndex < playerQuest.questSequence.Length)
         {
             return quest.name == playerQuest.questSequence[playerQuest.currentQuestIndex + adjustIndex].name;

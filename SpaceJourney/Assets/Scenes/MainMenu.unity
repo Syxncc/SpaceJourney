@@ -4522,7 +4522,7 @@ MonoBehaviour:
   rewardManager: {fileID: 0}
   playerManager: {fileID: 0}
   shopManager: {fileID: 0}
-  loadingScene: {fileID: 0}
+  loadingScene: {fileID: 174327734}
   notification: {fileID: 0}
   playerQuest: {fileID: 11400000, guid: b0457cd516bb49c4e843fa730b7b60ee, type: 2}
   collectibles:

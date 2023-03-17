@@ -117,6 +117,7 @@ public class ShipConttrol : MonoBehaviour
         if (shootButton)
         {//shipInput.ShipMain.Shoot.triggered
 
+            AudioManager.instance.PlaySFX("Bullet");
 
             if (firecurrentStamina >= 0)
             {
@@ -133,7 +134,6 @@ public class ShipConttrol : MonoBehaviour
             }
 
         }
-
 
 
         if (Input.GetKeyDown(KeyCode.F))

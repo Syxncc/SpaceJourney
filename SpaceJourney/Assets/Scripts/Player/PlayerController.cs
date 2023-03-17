@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform body;
 
+    private bool isMoving = false;
+
     private void Awake()
     {
         playerInput = new Player();
@@ -218,9 +220,19 @@ public class PlayerController : MonoBehaviour
             move = moveDir;
             controller.Move(move * Time.deltaTime * playerSpeed * adjustSpeedByPlanet);
             animator.SetBool("isMoving", true);
+            if (!isMoving)
+            {
+                isMoving = true;
+                AudioManager.instance.PlayLoopSFX("Sprint");
+            }
         }
         else
         {
+            if (isMoving)
+            {
+                isMoving = false;
+                AudioManager.instance.StopSFXLoop("Sprint");
+            }
             animator.SetBool("isMoving", false);
         }
         if (move != Vector3.zero)

@@ -2073,9 +2073,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2153867540145407657, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153867540145407657, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153867540145407657, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 486.2707
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153867540145407657, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.2775
+      objectReference: {fileID: 0}
     - target: {fileID: 2294912057219687260, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_text
       value: Venus Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606995492531490092, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606995492531490092, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606995492531490092, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 90.6781
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606995492531490092, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.27755
       objectReference: {fileID: 0}
     - target: {fileID: 2832578888224116054, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_RootOrder
@@ -2155,19 +2187,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9926606
+      value: -0.9926606
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1209342
+      value: -0.12093426
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000004980865
+      value: 0.00000049819334
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000033034365
+      value: -0.00000033043028
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162607491875, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2257,6 +2289,22 @@ PrefabInstance:
       propertyPath: planetQuest
       value: 
       objectReference: {fileID: 11400000, guid: 4b107e94d89c5b24693760d74b745ebd, type: 2}
+    - target: {fileID: 5296044745761520161, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296044745761520161, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296044745761520161, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 910.30115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296044745761520161, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.2775
+      objectReference: {fileID: 0}
     - target: {fileID: 5765321831200192424, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.5
@@ -2335,7 +2383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890726863587689846, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6890726863934016046, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_AnchorMax.x

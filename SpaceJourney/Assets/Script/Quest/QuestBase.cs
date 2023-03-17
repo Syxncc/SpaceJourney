@@ -38,14 +38,13 @@ public class QuestBase : ScriptableObject
 
     public void SetObjectives(string goalObjectives)
     {
-        UpdateAllMarking();
         this.goalObjectives = goalObjectives;
+        UpdateAllMarking();
     }
 
     void UpdateAllMarking()
     {
         questMarking = FindObjectsOfType<QuestMarking>();
-        Debug.Log("All Marking" + questMarking.Length);
         foreach (QuestMarking item in questMarking)
         {
             item.UpdateMarking();
@@ -71,7 +70,7 @@ public class QuestBase : ScriptableObject
             Debug.Log(playerQuest.questSequence.Length + " " + playerQuest.currentQuestIndex);
             if (playerQuest.questSequence[playerQuest.currentQuestIndex].isAutoQuest)
             {
-                Debug.Log("Working");
+                // Debug.Log("Working");
                 QuestManager.instance.SetQuestUI(playerQuest.questSequence[playerQuest.currentQuestIndex]);
             }
         }

@@ -17,7 +17,11 @@ MonoBehaviour:
   questDescription: You have been found by the alien. Save yourself!
   isAutoQuest: 0
   maxTime: 300
-  currentHighScore: 0
+  currentHighScore: 295
+  isQuestTimerObjective: 0
+  goalObjectives: '- Destroy Alien (0/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 100

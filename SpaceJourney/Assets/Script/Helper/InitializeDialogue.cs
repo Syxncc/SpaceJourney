@@ -11,11 +11,12 @@ public class InitializeDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (QuestManager.instance.CompareQuest(planetQuest, 0))
         {
             planetQuest.InitializeQuest();
-            DialMan.instance.SetQuest(planetQuest);
         }
+        DialMan.instance.SetQuest(planetQuest);
         DialMan.instance.EnterDialogueMode(questDialogue, null, questObject);
     }
 

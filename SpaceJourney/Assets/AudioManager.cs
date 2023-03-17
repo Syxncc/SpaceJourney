@@ -29,14 +29,14 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex.Equals(0))
+        if (SceneManager.GetActiveScene().buildIndex.Equals(0))
         {
             PlayMusic("Main BG");
         }
-        
+
     }
 
-    public void PlayMusic(string name) 
+    public void PlayMusic(string name)
     {
         Sound s = Array.Find(musicSounds, x => x.name == name);
         if (s == null)
@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(string name) 
+    public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfxSounds, x => x.name == name);
         if (s == null)
@@ -60,33 +60,75 @@ public class AudioManager : MonoBehaviour
         else
         {
             sfxSource.PlayOneShot(s.clip);
+
         }
     }
 
-    public void ChangeVolumeSFX(bool mute){
-        if(mute){
+    public void PlayLoopSFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            sfxSource.clip = s.clip;
+            sfxSource.loop = true;
+            sfxSource.Play();
+
+        }
+    }
+
+    public void StopSFXLoop(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            sfxSource.clip = s.clip;
+            sfxSource.Stop();
+
+        }
+    }
+
+    public void ChangeVolumeSFX(bool mute)
+    {
+        if (mute)
+        {
             muteSfx = !muteSfx;
         }
-        if(muteSfx){
+        if (muteSfx)
+        {
             sfxSource.volume = 0;
             sfxSlider.gameObject.SetActive(false);
-        }else{
+        }
+        else
+        {
             sfxSlider.gameObject.SetActive(true);
             sfxSource.volume = sfxSlider.value;
         }
     }
 
-    public void ChangeVolumeMusic(bool mute){
-        if(mute){
+    public void ChangeVolumeMusic(bool mute)
+    {
+        if (mute)
+        {
             muteMusic = !muteMusic;
         }
-        if(muteMusic){
+        if (muteMusic)
+        {
             musicSource.volume = 0;
             musicSlider.gameObject.SetActive(false);
-        }else{
+        }
+        else
+        {
             musicSlider.gameObject.SetActive(true);
             musicSource.volume = musicSlider.value;
         }
     }
-   
+
 }

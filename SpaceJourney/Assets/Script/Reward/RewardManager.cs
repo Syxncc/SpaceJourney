@@ -24,6 +24,7 @@ public class RewardManager : MonoBehaviour
 
     public void ClaimRewards(QuestBase quest)
     {
+        AudioManager.instance.PlaySFX("Reward");
         string rewards = '"' + quest.name + "\" Completed\n";
         Debug.Log("I got a reward" + collectibles.Length + " " + quest.rewards.collectibles.Length);
         playerManager.playerProfile.playergold += quest.rewards.goldReward;
