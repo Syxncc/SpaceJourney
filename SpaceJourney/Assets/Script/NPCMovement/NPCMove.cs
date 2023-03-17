@@ -62,7 +62,7 @@ public class NPCMove : MonoBehaviour
             {
                 int idleTime = Random.Range(3, selectedIdleTime);
                 timeLeft = idleTime;
-                Debug.LogError(idleTime);
+                // Debug.LogError(idleTime);
             }
             else
             {
@@ -99,7 +99,7 @@ public class NPCMove : MonoBehaviour
     void IdleTime()
     {
         timeLeft -= Time.deltaTime;
-        Debug.LogError(timeLeft);
+        // Debug.LogError(timeLeft);
         if (timeLeft < 1)
         {
             IsIdle();

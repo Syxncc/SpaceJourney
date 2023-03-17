@@ -129,6 +129,7 @@ public class DIalogueCol : MonoBehaviour
                 DialMan.instance.dialogueUI.SetActive(true);
                 UI.SetActive(false);
                 DialMan.instance.EnterDialogueMode(inkJSONS, null, null);
+                
             }
             else
             {

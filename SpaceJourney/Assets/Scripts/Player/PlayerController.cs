@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
 
     public float  adjustSpeedByPlanet;
 
+    public Transform body;
+
     private void Awake()
     {
         playerInput = new Player();
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
         touchField = FindObjectOfType<TouchField>();
         adjustSpeedByPlanet = AdjustSpeedByPlanet();
         // touchField.UseFixedUpdate = true;
+        body.position = new Vector3(body.position.x, body.position.y - 2.6f, body.position.z);
     }
 
     float AdjustSpeedByPlanet(){
@@ -161,6 +164,7 @@ public class PlayerController : MonoBehaviour
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
+            animator.SetBool("isJumping", false);
             playerVelocity.y = 0f;
         }
 
@@ -222,10 +226,12 @@ public class PlayerController : MonoBehaviour
             if (playerInput.PlayerMain.Jump.triggered)
             {
                 animator.SetBool("isJumping", true);
+                
             }
             else
             {
                 animator.SetBool("isJumping", false);
+                
             }
 
 
@@ -255,9 +261,9 @@ public class PlayerController : MonoBehaviour
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
 
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isJumpSprinting", false);
-            animator.SetBool("isJumpMoving", false);
+            // animator.SetBool("isJumping", false);
+            // animator.SetBool("isJumpSprinting", false);
+            // animator.SetBool("isJumpMoving", false);
 
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
@@ -283,8 +289,7 @@ public class PlayerController : MonoBehaviour
                         }
                         else
                         {
-                            Debug.LogError("isJumpMoving");
-                            animator.SetBool("isJumpMoving", true);
+                            animator.SetBool("isJumping", true);
                         }
 
                     }
