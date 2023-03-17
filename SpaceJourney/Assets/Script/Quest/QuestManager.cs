@@ -32,10 +32,10 @@ public class QuestManager : MonoBehaviour
             QuestSequence playerQuest = GameManager.instance.playerQuest;
             if (playerQuest.currentQuestIndex != 0 && playerQuest.currentQuestIndex < playerQuest.questSequence.Length)
             {
-                Debug.LogError("I detected the asd");
+                Debug.Log("I detected the asd");
                 if (CurrentQuest == null)
                 {
-                    CurrentQuest = playerQuest.questSequence[playerQuest.currentQuestIndex];
+                    CurrentQuest = playerQuest.questSequence[playerQuest.currentQuestIndex + 1];
                 }
                 CurrentQuest.InitializeQuest();
             }
@@ -49,7 +49,9 @@ public class QuestManager : MonoBehaviour
         questUI.SetActive(true);
         acceptButton.SetActive(true);
         questName.text = newQuest.questName;
-        questDescription.text = newQuest.questDescription;
+        string questObjectives = newQuest.goalObjectives;
+        Debug.Log(questObjectives);
+        questDescription.text = newQuest.questDescription + "\n" + questObjectives;
         questGoldReward.text = newQuest.rewards.goldReward.ToString();
         questXPReward.text = newQuest.rewards.xpReward.ToString();
     }
@@ -67,9 +69,10 @@ public class QuestManager : MonoBehaviour
         {
             QuestSequence playerQuest = GameManager.instance.playerQuest;
             QuestBase newQuest = playerQuest.questSequence[playerQuest.currentQuestIndex];
-            Debug.LogError(newQuest.name);
+            Debug.Log(newQuest.name);
             questName.text = newQuest.questName;
-            questDescription.text = newQuest.questDescription;
+            string questObjectives = newQuest.goalObjectives;
+            questDescription.text = newQuest.questDescription + "\n" + questObjectives;
             questGoldReward.text = newQuest.rewards.goldReward.ToString();
             questXPReward.text = newQuest.rewards.xpReward.ToString();
         }
@@ -83,5 +86,11 @@ public class QuestManager : MonoBehaviour
             return quest.name == playerQuest.questSequence[playerQuest.currentQuestIndex + adjustIndex].name;
         }
         return false;
+    }
+
+    public int GetNextQuest()
+    {
+        QuestSequence playerQuest = GameManager.instance.playerQuest;
+        return playerQuest.questSequence.Length < playerQuest.currentQuestIndex + 1 ? playerQuest.currentQuestIndex + 1 : playerQuest.currentQuestIndex;
     }
 }

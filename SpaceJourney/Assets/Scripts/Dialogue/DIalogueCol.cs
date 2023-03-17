@@ -46,7 +46,7 @@ public class DIalogueCol : MonoBehaviour
     {
         if (other.tag == "NPC")
         {
-            // Debug.LogError("NPC");
+            // Debug.Log("NPC");
 
             questGive = other.gameObject.GetComponent<QuestGiver>();
             trig = other.gameObject.GetComponent<DialTrig>();
@@ -129,7 +129,7 @@ public class DIalogueCol : MonoBehaviour
                 DialMan.instance.dialogueUI.SetActive(true);
                 UI.SetActive(false);
                 DialMan.instance.EnterDialogueMode(inkJSONS, null, null);
-                
+
             }
             else
             {

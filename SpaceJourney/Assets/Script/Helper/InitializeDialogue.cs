@@ -14,8 +14,8 @@ public class InitializeDialogue : MonoBehaviour
         if (QuestManager.instance.CompareQuest(planetQuest, 0))
         {
             planetQuest.InitializeQuest();
+            DialMan.instance.SetQuest(planetQuest);
         }
-        DialMan.instance.SetQuest(planetQuest);
         DialMan.instance.EnterDialogueMode(questDialogue, null, questObject);
     }
 

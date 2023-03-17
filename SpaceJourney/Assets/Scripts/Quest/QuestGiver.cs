@@ -10,7 +10,6 @@ public class QuestGiver : MonoBehaviour
     public QuestBase quest;
     private int giverQuestIndex;
     private PlayerController player;
-    public GameObject questMarking;
 
     public TMP_Text distanceText;
     public TMP_Text questDistanceText;
@@ -33,11 +32,6 @@ public class QuestGiver : MonoBehaviour
             distance = (transform.position - player.transform.position).magnitude;
             distanceText.text = distance.ToString("F1") + "m";
             questDistanceText.text = distance.ToString("F1") + "m";
-            questMarking.SetActive(true);
-        }
-        else
-        {
-            questMarking.SetActive(false);
         }
     }
 

@@ -16,6 +16,9 @@ public class QuestBase : ScriptableObject
     public float currentHighScore = 0;
     public bool isQuestTimerObjective = false;
     private IEnumerator coroutine;
+    [TextArea(5, 10)]
+    public string goalObjectives = "";
+    private QuestMarking[] questMarking;
 
     [System.Serializable]
     public class Rewards
@@ -30,6 +33,23 @@ public class QuestBase : ScriptableObject
     public virtual void InitializeQuest()
     {
         CurrentAmount = new int[RequiredAmount.Length];
+
+    }
+
+    public void SetObjectives(string goalObjectives)
+    {
+        UpdateAllMarking();
+        this.goalObjectives = goalObjectives;
+    }
+
+    void UpdateAllMarking()
+    {
+        questMarking = FindObjectsOfType<QuestMarking>();
+        Debug.Log("All Marking" + questMarking.Length);
+        foreach (QuestMarking item in questMarking)
+        {
+            item.UpdateMarking();
+        }
     }
 
     public void Evaluate(bool isDelayingNotification)
@@ -43,15 +63,15 @@ public class QuestBase : ScriptableObject
         }
         GameManager gameManager = GameManager.instance;
         // gameManager.rewardManager.ClaimRewards(this);
-        Debug.LogError("Quest is Completed");
+        Debug.Log("Quest is Completed");
         QuestSequence playerQuest = gameManager.playerManager.questSequence;
         if ((playerQuest.currentQuestIndex) < playerQuest.questSequence.Length - 1)
         {
             playerQuest.currentQuestIndex++;
-            Debug.LogError(playerQuest.questSequence.Length + " " + playerQuest.currentQuestIndex);
+            Debug.Log(playerQuest.questSequence.Length + " " + playerQuest.currentQuestIndex);
             if (playerQuest.questSequence[playerQuest.currentQuestIndex].isAutoQuest)
             {
-                Debug.LogError("Working");
+                Debug.Log("Working");
                 QuestManager.instance.SetQuestUI(playerQuest.questSequence[playerQuest.currentQuestIndex]);
             }
         }

@@ -19,7 +19,7 @@ public class QuestPush : QuestBase
     public override void InitializeQuest()
     {
         RequiredAmount = new int[objectives.Length];
-        Debug.LogError("Quest Started!");
+        Debug.Log("Quest Started!");
         for (int i = 0; i < objectives.Length; i++)
         {
             RequiredAmount[i] = objectives[i].requiredAmount;

@@ -36,7 +36,7 @@ public class PlanetRequirement : MonoBehaviour
 
     void Update()
     {
-        // Debug.LogError(planetName);
+        // Debug.Log(planetName);
     }
 
     public void OnTriggerStay(Collider other)
@@ -85,7 +85,7 @@ public class PlanetRequirement : MonoBehaviour
                     if (collidedPlanet.isAchieveRequirements() || collidedPlanet.name == "Earth")
                     {
                         GameManager.instance.SaveCurrentCharacterPosition();
-                        Debug.LogError(collidedPlanet.name + " I achieve");
+                        Debug.Log(collidedPlanet.name + " I achieve");
                         currentPlanetScene = collidedPlanet.planetScene;
                         landButton.SetActive(true);
                         if (collidedPlanet.name == "Earth")
@@ -119,7 +119,7 @@ public class PlanetRequirement : MonoBehaviour
 
     private bool PlayerMovingForward()
     {
-        // Debug.LogError(shipControl.GetPlayerMovement().x + " " + shipControl.GetPlayerMovement().y);
+        // Debug.Log(shipControl.GetPlayerMovement().x + " " + shipControl.GetPlayerMovement().y);
         return shipControl.GetPlayerMovement().x == 0 && shipControl.GetPlayerMovement().y == 0;
     }
 

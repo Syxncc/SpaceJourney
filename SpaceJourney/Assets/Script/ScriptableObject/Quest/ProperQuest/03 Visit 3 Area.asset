@@ -15,19 +15,22 @@ MonoBehaviour:
   questID: 
   questName: Visit 3 Area
   questDescription: 'You are now can freely visit any area. Jett suggested you to
-    visit 3 area.
+    visit the 3 area. Observatory, Trade and Upgrade Room and Space Launch Area.
 
-    Find this 3 locations:
+    Talk
+    to this 3 person to get ideas:'
+  isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: '1.) Talk to Sova (0/1)
 
-    1. Observatory
+    2.) Talk to Nicole (0/1)
 
-    2. Upgrade
-    and Trade Room
-
-    3. Spaceship Take Off and Landing Area
+    3.)
+    Talk to Mark (0/1)
 
 '
-  isAutoQuest: 0
   rewards:
     goldReward: 100
     xpReward: 100

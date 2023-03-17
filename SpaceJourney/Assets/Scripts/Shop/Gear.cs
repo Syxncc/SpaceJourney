@@ -37,7 +37,7 @@ public class Gear : MonoBehaviour
         //check if the level is maxed
         if (level == 5)
         {
-            Debug.LogError("Max Level");
+            Debug.Log("Max Level");
             //promptMaxed.SetActive(true);
         }
         else
@@ -45,7 +45,7 @@ public class Gear : MonoBehaviour
             //check if sufficient balance
             if (price > playerManager.playerProfile.playergold)
             {
-                Debug.LogError("Inssuficient Gold");
+                Debug.Log("Inssuficient Gold");
                 //promptNoCoin.SetActive(true);
             }
             else

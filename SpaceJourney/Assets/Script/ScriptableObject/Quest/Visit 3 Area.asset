@@ -19,15 +19,12 @@ MonoBehaviour:
 
     Find this 3 locations:
 
-    1. Observatory
-
-    2. Upgrade
-    and Trade Room
-
-    3. Spaceship Take Off and Landing Area
-
 '
   isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: 
   rewards:
     goldReward: 0
     xpReward: 0

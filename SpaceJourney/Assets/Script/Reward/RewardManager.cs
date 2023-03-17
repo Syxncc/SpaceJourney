@@ -25,7 +25,7 @@ public class RewardManager : MonoBehaviour
     public void ClaimRewards(QuestBase quest)
     {
         string rewards = '"' + quest.name + "\" Completed\n";
-        Debug.LogError("I got a reward" + collectibles.Length + " " + quest.rewards.collectibles.Length);
+        Debug.Log("I got a reward" + collectibles.Length + " " + quest.rewards.collectibles.Length);
         playerManager.playerProfile.playergold += quest.rewards.goldReward;
         playerManager.playerProfile.currentXP += quest.rewards.xpReward;
         rewards += "You received " + (quest.rewards.goldReward == 0 ? "" : quest.rewards.goldReward) + " Gold\n";
@@ -39,7 +39,7 @@ public class RewardManager : MonoBehaviour
                 {
                     collectibles[i].isUnlockCollectible = true;
                     rewards += "\nYou received " + collectibles[i].name + " Information";
-                    Debug.LogError("I get a collectible reward");
+                    Debug.Log("I get a collectible reward");
                 }
             }
         }

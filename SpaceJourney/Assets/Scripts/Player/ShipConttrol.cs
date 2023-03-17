@@ -77,7 +77,7 @@ public class ShipConttrol : MonoBehaviour
         //Stamina
         // boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
         // fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        // Debug.LogError(playerManager.playerProfile.maxStamina);
+        // Debug.Log(playerManager.playerProfile.maxStamina);
         if (firecurrentStamina < playerManager.playerProfile.maxStamina)
         {
             RegenFireStamina(GameManager.instance.playerManager.playerProfile.regenCost);
@@ -238,7 +238,7 @@ public class ShipConttrol : MonoBehaviour
         if (other.gameObject.tag == "Planets")
         {
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            Debug.LogError("SADa");
+            Debug.Log("SADa");
         }
     }
 }

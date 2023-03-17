@@ -62,7 +62,7 @@ public class NPCMove : MonoBehaviour
             {
                 int idleTime = Random.Range(3, selectedIdleTime);
                 timeLeft = idleTime;
-                // Debug.LogError(idleTime);
+                // Debug.Log(idleTime);
             }
             else
             {
@@ -99,7 +99,7 @@ public class NPCMove : MonoBehaviour
     void IdleTime()
     {
         timeLeft -= Time.deltaTime;
-        // Debug.LogError(timeLeft);
+        // Debug.Log(timeLeft);
         if (timeLeft < 1)
         {
             IsIdle();
@@ -109,7 +109,7 @@ public class NPCMove : MonoBehaviour
 
     void IsIdle()
     {
-        Debug.LogError("Checking Where Going");
+        // Debug.Log("Checking Where Going");
         int maxRange = Random.Range(0, 100);
         int idleChance = Random.Range(0, maxRange);
         int rangeNum = Random.Range(50, maxRange);
@@ -118,14 +118,14 @@ public class NPCMove : MonoBehaviour
 
         if (idleChance >= startRange && idleChance <= endRange)
         {
-            Debug.LogError("Is Idle");
+            // Debug.Log("Is Idle");
             isIdle = true;
             timeLeft = 0;
             return;
         }
         randomPosition = Random.Range(0, idlePath.Length - 1);
         currentPosition = idlePath[randomPosition];
-        Debug.LogError("Is going");
+        // Debug.Log("Is going");
         isIdle = false;
     }
 

@@ -17,13 +17,26 @@ public class QuestDestination : QuestBase
     public override void InitializeQuest()
     {
         RequiredAmount = new int[objectives.Length];
-        Debug.LogError("Quest Started! " + this.name);
+        Debug.Log("Quest Started! " + this.name);
         for (int i = 0; i < objectives.Length; i++)
         {
             RequiredAmount[i] = objectives[i].requiredAmount;
         }
         GameManager.instance.onDestinationCallback += OnDestination;
         base.InitializeQuest();
+        SetObjectives(GetAllObjectives());
+    }
+
+    private string GetAllObjectives()
+    {
+        string data = "";
+        for (int i = 0; i < objectives.Length; i++)
+        {
+            Objectives item = objectives[i];
+            data += "- Go to " + item.requiredLocation.name + " (" + (CurrentAmount[i]) + "/" + item.requiredAmount + ")\n";
+        }
+
+        return data;
     }
 
     private void OnDestination(Location location)
@@ -35,6 +48,7 @@ public class QuestDestination : QuestBase
                 CurrentAmount[i]++;
             }
         }
+        SetObjectives(GetAllObjectives());
         Evaluate(true);
     }
 }

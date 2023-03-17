@@ -80,7 +80,7 @@ public class CountdownTimer : MonoBehaviour
                 return;
             }
             tempTimer = quest.maxTime;
-            Debug.LogError(tempTimer);
+            Debug.Log(tempTimer);
         }
         else
         {
@@ -136,7 +136,7 @@ public class CountdownTimer : MonoBehaviour
         if (timeCountType == 1)
         {
             tempMessage = "Time Limit: " + DisplayTime(quest.maxTime) + "\n";
-            Debug.LogError(tempMessage);
+            Debug.Log(tempMessage);
         }
         timeResult.text = tempMessage + "" + "Current High Score: " + DisplayTime(quest.currentHighScore) + "\nResult: " + DisplayTime(Mathf.Round(tempTimer));
     }

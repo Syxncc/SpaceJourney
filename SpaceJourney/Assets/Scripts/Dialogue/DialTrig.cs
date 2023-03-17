@@ -57,7 +57,7 @@ public class DialTrig : MonoBehaviour
         {
             RewardUI.SetActive(true);
         }
-        
+
     }
 
     public void tutorials()
@@ -75,7 +75,7 @@ public class DialTrig : MonoBehaviour
     //     if (other.tag == "Player")
     //     {
     //         // playerInRange = true;
-    //         // Debug.LogError("I can talk to npc");
+    //         // Debug.Log("I can talk to npc");
     //     }
     // }
 

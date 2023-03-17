@@ -12,19 +12,14 @@ public class QuestMarking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        questManager = QuestManager.instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateMarking()
     {
-        if (questMarking.activeInHierarchy)
-        {
-            questMarking.SetActive(false);
-        }
+        questManager = QuestManager.instance;
         if (questManager.CurrentQuest != null)
         {
-
+            questMarking?.SetActive(false);
             if (location != null)
             {
                 if (questManager.CurrentQuest.GetType() == System.Type.GetType("QuestDestination"))
@@ -42,20 +37,36 @@ public class QuestMarking : MonoBehaviour
             }
             else if (profile != null)
             {
-
+                Debug.Log("Plant found");
                 if (questManager.CurrentQuest.GetType() == System.Type.GetType("QuestTalk"))
                 {
+                    Debug.Log("Plant found2");
                     QuestTalk quest = (QuestTalk)questManager.CurrentQuest;
                     for (int i = 0; i < quest.objectives.Length; i++)
                     {
-                        if (quest.objectives[i].requiredProfile == profile)
+                        Debug.Log(quest.objectives[i].requiredProfile.name + " " + profile.name);
+                        if (quest.objectives[i].requiredProfile.name == profile.name)
                         {
-                            questMarking.SetActive(true);
+                            Debug.Log(quest.CurrentAmount[i] + " " + quest.RequiredAmount[i]);
+                            if (quest.CurrentAmount[i] == quest.RequiredAmount[i])
+                            {
+                                questMarking.SetActive(false);
+                            }
+                            else
+                            {
+                                questMarking.SetActive(true);
+                            }
                             return;
                         }
                     }
                 }
             }
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }

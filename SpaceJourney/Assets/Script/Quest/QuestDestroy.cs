@@ -28,6 +28,19 @@ public class QuestDestroy : QuestBase
             GameManager.instance.onItemDestroyCallback += ItemDestroy;
         }
         base.InitializeQuest();
+        SetObjectives(GetAllObjectives());
+    }
+
+    private string GetAllObjectives()
+    {
+        string data = "";
+        for (int i = 0; i < objectives.Length; i++)
+        {
+            Objectives item = objectives[i];
+            data += "- Destroy " + item.requiredProfile.name + " (" + (CurrentAmount[i]) + "/" + item.requiredAmount + ")\n";
+        }
+
+        return data;
     }
 
     private void ItemDestroy(Profile destroyedItem)
@@ -37,9 +50,9 @@ public class QuestDestroy : QuestBase
             if (destroyedItem == objectives[i].requiredProfile)
             {
                 CurrentAmount[i]++;
-                Debug.LogError(CurrentAmount[i]);
             }
         }
+        SetObjectives(GetAllObjectives());
         Evaluate(false);
     }
 }

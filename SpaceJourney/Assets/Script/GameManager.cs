@@ -45,31 +45,45 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
+        if (playerQuest.isNewGame)
         {
-            bool isInSpace = false;
-            if (SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                player.currentScene = 2;
-                Debug.LogError("I am inpsace");
-                isInSpace = true;
-            }
-            playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
-            if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
-            {
-                SceneManager.LoadScene(player.currentScene);
-            }
+            Debug.Log("New Game Initiated!!!");
+            GameManager.instance.player.currentScene = -1;
+            GameManager.instance.playerQuest.currentQuestIndex = 0;
         }
-        else
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            playerQuest.isTravel = false;
+            if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                bool isInSpace = false;
+                if (SceneManager.GetActiveScene().buildIndex == 2)
+                {
+                    player.currentScene = 2;
+                    Debug.Log("I am inpsace");
+                    isInSpace = true;
+                }
+                if (playerManager != null)
+                {
+                    playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
+                }
+                if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
+                {
+                    // SceneManager.LoadScene(player.currentScene);
+                    ChangeScene(player.currentScene);
+                }
+            }
+            else
+            {
+                playerQuest.isTravel = false;
+            }
+
+            if (notification != null)
+            {
+                notificationAnimator = notification.GetComponent<Animator>();
+                notificationText = notification.GetComponent<TMP_Text>();
+            }
         }
 
-        if (notification != null)
-        {
-            notificationAnimator = notification.GetComponent<Animator>();
-            notificationText = notification.GetComponent<TMP_Text>();
-        }
         countdownTimer = GetComponent<CountdownTimer>();
     }
 
@@ -120,7 +134,7 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(int sceneIndex)
     {
         // ui.SetActive(false);
-        Debug.LogError("Launching");
+        Debug.Log("Launching");
         loadingScene.SetActive(true);
         if (sceneIndex != -1)
         {
@@ -129,7 +143,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("RESTART");
+            Debug.Log("RESTART");
             AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
@@ -166,7 +180,7 @@ public class GameManager : MonoBehaviour
     {
         if (countdownTimer != null)
         {
-            Debug.LogError(popup);
+            Debug.Log(popup);
             if (quest != null)
             {
                 if (quest.isQuestTimerObjective && QuestManager.instance.CompareQuest(quest, -1))
@@ -184,6 +198,16 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void BackToHomeScreen()
+    {
+        ChangeScene(0);
     }
 
 }

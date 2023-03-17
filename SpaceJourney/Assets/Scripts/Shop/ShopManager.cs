@@ -35,9 +35,9 @@ public class ShopManager : MonoBehaviour
 
     }
     // public void DeductPrice(int gearPrice){
-    //     Debug.LogError("DEDUCTED");
+    //     Debug.Log("DEDUCTED");
     //     playerManager.playerProfile.playergold -= gearPrice;
-    //     Debug.LogError(playerManager.playerProfile.playergold);
+    //     Debug.Log(playerManager.playerProfile.playergold);
     // }
 
 

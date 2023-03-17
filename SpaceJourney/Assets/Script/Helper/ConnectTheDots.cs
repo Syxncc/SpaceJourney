@@ -44,7 +44,7 @@ public class ConnectTheDots : MonoBehaviour
                         {
                             if (Input.GetTouch(i).phase == TouchPhase.Ended)
                             {
-                               mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(i).position.x, Input.GetTouch(i).position.y, 67));
+                                mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(i).position.x, Input.GetTouch(i).position.y, 67));
                             }
                         }
                     }
@@ -110,7 +110,7 @@ public class ConnectTheDots : MonoBehaviour
                 if (CompareDots())
                 {
                     CTDManager.instance.Verify();
-                    Debug.LogError("TRUE");
+                    Debug.Log("TRUE");
                 }
             }
         }

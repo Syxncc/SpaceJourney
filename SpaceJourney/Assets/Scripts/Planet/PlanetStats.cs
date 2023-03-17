@@ -26,7 +26,7 @@ public class PlanetStats : MonoBehaviour
     // public void OnCollisionEnter(Collision other) 
     // {
     //     if (other.gameObject.CompareTag("Player")){
-    //        Debug.LogError("Wieeee");
+    //        Debug.Log("Wieeee");
     //     }
     // }
 
@@ -34,7 +34,7 @@ public class PlanetStats : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.LogError("Wieeee");
+            Debug.Log("Wieeee");
         }
     }
 

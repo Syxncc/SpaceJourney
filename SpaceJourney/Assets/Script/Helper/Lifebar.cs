@@ -22,7 +22,7 @@ public class Lifebar : MonoBehaviour
         }
         else
         {
-            Debug.LogError("YOW");
+            Debug.Log("Lifebar is active.");
             slider.gameObject.SetActive(false);
         }
     }

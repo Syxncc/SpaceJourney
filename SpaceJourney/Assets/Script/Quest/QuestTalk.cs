@@ -17,13 +17,26 @@ public class QuestTalk : QuestBase
     public override void InitializeQuest()
     {
         RequiredAmount = new int[objectives.Length];
-        Debug.LogError("Quest Started!");
+        Debug.Log("Quest Started!");
         for (int i = 0; i < objectives.Length; i++)
         {
             RequiredAmount[i] = objectives[i].requiredAmount;
         }
         GameManager.instance.onTalkNPCCallback += TalkNPC;
         base.InitializeQuest();
+        SetObjectives(GetAllObjectives());
+    }
+
+    private string GetAllObjectives()
+    {
+        string data = "";
+        for (int i = 0; i < objectives.Length; i++)
+        {
+            Objectives item = objectives[i];
+            data += "- Talk to " + item.requiredProfile.name + " (" + (CurrentAmount[i]) + "/" + item.requiredAmount + ")\n";
+        }
+
+        return data;
     }
 
     private void TalkNPC(Profile npc)
@@ -35,6 +48,8 @@ public class QuestTalk : QuestBase
                 CurrentAmount[i]++;
             }
         }
-        Evaluate(false);
+        Debug.Log("Yow");
+        SetObjectives(GetAllObjectives());
+        Evaluate(true);
     }
 }

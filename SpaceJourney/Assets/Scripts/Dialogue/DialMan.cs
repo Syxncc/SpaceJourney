@@ -111,7 +111,7 @@ public class DialMan : MonoBehaviour
         {
             // if (QuestManager.instance.CompareQuest(quest, 0) || QuestManager.instance.CompareQuest(quest, -1))
             // {
-            Debug.LogError("The NPC have quest" + quest.name);
+            Debug.Log("The NPC have quest" + quest.name);
             QuestManager.instance.SetQuestUI(quest);
             ControlUI.SetActive(false);
             trigs?.tutorials();
@@ -203,7 +203,7 @@ public class DialMan : MonoBehaviour
     //     List<Choice> currentChoices = currentStory.currentChoices;
 
     //     if(currentChoices.Count > choices.Length){
-    //         Debug.LogError("More choices were given");
+    //         Debug.Log("More choices were given");
     //     }
 
     //     int index = 0;

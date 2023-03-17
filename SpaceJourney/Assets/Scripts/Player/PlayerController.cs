@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    public float  adjustSpeedByPlanet;
+    public float adjustSpeedByPlanet;
 
     public Transform body;
 
@@ -146,10 +146,13 @@ public class PlayerController : MonoBehaviour
         body.position = new Vector3(body.position.x, body.position.y - 2.6f, body.position.z);
     }
 
-    float AdjustSpeedByPlanet(){
+    float AdjustSpeedByPlanet()
+    {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-        foreach(Planet planet in GameManager.instance.collectibles){
-            if(planet.planetScene == currentScene){
+        foreach (Planet planet in GameManager.instance.collectibles)
+        {
+            if (planet.planetScene == currentScene)
+            {
                 return planet.adjustSpeedMultiplier;
             }
         }
@@ -226,12 +229,12 @@ public class PlayerController : MonoBehaviour
             if (playerInput.PlayerMain.Jump.triggered)
             {
                 animator.SetBool("isJumping", true);
-                
+
             }
             else
             {
                 animator.SetBool("isJumping", false);
-                
+
             }
 
 
@@ -270,20 +273,20 @@ public class PlayerController : MonoBehaviour
             {
                 if (currentStamina < playerManager.playerProfile.jumpCost)
                 {
-                    Debug.LogError("Low Stamina");
+                    Debug.Log("Low Stamina");
                 }
                 else
                 {
                     AudioManager.instance.PlaySFX("Jump");
                     DecreaseStaminaNormal(playerManager.playerProfile.jumpCost);
-                    playerVelocity.y += Mathf.Sqrt(playerManager.playerProfile.jumpHeight*adjustSpeedByPlanet * -2.0f * gravityValue);
+                    playerVelocity.y += Mathf.Sqrt(playerManager.playerProfile.jumpHeight * adjustSpeedByPlanet * -2.0f * gravityValue);
 
                     if (move != Vector3.zero)
                     {
 
                         if (isSprinting)
                         {
-                            Debug.LogError("isJumpSprinting");
+                            Debug.Log("isJumpSprinting");
                             animator.SetBool("isJumpSprinting", true);
 
                         }
@@ -295,7 +298,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogError("isJumping");
+                        Debug.Log("isJumping");
                         animator.SetBool("isJumping", true);
                     }
 
@@ -406,7 +409,7 @@ public class PlayerController : MonoBehaviour
 
     // IEnumerator Dash(){
     //     float startTime = Time.time;
-    //     Debug.LogError("Dash");
+    //     Debug.Log("Dash");
 
     //     while(Time.time < startTime + dashTime){
     //         controller.Move(move * dashSpeed * Time.deltaTime);
