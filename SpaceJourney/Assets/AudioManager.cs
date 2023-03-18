@@ -46,6 +46,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             musicSource.clip = s.clip;
+            musicSource.loop = true;
             musicSource.Play();
         }
     }
@@ -104,11 +105,11 @@ public class AudioManager : MonoBehaviour
         if (muteSfx)
         {
             sfxSource.volume = 0;
-            sfxSlider.gameObject.SetActive(false);
+            sfxSlider.enabled = false;
         }
         else
         {
-            sfxSlider.gameObject.SetActive(true);
+            sfxSlider.enabled = true;
             sfxSource.volume = sfxSlider.value;
         }
     }
@@ -122,11 +123,11 @@ public class AudioManager : MonoBehaviour
         if (muteMusic)
         {
             musicSource.volume = 0;
-            musicSlider.gameObject.SetActive(false);
+            musicSlider.enabled = false;
         }
         else
         {
-            musicSlider.gameObject.SetActive(true);
+            musicSlider.enabled = true;
             musicSource.volume = musicSlider.value;
         }
     }

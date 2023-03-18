@@ -18,7 +18,10 @@ public class Detector : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            canvasObject?.SetActive(true);
+            if (canvasObject.gameObject != null)
+            {
+                canvasObject?.SetActive(true);
+            }
             if (!triggeredOnce && !GameManager.instance.isDoneAllQuest() && QuestManager.instance.CompareQuest(locationQuest, 0))
             {
                 triggeredOnce = true;

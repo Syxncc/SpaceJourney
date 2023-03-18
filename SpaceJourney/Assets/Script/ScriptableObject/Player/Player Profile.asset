@@ -16,7 +16,7 @@ MonoBehaviour:
   positionX: -300.20605
   positionY: 522.2207
   positionZ: -275.61395
-  currentScene: 2
+  currentScene: -1
   spacePositionX: 8166.1816
   spacePositionY: 251.39287
   spacePositionZ: 696.209
