@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         player.playerLevel = 1;
         player.currentMaxXP = 100;
         player.currentXP = 0;
-        player.jumpHeight = 1f;
+        player.jumpHeight = 3f;
         player.walkingSpeed = 10f;
         player.sprintingSpeed = player.walkingSpeed * 2;
         player.regenCost = 5f;
