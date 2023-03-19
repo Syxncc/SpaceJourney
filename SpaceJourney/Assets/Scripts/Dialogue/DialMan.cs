@@ -91,6 +91,7 @@ public class DialMan : MonoBehaviour
     {
         animator.SetBool("isOpen", true);
         startPanel = startObject;
+        ControlUI.SetActive(false);
 
         if (storyImages != null)
         {
@@ -109,20 +110,23 @@ public class DialMan : MonoBehaviour
     {
         if (quest != null)
         {
-            // if (QuestManager.instance.CompareQuest(quest, 0) || QuestManager.instance.CompareQuest(quest, 1))
-            // {
             Debug.Log("The NPC have quest" + quest.name);
             QuestManager.instance.SetQuestUI(quest);
-            ControlUI.SetActive(false);
+            quest = null;
             trigs?.tutorials();
             trigs?.rewardUI();
-            // }
+            // ControlUI.SetActive(true);
         }
         else
         {
-            if (imagesStoryPanel != null)
+            if (storyImages != null)
             {
+                storyImages = null;
                 imagesStoryPanel.SetActive(false);
+            }
+            else
+            {
+                ControlUI.SetActive(true);
             }
             if (trigs != null)
             {
@@ -136,9 +140,8 @@ public class DialMan : MonoBehaviour
                     GameManager.instance.ChangeScene(7);
                 }
             }
-        }
-        ControlUI.SetActive(true);
 
+        }
         if (GameManager.instance.countdownTimer != null)
         {
             GameManager.instance.countdownTimer.SetActiveObject(false);

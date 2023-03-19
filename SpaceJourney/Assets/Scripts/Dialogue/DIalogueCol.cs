@@ -52,12 +52,12 @@ public class DIalogueCol : MonoBehaviour
             trig = other.gameObject.GetComponent<DialTrig>();
             DialMan.instance.trigs = trig;
             nonPlayerName.text = trig.npcName;
-            if (questGive != null && playerQuest.questSequence.Length > playerQuest.currentQuestIndex && playerQuest.questSequence[playerQuest.currentQuestIndex].GetType() != System.Type.GetType("QuestDestination") && (questGive.CurrentQuest() || haveQuestTalk((QuestTalk)playerQuest.questSequence[playerQuest.currentQuestIndex], trig.profile)))
+            if (questGive != null && playerQuest.questSequence.Length > playerQuest.currentQuestIndex && playerQuest.questSequence[playerQuest.currentQuestIndex].GetType() != System.Type.GetType("QuestDestination") && (questGive.CurrentQuest() || haveQuestTalk((QuestTalk)playerQuest.questSequence[playerQuest.currentQuestIndex], trig.profile)) && !QuestManager.instance.CompareQuest(questGive.quest, 0))
             {
                 // trig = other.gameObject.GetComponent<DialTrig>();
                 DialMan.instance.SetQuest(questGive.quest);
                 inkJSONS = trig.inkJSON;
-                Debug.Log(inkJSONS);
+                // Debug.Log(inkJSONS);
 
             }
             else
@@ -128,8 +128,10 @@ public class DIalogueCol : MonoBehaviour
             if (inkJSONS != null)
             {
                 DialMan.instance.dialogueUI.SetActive(true);
-                UI.SetActive(false);
+                // UI.SetActive(false);
                 DialMan.instance.EnterDialogueMode(inkJSONS, null, null);
+                // GameObject interactBtn = GetComponent<PlayerController>().interactbtn;
+                inkJSONS = trig.defaultDialogue;
 
             }
             else

@@ -52,7 +52,7 @@ public class QuestMarking : MonoBehaviour
                             // Debug.Log("ARRAY " + i);
                             if (quest.CurrentAmount.Length > i)
                             {
-                                if (quest.CurrentAmount[i] == quest.RequiredAmount[i])
+                                if (quest.CurrentAmount[i] >= quest.RequiredAmount[i])
                                 {
                                     questMarking.SetActive(false);
                                 }

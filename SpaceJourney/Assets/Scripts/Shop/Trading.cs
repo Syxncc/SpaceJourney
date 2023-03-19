@@ -109,8 +109,6 @@ public class Trading : MonoBehaviour
         {
             quantity--;
         }
-
-
     }
 
     public void displayPrice()

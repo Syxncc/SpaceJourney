@@ -48,7 +48,6 @@ public class QuestTalk : QuestBase
                 CurrentAmount[i]++;
             }
         }
-        Debug.Log("Yow");
         SetObjectives(GetAllObjectives());
         Evaluate(true);
     }

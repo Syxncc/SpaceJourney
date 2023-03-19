@@ -47,7 +47,7 @@ public class Profile : ScriptableObject
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (name != "Player Profile")
+        if (this.ToString() != "Player Profile (Profile)")
         {
             name = System.IO.Path.GetFileNameWithoutExtension(UnityEditor.AssetDatabase.GetAssetPath(this));
         }

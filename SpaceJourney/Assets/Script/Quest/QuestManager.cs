@@ -86,11 +86,13 @@ public class QuestManager : MonoBehaviour
     {
         QuestSequence playerQuest = GameManager.instance.playerQuest;
         Debug.Log(playerQuest.questSequence[playerQuest.currentQuestIndex].name + " " + quest.name);
+        Debug.Log(playerQuest.questSequence[playerQuest.currentQuestIndex].name == quest.name);
 
         if (playerQuest.currentQuestIndex + adjustIndex < playerQuest.questSequence.Length)
         {
             return quest.name == playerQuest.questSequence[playerQuest.currentQuestIndex + adjustIndex].name;
         }
+
         return false;
     }
 
