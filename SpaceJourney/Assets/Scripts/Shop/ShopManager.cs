@@ -43,17 +43,17 @@ public class ShopManager : MonoBehaviour
 
     public void increaseWalkSpeed()
     {
-        GameManager.instance.playerManager.playerProfile.walkingSpeed += 0.5f;
+        GameManager.instance.playerManager.playerProfile.walkingSpeed += 1f;
     }
 
     public void increaseSprintingSpeed()
     {
-        GameManager.instance.playerManager.playerProfile.sprintingSpeed += 0.5f;
+        GameManager.instance.playerManager.playerProfile.sprintingSpeed += 1f;
     }
 
     public void increaseJumpHeight()
     {
-        GameManager.instance.playerManager.playerProfile.jumpHeight += 0.2f;
+        GameManager.instance.playerManager.playerProfile.jumpHeight += 1f;
     }
 
     public void decreaseStaminaSprint()

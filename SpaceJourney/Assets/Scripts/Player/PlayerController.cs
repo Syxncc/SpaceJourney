@@ -155,6 +155,7 @@ public class PlayerController : MonoBehaviour
         {
             if (planet.planetScene == currentScene)
             {
+                Debug.Log(planet.name);
                 return planet.adjustSpeedMultiplier;
             }
         }

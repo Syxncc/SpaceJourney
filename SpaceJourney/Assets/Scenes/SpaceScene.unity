@@ -2952,7 +2952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122aed1941716334ea5c5f32389a790f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmName: SpaceScene BGM
+  bgmName: Space BGM
 --- !u!4 &467365336
 Transform:
   m_ObjectHideFlags: 0

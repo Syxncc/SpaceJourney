@@ -85,8 +85,6 @@ public class QuestManager : MonoBehaviour
     public bool CompareQuest(QuestBase quest, int adjustIndex)
     {
         QuestSequence playerQuest = GameManager.instance.playerQuest;
-        Debug.Log(playerQuest.questSequence[playerQuest.currentQuestIndex].name + " " + quest.name);
-        Debug.Log(playerQuest.questSequence[playerQuest.currentQuestIndex].name == quest.name);
 
         if (playerQuest.currentQuestIndex + adjustIndex < playerQuest.questSequence.Length)
         {

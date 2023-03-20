@@ -22,7 +22,7 @@ public class Detector : MonoBehaviour
             {
                 canvasObject?.SetActive(true);
             }
-            if (!triggeredOnce && !GameManager.instance.isDoneAllQuest() && QuestManager.instance.CompareQuest(locationQuest, 0))
+            if (!triggeredOnce && !GameManager.instance.isDoneAllQuest() && locationQuest != null && QuestManager.instance.CompareQuest(locationQuest, 0))
             {
                 triggeredOnce = true;
                 message = "You triggered '" + locationQuest.questName + "'";

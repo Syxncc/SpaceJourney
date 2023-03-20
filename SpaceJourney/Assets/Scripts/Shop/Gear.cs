@@ -35,9 +35,10 @@ public class Gear : MonoBehaviour
 
 
         //check if the level is maxed
-        if (level == 5)
+        if (level >= 5)
         {
             Debug.Log("Max Level");
+            this.enabled = false;
             //promptMaxed.SetActive(true);
         }
         else

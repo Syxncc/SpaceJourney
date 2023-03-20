@@ -42,7 +42,20 @@ public class Profile : ScriptableObject
     public float thrustBoosted = 3f;
     public float boostStaminaCost = 20f;
     public float firingStaminaCost = 30f;
+    public Upgrade upgrade;
 
+    [System.Serializable]
+    public class Upgrade
+    {
+        public int walk = 1;
+        public int sprint = 1;
+        public int jump = 1;
+        public int jumpStamina = 1;
+        public int sprintStamina = 1;
+        public int boost = 1;
+        public int spashipSpeed = 1;
+        public int bulletOverheating = 1;
+    }
 
 #if UNITY_EDITOR
     private void OnValidate()
