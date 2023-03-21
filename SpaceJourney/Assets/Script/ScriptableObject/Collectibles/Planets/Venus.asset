@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Venus
   m_EditorClassIdentifier: 
   name: Venus
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles: []
   planetScene: 5
   adjustSpeedMultiplier: 0.8

@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: Asteroid Belt
   m_EditorClassIdentifier: 
   name: Asteroid Belt
-  isUnlockCollectible: 0
-  planetScene: 5
+  isUnlockCollectible: 1
+  constellationDotProfiles: []
+  planetScene: 12
+  adjustSpeedMultiplier: 0
   planetRequirement:
     walk: 0
     sprint: 0
     jump: 0
     sprintStamina: 0
     jumpStamina: 0
-    spaceshipBoost: 0
-    spaceshipSpeed: 0
+    spaceshipBoost: 3
+    spaceshipSpeed: 3
     spaceshipBulletOverheating: 0
-    collectibles: []
+    collectibles:
+    - {fileID: 11400000, guid: be7fc4aebf75056408f59603ffab7edf, type: 2}
+    - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+    - {fileID: 11400000, guid: 8d843456814ddc749a31bd76641262b8, type: 2}
+    - {fileID: 11400000, guid: 5ff80b280cb6d144698fac12f7acdcf2, type: 2}

@@ -13885,10 +13885,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1749619779895334392}
     - target: {fileID: 2811561568205718672, guid: 09afff3681d8f3e478b8eae291b2e371, type: 3}
-      propertyPath: collectibles.Array.size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811561568205718672, guid: 09afff3681d8f3e478b8eae291b2e371, type: 3}
       propertyPath: collectibles.Array.data[8]
       value: 
       objectReference: {fileID: 11400000, guid: 62b37d3b0d5519b4590c084700e4dfcf, type: 2}
@@ -15878,10 +15874,6 @@ PrefabInstance:
       propertyPath: backButton
       value: 
       objectReference: {fileID: 1673139242640798888}
-    - target: {fileID: 1772354596449026202, guid: c41ade4f088656146a4dc7ebc7cf1c7e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1772354596534405997, guid: c41ade4f088656146a4dc7ebc7cf1c7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

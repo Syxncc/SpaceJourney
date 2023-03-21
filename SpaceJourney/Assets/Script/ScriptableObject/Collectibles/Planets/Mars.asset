@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mars
   m_EditorClassIdentifier: 
   name: Mars
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles: []
   planetScene: 3
   adjustSpeedMultiplier: 0.7

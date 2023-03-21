@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mercury
   m_EditorClassIdentifier: 
   name: Mercury
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles: []
   planetScene: 4
   adjustSpeedMultiplier: 0.7

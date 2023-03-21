@@ -59,7 +59,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed0f2ffd046581d479e77a6fe24fa6a3, type: 2}
   - {fileID: 11400000, guid: f62511191b1a1434ea3c946991d4dff7, type: 2}
   - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
+  - {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}
+  countdownTimer: {fileID: 0}
   player: {fileID: 11400000, guid: f9954afe0d0851848804d5cca15b7ed2, type: 2}
+  title: 
+  message: 
 --- !u!1 &2811561568336310919
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +124,7 @@ MonoBehaviour:
   questDescription: {fileID: 0}
   questGoldReward: {fileID: 0}
   questXPReward: {fileID: 0}
+  acceptButton: {fileID: 0}
 --- !u!1 &2811561568817570111
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +547,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6160b1d74a040314faf9ec356f2f2a4b, type: 3}
   musicSource: {fileID: 2811561569868615771}
   sfxSource: {fileID: 2811561569063431207}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!1 &2811561569763973857
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +638,15 @@ MonoBehaviour:
   xpBar: {fileID: 0}
   storyImages: {fileID: 11400000, guid: ea4ef775c59133844a785a442e6c663e, type: 2}
   story: {fileID: 4900000, guid: ebadf44ac38944d4db1c53d50376c013, type: 3}
+  shipControl: {fileID: 0}
+  walkTextUI: {fileID: 0}
+  sprintTextUI: {fileID: 0}
+  jumpTextUI: {fileID: 0}
+  jumpStaminaTextUI: {fileID: 0}
+  sprintStaminaTextUI: {fileID: 0}
+  boostTextUI: {fileID: 0}
+  spaceshipSpeedTextUI: {fileID: 0}
+  bulletOverheatingTextUI: {fileID: 0}
 --- !u!1 &2811561569868615773
 GameObject:
   m_ObjectHideFlags: 0

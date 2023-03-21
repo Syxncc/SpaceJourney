@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             GameManager.instance.player.currentScene = -1;
             GameManager.instance.playerQuest.currentQuestIndex = 0;
         }
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (player != null && SceneManager.GetActiveScene().buildIndex != 0)
         {
             if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
             {
@@ -83,8 +83,8 @@ public class GameManager : MonoBehaviour
                 notificationText = notification.GetComponent<TMP_Text>();
             }
         }
-
         countdownTimer = GetComponent<CountdownTimer>();
+
     }
 
     public void PopUpNotification(string message)
@@ -217,6 +217,11 @@ public class GameManager : MonoBehaviour
     public void BackToHomeScreen()
     {
         ChangeScene(0);
+    }
+
+    public void UnlockCollectible(Planet planet)
+    {
+        planet.isUnlockCollectible = true;
     }
 
 }
