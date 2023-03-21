@@ -16,11 +16,11 @@ MonoBehaviour:
   isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 3
-  adjustSpeedMultiplier: 0.53
+  adjustSpeedMultiplier: 0.7
   planetRequirement:
-    walk: 0
-    sprint: 0
-    jump: 0
+    walk: 4
+    sprint: 4
+    jump: 2
     sprintStamina: 0
     jumpStamina: 0
     spaceshipBoost: 0

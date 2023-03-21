@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Mercury
   m_EditorClassIdentifier: 
   name: Mercury
-  isUnlockCollectible: 1
+  isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 4
-  adjustSpeedMultiplier: 0.383
+  adjustSpeedMultiplier: 0.7
   planetRequirement:
-    walk: 0
-    sprint: 0
-    jump: 0
-    sprintStamina: 0
+    walk: 4
+    sprint: 4
+    jump: 3
+    sprintStamina: 3
     jumpStamina: 0
     spaceshipBoost: 0
     spaceshipSpeed: 0

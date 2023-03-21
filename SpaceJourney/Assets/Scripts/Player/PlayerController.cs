@@ -104,6 +104,8 @@ public class PlayerController : MonoBehaviour
     public Transform body;
 
     private bool isMoving = false;
+    private Profile playerProfile;
+
 
     private void Awake()
     {
@@ -131,10 +133,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerManager = GameManager.instance.playerManager;
+        playerProfile = playerManager.playerProfile;
 
-        currentStamina = playerManager.playerProfile.maxStamina;
-        staminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        staminaBar.value = playerManager.playerProfile.maxStamina;
+
+        currentStamina = playerProfile.maxStamina;
+        staminaBar.maxValue = playerProfile.maxStamina;
+        staminaBar.value = playerProfile.maxStamina;
 
 
         child = transform.GetChild(0).transform;
@@ -165,7 +169,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         staminaBar.value = currentStamina;
-        // staminaBar.maxValue = playerManager.playerProfile.maxStamina;
+        // staminaBar.maxValue = playerProfile.maxStamina;
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -196,12 +200,12 @@ public class PlayerController : MonoBehaviour
         //Sprinting
         if (isSprinting && currentStamina > 0)
         {
-            playerSpeed = playerManager.playerProfile.sprintingSpeed;
+            playerSpeed = playerProfile.sprintingSpeed + (playerProfile.upgrade.sprint * 2);
             StaminaOvertime(false);
         }
         else
         {
-            playerSpeed = playerManager.playerProfile.walkingSpeed;
+            playerSpeed = playerProfile.walkingSpeed + (playerProfile.upgrade.walk * 1);
             if ((move == Vector3.zero || !isSprinting) && currentStamina < 100)
             {
                 StaminaOvertime(true);
@@ -284,15 +288,15 @@ public class PlayerController : MonoBehaviour
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
-                if (currentStamina < playerManager.playerProfile.jumpCost)
+                if (currentStamina < playerProfile.jumpCost)
                 {
                     Debug.Log("Low Stamina");
                 }
                 else
                 {
                     AudioManager.instance.PlaySFX("Jump");
-                    DecreaseStaminaNormal(playerManager.playerProfile.jumpCost);
-                    playerVelocity.y += Mathf.Sqrt(playerManager.playerProfile.jumpHeight * adjustSpeedByPlanet * -2.0f * gravityValue);
+                    DecreaseStaminaNormal(playerProfile.jumpCost + (playerProfile.upgrade.jumpStamina * .2f));
+                    playerVelocity.y += Mathf.Sqrt(playerProfile.jumpHeight + (playerProfile.upgrade.jump * 1) * adjustSpeedByPlanet * -2.0f * gravityValue);
 
                     if (move != Vector3.zero)
                     {
@@ -432,20 +436,20 @@ public class PlayerController : MonoBehaviour
 
     private void StaminaOvertime(bool isIncreasing)
     {
-        if (isIncreasing && playerManager.playerProfile.maxStamina > currentStamina)
+        if (isIncreasing && playerProfile.maxStamina > currentStamina)
         {
-            currentStamina += playerManager.playerProfile.regenCost * Time.deltaTime;
+            currentStamina += playerProfile.regenCost * Time.deltaTime;
         }
         else
         {
-            currentStamina -= playerManager.playerProfile.decreaseCostOvertime * Time.deltaTime;
+            currentStamina -= (playerProfile.decreaseCostOvertime + (playerProfile.upgrade.sprintStamina * .5f)) * Time.deltaTime;
         }
     }
 
     // private void DecreaseStaminaOvertime()
     // {
 
-    //     currentStamina -= playerManager.playerProfile.decreaseCostOvertime * Time.deltaTime;
+    //     currentStamina -= playerProfile.decreaseCostOvertime * Time.deltaTime;
 
     // }
 

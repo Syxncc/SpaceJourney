@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Venus
   m_EditorClassIdentifier: 
   name: Venus
-  isUnlockCollectible: 1
+  isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 5
-  adjustSpeedMultiplier: 0.3
+  adjustSpeedMultiplier: 0.8
   planetRequirement:
-    walk: 0
-    sprint: 0
-    jump: 0
+    walk: 5
+    sprint: 5
+    jump: 3
     sprintStamina: 0
     jumpStamina: 0
     spaceshipBoost: 0

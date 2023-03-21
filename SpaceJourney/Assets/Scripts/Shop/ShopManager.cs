@@ -18,87 +18,93 @@ public class ShopManager : MonoBehaviour
     public static int boostLevel;
     public static int speedLevel;
     public static int bulletOverheatingLevel;
-    private PlayerManager playerManager;
+    private Profile playerProfile;
 
     void Start()
     {
-        playerManager = GameManager.instance.playerManager;
+        playerProfile = GameManager.instance.playerManager.playerProfile;
     }
 
     // Update is called once per frame
     void Update()
     {
-        goldtxt.text = playerManager.playerProfile.playergold.ToString();
-        bluetxt.text = playerManager.playerProfile.playerbluegem.ToString();
-        greentxt.text = playerManager.playerProfile.playergreengem.ToString();
-        redtxt.text = playerManager.playerProfile.playerredgem.ToString();
+        goldtxt.text = playerProfile.playergold.ToString();
+        bluetxt.text = playerProfile.playerbluegem.ToString();
+        greentxt.text = playerProfile.playergreengem.ToString();
+        redtxt.text = playerProfile.playerredgem.ToString();
 
     }
     // public void DeductPrice(int gearPrice){
     //     Debug.Log("DEDUCTED");
-    //     playerManager.playerProfile.playergold -= gearPrice;
-    //     Debug.Log(playerManager.playerProfile.playergold);
+    //     playerProfile.playergold -= gearPrice;
+    //     Debug.Log(playerProfile.playergold);
     // }
 
 
     public void increaseWalkSpeed()
     {
-        GameManager.instance.playerManager.playerProfile.walkingSpeed += 1f;
+        playerProfile.upgrade.walk += 1;
     }
 
     public void increaseSprintingSpeed()
     {
-        GameManager.instance.playerManager.playerProfile.sprintingSpeed += 1f;
+        // playerProfile.sprintingSpeed += 1f;
+        playerProfile.upgrade.sprint += 1;
     }
 
     public void increaseJumpHeight()
     {
-        GameManager.instance.playerManager.playerProfile.jumpHeight += 1f;
+        playerProfile.upgrade.jump += 1;
     }
 
     public void decreaseStaminaSprint()
     {
-        GameManager.instance.playerManager.playerProfile.decreaseCostOvertime -= 0.5f;
+        // playerProfile.decreaseCostOvertime -= 0.5f;
+        playerProfile.upgrade.sprintStamina += 1;
     }
 
     public void decreaseStaminaJump()
     {
-        GameManager.instance.playerManager.playerProfile.jumpCost -= 0.2f;
+        // playerProfile.jumpCost -= 0.2f;
+        playerProfile.upgrade.jumpStamina += 1;
     }
 
     public void incnreaseBoostPower()
     {
-        playerManager.playerProfile.thrustBoosted -= 0.2f;
+        // playerProfile.thrustBoosted -= 0.2f;
+        playerProfile.upgrade.boost += 1;
     }
 
     public void decreaseBoostStaminaCost()
     {
-        playerManager.playerProfile.boostStaminaCost -= 1f;
+        // playerProfile.boostStaminaCost -= 1f;
+        playerProfile.upgrade.spaceshipSpeed += 1;
     }
 
     public void decreaseFiringStaminaCost()
     {
-        playerManager.playerProfile.firingStaminaCost -= 2f;
+        // playerProfile.firingStaminaCost -= 2f;
+        playerProfile.upgrade.bulletOverheating += 1;
     }
 
     public void deductGem(string gemType, int quantity)
     {
         if (gemType == "Blue")
         {
-            playerManager.playerProfile.playerbluegem -= quantity;
+            playerProfile.playerbluegem -= quantity;
         }
         else if (gemType == "Green")
         {
-            playerManager.playerProfile.playergreengem -= quantity;
+            playerProfile.playergreengem -= quantity;
         }
         else if (gemType == "Red")
         {
-            playerManager.playerProfile.playerredgem -= quantity;
+            playerProfile.playerredgem -= quantity;
         }
     }
 
     public void tradeToGold(int tradingPrice)
     {
-        playerManager.playerProfile.playergold += tradingPrice;
+        playerProfile.playergold += tradingPrice;
     }
 }

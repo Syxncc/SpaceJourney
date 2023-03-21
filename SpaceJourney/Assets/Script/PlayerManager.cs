@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,29 +14,8 @@ public class PlayerManager : MonoBehaviour
     public PlayerController playerController;
     // public string userName;
 
-    // public int playergold = 10000;
-    // public int playerbluegem = 1;
-    // public int playergreengem = 5;
-    // public int playerredgem = 10;
-    // public int playerLevel;
-
-    // public int currentMaxXP = 100;
-    // public int currentXP;
-
-    // public float jumpHeight = 0.7f;
-    // public float walkingSpeed = 10f;
-    // public float sprintingSpeed = 20f;
-    // public float regenCost = 5f;
-    // public float decreaseCostOvertime = 15f;
-    // public float jumpCost = 10f;
-    // public float maxStamina = 100f;
-
     private int addMaxXP = 100;
     private int tempXP;
-
-    // public float thrustBoosted = 3f;
-    // public float boostStaminaCost = 20f;
-    // public float firingStaminaCost = 30f;
 
     public Text blueGemText;
     public Text greenGemText;
@@ -50,6 +30,8 @@ public class PlayerManager : MonoBehaviour
     public TextAsset story;
 
     public ShipConttrol shipControl;
+    [SerializeField]
+    TMP_Text walkTextUI, sprintTextUI, jumpTextUI, jumpStaminaTextUI, sprintStaminaTextUI, boostTextUI, spaceshipSpeedTextUI, bulletOverheatingTextUI;
 
     void Start()
     {
@@ -106,6 +88,18 @@ public class PlayerManager : MonoBehaviour
     {
         playerProfile.currentMaxXP += addMaxXP;
         addMaxXP += 50;
+    }
+
+    public void GetStats()
+    {
+        walkTextUI.text = (playerProfile.upgrade.walk + 1).ToString();
+        sprintTextUI.text = (playerProfile.upgrade.sprint + 1).ToString();
+        jumpTextUI.text = (playerProfile.upgrade.jump + 1).ToString();
+        sprintStaminaTextUI.text = (playerProfile.upgrade.sprintStamina + 1).ToString();
+        jumpStaminaTextUI.text = (playerProfile.upgrade.jumpStamina + 1).ToString();
+        boostTextUI.text = (playerProfile.upgrade.boost + 1).ToString();
+        spaceshipSpeedTextUI.text = (playerProfile.upgrade.spaceshipSpeed + 1).ToString();
+        bulletOverheatingTextUI.text = (playerProfile.upgrade.bulletOverheating + 1).ToString();
     }
 
 }

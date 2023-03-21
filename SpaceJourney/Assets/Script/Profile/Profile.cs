@@ -53,7 +53,7 @@ public class Profile : ScriptableObject
         public int jumpStamina = 1;
         public int sprintStamina = 1;
         public int boost = 1;
-        public int spashipSpeed = 1;
+        public int spaceshipSpeed = 1;
         public int bulletOverheating = 1;
     }
 

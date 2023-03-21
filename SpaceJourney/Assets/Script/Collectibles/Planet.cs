@@ -29,14 +29,14 @@ public class Planet : Collectible
     {
         Profile playerProfile = GameManager.instance.playerManager.playerProfile;
         Collectible[] collectibles = GameManager.instance.rewardManager.collectibles;
-        bool walk = isAchieve(planetRequirement.walk, playerProfile.walkingSpeed);
-        bool sprint = isAchieve(planetRequirement.sprint, playerProfile.sprintingSpeed);
-        bool jump = isAchieve(planetRequirement.jump, playerProfile.jumpHeight);
-        bool sprintStamina = isAchieve(planetRequirement.sprintStamina, playerProfile.decreaseCostOvertime);
-        bool jumpStamina = isAchieve(planetRequirement.jumpStamina, playerProfile.jumpCost);
-        bool spaceshipBoost = isAchieve(planetRequirement.spaceshipBoost, playerProfile.thrustBoosted);
-        bool spaceshipSpeed = isAchieve(planetRequirement.spaceshipSpeed, playerProfile.sprintingSpeed);
-        bool spaceshipBulletOverheating = isAchieve(planetRequirement.spaceshipBulletOverheating, playerProfile.firingStaminaCost);
+        bool walk = isAchieve(planetRequirement.walk, playerProfile.upgrade.walk);
+        bool sprint = isAchieve(planetRequirement.sprint, playerProfile.upgrade.sprint);
+        bool jump = isAchieve(planetRequirement.jump, playerProfile.upgrade.jump);
+        bool sprintStamina = isAchieve(planetRequirement.sprintStamina, playerProfile.upgrade.sprintStamina);
+        bool jumpStamina = isAchieve(planetRequirement.jumpStamina, playerProfile.upgrade.jump);
+        bool spaceshipBoost = isAchieve(planetRequirement.spaceshipBoost, playerProfile.upgrade.boost);
+        bool spaceshipSpeed = isAchieve(planetRequirement.spaceshipSpeed, playerProfile.upgrade.spaceshipSpeed);
+        bool spaceshipBulletOverheating = isAchieve(planetRequirement.spaceshipBulletOverheating, playerProfile.upgrade.bulletOverheating);
         bool isUnlockCollectible = true;
         for (int i = 0; i < planetRequirement.collectibles.Length; i++)
         {
@@ -51,7 +51,7 @@ public class Planet : Collectible
 
     private bool isAchieve(int requirement, float currentStats)
     {
-        return requirement == 0 ? true : requirement <= currentStats;
+        return requirement == 0 ? true : requirement == currentStats;
     }
     public string GetPlanetRequirements()
     {
@@ -69,15 +69,15 @@ public class Planet : Collectible
         requirements += GetRequirementData(planetRequirement.spaceshipBulletOverheating, playerProfile.firingStaminaCost, "Spaceship Bullet Overheating", "Spaceship");
         for (int i = 0; i < planetRequirement.collectibles.Length; i++)
         {
-            requirements += "> " + planetRequirement.collectibles[i].name + " Information Card\n";
+            requirements += "- " + planetRequirement.collectibles[i].name + " Information Card\n";
         }
         return requirements;
     }
 
     private string GetRequirementData(int requirement, float currentStats, string name, string type)
     {
-        string statsRequired = type + " Requirement: " + name + " " + requirement;
-        return requirement == 0 ? "" : "> " + statsRequired + "\n";
+        string statsRequired = type + " Requirement: " + name + ": Level " + requirement;
+        return requirement == 0 ? "" : "- " + statsRequired + "\n";
     }
 
 }
