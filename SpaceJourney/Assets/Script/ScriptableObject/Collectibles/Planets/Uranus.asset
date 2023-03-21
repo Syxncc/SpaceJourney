@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Uranus
   m_EditorClassIdentifier: 
   name: Uranus
-  isUnlockCollectible: 1
+  isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 10
   adjustSpeedMultiplier: 0
   planetRequirement:
     walk: 0
     sprint: 0
-    jump: 0
+    jump: 5
     sprintStamina: 0
     jumpStamina: 0
     spaceshipBoost: 0
     spaceshipSpeed: 0
-    spaceshipBulletOverheating: 0
+    spaceshipBulletOverheating: 5
     collectibles:
     - {fileID: 11400000, guid: ed0f2ffd046581d479e77a6fe24fa6a3, type: 2}

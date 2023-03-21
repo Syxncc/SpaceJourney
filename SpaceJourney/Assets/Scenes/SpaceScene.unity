@@ -7113,6 +7113,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 5.539673
       objectReference: {fileID: 0}
+    - target: {fileID: 2928509647667461963, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: changeSceneAnimator
+      value: 
+      objectReference: {fileID: 1389536225}
     - target: {fileID: 3236153497697669325, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7124,6 +7128,10 @@ PrefabInstance:
     - target: {fileID: 3236153498410265784, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -578
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377323438045860361, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6822691306874444219, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_RootOrder
@@ -7176,6 +7184,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1126045436349014575, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+--- !u!95 &1389536225 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 983634600510763792, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+  m_PrefabInstance: {fileID: 1389536224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1390346615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 622f7f0d60362fb418ca4d4e5cae41c1, type: 3}

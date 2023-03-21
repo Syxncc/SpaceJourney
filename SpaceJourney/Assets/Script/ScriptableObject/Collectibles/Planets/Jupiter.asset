@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jupiter
   m_EditorClassIdentifier: 
   name: Jupiter
-  isUnlockCollectible: 1
+  isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 8
   adjustSpeedMultiplier: 317.8
@@ -23,9 +23,8 @@ MonoBehaviour:
     jump: 0
     sprintStamina: 0
     jumpStamina: 0
-    spaceshipBoost: 0
-    spaceshipSpeed: 0
-    spaceshipBulletOverheating: 0
+    spaceshipBoost: 4
+    spaceshipSpeed: 4
+    spaceshipBulletOverheating: 3
     collectibles:
-    - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
     - {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}

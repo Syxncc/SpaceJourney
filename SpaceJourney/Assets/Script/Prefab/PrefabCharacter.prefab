@@ -21472,6 +21472,10 @@ PrefabInstance:
       propertyPath: notification
       value: 
       objectReference: {fileID: 7398612682475727990}
+    - target: {fileID: 2811561568205718672, guid: 09afff3681d8f3e478b8eae291b2e371, type: 3}
+      propertyPath: changeSceneAnimator
+      value: 
+      objectReference: {fileID: 5179866391390197484}
     - target: {fileID: 2811561568336310917, guid: 09afff3681d8f3e478b8eae291b2e371, type: 3}
       propertyPath: questUI
       value: 
@@ -21915,6 +21919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 222069d6e7c0c324c818aaf3fae21f94, type: 3}
+--- !u!95 &5179866391390197484 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 145828427019203423, guid: 222069d6e7c0c324c818aaf3fae21f94, type: 3}
+  m_PrefabInstance: {fileID: 5036294488787396019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7398612682930208525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2542743983859112638, guid: 222069d6e7c0c324c818aaf3fae21f94, type: 3}

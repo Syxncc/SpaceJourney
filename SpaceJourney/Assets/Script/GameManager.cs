@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public string title;
     public string message;
 
+    public Animator changeSceneAnimator;
+
     void Start()
     {
         if (playerQuest.isNewGame)
@@ -143,7 +145,19 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(int sceneIndex)
     {
         // ui.SetActive(false);
-        Debug.Log("Launching");
+        float waitTime = 0f;
+        if (changeSceneAnimator != null)
+        {
+            waitTime = .7f;
+            changeSceneAnimator.SetTrigger("changeScene");
+        }
+        StartCoroutine(delayChangeScene(sceneIndex, waitTime));
+
+    }
+
+    IEnumerator delayChangeScene(int sceneIndex, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         loadingScene.SetActive(true);
         if (sceneIndex != -1)
         {

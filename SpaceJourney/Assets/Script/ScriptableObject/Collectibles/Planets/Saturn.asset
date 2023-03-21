@@ -24,7 +24,7 @@ MonoBehaviour:
     sprintStamina: 0
     jumpStamina: 0
     spaceshipBoost: 0
-    spaceshipSpeed: 0
-    spaceshipBulletOverheating: 0
+    spaceshipSpeed: 5
+    spaceshipBulletOverheating: 5
     collectibles:
     - {fileID: 11400000, guid: 8af976c066de6264c90cbb1e375584b2, type: 2}
