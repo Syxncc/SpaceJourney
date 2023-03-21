@@ -15,6 +15,7 @@ public class Gear : MonoBehaviour
     private int level;
     private int countBar;
     private int increasePrice = 50;
+    int tempLevel = 1;
 
     private Profile playerProfile;
 
@@ -34,6 +35,9 @@ public class Gear : MonoBehaviour
 
     public void Upgrade()
     {
+        GameManager.instance.SaveCurrentCharacterPosition();
+        Debug.Log(tempLevel);
+        level = tempLevel;
         //check if the level is maxed
         if (level > 5)
         {
@@ -65,12 +69,12 @@ public class Gear : MonoBehaviour
 
     public void enableBar()
     {
+        InstantiateLevelUpgrade();
         level++;
         levelBar[countBar].SetActive(true);
         countBar++;
         playerProfile.playergold -= price;
         // increaseLevel(level);
-
     }
 
     public void IncreasePrice()
@@ -81,7 +85,6 @@ public class Gear : MonoBehaviour
 
     private void InstantiateLevelUpgrade()
     {
-        int tempLevel = 1;
         if (gearName == "Walk")
         {
             tempLevel = playerProfile.upgrade.walk;

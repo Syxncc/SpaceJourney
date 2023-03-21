@@ -39,6 +39,7 @@ public class NPCMove : MonoBehaviour
         {
             if (navMeshAgent == null)
             {
+                transform.LookAt(target.position, Vector3.forward);
                 transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
             else
