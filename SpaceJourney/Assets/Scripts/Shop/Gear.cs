@@ -30,7 +30,7 @@ public class Gear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pricetxt.text = "Price: " + price.ToString();
+        // pricetxt.text = "Price: " + price.ToString();
     }
 
     public void Upgrade()
@@ -57,31 +57,26 @@ public class Gear : MonoBehaviour
             {
                 enableBar();
                 //GameManager.instance.shopManager.DeductPrice(price);
-                IncreasePrice();
+                // IncreasePrice();
             }
         }
     }
 
-    private void UpgradeLevelDisplay()
-    {
-
-    }
-
     public void enableBar()
     {
-        InstantiateLevelUpgrade();
         level++;
-        levelBar[countBar].SetActive(true);
+        // levelBar[countBar].SetActive(true);
         countBar++;
         playerProfile.playergold -= price;
+        InstantiateLevelUpgrade();
         // increaseLevel(level);
     }
 
-    public void IncreasePrice()
-    {
-        price += increasePrice;
-        increasePrice += 50;
-    }
+    // public void IncreasePrice()
+    // {
+    //     price = increasePrice * (tempLevel == 0 ? 1 : tempLevel);
+    //     // increasePrice += 50;
+    // }
 
     private void InstantiateLevelUpgrade()
     {
@@ -117,6 +112,8 @@ public class Gear : MonoBehaviour
         {
             tempLevel = playerProfile.upgrade.bulletOverheating;
         }
+        price = tempLevel * increasePrice;
+        pricetxt.text = "Price: " + price.ToString();
         for (int i = 1; i <= tempLevel; i++)
         {
             levelBar[i - 1].SetActive(true);

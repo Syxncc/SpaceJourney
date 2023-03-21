@@ -703,7 +703,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5
@@ -733,7 +733,7 @@ MonoBehaviour:
   - {fileID: 1775267853}
   - {fileID: 1216461362}
   currentPosition: {fileID: 0}
-  speed: 40
+  speed: 30
   selectedIdleTime: 5
 --- !u!95 &148430979
 Animator:
@@ -3373,7 +3373,7 @@ MonoBehaviour:
   - {fileID: 878571020}
   - {fileID: 699370364}
   currentPosition: {fileID: 0}
-  speed: 40
+  speed: 30
   selectedIdleTime: 5
 --- !u!195 &570857346
 NavMeshAgent:
@@ -3386,7 +3386,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5
@@ -3898,11 +3898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000005777336
+      value: -0.00000054873107
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000033969448
+      value: 0.0000003328366
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162607491875, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6325,7 +6325,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5
@@ -6356,7 +6356,7 @@ MonoBehaviour:
   - {fileID: 588926843}
   - {fileID: 2036483953}
   currentPosition: {fileID: 0}
-  speed: 40
+  speed: 30
   selectedIdleTime: 5
 --- !u!95 &1063212292
 Animator:
@@ -6583,7 +6583,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5
@@ -6614,7 +6614,7 @@ MonoBehaviour:
   - {fileID: 256552212}
   - {fileID: 1247790684}
   currentPosition: {fileID: 0}
-  speed: 40
+  speed: 30
   selectedIdleTime: 5
 --- !u!95 &1111160178
 Animator:
@@ -9720,7 +9720,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5
@@ -9750,7 +9750,7 @@ MonoBehaviour:
   - {fileID: 2068632570}
   - {fileID: 288029369}
   currentPosition: {fileID: 0}
-  speed: 40
+  speed: 30
   selectedIdleTime: 5
 --- !u!136 &1728693392
 CapsuleCollider:
@@ -12320,7 +12320,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 20
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 5
@@ -12349,7 +12349,7 @@ MonoBehaviour:
   - {fileID: 384437498}
   - {fileID: 1873891857}
   currentPosition: {fileID: 0}
-  speed: 40
+  speed: 30
   selectedIdleTime: 5
 --- !u!95 &2062725002
 Animator:

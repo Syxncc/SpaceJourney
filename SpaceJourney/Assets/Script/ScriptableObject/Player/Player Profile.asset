@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Player Profile
   m_EditorClassIdentifier: 
   name: "asd\u200B"
-  positionX: -1199.4435
-  positionY: 1.2034426
-  positionZ: 2.4568787
-  currentScene: -1
-  spacePositionX: 293.82422
-  spacePositionY: 151.10474
-  spacePositionZ: 204.86322
-  playergold: 3448753
+  positionX: -491.39465
+  positionY: -19.662659
+  positionZ: 131.1661
+  currentScene: 1
+  spacePositionX: -1108.0703
+  spacePositionY: 163.97322
+  spacePositionZ: -39.94113
+  playergold: 1800
   playerbluegem: 1
   playergreengem: 5
   playerredgem: 10
-  playerLevel: 4
+  playerLevel: 5
   currentMaxHP: 100
-  currentMaxXP: 400
-  currentXP: 300
-  jumpHeight: 5
+  currentMaxXP: 550
+  currentXP: 200
+  jumpHeight: 3
   walkingSpeed: 7
   sprintingSpeed: 14
   regenCost: 5
@@ -39,11 +39,11 @@ MonoBehaviour:
   boostStaminaCost: 20
   firingStaminaCost: 30
   upgrade:
-    walk: 4
-    sprint: 4
-    jump: 2
-    jumpStamina: 0
-    sprintStamina: 0
+    walk: 5
+    sprint: 3
+    jump: 1
+    jumpStamina: 5
+    sprintStamina: 5
     boost: 0
     spaceshipSpeed: 0
     bulletOverheating: 0
