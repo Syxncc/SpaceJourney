@@ -51,7 +51,7 @@ public class Planet : Collectible
 
     private bool isAchieve(int requirement, float currentStats)
     {
-        return requirement == 0 ? true : requirement == currentStats;
+        return requirement == 0 ? true : requirement <= currentStats;
     }
     public string GetPlanetRequirements()
     {

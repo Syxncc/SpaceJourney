@@ -760,6 +760,7 @@ GameObject:
   - component: {fileID: 63767292}
   - component: {fileID: 63767295}
   - component: {fileID: 63767294}
+  - component: {fileID: 63767296}
   m_Layer: 0
   m_Name: Asteroid Belt
   m_TagString: Planets
@@ -881,6 +882,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1354.9003, y: 479.88242, z: 3769.5193}
   m_Center: {x: 904.4011, y: 1132.2863, z: 301.94998}
+--- !u!114 &63767296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63767291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185a78fd9baac8d408e8dc600cad8268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetProfile: {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}
 --- !u!1 &65910146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 34f14249aca7de746afa3eacad150317, type: 3}
