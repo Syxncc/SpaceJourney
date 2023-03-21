@@ -108,6 +108,7 @@ public class PlanetRequirement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Planets"))
         {
+            requirements.SetActive(false);
             firstEnter = true;
         }
     }
