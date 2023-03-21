@@ -92,14 +92,14 @@ public class PlayerManager : MonoBehaviour
 
     public void GetStats()
     {
-        walkTextUI.text = (playerProfile.upgrade.walk + 1).ToString();
-        sprintTextUI.text = (playerProfile.upgrade.sprint + 1).ToString();
-        jumpTextUI.text = (playerProfile.upgrade.jump + 1).ToString();
-        sprintStaminaTextUI.text = (playerProfile.upgrade.sprintStamina + 1).ToString();
-        jumpStaminaTextUI.text = (playerProfile.upgrade.jumpStamina + 1).ToString();
-        boostTextUI.text = (playerProfile.upgrade.boost + 1).ToString();
-        spaceshipSpeedTextUI.text = (playerProfile.upgrade.spaceshipSpeed + 1).ToString();
-        bulletOverheatingTextUI.text = (playerProfile.upgrade.bulletOverheating + 1).ToString();
+        walkTextUI.text = playerProfile.upgrade.walk.ToString();
+        sprintTextUI.text = playerProfile.upgrade.sprint.ToString();
+        jumpTextUI.text = playerProfile.upgrade.jump.ToString();
+        sprintStaminaTextUI.text = playerProfile.upgrade.sprintStamina.ToString();
+        jumpStaminaTextUI.text = playerProfile.upgrade.jumpStamina.ToString();
+        boostTextUI.text = playerProfile.upgrade.boost.ToString();
+        spaceshipSpeedTextUI.text = playerProfile.upgrade.spaceshipSpeed.ToString();
+        bulletOverheatingTextUI.text = playerProfile.upgrade.bulletOverheating.ToString();
     }
 
 }
