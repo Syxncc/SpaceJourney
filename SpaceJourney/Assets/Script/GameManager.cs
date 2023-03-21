@@ -124,6 +124,15 @@ public class GameManager : MonoBehaviour
         player.thrustBoosted = 3f;
         player.boostStaminaCost = 20f;
         player.firingStaminaCost = 30f;
+        player.upgrade.walk = 1;
+        player.upgrade.sprint = 1;
+        player.upgrade.jump = 1;
+        player.upgrade.jumpStamina = 1;
+        player.upgrade.sprintStamina = 1;
+        player.upgrade.spaceshipSpeed = 1;
+        player.upgrade.boost = 1;
+        player.upgrade.bulletOverheating = 1;
+
     }
 
     public bool isDoneAllQuest()
