@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86564ef82ddbada488e52110606a45f7, type: 3}
   m_Name: Player Profile
   m_EditorClassIdentifier: 
-  name: "asd\u200B"
-  positionX: -550.52344
-  positionY: -30.020601
-  positionZ: 242.07404
-  currentScene: 2
-  spacePositionX: 107.21387
-  spacePositionY: 103.20212
-  spacePositionZ: 159.39508
-  playergold: 10200
+  name: "asda\u200B"
+  positionX: -546.8743
+  positionY: -21.541056
+  positionZ: 84.762474
+  currentScene: -1
+  spacePositionX: -600.2246
+  spacePositionY: 240.3365
+  spacePositionZ: -63.3804
+  playergold: 10100
   playerbluegem: 1
   playergreengem: 5
   playerredgem: 10
   playerLevel: 2
   currentMaxHP: 100
   currentMaxXP: 200
-  currentXP: 100
+  currentXP: 0
   jumpHeight: 3
   walkingSpeed: 7
   sprintingSpeed: 14
@@ -38,12 +38,14 @@ MonoBehaviour:
   thrustBoosted: 3
   boostStaminaCost: 20
   firingStaminaCost: 30
+  sfxVolume: 0.17715454
+  musicVolume: 1
   upgrade:
-    walk: 4
-    sprint: 4
-    jump: 4
-    jumpStamina: 4
-    sprintStamina: 4
+    walk: 0
+    sprint: 0
+    jump: 0
+    jumpStamina: 0
+    sprintStamina: 0
     boost: 0
     spaceshipSpeed: 0
     bulletOverheating: 0

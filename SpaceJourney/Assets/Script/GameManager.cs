@@ -85,8 +85,11 @@ public class GameManager : MonoBehaviour
                 notificationText = notification.GetComponent<TMP_Text>();
             }
         }
-        AudioManager.instance.sfxSlider.value = player.sfxVolume;
-        AudioManager.instance.musicSlider.value = player.musicVolume;
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.sfxSlider.value = player.sfxVolume;
+            AudioManager.instance.musicSlider.value = player.musicVolume;
+        }
         countdownTimer = GetComponent<CountdownTimer>();
 
     }

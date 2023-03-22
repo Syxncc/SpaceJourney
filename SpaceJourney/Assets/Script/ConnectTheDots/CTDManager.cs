@@ -33,7 +33,6 @@ public class CTDManager : MonoBehaviour
                 {
                     GameObject.Destroy(child.gameObject);
                 }
-                currentIndex++;
 
                 if (currentIndex < constellations.Length)
                 {
@@ -41,6 +40,7 @@ public class CTDManager : MonoBehaviour
                     Collectible collectible = constellations[currentIndex].GetComponent<ConnectTheDotsProfile>().constellation;
                     collectible.isUnlockCollectible = true;
                     constellationInfo[currentIndex].SetActive(true);
+                    currentIndex++;
                     constellations[currentIndex].SetActive(true);
                 }
                 else
