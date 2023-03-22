@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
                 notificationText = notification.GetComponent<TMP_Text>();
             }
         }
+        AudioManager.instance.sfxSlider.value = player.sfxVolume;
+        AudioManager.instance.musicSlider.value = player.musicVolume;
         countdownTimer = GetComponent<CountdownTimer>();
 
     }
@@ -126,6 +128,8 @@ public class GameManager : MonoBehaviour
         player.thrustBoosted = 3f;
         player.boostStaminaCost = 20f;
         player.firingStaminaCost = 30f;
+        player.musicVolume = .5f;
+        player.sfxVolume = .5f;
         player.upgrade.walk = 0;
         player.upgrade.sprint = 0;
         player.upgrade.jump = 0;
@@ -134,7 +138,6 @@ public class GameManager : MonoBehaviour
         player.upgrade.spaceshipSpeed = 0;
         player.upgrade.boost = 0;
         player.upgrade.bulletOverheating = 0;
-
     }
 
     public bool isDoneAllQuest()

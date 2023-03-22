@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     public float life = 3f;
     private float value;
     private Profile playerProfile;
@@ -19,7 +18,7 @@ public class Bullet : MonoBehaviour
         playerProfile = GameManager.instance.playerManager.playerProfile;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {

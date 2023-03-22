@@ -42,6 +42,8 @@ public class Profile : ScriptableObject
     public float thrustBoosted = 3f;
     public float boostStaminaCost = 20f;
     public float firingStaminaCost = 30f;
+    public float sfxVolume = 1f;
+    public float musicVolume = 1f;
     public Upgrade upgrade;
 
     [System.Serializable]

@@ -111,6 +111,7 @@ public class AudioManager : MonoBehaviour
         {
             sfxSlider.enabled = true;
             sfxSource.volume = sfxSlider.value;
+            GameManager.instance.player.sfxVolume = sfxSlider.value;
         }
     }
 
@@ -129,6 +130,7 @@ public class AudioManager : MonoBehaviour
         {
             musicSlider.enabled = true;
             musicSource.volume = musicSlider.value;
+            GameManager.instance.player.musicVolume = musicSlider.value;
         }
     }
 
