@@ -528,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 92601680}
     - target: {fileID: 5073068162275684322, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7777778
+      value: 1.7758621
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.x
@@ -552,11 +552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000020685877
+      value: -0.0000020669893
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162275684323, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000127037
+      value: 0.0000012690349
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162607491875, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.x
@@ -572,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162632719402, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7777778
+      value: 1.7758621
       objectReference: {fileID: 0}
     - target: {fileID: 5073068162632719403, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.x
@@ -604,7 +604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073068163130716346, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7777778
+      value: 1.7758621
       objectReference: {fileID: 0}
     - target: {fileID: 5073068163130716347, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1082,6 +1082,54 @@ PrefabInstance:
       propertyPath: ControlUI
       value: 
       objectReference: {fileID: 1733827318}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e7a9b7026ccbd848b311896973432a8, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[0].name
+      value: Scene 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e5398c7812785b49b6658147f766f29, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[1].name
+      value: Scene 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 082124f151463814f987ed4bafd6028b, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[2].name
+      value: Scene 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 208e39b5c29b3c346af4cdd8ef334824, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[3].name
+      value: Scene 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 977c7e7f38c4f244fbc1180c65a8c02d, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[4].name
+      value: Scene 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7398612683068352437, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -17337,7 +17385,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.2e-44, z: 9.18355e-40, w: 2.2e-44}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: 3.2669536e-35}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
