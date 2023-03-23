@@ -72,13 +72,13 @@ public class ShopManager : MonoBehaviour
     public void incnreaseBoostPower()
     {
         // playerProfile.thrustBoosted -= 0.2f;
-        playerProfile.upgrade.boost += 1;
+        playerProfile.upgrade.spaceshipSpeed += 1;
     }
 
     public void decreaseBoostStaminaCost()
     {
         // playerProfile.boostStaminaCost -= 1f;
-        playerProfile.upgrade.spaceshipSpeed += 1;
+        playerProfile.upgrade.boost += 1;
     }
 
     public void decreaseFiringStaminaCost()

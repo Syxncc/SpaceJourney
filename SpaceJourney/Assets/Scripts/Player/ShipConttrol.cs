@@ -37,6 +37,7 @@ public class ShipConttrol : MonoBehaviour
     public int playerMove = 1;
 
     public GameObject planet;
+    Profile playerProfile;
 
 
     private void Awake()
@@ -59,14 +60,15 @@ public class ShipConttrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boostcurrentStamina = playerManager.playerProfile.maxStamina;
-        firecurrentStamina = playerManager.playerProfile.maxStamina;
+        playerProfile = playerManager.playerProfile;
+        boostcurrentStamina = playerProfile.maxStamina;
+        firecurrentStamina = playerProfile.maxStamina;
 
-        boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        boostStaminaBar.value = playerManager.playerProfile.maxStamina;
+        boostStaminaBar.maxValue = playerProfile.maxStamina;
+        boostStaminaBar.value = playerProfile.maxStamina;
 
-        fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        fireStaminaBar.value = playerManager.playerProfile.maxStamina;
+        fireStaminaBar.maxValue = playerProfile.maxStamina;
+        fireStaminaBar.value = playerProfile.maxStamina;
         normalTrail.SetActive(true);
 
     }
@@ -75,16 +77,16 @@ public class ShipConttrol : MonoBehaviour
     void Update()
     {
         //Stamina
-        // boostStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        // fireStaminaBar.maxValue = playerManager.playerProfile.maxStamina;
-        // Debug.Log(playerManager.playerProfile.maxStamina);
-        if (firecurrentStamina < playerManager.playerProfile.maxStamina)
+        // boostStaminaBar.maxValue = playerProfile.maxStamina;
+        // fireStaminaBar.maxValue = playerProfile.maxStamina;
+        // Debug.Log(playerProfile.maxStamina);
+        if (firecurrentStamina < playerProfile.maxStamina)
         {
-            RegenFireStamina(GameManager.instance.playerManager.playerProfile.regenCost);
+            RegenFireStamina(playerProfile.regenCost);
         }
-        if (boostcurrentStamina < playerManager.playerProfile.maxStamina)
+        if (boostcurrentStamina < playerProfile.maxStamina)
         {
-            RegenBoostStamina(GameManager.instance.playerManager.playerProfile.regenCost);
+            RegenBoostStamina(playerProfile.regenCost);
         }
 
         boostStaminaBar.value = boostcurrentStamina;
@@ -98,20 +100,24 @@ public class ShipConttrol : MonoBehaviour
         // }
         transform.Rotate(-movementInput.y * lookRateSpeed * Time.deltaTime, movementInput.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
 
-        if (boostButton)
+        if (boostButton || moveButton)
         {
-            // if (boostcurrentStamina >= 0)
-            // {
-            //     DecreaseStaminaBoostOvertime();
+            if (boostButton && boostcurrentStamina >= 0)
+            {
+                DecreaseStaminaBoostOvertime();
 
-            //     thrust = playerManager.playerProfile.thrustBoosted;
-            // }
-            // else
-            // {
-            thrust = 1f;
-            // }
-            activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, thrust * forwardSpeed, forwardAcceleration * Time.deltaTime);
+                thrust = playerProfile.thrustBoosted;
+            }
+            else
+            {
+                thrust = 1f;
+            }
+            activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, (thrust + (playerProfile.upgrade.spaceshipSpeed * .2f)) * forwardSpeed, forwardAcceleration * Time.deltaTime);
             transform.position += transform.forward * activeForwardSpeed * Time.deltaTime * playerMove;
+        }
+        else
+        {
+            thrust = 0;
         }
 
         if (shootButton)
@@ -181,7 +187,12 @@ public class ShipConttrol : MonoBehaviour
     public void MoveFire(bool isFiring)
     {
         shootButton = isFiring;
-        boostButton = isFiring;
+        MoveNormal(isFiring);
+    }
+
+    public void MoveNormal(bool isMoving)
+    {
+        moveButton = isMoving;
     }
 
     public void ReleaseShoot()
@@ -196,23 +207,23 @@ public class ShipConttrol : MonoBehaviour
 
     private void RegenFireStamina(float regenCost)
     {
-        firecurrentStamina += GameManager.instance.playerManager.playerProfile.regenCost * Time.deltaTime;
+        firecurrentStamina += playerProfile.regenCost * Time.deltaTime;
     }
 
     private void RegenBoostStamina(float regenCost)
     {
-        boostcurrentStamina += GameManager.instance.playerManager.playerProfile.regenCost * Time.deltaTime;
+        boostcurrentStamina += playerProfile.regenCost * Time.deltaTime;
     }
 
     private void DecreaseStaminaFiringOvertime()
     {
 
-        firecurrentStamina -= playerManager.playerProfile.firingStaminaCost * Time.deltaTime;
+        firecurrentStamina -= (playerProfile.firingStaminaCost - (playerProfile.upgrade.bulletOverheating * 2)) * Time.deltaTime;
     }
 
     private void DecreaseStaminaBoostOvertime()
     {
-        boostcurrentStamina -= playerManager.playerProfile.boostStaminaCost * Time.deltaTime;
+        boostcurrentStamina -= (playerProfile.boostStaminaCost - (playerProfile.upgrade.boost * 1f)) * Time.deltaTime;
     }
 
 

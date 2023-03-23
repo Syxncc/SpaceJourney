@@ -29,8 +29,11 @@ public class DialMan : MonoBehaviour
     public RawImage imagePanel;
     private Texture[] storyImages;
     private int currentStoryImageIndex = 0;
+    private int currentDialogueSoundIndex = 0;
 
     private GameObject startPanel;
+
+    public Sound[] dialogueSound;
 
 
     public bool isTerrence = false;
@@ -98,7 +101,12 @@ public class DialMan : MonoBehaviour
             this.storyImages = storyImages.images;
             imagesStoryPanel.SetActive(true);
             imagePanel.texture = this.storyImages[0];
+            if (dialogueSound.Length > 0)
+            {
+                AudioManager.instance.PlayDialogue(dialogueSound[currentDialogueSoundIndex]);
+            }
         }
+
 
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
@@ -123,6 +131,11 @@ public class DialMan : MonoBehaviour
             {
                 storyImages = null;
                 imagesStoryPanel.SetActive(false);
+                if (dialogueSound.Length > 0 && currentDialogueSoundIndex < dialogueSound.Length)
+                {
+                    AudioManager.instance.StopDialogue(dialogueSound[currentDialogueSoundIndex]);
+                    currentDialogueSoundIndex = 0;
+                }
             }
             else
             {
@@ -163,12 +176,22 @@ public class DialMan : MonoBehaviour
             if (storyImages.Length > currentStoryImageIndex)
             {
                 imagePanel.texture = this.storyImages[currentStoryImageIndex];
+                if (dialogueSound.Length > 0)
+                {
+                    if (currentDialogueSoundIndex < dialogueSound.Length - 1)
+                    {
+                        AudioManager.instance.StopDialogue(dialogueSound[currentDialogueSoundIndex]);
+                        currentDialogueSoundIndex++;
+                        AudioManager.instance.PlayDialogue(dialogueSound[currentDialogueSoundIndex]);
+                    }
+                }
             }
             else
             {
                 imagesStoryPanel.SetActive(false);
             }
         }
+
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();

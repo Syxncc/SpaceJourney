@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Player Profile
   m_EditorClassIdentifier: 
   name: "asda\u200B"
-  positionX: -546.8743
-  positionY: -21.541056
-  positionZ: 84.762474
-  currentScene: -1
-  spacePositionX: -600.2246
-  spacePositionY: 240.3365
-  spacePositionZ: -63.3804
-  playergold: 10100
-  playerbluegem: 1
-  playergreengem: 5
-  playerredgem: 10
+  positionX: -493.40656
+  positionY: -19.662659
+  positionZ: 128.65948
+  currentScene: 2
+  spacePositionX: 1297.0283
+  spacePositionY: -361.56183
+  spacePositionZ: -738.8934
+  playergold: 8600
+  playerbluegem: 6
+  playergreengem: 18
+  playerredgem: 29
   playerLevel: 2
   currentMaxHP: 100
   currentMaxXP: 200
@@ -45,7 +45,7 @@ MonoBehaviour:
     sprint: 0
     jump: 0
     jumpStamina: 0
-    sprintStamina: 0
-    boost: 0
-    spaceshipSpeed: 0
-    bulletOverheating: 0
+    sprintStamina: 1
+    boost: 5
+    spaceshipSpeed: 5
+    bulletOverheating: 5
