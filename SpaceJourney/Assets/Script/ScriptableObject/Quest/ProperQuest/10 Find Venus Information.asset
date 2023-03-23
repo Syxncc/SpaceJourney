@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Find Venus Information
-  questDescription: Our mission for this planet is to find the information about
-    the planet. Be careful, Venus is known as the hottest planet so be careful to
-    fall in the planet. We can use the rock to avoid touching the planet.
+  questDescription: Our mission is to find the information about the planet. Be careful,
+    Venus is known as the hottest planet so be careful not to fall. We can use the
+    rock to avoid touching the hot surface.
   isAutoQuest: 0
   maxTime: 0
-  currentHighScore: 0
+  currentHighScore: 26
+  isQuestTimerObjective: 0
+  goalObjectives: '- Go to Venus Treasure (1/1)
+
+'
   rewards:
     goldReward: 1000
     xpReward: 150

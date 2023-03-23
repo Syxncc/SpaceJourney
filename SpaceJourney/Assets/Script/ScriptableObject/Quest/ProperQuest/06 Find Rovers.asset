@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Find Rovers
-  questDescription: Ellun want you to find 3 rovers that got missing. He can give
-    you the information card for Mars
+  questDescription: 'Ellun needs you to find 2 rovers that got missing. You can get
+    the Mars information card after accomplishing this.
+
+'
   isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: '- Talk to Rover 1 (1/1)
+
+    - Talk to Rover 2 (1/1)
+
+'
   rewards:
     goldReward: 200
     xpReward: 200

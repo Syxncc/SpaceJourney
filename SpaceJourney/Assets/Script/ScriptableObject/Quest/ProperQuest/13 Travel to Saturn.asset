@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Saturn
-  questDescription: Travelling to Saturn to know what Saturn is.
+  questDescription: Travel to Saturn to learn and be mesmerize by its rings.
   isAutoQuest: 1
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: 
   rewards:
     goldReward: 100
     xpReward: 100

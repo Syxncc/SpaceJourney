@@ -14,13 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Welcome to Space Laboratory
-  questDescription: Being new here means more new people to greet. Talk to Neil.
-    He is friendly to newbie. He can give you a basic knowledge to move freely.
+  questDescription: Being new here means more new people to greet. Talk to Neil,
+    he is friendly to newbie. He can give you the basic knowledge to move freely.
+  isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: '- Talk to Neil (1/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 100
     collectibles: []
-    infoCardsCategory: 
   objectives:
   - requiredProfile: {fileID: 11400000, guid: c83a07379f40915438e96bd131c61014, type: 2}
     requiredAmount: 1

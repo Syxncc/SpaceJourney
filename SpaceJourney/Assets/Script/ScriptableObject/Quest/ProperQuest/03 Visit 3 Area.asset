@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Visit 3 Area
-  questDescription: 'You are now can freely visit any area. Jett suggested you to
-    visit the 3 area. Observatory, Trade and Upgrade Room and Space Launch Area.
+  questDescription: 'You can now freely visit any area. Jett suggested you to visit
+    the 3 area. Observatory, Trade and Upgrade Room,  and Space Launch Area.
 
     Talk
     to this 3 person to get ideas:'
@@ -23,12 +23,12 @@ MonoBehaviour:
   maxTime: 0
   currentHighScore: 0
   isQuestTimerObjective: 0
-  goalObjectives: '1.) Talk to Sova (0/1)
+  goalObjectives: '- Talk to Sova (1/1)
 
-    2.) Talk to Nicole (0/1)
+    - Talk to Nicole (1/1)
 
-    3.)
-    Talk to Mark (0/1)
+    - Talk to
+    Mark (1/1)
 
 '
   rewards:

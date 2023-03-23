@@ -14,16 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Mercury Maze
-  questDescription: 'Our mission here is to go to the other side of the maze. Our
-    spaceship is there
+  questDescription: 'Our mission here is to get out of the maze. Our spaceship is
+    there
 
     Objectives:
 
     - Go to the other side of the maze.'
   isAutoQuest: 0
   maxTime: 900
-  currentHighScore: 0
+  currentHighScore: 765
   isQuestTimerObjective: 0
+  goalObjectives: '- Go to Mercury_EndLocation (0/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 200

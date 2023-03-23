@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Venus
-  questDescription: Venus is the hottiest place on all planets in the solar system.
-    Maybe there is an item that can help me to progress further like this planet
-    Mercury.
+  questDescription: Venus is the hottest planet in the solar system. Maybe there
+    is an item that can help me to progress further like what I get from planet Mercury.
   isAutoQuest: 1
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: '- Go to Venus Planet (1/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 200

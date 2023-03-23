@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Jupiter
-  questDescription: The mission is need to travel to Jupiter. Complete the Question
-    of Asteroid Belt to continue the quest.
+  questDescription: The mission is to travel to Jupiter. Complete the quiz in the
+    Asteroid Belt first to continue your journey.
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0
   isQuestTimerObjective: 0
-  goalObjectives: 
+  goalObjectives: '- Go to Jupiter (0/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 100

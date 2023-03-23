@@ -14,13 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Talk to John
-  questDescription: John is know the layout of the Main Building. Talk to John. He
+  questDescription: John knows the layout of the Main Building. Talk to John, he
     can tell you what is the best location to visit.
+  isAutoQuest: 0
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: '- Talk to John (1/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 100
     collectibles: []
-    infoCardsCategory: 
   objectives:
   - requiredProfile: {fileID: 11400000, guid: 72defdc293f7c0d4e8aa0d33cb018c65, type: 2}
     requiredAmount: 1
