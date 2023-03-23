@@ -60,4 +60,4 @@ crashlytics-build.properties
 
 *.dwlt
 
-SpaceJourney/UserSettings/*
+SpaceJourney/UserSettings/
