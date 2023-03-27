@@ -28,3 +28,5 @@ MonoBehaviour:
     spaceshipBulletOverheating: 3
     collectibles:
     - {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}
+    - {fileID: 11400000, guid: b2c8cc209bbdd594596114142aa30bc6, type: 2}
+    - {fileID: 11400000, guid: 69fa34f208d183a429bdd97af90e3a20, type: 2}

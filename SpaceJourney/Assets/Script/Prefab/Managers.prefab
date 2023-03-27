@@ -70,10 +70,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
   - {fileID: 11400000, guid: 8ada33dafee5f6443a7840bdc2b639a2, type: 2}
   - {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}
+  - {fileID: 11400000, guid: a4dff375afbfc6f4ea82c24497908e26, type: 2}
+  - {fileID: 11400000, guid: 74888bac7eba06f47b6506a117cf0c1b, type: 2}
+  - {fileID: 11400000, guid: 5d206a0841d89064ba509d41b5520f96, type: 2}
   countdownTimer: {fileID: 0}
   player: {fileID: 11400000, guid: f9954afe0d0851848804d5cca15b7ed2, type: 2}
   title: 
   message: 
+  changeSceneAnimator: {fileID: 0}
 --- !u!1 &2811561568336310919
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +349,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 0}
   imagesStoryPanel: {fileID: 0}
   imagePanel: {fileID: 0}
+  dialogueSound: []
   isTerrence: 0
 --- !u!1 &2811561569234073135
 GameObject:

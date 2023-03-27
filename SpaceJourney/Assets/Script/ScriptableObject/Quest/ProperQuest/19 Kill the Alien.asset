@@ -27,6 +27,7 @@ MonoBehaviour:
     xpReward: 100
     collectibles:
     - {fileID: 11400000, guid: a15e4eb64384a634e9181bbb93baad16, type: 2}
+    - {fileID: 11400000, guid: 5d206a0841d89064ba509d41b5520f96, type: 2}
   objectives:
   - requiredProfile: {fileID: 11400000, guid: 6d83537fc986a6043a0c0e9f17f5c36a, type: 2}
     requiredAmount: 1

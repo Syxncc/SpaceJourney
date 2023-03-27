@@ -10,23 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f2b38232dd7d164485c63b212375895, type: 3}
-  m_Name: 04 Travel to Space
+  m_Name: 00 Asteroid Quiz
   m_EditorClassIdentifier: 
   questID: 
-  questName: Travel to Space
-  questDescription: 'Traveling to space is a must. Explore and discover something
-    new. '
-  isAutoQuest: 1
+  questName: 
+  questDescription: 
+  isAutoQuest: 0
   maxTime: 0
   currentHighScore: 0
   isQuestTimerObjective: 0
   goalObjectives: 
   rewards:
-    goldReward: 100
-    xpReward: 200
+    goldReward: 250
+    xpReward: 500
     collectibles:
-    - {fileID: 11400000, guid: a4dff375afbfc6f4ea82c24497908e26, type: 2}
-    - {fileID: 11400000, guid: 74888bac7eba06f47b6506a117cf0c1b, type: 2}
-  objectives:
-  - requiredProfile: {fileID: 11400000, guid: 7a571eb014fe8d44fb422a1e1269dbc3, type: 2}
-    requiredAmount: 1
+    - {fileID: 11400000, guid: 4ea3901c8ac33344884e6ee99b36002c, type: 2}
+  objectives: []

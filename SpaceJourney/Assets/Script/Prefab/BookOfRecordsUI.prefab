@@ -9094,7 +9094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlock: 0
   infoName: Moon
-  planet: {fileID: 11400000, guid: 250274530c456164b9aaf0e397ad1e24, type: 2}
+  planet: {fileID: 11400000, guid: 74888bac7eba06f47b6506a117cf0c1b, type: 2}
   lockInfo: {fileID: 6018790191810113145}
   cardInfo: {fileID: 5766653283137874456}
   backButton: {fileID: 2355805495878386733}
@@ -9536,7 +9536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlock: 0
   infoName: Sun
-  planet: {fileID: 11400000, guid: e5b9cfa263d34384287c5b1ae796536e, type: 2}
+  planet: {fileID: 11400000, guid: a4dff375afbfc6f4ea82c24497908e26, type: 2}
   lockInfo: {fileID: 2773038234400751355}
   cardInfo: {fileID: 1951294565461030878}
   backButton: {fileID: 2355805495878386733}
@@ -9686,7 +9686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlock: 0
   infoName: Pluto
-  planet: {fileID: 11400000, guid: c098f75242aa4a7429c0c3ea3bc951a9, type: 2}
+  planet: {fileID: 11400000, guid: 5d206a0841d89064ba509d41b5520f96, type: 2}
   lockInfo: {fileID: 6693292002780370998}
   cardInfo: {fileID: 3494698291089628552}
   backButton: {fileID: 2355805495878386733}

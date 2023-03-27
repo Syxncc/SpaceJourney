@@ -23,7 +23,9 @@ public class QuizManager : MonoBehaviour
 
     int totalQuestions;
     public int score;
-    public int coinGain;
+    private int coinGain;
+
+    public QuestBase quizQuest;
 
     public void Start()
     {
@@ -42,19 +44,27 @@ public class QuizManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         score = 0;
-        
+
     }
-    
+
     void GameOver()
     {
         QuizPanel.SetActive(false);
         GoPanel.SetActive(true);
         ScoreTxt.text = score + " out of " + totalQuestions;
 
-        if(score >= totalQuestions/2)
+        if (score >= totalQuestions / 2)
         {
+            string rewards = "-- Rewards --\n";
             MessageTxt.text = "Great, you learned!\n keep it up";
-            RewardTxt.text = "Coin Reward: " + coinGain;
+            rewards += "You received " + (quizQuest.rewards.goldReward == 0 ? "" : quizQuest.rewards.goldReward) + " Gold\n";
+            rewards += "You received " + (quizQuest.rewards.xpReward == 0 ? "" : quizQuest.rewards.xpReward) + " XP";
+            for (int j = 0; j < quizQuest.rewards.collectibles.Length; j++)
+            {
+                quizQuest.rewards.collectibles[j].isUnlockCollectible = true;
+                rewards += "\nYou received " + quizQuest.rewards.collectibles[j].name + " Information";
+            }
+            RewardTxt.text = rewards;
             Done.SetActive(true);
         }
         else
@@ -82,12 +92,12 @@ public class QuizManager : MonoBehaviour
 
     void SetAnswers()
     {
-        for (int i = 0; i < options.Length ; i++)
+        for (int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;    
+            options[i].GetComponent<AnswerScript>().isCorrect = false;
             options[i].transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = QnA[currentQuestion].Answers[i];
 
-            if(QnA[currentQuestion].CorrectAnswer == i)
+            if (QnA[currentQuestion].CorrectAnswer == i)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
@@ -96,7 +106,7 @@ public class QuizManager : MonoBehaviour
 
     void generateQuestion()
     {
-        if(QnA.Count > 0)
+        if (QnA.Count > 0)
         {
             currentQuestion = Random.Range(0, QnA.Count);
 

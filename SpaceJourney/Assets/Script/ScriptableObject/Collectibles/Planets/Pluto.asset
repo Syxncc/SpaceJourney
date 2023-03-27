@@ -10,23 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 769ab4554e0912145b4993cdcc82fb62, type: 3}
-  m_Name: Uranus
+  m_Name: Pluto
   m_EditorClassIdentifier: 
-  name: Uranus
-  isUnlockCollectible: 0
+  name: Pluto
+  isUnlockCollectible: 1
   constellationDotProfiles: []
-  planetScene: 10
+  planetScene: 0
   adjustSpeedMultiplier: 0
   planetRequirement:
     walk: 0
     sprint: 0
-    jump: 5
+    jump: 0
     sprintStamina: 0
     jumpStamina: 0
     spaceshipBoost: 0
     spaceshipSpeed: 0
-    spaceshipBulletOverheating: 5
-    collectibles:
-    - {fileID: 11400000, guid: ed0f2ffd046581d479e77a6fe24fa6a3, type: 2}
-    - {fileID: 11400000, guid: 80d88accc8709b842a4138dc349e5a62, type: 2}
-    - {fileID: 11400000, guid: d2cff91d2c4f5a34eb3f9c557388d2ef, type: 2}
+    spaceshipBulletOverheating: 0
+    collectibles: []
