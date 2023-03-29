@@ -1092,47 +1092,111 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.size
-      value: 5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 2e7a9b7026ccbd848b311896973432a8, type: 3}
+      objectReference: {fileID: 8300000, guid: 43d4145c70d658b46be70a0733f19ce1, type: 3}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[0].name
-      value: Scene 1
+      value: Scene 1-1
       objectReference: {fileID: 0}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 3e5398c7812785b49b6658147f766f29, type: 3}
+      objectReference: {fileID: 8300000, guid: f329791b67d4ac04293778007159cc24, type: 3}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[1].name
-      value: Scene 2
+      value: Scene 1-2
       objectReference: {fileID: 0}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 082124f151463814f987ed4bafd6028b, type: 3}
+      objectReference: {fileID: 8300000, guid: e1c2bc4d7e0f31643bcb6d7b934514f0, type: 3}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[2].name
-      value: Scene 3
+      value: Scene 2
       objectReference: {fileID: 0}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 208e39b5c29b3c346af4cdd8ef334824, type: 3}
+      objectReference: {fileID: 8300000, guid: ce6d42faad356c247889a54dae7c3da6, type: 3}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[3].name
-      value: Scene 4
+      value: Scene 3-1
       objectReference: {fileID: 0}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[4].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 977c7e7f38c4f244fbc1180c65a8c02d, type: 3}
+      objectReference: {fileID: 8300000, guid: 4d21e3e818f1a654ca8bb41faef08c1c, type: 3}
     - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: dialogueSound.Array.data[4].name
-      value: Scene 5
+      value: Scene 3-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 489fd7e8b99cbe24eae0eb08f79969c6, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[5].name
+      value: Scene 3-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c12a4badc5e05747a6d2a0e36086c11, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[6].name
+      value: Scene 4-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f4a7d19ee9ac9ce418770cce810ccc76, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[7].name
+      value: Scene 4-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 55421da31d36f8e46bdf981c8627c4ca, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[8].name
+      value: Scene 4-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9105cd0a3ee45e448ff000af5d18ce6, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[9].name
+      value: Scene 5-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e0f0c26a13186f4dbf49943e90fa228, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[10].name
+      value: Scene 5-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 44ad19d5bf09ba34c933b60390a9f64e, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[11].name
+      value: Scene 5-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b0607527e106a51429e18732170e0561, type: 3}
+    - target: {fileID: 7398612682837016992, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
+      propertyPath: dialogueSound.Array.data[12].name
+      value: Scene 5-4
       objectReference: {fileID: 0}
     - target: {fileID: 7398612683068352437, guid: 3a0104e1b65188d4a8852c5d6ff77922, type: 3}
       propertyPath: m_IsActive
