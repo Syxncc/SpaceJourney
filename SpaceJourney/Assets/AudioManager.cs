@@ -60,6 +60,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             musicSource.clip = sound.clip;
+            musicSource.loop = false;
             musicSource.Play();
         }
     }

@@ -103,6 +103,7 @@ public class DialMan : MonoBehaviour
             imagePanel.texture = this.storyImages[0];
             if (dialogueSound.Length > 0)
             {
+                Debug.Log(dialogueSound.Length + " " + dialogueSound[currentDialogueSoundIndex].name);
                 AudioManager.instance.PlayDialogue(dialogueSound[currentDialogueSoundIndex]);
             }
         }
