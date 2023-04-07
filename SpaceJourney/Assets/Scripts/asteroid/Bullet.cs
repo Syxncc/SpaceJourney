@@ -22,28 +22,32 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-
-            if (Random.value > 0.9) //%50 percent chance
+            if (collision.gameObject.GetComponent<TakeDamage>() == null)
             {
-                LootBlue();
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+
+                if (Random.value > 0.9) //%50 percent chance
+                {
+                    LootBlue();
+                }
+
+                if (Random.value > 0.8) //%80 percent chance (1 - 0.2 is 0.8)
+                {
+                    LootGreen();
+                }
+
+                if (Random.value > 0.7) //%30 percent chance (1 - 0.7 is 0.3)
+                {
+                    LootRed();
+                }
+
+                if (Random.value > 0.6) //%30 percent chance (1 - 0.7 is 0.3)
+                {
+                    Debug.Log("BetterLuckNextTime");
+                }
             }
 
-            if (Random.value > 0.8) //%80 percent chance (1 - 0.2 is 0.8)
-            {
-                LootGreen();
-            }
-
-            if (Random.value > 0.7) //%30 percent chance (1 - 0.7 is 0.3)
-            {
-                LootRed();
-            }
-
-            if (Random.value > 0.6) //%30 percent chance (1 - 0.7 is 0.3)
-            {
-                Debug.Log("BetterLuckNextTime");
-            }
         }
         // else {
         //     Destroy(gameObject);

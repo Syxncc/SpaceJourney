@@ -40,7 +40,6 @@ public class QuestManager : MonoBehaviour
 
                 // if (CurrentQuest != GameManager.instance.playerQuest.questSequence[GameManager.instance.playerQuest.currentQuestIndex])
                 // {
-                Debug.Log("Initiasdlasdih Here 2");
                 CurrentQuest.InitializeQuest();
                 // }
             }
