@@ -1897,223 +1897,131 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: 'How many planets are there in the Solar System? '
-    Answers:
-    - 12
-    - 9
-    - 10
-    - 8
-    CorrectAnswer: 3
-  - Question: "What planet is slightly larger than the Earth\u2019s Moon? "
-    Answers:
-    - Jupiter
-    - Mars
-    - Venus
-    - Mercury
-    CorrectAnswer: 3
-  - Question: 'What planet is called to be Earths Twin? '
-    Answers:
-    - Venus
-    - Mercury
-    - Mars
-    - Neptune
-    CorrectAnswer: 0
-  - Question: 'What planet is closest to the Sun? '
-    Answers:
-    - Saturn
-    - Mercury
-    - Venus
-    - Earth
-    CorrectAnswer: 1
-  - Question: 'What is the fifth planet from the Sun? '
-    Answers:
-    - Jupiter
-    - Uranus
-    - Mars
-    - Venus
-    CorrectAnswer: 0
-  - Question: 'What is the third planet from the Sun? '
-    Answers:
-    - Venus
-    - Earth
-    - Mars
-    - Uranus
-    CorrectAnswer: 1
-  - Question: 'What is the fourth planet from the Sun? '
-    Answers:
-    - Venus
-    - Neptune
-    - Earth
-    - Mars
-    CorrectAnswer: 3
-  - Question: Which planet has the largest ring system?
+  - Question: What is the fifth largest planet in the solar syste,
     Answers:
     - Saturn
     - Jupiter
-    - Uranus
-    - Neptune
-    CorrectAnswer: 0
-  - Question: 'What is the second planet from the Sun? '
-    Answers:
-    - Mercury
+    - Earth
     - Venus
-    - Jupiter
-    - Neptune
-    CorrectAnswer: 1
-  - Question: 'What is the sixth planet from the Sun? '
-    Answers:
-    - Jupiter
-    - Uranus
-    - Mars
-    - Saturn
-    CorrectAnswer: 3
-  - Question: 'What is the seventh from the Sun? '
-    Answers:
-    - Jupiter
-    - Mercury
-    - Uranus
-    - Neptune
     CorrectAnswer: 2
-  - Question: 'What is the eighth planet from the Sun? '
+  - Question: How many length of a year does planet Earth have?
     Answers:
-    - Venus
-    - Saturn
-    - Uranus
-    - Neptune
-    CorrectAnswer: 3
-  - Question: 'What planet in the Solar System that is known to have a liquid water
-      on the surface? '
-    Answers:
-    - Venus
-    - Earth
-    - Mars
-    - Neptune
+    - 369
+    - 365
+    - 330
+    - 345
     CorrectAnswer: 1
-  - Question: 'How many moons does the planet Mars have? '
+  - Question: How many moons does planet Mars have?
     Answers:
-    - 0
-    - 1
+    - 5
     - 2
+    - 3
     - 4
-    CorrectAnswer: 2
-  - Question: The two notable moons of Mars are?
-    Answers:
-    - 'Europa & Ganymede '
-    - Callisto & Io
-    - Phobos &Deimos
-    - Mimas & Triton
-    CorrectAnswer: 2
-  - Question: 'What is the color of the planet Saturn spots? '
-    Answers:
-    - blue
-    - Green
-    - Yellow
-    - Red
-    CorrectAnswer: 3
-  - Question: 'The largest planet in our Solar System? '
-    Answers:
-    - Saturn
-    - Uranus
-    - Neptune
-    - Jupiter
-    CorrectAnswer: 3
-  - Question: 'What planet is called an ice giant? '
+    CorrectAnswer: 1
+  - Question: What is the fourth planet from the Sun?
     Answers:
     - Venus
-    - Uranus
-    - Saturn
-    - Neptune
-    CorrectAnswer: 1
-  - Question: 'How many known moons does planet Neptune have? '
-    Answers:
-    - 22
-    - 14
-    - 16
-    - 11
-    CorrectAnswer: 1
-  - Question: 'What planet in the Solar System is not visible to the naked eye? '
-    Answers:
-    - Mercury
     - Earth
-    - Uranus
-    - Neptune
+    - Mercury
+    - Mars
     CorrectAnswer: 3
-  - Question: 'What is the 10th largest constellation in the sky? '
+  - Question: What is the second planet from the Sun?
     Answers:
-    - Aries
-    - Taurus
-    - Scorpio
-    - Aquarius
-    CorrectAnswer: 3
-  - Question: What is the 14th largest constellation?
-    Answers:
-    - Capricorn
-    - Taurus
-    - Pisces
-    - Libra
-    CorrectAnswer: 2
-  - Question: "What constellation have a name means \u201CThe Bull\u201D? "
-    Answers:
-    - Gemini
-    - Virgo
-    - Capricorn
-    - Taurus
-    CorrectAnswer: 3
-  - Question: What is the name meaning of constellation Gemini be?
-    Answers:
-    - Twins
-    - Weighing Scales
-    - Maiden
-    - The Bull
+    - Venus
+    - Earth
+    - Mercury
+    - Mars
     CorrectAnswer: 0
-  - Question: 'What notable constellation is almost impossible to the naked eye? '
+  - Question: What planet is called to be the Earth's Twin?
     Answers:
-    - Scorpio
-    - Aries
-    - Cancer
-    - Pisces
-    CorrectAnswer: 2
-  - Question: "What constellation have a name meaning \u201CThe Lion\u201D? "
-    Answers:
-    - Taurus
-    - Leo
-    - Virgo
-    - Capricorn
-    CorrectAnswer: 1
-  - Question: What constellation does the star Spica located?
-    Answers:
-    - Aries
-    - Virgo
-    - Capricorn
-    - Leo
-    CorrectAnswer: 1
-  - Question: It is the second largest constellation of the zodiac?
-    Answers:
-    - Virgo
-    - Taurus
-    - Scorpio
-    - Cancer
+    - Venus
+    - Earth
+    - Mercury
+    - Mars
     CorrectAnswer: 0
-  - Question: 'What constellation that named after an inanimate object? '
+  - Question: What is the 14th brightest star from the sky?
     Answers:
-    - Scorpio
-    - Sagittarius
-    - Libra
-    - Taurus
-    CorrectAnswer: 2
-  - Question: 'What constellation is called to be one of the brightest? '
-    Answers:
-    - Sagittarius
-    - Capricorn
     - Leo
-    - Scorpio
-    CorrectAnswer: 3
-  - Question: What constellation is considered as 15th largest in the overall?
-    Answers:
     - Taurus
     - Gemini
     - Cancer
-    - Sagittarius
+    CorrectAnswer: 1
+  - Question: What constellation has a name meaning of "The Bull"?
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 1
+  - Question: What constellation has a name meaning of "Twins"?
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 2
+  - Question: What constellation has the two brightest stars?
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 2
+  - Question: What constellation has a name meaning of "The Crab"?
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 3
+  - Question: What constellation is impossible to see with the naked eye?
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 3
+  - Question: What constellation has a name meaning of "Lion"
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 0
+  - Question: It is hightly recognizable constellation.
+    Answers:
+    - Leo
+    - Taurus
+    - Gemini
+    - Cancer
+    CorrectAnswer: 0
+  - Question: What constellation has a name meaning of "Maiden"?
+    Answers:
+    - Cancer
+    - Gemini
+    - Virgo
+    - Leo
+    CorrectAnswer: 2
+  - Question: It is the largest constellation in the zodiac.
+    Answers:
+    - Cancer
+    - Gemini
+    - Virgo
+    - Leo
+    CorrectAnswer: 2
+  - Question: What planet is closest to the Sun?
+    Answers:
+    - Mars
+    - Earth
+    - Venus
+    - Mercury
+    CorrectAnswer: 3
+  - Question: This planet is only slightly larger than the Earth's Moon.
+    Answers:
+    - Mars
+    - Earth
+    - Venus
+    - Mercury
     CorrectAnswer: 3
   options:
   - {fileID: 987858409}
