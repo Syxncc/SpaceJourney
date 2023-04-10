@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Saturn
-  questDescription: Travel to Saturn to learn and be mesmerize by its rings.
+  questDescription: "Your next destination contains the most beautiful rings in our
+    solar system, the\r Saturn. Look forward to what it offers you. Goodluck little
+    astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0

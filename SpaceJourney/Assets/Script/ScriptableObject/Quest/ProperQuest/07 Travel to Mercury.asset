@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Mercury
-  questDescription: Your colleague says there is a trreasure in Mercury. Check it
-    out maybe it can help you to travel.
+  questDescription: "Your next destination has a feature just like Mars, it contains
+    33% gravity \rcompared to ours, but this one is hot since it's near our Sun.
+    Upgrade your stats\r to enter this planet and escape the maze inside there. Goodluck
+    little astronaut."
   isAutoQuest: 1
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: 
   rewards:
     goldReward: 100
     xpReward: 200

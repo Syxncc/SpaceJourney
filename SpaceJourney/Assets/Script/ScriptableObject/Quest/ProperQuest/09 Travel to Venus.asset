@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Venus
-  questDescription: Venus is the hottest planet in the solar system. Maybe there
-    is an item that can help me to progress further like what I get from planet Mercury.
+  questDescription: "The next destination is the hottest planet in the entire solar
+    system, the Venus. It's surface \rtemperature reaches upto 475 degree celcius,
+    and that is incredibly hot. Upgrade \ryour stats to be able to widthstand this
+    extreme place. Goodluck little astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0

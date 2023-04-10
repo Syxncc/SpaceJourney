@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Jupiter
-  questDescription: The mission is to travel to Jupiter. Complete the quiz in the
-    Asteroid Belt first to continue your journey.
+  questDescription: "Now before you proceed to your next mission, there will be an
+    assessment if you \rlearn from previous planets. Use the infocards you obtain
+    as a reviewer, then \rtake the quiz. After completing this, continue your journey
+    and go to Jupiter.\r Goodluck little astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0

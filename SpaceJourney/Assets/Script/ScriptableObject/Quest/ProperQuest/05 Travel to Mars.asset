@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Mars
-  questDescription: Traveling to Space means traveling to nowhere. For now you need
-    to find way to travel to Mars. There's a restriction to traveling to Mars so
-    you need to pass it. After landing to Mars you need to talk to Ellun. He can
-    tell you about stories in Mars.
+  questDescription: "Now you're done here, it's time to see new things beyond our
+    own planet. Your\r next destination is Mars, this planet only has 33% gravity
+    compared to ours, \rupgrade your stats to enter this planet and find ellun when
+    you're in it. Goodluck little astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0
