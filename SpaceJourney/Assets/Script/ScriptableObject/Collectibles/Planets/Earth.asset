@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   name: Earth
-  isUnlockCollectible: 1
+  isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 1
   adjustSpeedMultiplier: 1

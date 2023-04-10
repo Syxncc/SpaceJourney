@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Moon
   m_EditorClassIdentifier: 
   name: Moon
-  isUnlockCollectible: 1
+  isUnlockCollectible: 0
   constellationDotProfiles: []
   planetScene: 0
   adjustSpeedMultiplier: 0

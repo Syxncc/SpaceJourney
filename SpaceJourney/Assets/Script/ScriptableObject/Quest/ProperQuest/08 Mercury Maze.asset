@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Mercury Maze
-  questDescription: 'Our mission here is to get out of the maze. Our spaceship is
-    there
+  questDescription: 'Your mission here is to get out of the maze. Our spaceship is
+    there.
 
     Objectives:
 

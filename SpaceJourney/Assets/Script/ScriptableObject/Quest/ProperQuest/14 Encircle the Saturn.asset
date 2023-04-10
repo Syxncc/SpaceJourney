@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Encircle Saturn
-  questDescription: You need to encircle the saturn and collect all points.
+  questDescription: Collect all the points sorrounding in the saturn rings.
   isAutoQuest: 0
   maxTime: 0
   currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: 
   rewards:
     goldReward: 100
     xpReward: 200
