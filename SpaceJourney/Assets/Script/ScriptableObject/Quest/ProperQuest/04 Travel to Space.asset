@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Space
-  questDescription: 'Traveling to space is a must. Explore and discover something
-    new. '
+  questDescription: 'Now you''re done here, it''s time to see new things beyond our
+    own planet. '
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0
   isQuestTimerObjective: 0
-  goalObjectives: 
+  goalObjectives: '- Talk to Chris (1/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 200
