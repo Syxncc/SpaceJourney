@@ -8,8 +8,11 @@ public class Collectible : ScriptableObject
     public string name = "";
     public bool isUnlockCollectible = false;
     public ConstellationDotProfile[] constellationDotProfiles;
+
+#if UNITY_EDITOR
     private void OnValidate()
     {
         name = System.IO.Path.GetFileNameWithoutExtension(UnityEditor.AssetDatabase.GetAssetPath(this));
     }
+#endif
 }
