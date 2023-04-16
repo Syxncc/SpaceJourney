@@ -37,37 +37,40 @@ public class QuestMarking : MonoBehaviour
             }
             else if (profile != null)
             {
-                if (questManager.CurrentQuest.GetType() == System.Type.GetType("QuestTalk"))
+                if (questManager.CurrentQuest.GetType().ToString() == System.Type.GetType("QuestTalk").ToString())
                 {
                     questMarking.SetActive(false);
                     QuestTalk quest = (QuestTalk)questManager.CurrentQuest;
-                    for (int i = 0; i < quest.objectives.Length; i++)
+                    if (quest != null)
                     {
-                        // Debug.Log(quest.objectives[i].requiredProfile.name + " " + profile.name);
-                        if (quest.objectives[i].requiredProfile.name == profile.name)
+                        for (int i = 0; i < quest.objectives.Length; i++)
                         {
-                            // Debug.Log(quest + " " + quest.CurrentAmount[i]);
-                            // // Debug.Log(quest.CurrentAmount[i] + " " + quest.RequiredAmount[i]);
-
-                            // Debug.Log("ARRAY " + i);
-                            if (quest.CurrentAmount.Length > i)
+                            // Debug.Log(quest.objectives[i].requiredProfile.name + " " + profile.name);
+                            if (quest.objectives[i].requiredProfile.name == profile.name)
                             {
-                                if (quest.CurrentAmount[i] >= quest.RequiredAmount[i])
+                                if (quest.CurrentAmount != null && quest.CurrentAmount.Length > i)
                                 {
-                                    questMarking.SetActive(false);
+
+                                    if (questMarking != null)
+                                    {
+                                        if (quest.CurrentAmount[i] >= quest.RequiredAmount[i])
+                                        {
+                                            questMarking.SetActive(false);
+                                        }
+                                        else
+                                        {
+                                            questMarking.SetActive(true);
+                                        }
+                                    }
                                 }
                                 else
                                 {
                                     questMarking.SetActive(true);
                                 }
                             }
-                            else
-                            {
-                                questMarking.SetActive(true);
-                            }
-                            return;
                         }
                     }
+
                 }
             }
         }
