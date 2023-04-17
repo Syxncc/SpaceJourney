@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Venus
-  questDescription: "The next destination is the hottest planet in the entire solar
-    system, the Venus. It's surface \rtemperature reaches upto 475 degree celcius,
-    and that is incredibly hot. Upgrade \ryour stats to be able to widthstand this
-    extreme place. Goodluck little astronaut."
+  questDescription: "The next destination is the hottest\n planet in the entire solar
+    system. It's surface \r\ntemperature reaches upto 475 degree celcius, and that
+    is incredibly hot. \nUpgrade \r                  your stats to be able to widthstand
+    this extreme place. Goodluck little astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0

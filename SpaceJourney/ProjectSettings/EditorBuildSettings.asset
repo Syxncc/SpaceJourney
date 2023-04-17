@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VenusEnv.unity
     guid: 84bf7c935d6a91b4c8e306b2772e52a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AsteroidBelt.unity
     guid: 3bc5938f468ab9844adcffc649106b40
   - enabled: 1

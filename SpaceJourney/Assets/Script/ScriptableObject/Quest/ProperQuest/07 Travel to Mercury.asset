@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Mercury
-  questDescription: "Your next destination has a feature just like Mars, it contains
-    33% gravity \rcompared to ours, but this one is hot since it's near our Sun.
-    Upgrade your stats\r to enter this planet and escape the maze inside there. Goodluck
-    little astronaut."
+  questDescription: "Your next destination has a gravity\n just like Mars,  but this
+    one is hot\n since it's near our Sun. Upgrade your\n stats\r             to enter
+    this planet and escape\n the maze inside there. Goodluck little\n astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0
   isQuestTimerObjective: 0
-  goalObjectives: 
+  goalObjectives: '- Go to Mercury Planet (1/1)
+
+'
   rewards:
     goldReward: 100
     xpReward: 200

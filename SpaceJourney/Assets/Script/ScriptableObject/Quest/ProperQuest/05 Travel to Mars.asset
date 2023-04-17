@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 
   questName: Travel to Mars
-  questDescription: "Your\r next destination is Mars, this planet only has 33% gravity
-    compared to ours, \rupgrade your stats to enter this planet and find ellun when
-    you're in it. Goodluck little astronaut."
+  questDescription: "Your\r           next destination is Mars, this planet only
+    has 33 percent gravity compared to ours, \n\rupgrade your stats to enter this
+    planet and find ellun when you're in it. Goodluck little astronaut."
   isAutoQuest: 1
   maxTime: 0
   currentHighScore: 0
   isQuestTimerObjective: 0
-  goalObjectives: '- Talk to Ellun (1/1)
+  goalObjectives: '- Talk to Ellun (0/1)
 
 '
   rewards:
