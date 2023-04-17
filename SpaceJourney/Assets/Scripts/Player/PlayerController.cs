@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     // [SerializeField]
     // private float dashTime = 0.25f;
-
+    public GameObject trail;
     private bool interactive;
 
     [SerializeField]
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     // [SerializeField]
     // private float regenCost = 5.00f;
 
-
+     
 
     private bool isSprinting = false;
 
@@ -201,10 +201,12 @@ public class PlayerController : MonoBehaviour
         if (isSprinting && currentStamina > 0)
         {
             playerSpeed = playerProfile.sprintingSpeed + (playerProfile.upgrade.sprint * 2);
+            trail.SetActive(true);
             StaminaOvertime(false);
         }
         else
         {
+            trail.SetActive(false);
             playerSpeed = playerProfile.walkingSpeed + (playerProfile.upgrade.walk * 1);
             if ((move == Vector3.zero || !isSprinting) && currentStamina < 100)
             {
