@@ -16,6 +16,9 @@ public class ConnectTheDots : MonoBehaviour
     private Vector3 mousePositionTwo;
     Vector3 mousePositionInput;
     public GameObject parent;
+
+    Vector3 start, end;
+    LineController tempLineController;
     public GameObject IsPointerOverUIElement(bool first)
     {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
@@ -64,57 +67,91 @@ public class ConnectTheDots : MonoBehaviour
         return null;
     }
 
-    bool CompareDots()
+    bool CompareDots(bool addLine)
     {
         int dotOneIndex = -1;
         int dotTwoIndex = -1;
-        ConstellationDotProfile dotOne = goDotOne.GetComponent<ConstellationDot>().constellationDot;
-        ConstellationDotProfile dotTwo = goDotTwo.GetComponent<ConstellationDot>().constellationDot;
-        for (int i = 0; i < dotOne.connectedDots.Length; i++)
+        if (goDotOne != null && goDotTwo != null)
         {
-            if (dotOne.connectedDots[i].constellationDot.name.Equals(dotTwo.name))
+            ConstellationDotProfile dotOne = goDotOne.GetComponent<ConstellationDot>().constellationDot;
+            ConstellationDotProfile dotTwo = goDotTwo.GetComponent<ConstellationDot>().constellationDot;
+            for (int i = 0; i < dotOne.connectedDots.Length; i++)
             {
-                for (int j = 0; j < dotTwo.connectedDots.Length; j++)
+                if (dotOne.connectedDots[i].constellationDot.name.Equals(dotTwo.name))
                 {
-
-                    if (dotTwo.connectedDots[j].constellationDot.name.Equals(dotOne.name))
+                    for (int j = 0; j < dotTwo.connectedDots.Length; j++)
                     {
-                        GameObject newLine = Instantiate(lineController);
-                        newLine.GetComponent<LineController>().MakeLine(mousePositionOne, mousePositionTwo);
-                        newLine.transform.SetParent(parent.transform);
-                        dotOne.connectedDots[i].isConnected = true;
-                        dotTwo.connectedDots[j].isConnected = true;
-                        dotOne = null;
-                        dotTwo = null;
-                        return true;
+
+                        if (dotTwo.connectedDots[j].constellationDot.name.Equals(dotOne.name))
+                        {
+                            if (addLine)
+                            {
+                                GameObject newLine = Instantiate(lineController);
+                                newLine.GetComponent<LineController>().MakeLine(mousePositionOne, mousePositionTwo);
+                                newLine.transform.SetParent(parent.transform);
+                                dotOne.connectedDots[i].isConnected = true;
+                                dotTwo.connectedDots[j].isConnected = true;
+                                dotOne = null;
+                                dotTwo = null;
+                            }
+                            return true;
+                        }
                     }
                 }
             }
+            dotOne = null;
+            dotTwo = null;
         }
-        dotOne = null;
-        dotTwo = null;
         return false;
     }
+
+    bool isClick = false;
     void Update()
     {
         // check for mouse or touch input
         if (Input.GetMouseButtonDown(0))
         {
+            isClick = true;
             goDotOne = IsPointerOverUIElement(true);
+            GameObject newLine = Instantiate(lineController);
+            tempLineController = newLine.GetComponent<LineController>();
+            tempLineController.ChangeColor(Color.white);
+            start = mousePositionOne;
         }
         if (Input.GetMouseButtonUp(0))
         {
+            isClick = false;
             goDotTwo = IsPointerOverUIElement(false);
             if (goDotOne != null && goDotTwo != null)
             {
-                if (CompareDots())
+                if (CompareDots(true))
                 {
                     CTDManager.instance.Verify();
                     Debug.Log("TRUE");
                 }
             }
+            Destroy(tempLineController.gameObject);
+            mousePositionOne = Vector3.zero;
         }
 
+        if (isClick)
+        {
+            if (start != Vector3.zero)
+            {
+                end = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.right;
+                goDotTwo = IsPointerOverUIElement(false);
+                if (CompareDots(false))
+                {
+                    tempLineController.ChangeColor(Color.cyan);
+                }
+                else
+                {
+                    tempLineController.ChangeColor(Color.white);
+                }
+                Debug.Log(start + " " + end);
+                tempLineController.UpdateEndPoint(start, end);
+            }
+        }
         // method to check if the player has connected all of the dots in the correct order
         // bool CheckIfDotsAreConnected()
         // {
