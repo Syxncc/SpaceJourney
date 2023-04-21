@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float life = 3f;
     private float value;
     private Profile playerProfile;
+    
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
+               
 
                 if (Random.value > 0.9) //%50 percent chance
                 {
