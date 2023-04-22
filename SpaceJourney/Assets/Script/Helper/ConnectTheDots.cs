@@ -127,7 +127,6 @@ public class ConnectTheDots : MonoBehaviour
                 if (CompareDots(true))
                 {
                     CTDManager.instance.Verify();
-                    Debug.Log("TRUE");
                 }
             }
             Destroy(tempLineController.gameObject);
@@ -148,7 +147,6 @@ public class ConnectTheDots : MonoBehaviour
                 {
                     tempLineController.ChangeColor(Color.white);
                 }
-                Debug.Log(start + " " + end);
                 tempLineController.UpdateEndPoint(start, end);
             }
         }

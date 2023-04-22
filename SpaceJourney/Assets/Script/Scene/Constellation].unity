@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14688,6 +14688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 69fa34f208d183a429bdd97af90e3a20, type: 2}
+  constellationContent: {fileID: 5305523914258119736}
 --- !u!1 &5566327755223674444
 GameObject:
   m_ObjectHideFlags: 0
@@ -14874,6 +14875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 62b37d3b0d5519b4590c084700e4dfcf, type: 2}
+  constellationContent: {fileID: 5305523914135149066}
 --- !u!224 &5566327755706669748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15015,6 +15017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 80d88accc8709b842a4138dc349e5a62, type: 2}
+  constellationContent: {fileID: 5305523912798531948}
 --- !u!222 &5566327755740363232
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15165,6 +15168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 5d9d4c3c1f7a7cd4dab85cc58e0da28e, type: 2}
+  constellationContent: {fileID: 5305523913920164990}
 --- !u!114 &5566327756261426976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15306,6 +15310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 23976eef42daa0e43828cc8939ca7d2e, type: 2}
+  constellationContent: {fileID: 5305523914674886070}
 --- !u!1 &5566327756580785922
 GameObject:
   m_ObjectHideFlags: 0
@@ -15325,7 +15330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5566327756580785923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15464,6 +15469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: b2c8cc209bbdd594596114142aa30bc6, type: 2}
+  constellationContent: {fileID: 5305523913434990341}
 --- !u!1 &5566327756632081652
 GameObject:
   m_ObjectHideFlags: 0
@@ -15651,6 +15657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 3e4f58b81c620ab4da9ea76c847f5cca, type: 2}
+  constellationContent: {fileID: 5305523912831119947}
 --- !u!114 &5566327756808813016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15796,6 +15803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: 9103738f4ef1b5b4d8445e43f45e83b5, type: 2}
+  constellationContent: {fileID: 5305523914437921424}
 --- !u!1 &5566327756927868209
 GameObject:
   m_ObjectHideFlags: 0
@@ -15934,6 +15942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: d2cff91d2c4f5a34eb3f9c557388d2ef, type: 2}
+  constellationContent: {fileID: 5305523914409702605}
 --- !u!222 &5566327757059379152
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16082,3 +16091,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constellation: {fileID: 11400000, guid: f7c2c5b2919285a418d32e081cfcc408, type: 2}
+  constellationContent: {fileID: 5305523914396919934}
