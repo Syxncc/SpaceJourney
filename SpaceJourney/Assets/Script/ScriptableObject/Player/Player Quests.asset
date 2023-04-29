@@ -34,4 +34,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4ba012a71311d364db29179d7eeb97c3, type: 2}
   - {fileID: 11400000, guid: 21870ccf67deea04998d5f24c466e36f, type: 2}
   - {fileID: 11400000, guid: e82845c8b820552418961585d1593bf5, type: 2}
-  isQuestDone: 1
+  isQuestDone: 0

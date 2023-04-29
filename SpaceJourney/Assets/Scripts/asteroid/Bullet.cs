@@ -7,7 +7,8 @@ public class Bullet : MonoBehaviour
     public float life = 3f;
     private float value;
     private Profile playerProfile;
-    
+    public GameObject meteorExplosion;
+
 
     void Awake()
     {
@@ -25,9 +26,13 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<TakeDamage>() == null)
             {
-                Destroy(collision.gameObject);
+
+                GameObject newExplosion = Instantiate(meteorExplosion, transform.position, Quaternion.identity);
+                // newExplosion.transform.SetParent(gameObject.transform);
                 Destroy(gameObject);
-               
+                Destroy(newExplosion, 3);
+                Destroy(collision.gameObject);
+
 
                 if (Random.value > 0.9) //%50 percent chance
                 {

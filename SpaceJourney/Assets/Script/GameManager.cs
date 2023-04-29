@@ -57,21 +57,24 @@ public class GameManager : MonoBehaviour
         {
             if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
             {
-                bool isInSpace = false;
-                if (SceneManager.GetActiveScene().buildIndex == 2)
+                if (player.currentScene != -1)
                 {
-                    player.currentScene = 2;
-                    Debug.Log("I am inpsace");
-                    isInSpace = true;
-                }
-                if (playerManager != null)
-                {
-                    playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
-                }
-                if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
-                {
-                    // SceneManager.LoadScene(player.currentScene);
-                    ChangeScene(player.currentScene);
+                    bool isInSpace = false;
+                    if (SceneManager.GetActiveScene().buildIndex == 2)
+                    {
+                        player.currentScene = 2;
+                        Debug.Log("I am inpsace");
+                        isInSpace = true;
+                    }
+                    if (playerManager != null)
+                    {
+                        playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
+                    }
+                    if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
+                    {
+                        // SceneManager.LoadScene(player.currentScene);
+                        ChangeScene(player.currentScene);
+                    }
                 }
             }
             else

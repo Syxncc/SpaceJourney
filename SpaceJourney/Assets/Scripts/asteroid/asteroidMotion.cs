@@ -12,7 +12,7 @@ public class asteroidMotion : MonoBehaviour
 
     public bool willDestroy = false;
     public TrailRenderer trail;
-    
+
 
 
     // Start is called before the first frame update
@@ -31,21 +31,19 @@ public class asteroidMotion : MonoBehaviour
         transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
     }
 
-    
+
     void OnTriggerEnter(Collider other)
     {
-        
-        
+
+
         if (willDestroy)
         {
-            if (other.gameObject.tag == "Planets" || other.gameObject.tag == "Player" )
-            {
-                
-                GameManager.instance.ChangeMessagePopupPanel(true, null, true);
-                Destroy(gameObject);
-                
-            }
+            // if (other.gameObject.tag == "Planets" || other.gameObject.tag == "Player")
+            // {
+            //     Destroy(gameObject);
+
+            // }
         }
-        
+
     }
 }

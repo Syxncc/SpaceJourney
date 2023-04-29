@@ -16,14 +16,14 @@ MonoBehaviour:
   positionX: -493.40656
   positionY: -19.662659
   positionZ: 128.65948
-  currentScene: 2
-  spacePositionX: 1297.0283
-  spacePositionY: -361.56183
-  spacePositionZ: -738.8934
+  currentScene: -1
+  spacePositionX: -786.17773
+  spacePositionY: -2967.7925
+  spacePositionZ: 602.98944
   playergold: 8600
-  playerbluegem: 6
-  playergreengem: 18
-  playerredgem: 29
+  playerbluegem: 88
+  playergreengem: 154
+  playerredgem: 245
   playerLevel: 2
   currentMaxHP: 100
   currentMaxXP: 200
