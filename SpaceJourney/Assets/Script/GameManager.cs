@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         ResetPlayerStats();
         foreach (Collectible collectible in collectibles)
         {
-            collectible.isUnlockCollectible = false;
+            collectible.isUnlockCollectible = true;
         }
     }
 
