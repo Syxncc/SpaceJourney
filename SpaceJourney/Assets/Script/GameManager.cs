@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public string message;
 
     public Animator changeSceneAnimator;
+    public GameObject textShow;
 
     void Start()
     {

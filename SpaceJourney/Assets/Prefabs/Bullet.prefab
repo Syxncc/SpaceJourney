@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 10
   meteorExplosion: {fileID: 7099152322454966762, guid: 1b33ff805dd3f7b4a989362fe614dc73, type: 3}
+  textShow: {fileID: 0}
+  textGem: {fileID: 5419723811205578891, guid: 80c8c0b47ffe24c44a935a2007951523, type: 3}
 --- !u!54 &-8821549272361725541
 Rigidbody:
   m_ObjectHideFlags: 0
