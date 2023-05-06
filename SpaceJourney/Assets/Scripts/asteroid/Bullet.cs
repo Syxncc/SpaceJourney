@@ -64,7 +64,7 @@ public class Bullet : MonoBehaviour
                     }
                     else if (value > 0.6) //%30 percent chance (1 - 0.7 is 0.3)
                     {
-                        newGemText.GetComponent<TMP_Text>().text = "<color=#FFFFFF>0 gem</color>";
+                        //newGemText.GetComponent<TMP_Text>().text = "<color=#FFFFFF>0 gem</color>";
                         Debug.Log("BetterLuckNextTime");
                     }
                     Destroy(newGemText, 2);
