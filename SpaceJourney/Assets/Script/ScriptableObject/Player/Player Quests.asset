@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNewGame: 0
   isTravel: 1
-  currentQuestIndex: 17
+  currentQuestIndex: 11
   questSequence:
   - {fileID: 11400000, guid: 3377dc92a2428a24e8f64bf2f4829f63, type: 2}
   - {fileID: 11400000, guid: addfba45b9dbaa648b353960010934a3, type: 2}
@@ -34,4 +34,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4ba012a71311d364db29179d7eeb97c3, type: 2}
   - {fileID: 11400000, guid: 21870ccf67deea04998d5f24c466e36f, type: 2}
   - {fileID: 11400000, guid: e82845c8b820552418961585d1593bf5, type: 2}
+  - {fileID: 11400000, guid: 0f2e9ab87eb162e4abf638e013714a18, type: 2}
   isQuestDone: 0

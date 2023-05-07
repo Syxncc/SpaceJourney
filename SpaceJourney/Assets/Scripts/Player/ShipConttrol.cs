@@ -249,7 +249,6 @@ public class ShipConttrol : MonoBehaviour
         if (other.gameObject.tag == "Planets")
         {
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            Debug.Log("SADa");
         }
     }
 }

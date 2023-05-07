@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aquarius
   m_EditorClassIdentifier: 
   name: Aquarius
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 9b9ddd3df9002e14bb292cc036dca140, type: 2}
   - {fileID: 11400000, guid: 1b56b7ca4fbf070499f1581f142c49bb, type: 2}

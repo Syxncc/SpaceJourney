@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa817b392e44e84aba429993f690e41, type: 3}
+  m_Name: 20 Final Quest Quiz
+  m_EditorClassIdentifier: 
+  questID: 
+  questName: Final Quest Quiz
+  questDescription: You do all the quest that have been assigned to you. Congratulations
+    but to understand how far you really got. This will be the final quest. Locate
+    the final destination in the space. This will be after the Neptune and complete
+    the quiz.
+  isAutoQuest: 1
+  maxTime: 0
+  currentHighScore: 0
+  isQuestTimerObjective: 0
+  goalObjectives: 
+  rewards:
+    goldReward: 0
+    xpReward: 0
+    collectibles: []
+  objectives:
+  - requiredLocation: {fileID: 11400000, guid: 8b9a58b3aaa7ae24bbd51440df09aa22, type: 2}
+    requiredAmount: 1

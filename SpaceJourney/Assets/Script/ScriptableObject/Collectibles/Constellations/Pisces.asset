@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pisces
   m_EditorClassIdentifier: 
   name: Pisces
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 154016218cb7a894388fdb51d6a17a6a, type: 2}
   - {fileID: 11400000, guid: 8aa94aec8b547164fb57d7de0ba1ca14, type: 2}

@@ -44,6 +44,7 @@ public class Profile : ScriptableObject
     public float firingStaminaCost = 30f;
     public float sfxVolume = 1f;
     public float musicVolume = 1f;
+    public bool firstTimeInGameScene = true;
     public Upgrade upgrade;
 
     [System.Serializable]

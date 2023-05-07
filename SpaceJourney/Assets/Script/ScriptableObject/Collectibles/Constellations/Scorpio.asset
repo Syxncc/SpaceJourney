@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scorpio
   m_EditorClassIdentifier: 
   name: Scorpio
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 3bf5299b537784341bdf373737a5967b, type: 2}
   - {fileID: 11400000, guid: b2b748ff00a65d14a84eb471d9071130, type: 2}

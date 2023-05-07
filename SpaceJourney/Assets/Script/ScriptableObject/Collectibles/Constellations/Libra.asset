@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Libra
   m_EditorClassIdentifier: 
   name: Libra
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 9796ff44409446042a3a48e85ca518d5, type: 2}
   - {fileID: 11400000, guid: e332f489323fcde418958e12656586e2, type: 2}

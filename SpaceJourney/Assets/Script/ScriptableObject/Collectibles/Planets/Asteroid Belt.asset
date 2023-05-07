@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Asteroid Belt
   isUnlockCollectible: 1
   constellationDotProfiles: []
-  planetScene: 12
+  planetScene: 13
   adjustSpeedMultiplier: 0
   planetRequirement:
     walk: 0

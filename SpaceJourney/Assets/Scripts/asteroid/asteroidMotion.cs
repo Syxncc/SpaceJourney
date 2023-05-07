@@ -38,11 +38,12 @@ public class asteroidMotion : MonoBehaviour
 
         if (willDestroy)
         {
-            // if (other.gameObject.tag == "Planets" || other.gameObject.tag == "Player")
-            // {
-            //     Destroy(gameObject);
+            if (other.gameObject.tag == "Planets" || other.gameObject.tag == "Player")
+            {
+                GameManager.instance.ChangeMessagePopupPanel(true, null, true);
+                Destroy(gameObject);
 
-            // }
+            }
         }
 
     }

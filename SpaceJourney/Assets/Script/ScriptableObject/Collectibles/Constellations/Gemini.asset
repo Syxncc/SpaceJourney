@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gemini
   m_EditorClassIdentifier: 
   name: Gemini
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 2a277e3bccfc7c04fadd1ae06652f996, type: 2}
   - {fileID: 11400000, guid: 257a60a07df4ed847abc16411984b2f4, type: 2}

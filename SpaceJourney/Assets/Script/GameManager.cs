@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     public Animator changeSceneAnimator;
     public GameObject textShow;
 
+    public GameObject tutorialSpace;
+
     void Start()
     {
         if (playerQuest.isNewGame)
@@ -58,24 +60,27 @@ public class GameManager : MonoBehaviour
         {
             if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
             {
-                if (player.currentScene != -1)
+                bool isInSpace = false;
+                if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
-                    bool isInSpace = false;
-                    if (SceneManager.GetActiveScene().buildIndex == 2)
+                    player.currentScene = 2;
+                    Debug.Log("I am inpsace");
+                    isInSpace = true;
+
+                    if (tutorialSpace != null && player.firstTimeInGameScene)
                     {
-                        player.currentScene = 2;
-                        Debug.Log("I am inpsace");
-                        isInSpace = true;
+                        tutorialSpace.gameObject.SetActive(true);
+                        player.firstTimeInGameScene = false;
                     }
-                    if (playerManager != null)
-                    {
-                        playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
-                    }
-                    if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
-                    {
-                        // SceneManager.LoadScene(player.currentScene);
-                        ChangeScene(player.currentScene);
-                    }
+                }
+                if (playerManager != null && isInSpace && player.spacePositionX != 0)
+                {
+                    playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
+                }
+                if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
+                {
+                    // SceneManager.LoadScene(player.currentScene);
+                    ChangeScene(player.currentScene);
                 }
             }
             else
@@ -109,10 +114,19 @@ public class GameManager : MonoBehaviour
         player.currentScene = -1;
         playerQuest.currentQuestIndex = 0;
         playerQuest.isQuestDone = false;
+        player.firstTimeInGameScene = true;
         ResetPlayerStats();
+        player.spacePositionX = 0;
         foreach (Collectible collectible in collectibles)
         {
-            collectible.isUnlockCollectible = true;
+            if (collectible.GetType().ToString() != "Collectible")
+            {
+                collectible.isUnlockCollectible = true;
+            }
+            else
+            {
+                collectible.isUnlockCollectible = false;
+            }
         }
     }
 

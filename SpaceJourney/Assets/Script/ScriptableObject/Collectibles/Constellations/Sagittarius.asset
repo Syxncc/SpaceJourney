@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sagittarius
   m_EditorClassIdentifier: 
   name: Sagittarius
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 30e9224c927fe574999020b3f9c0df30, type: 2}
   - {fileID: 11400000, guid: 477d6af398cd3704daf7a36505155df9, type: 2}

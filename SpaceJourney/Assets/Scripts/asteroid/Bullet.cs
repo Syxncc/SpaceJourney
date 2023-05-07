@@ -50,16 +50,19 @@ public class Bullet : MonoBehaviour
                     if (value > 0.9) //%50 percent chance
                     {
                         Debug.Log("Got Blue");
+                        LootBlue();
                         newGemText.GetComponent<TMP_Text>().text = "<color=#0000FF>+1 blue gem</color>";
                     }
                     else if (value > 0.8) //%80 percent chance (1 - 0.2 is 0.8)
                     {
                         Debug.Log("Got green");
+                        LootGreen();
                         newGemText.GetComponent<TMP_Text>().text = "<color=#00FF00>+1 green gem</color>";
                     }
                     else if (value > 0.7) //%30 percent chance (1 - 0.7 is 0.3)
                     {
                         Debug.Log("GOT RED");
+                        LootRed();
                         newGemText.GetComponent<TMP_Text>().text = "<color=#FF0000>+1 red gem</color>";
                     }
                     else if (value > 0.6) //%30 percent chance (1 - 0.7 is 0.3)

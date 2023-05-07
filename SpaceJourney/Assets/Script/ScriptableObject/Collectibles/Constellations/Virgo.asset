@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Virgo
   m_EditorClassIdentifier: 
   name: Virgo
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 9c6ef183bfd48534db2250a7fd964b7a, type: 2}
   - {fileID: 11400000, guid: 418b154ea0847bb429570158ebc01d2e, type: 2}

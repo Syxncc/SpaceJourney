@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cancer
   m_EditorClassIdentifier: 
   name: Cancer
-  isUnlockCollectible: 0
+  isUnlockCollectible: 1
   constellationDotProfiles:
   - {fileID: 11400000, guid: 2bc210bd5be88e54c8e7d8964524cc83, type: 2}
   - {fileID: 11400000, guid: a880db74faba7e147a8af14ed4359e2e, type: 2}
