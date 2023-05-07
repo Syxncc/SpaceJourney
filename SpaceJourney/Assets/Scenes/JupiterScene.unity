@@ -723,6 +723,7 @@ MonoBehaviour:
   title: 
   message: 
   changeSceneAnimator: {fileID: 0}
+  textShow: {fileID: 0}
 --- !u!1 &1510983378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1299,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -3053942374430492528, guid: 939267e228b2c6d4dae23d7666b19be6, type: 2}
+    - target: {fileID: 300530902354116830, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 355997049065442820, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1436,7 +1441,7 @@ PrefabInstance:
       objectReference: {fileID: 10807440}
     - target: {fileID: 1126045436028455188, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7777778
+      value: 2.0555556
       objectReference: {fileID: 0}
     - target: {fileID: 1126045436118126329, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_Intensity
@@ -1501,6 +1506,18 @@ PrefabInstance:
     - target: {fileID: 1126045437366119784, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126045437366119785, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_Color.b
+      value: 0.43147027
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126045437366119785, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_Color.g
+      value: 0.43147027
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126045437366119785, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9056604
       objectReference: {fileID: 0}
     - target: {fileID: 1126045437378282530, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_fontAsset
