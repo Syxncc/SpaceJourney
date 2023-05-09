@@ -2740,6 +2740,14 @@ PrefabInstance:
       propertyPath: timeCountType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1126045436578915301, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126045436578915303, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: m_text
+      value: 'Meteor Point: 0'
+      objectReference: {fileID: 0}
     - target: {fileID: 1126045437187013536, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: planetQuest
       value: 

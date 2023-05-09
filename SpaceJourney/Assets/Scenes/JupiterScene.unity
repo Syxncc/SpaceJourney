@@ -3064,6 +3064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Comet
       objectReference: {fileID: 0}
+    - target: {fileID: 1803494346219642561, guid: 6ecce48f502059f42bd661bc48ae85d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ecce48f502059f42bd661bc48ae85d5, type: 3}
 --- !u!23 &6317578923686805811
