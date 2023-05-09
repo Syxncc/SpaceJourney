@@ -926,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &172864225
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2261,6 +2262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &377218836
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3685,6 +3687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &537423778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8570,6 +8573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &1036244786
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10985,6 +10989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &1443062104
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11522,6 +11527,7 @@ MonoBehaviour:
   message: 
   changeSceneAnimator: {fileID: 0}
   textShow: {fileID: 0}
+  tutorialSpace: {fileID: 0}
 --- !u!114 &1495527632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1772354594962281787, guid: c41ade4f088656146a4dc7ebc7cf1c7e, type: 3}
@@ -13244,6 +13250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &1730192886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13753,7 +13760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 388.1664
+      value: 401.3815
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_SizeDelta.y
@@ -13761,7 +13768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.3261108
+      value: 1.3262
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -18452,6 +18459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &2093985639
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18559,6 +18567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &2113554748
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18620,6 +18629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &2130212478
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18681,6 +18691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 09cfcc74d5b7d62468ad8a4e87582f11, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!135 &2130522835
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -2642,19 +2642,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 388.7115
+      value: 401.6774
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 204.7044
+      value: 200.9287
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.5249
+      value: 1.2281
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.8138123
+      value: -11.8466
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048493, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_Texture
@@ -17936,6 +17936,7 @@ MonoBehaviour:
   message: 
   changeSceneAnimator: {fileID: 0}
   textShow: {fileID: 0}
+  tutorialSpace: {fileID: 0}
 --- !u!114 &1495527632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1772354594962281787, guid: c41ade4f088656146a4dc7ebc7cf1c7e, type: 3}

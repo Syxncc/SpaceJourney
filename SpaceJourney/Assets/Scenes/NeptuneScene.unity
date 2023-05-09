@@ -7908,7 +7908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 389.1287
+      value: 402.3437
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7916,7 +7916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.6349
+      value: -0.6348
       objectReference: {fileID: 0}
     - target: {fileID: 1126045435468048492, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11662,6 +11662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 6d83537fc986a6043a0c0e9f17f5c36a, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 0}
 --- !u!114 &882359009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18267,6 +18268,7 @@ MonoBehaviour:
   message: 
   changeSceneAnimator: {fileID: 0}
   textShow: {fileID: 0}
+  tutorialSpace: {fileID: 0}
 --- !u!114 &1495527632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1772354594962281787, guid: c41ade4f088656146a4dc7ebc7cf1c7e, type: 3}
