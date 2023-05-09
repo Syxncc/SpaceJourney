@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1318600460460393595
 Transform:
   m_ObjectHideFlags: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: a29c14e21994e5b4c8570a2523d6d709, type: 2}
   colliderTag: Bullet
+  explosionFX: {fileID: 7099152322454966762, guid: 1b33ff805dd3f7b4a989362fe614dc73, type: 3}
 --- !u!1 &3419105331391431218
 GameObject:
   m_ObjectHideFlags: 0
