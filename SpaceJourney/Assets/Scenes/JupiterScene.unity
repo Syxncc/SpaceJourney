@@ -1330,7 +1330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 355997049065442820, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.3468018
+      value: -4.3466797
       objectReference: {fileID: 0}
     - target: {fileID: 355997049065442820, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2238,7 +2238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2305838166335278707, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.3468
+      value: -4.3466797
       objectReference: {fileID: 0}
     - target: {fileID: 2305838166335278707, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2910,7 +2910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7099180968367003895, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.3468018
+      value: -4.3466797
       objectReference: {fileID: 0}
     - target: {fileID: 7099180968367003895, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3063,10 +3063,6 @@ PrefabInstance:
     - target: {fileID: 1803494346219642561, guid: 6ecce48f502059f42bd661bc48ae85d5, type: 3}
       propertyPath: m_Name
       value: Comet
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803494346219642561, guid: 6ecce48f502059f42bd661bc48ae85d5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ecce48f502059f42bd661bc48ae85d5, type: 3}

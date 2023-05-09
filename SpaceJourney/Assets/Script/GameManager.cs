@@ -151,14 +151,14 @@ public class GameManager : MonoBehaviour
         player.firingStaminaCost = 30f;
         player.musicVolume = .5f;
         player.sfxVolume = .5f;
-        player.upgrade.walk = 0;
-        player.upgrade.sprint = 0;
-        player.upgrade.jump = 0;
-        player.upgrade.jumpStamina = 0;
-        player.upgrade.sprintStamina = 0;
-        player.upgrade.spaceshipSpeed = 0;
-        player.upgrade.boost = 0;
-        player.upgrade.bulletOverheating = 0;
+        player.upgrade.walk = 5;
+        player.upgrade.sprint = 5;
+        player.upgrade.jump = 5;
+        player.upgrade.jumpStamina = 5;
+        player.upgrade.sprintStamina = 5;
+        player.upgrade.spaceshipSpeed = 5;
+        player.upgrade.boost = 5;
+        player.upgrade.bulletOverheating = 5;
     }
 
     public bool isDoneAllQuest()
