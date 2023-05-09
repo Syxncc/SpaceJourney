@@ -8,6 +8,7 @@ public class TakeDamage : MonoBehaviour
     private float currentHP;
     public string colliderTag = "";
     private bool isDestroyed = false;
+    public GameObject explosionFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,12 @@ public class TakeDamage : MonoBehaviour
         else
         {
 
+            if (explosionFX != null)
+            {
+                GameObject newExplosion = Instantiate(explosionFX, transform.position, Quaternion.identity);
+
+                Destroy(newExplosion, 3);
+            }
             if (!isDestroyed)
             {
                 isDestroyed = true;
