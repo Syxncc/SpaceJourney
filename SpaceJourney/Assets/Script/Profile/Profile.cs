@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 [CreateAssetMenu(fileName = "Profile", menuName = "ScriptableObject/Profile/Base")]
 public class Profile : ScriptableObject
 {
     public string name = "";
-
     public float positionX = 0.0f;
     public float positionY = 0.0f;
     public float positionZ = 0.0f;
@@ -77,6 +78,21 @@ public class Profile : ScriptableObject
             return new Vector3(spacePositionX, spacePositionY, spacePositionZ);
         }
         return new Vector3(positionX, positionY, positionZ);
+    }
+
+    public void ToJson()
+    {
+        string json = JsonUtility.ToJson(this);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/player_profile.json", json);
+    }
+
+    public static T LoadFromJSON<T>() where T : Profile
+    {
+        string path = Application.persistentDataPath + "/player_profile.json";
+        string jsonString = System.IO.File.ReadAllText(path);
+        T obj = ScriptableObject.CreateInstance<T>();
+        JsonUtility.FromJsonOverwrite(jsonString, obj);
+        return obj;
     }
 
 }

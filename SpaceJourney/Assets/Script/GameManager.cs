@@ -50,17 +50,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (playerQuest.isNewGame)
-        {
-            Debug.Log("New Game Initiated!!!");
-            GameManager.instance.player.currentScene = -1;
-            GameManager.instance.playerQuest.currentQuestIndex = 0;
-        }
         if (player != null && SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
+            bool isInSpace = false;
+            if ((SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 3))
             {
-                bool isInSpace = false;
                 if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
                     player.currentScene = 2;
@@ -73,13 +67,18 @@ public class GameManager : MonoBehaviour
                         player.firstTimeInGameScene = false;
                     }
                 }
-                if (playerManager != null && isInSpace && player.spacePositionX != 0)
+                // player.currentScene = SceneManager.GetActiveScene().buildIndex;
+
+
+                if (playerManager != null && SceneManager.GetActiveScene().buildIndex == player.currentScene)
                 {
                     playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
                 }
+
                 if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
                 {
-                    // SceneManager.LoadScene(player.currentScene);
+                    SaveCurrentCharacterPosition();
+                    player.currentScene = SceneManager.GetActiveScene().buildIndex;
                     ChangeScene(player.currentScene);
                 }
             }
@@ -102,6 +101,29 @@ public class GameManager : MonoBehaviour
         countdownTimer = GetComponent<CountdownTimer>();
 
     }
+    void OnApplicationQuit()
+    {
+        SaveCurrentCharacterPosition();
+        Debug.Log("Game Saved");
+
+        player.ToJson();
+        playerQuest.ToJson();
+        foreach (Collectible collectible in collectibles)
+        {
+            collectible.ToJson();
+        }
+    }
+
+    // void OnApplicationQuit()
+    // {
+    //     Debug.Log("Quitting");
+    //     SaveSystem.SaveScriptableObject(player, player.name);
+    //     SaveSystem.SaveScriptableObject(playerQuest, playerQuest.name);
+    //     foreach (Collectible collectible in collectibles)
+    //     {
+    //         SaveSystem.SaveScriptableObject(collectible, collectible.name);
+    //     }
+    // }
 
     public void PopUpNotification(string message)
     {
@@ -111,7 +133,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        player.currentScene = -1;
+        player.currentScene = 1;
         playerQuest.currentQuestIndex = 0;
         playerQuest.isQuestDone = false;
         player.firstTimeInGameScene = true;
@@ -197,19 +219,28 @@ public class GameManager : MonoBehaviour
 
     public void SaveCurrentCharacterPosition()
     {
-        player.currentScene = SceneManager.GetActiveScene().buildIndex;
-        Vector3 playerPosition = playerManager.playerBody.transform.position;
-        if (player.currentScene != 2)
+        if (player != null)
         {
-            player.positionX = playerPosition.x;
-            player.positionY = playerPosition.y;
-            player.positionZ = playerPosition.z;
-        }
-        else
-        {
-            player.spacePositionX = playerPosition.x;
-            player.spacePositionY = playerPosition.y;
-            player.spacePositionZ = playerPosition.z;
+            if (player.currentScene == 1 || player.currentScene == 2 || player.currentScene == 3)
+            {
+                if (playerManager != null)
+                {
+                    player.currentScene = SceneManager.GetActiveScene().buildIndex;
+                    Vector3 playerPosition = playerManager.playerBody.transform.position;
+                    if (player.currentScene != 2)
+                    {
+                        player.positionX = playerPosition.x;
+                        player.positionY = playerPosition.y;
+                        player.positionZ = playerPosition.z;
+                    }
+                    else
+                    {
+                        player.spacePositionX = playerPosition.x;
+                        player.spacePositionY = playerPosition.y;
+                        player.spacePositionZ = playerPosition.z;
+                    }
+                }
+            }
         }
 
     }
@@ -247,6 +278,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void QuitGame()
     {
         Application.Quit();
@@ -254,6 +286,13 @@ public class GameManager : MonoBehaviour
 
     public void BackToHomeScreen()
     {
+        SaveCurrentCharacterPosition();
+        player.ToJson();
+        playerQuest.ToJson();
+        foreach (Collectible collectible in collectibles)
+        {
+            collectible.ToJson();
+        }
         ChangeScene(0);
     }
 

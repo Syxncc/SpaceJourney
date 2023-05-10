@@ -10,4 +10,20 @@ public class QuestSequence : ScriptableObject
     public int currentQuestIndex;
     public QuestBase[] questSequence;
     public bool isQuestDone;
+
+
+    public void ToJson()
+    {
+        string json = JsonUtility.ToJson(this);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/player_quest.json", json);
+    }
+
+    public static T LoadFromJSON<T>() where T : QuestSequence
+    {
+        string path = Application.persistentDataPath + "/player_quest.json";
+        string jsonString = System.IO.File.ReadAllText(path);
+        T obj = ScriptableObject.CreateInstance<T>();
+        JsonUtility.FromJsonOverwrite(jsonString, obj);
+        return obj;
+    }
 }
