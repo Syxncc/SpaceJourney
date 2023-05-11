@@ -50,16 +50,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (playerQuest.isNewGame)
+        if (playerQuest.isNewGame || SceneManager.GetActiveScene().buildIndex == 7)
         {
             Debug.Log("New Game Initiated!!!");
             GameManager.instance.player.currentScene = -1;
         }
         if (player != null && SceneManager.GetActiveScene().buildIndex != 0)
         {
+            bool isInSpace = false;
             if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
             {
-                bool isInSpace = false;
                 if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
                     player.currentScene = 2;
@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
                 }
                 if (playerManager != null)
                 {
-                    print("YOWA");
-                    playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
+                    print("SPAWNMING");
+                    StartCoroutine(delaySpawn(isInSpace, 1f));
                 }
                 if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
                 {
@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
             {
                 playerQuest.isTravel = false;
             }
+
+
 
             if (notification != null)
             {
@@ -103,6 +105,15 @@ public class GameManager : MonoBehaviour
         countdownTimer = GetComponent<CountdownTimer>();
 
     }
+
+    IEnumerator delaySpawn(bool isInSpace, float waitTime)
+    {
+        loadingScene.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        loadingScene.SetActive(false);
+        playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
+    }
+
     void OnApplicationQuit()
     {
         // SaveCurrentCharacterPosition();
@@ -152,6 +163,9 @@ public class GameManager : MonoBehaviour
     void ResetPlayerStats()
     {
         player.playergold = 10000;
+        player.positionX = -566.6966f;
+        player.positionY = -21.37539f;
+        player.positionZ = 106.1419f;
         player.playerbluegem = 1;
         player.playergreengem = 5;
         player.playerredgem = 10;

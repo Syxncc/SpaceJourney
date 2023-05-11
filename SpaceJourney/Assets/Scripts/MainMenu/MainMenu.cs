@@ -53,6 +53,10 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
+                if (gameManager.player.currentScene == -1)
+                {
+                    gameManager.player.currentScene = 1;
+                }
                 operation = SceneManager.LoadSceneAsync(gameManager.player.currentScene);
             }
 
