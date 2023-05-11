@@ -50,11 +50,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (playerQuest.isNewGame)
+        {
+            Debug.Log("New Game Initiated!!!");
+            GameManager.instance.player.currentScene = -1;
+        }
         if (player != null && SceneManager.GetActiveScene().buildIndex != 0)
         {
-            bool isInSpace = false;
-            if ((SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 3))
+            if (player.currentScene != -1 && !playerQuest.isTravel || SceneManager.GetActiveScene().buildIndex == 2)
             {
+                bool isInSpace = false;
                 if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
                     player.currentScene = 2;
@@ -67,18 +72,15 @@ public class GameManager : MonoBehaviour
                         player.firstTimeInGameScene = false;
                     }
                 }
-                // player.currentScene = SceneManager.GetActiveScene().buildIndex;
-
-
-                if (playerManager != null && SceneManager.GetActiveScene().buildIndex == player.currentScene)
+                if (playerManager != null)
                 {
+                    print("YOWA");
                     playerManager.playerBody.transform.position = player.CharacterPosition(isInSpace);
                 }
-
                 if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
                 {
-                    SaveCurrentCharacterPosition();
-                    player.currentScene = SceneManager.GetActiveScene().buildIndex;
+                    print("SADD");
+                    // SceneManager.LoadScene(player.currentScene);
                     ChangeScene(player.currentScene);
                 }
             }
@@ -103,15 +105,10 @@ public class GameManager : MonoBehaviour
     }
     void OnApplicationQuit()
     {
-        SaveCurrentCharacterPosition();
+        // SaveCurrentCharacterPosition();
         Debug.Log("Game Saved");
 
-        player.ToJson();
-        playerQuest.ToJson();
-        foreach (Collectible collectible in collectibles)
-        {
-            collectible.ToJson();
-        }
+        SaveCurrentCharacterPosition();
     }
 
     // void OnApplicationQuit()
@@ -208,7 +205,7 @@ public class GameManager : MonoBehaviour
         if (sceneIndex != -1)
         {
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-            playerQuest.isTravel = true;
+            // playerQuest.isTravel = true;
         }
         else
         {
@@ -240,6 +237,13 @@ public class GameManager : MonoBehaviour
                         player.spacePositionZ = playerPosition.z;
                     }
                 }
+
+            }
+            player.ToJson();
+            playerQuest.ToJson();
+            foreach (Collectible collectible in collectibles)
+            {
+                collectible.ToJson();
             }
         }
 
@@ -287,12 +291,6 @@ public class GameManager : MonoBehaviour
     public void BackToHomeScreen()
     {
         SaveCurrentCharacterPosition();
-        player.ToJson();
-        playerQuest.ToJson();
-        foreach (Collectible collectible in collectibles)
-        {
-            collectible.ToJson();
-        }
         ChangeScene(0);
     }
 
