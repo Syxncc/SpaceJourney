@@ -77,12 +77,12 @@ public class GameManager : MonoBehaviour
                     print("SPAWNMING");
                     StartCoroutine(delaySpawn(isInSpace, 1f));
                 }
-                if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
-                {
-                    print("SADD");
-                    // SceneManager.LoadScene(player.currentScene);
-                    ChangeScene(player.currentScene);
-                }
+                // if (SceneManager.GetActiveScene().buildIndex != player.currentScene)
+                // {
+                //     print("SADD");
+                //     // SceneManager.LoadScene(player.currentScene);
+                //     ChangeScene(player.currentScene);
+                // }
             }
             else
             {
@@ -149,14 +149,14 @@ public class GameManager : MonoBehaviour
         player.spacePositionX = 0;
         foreach (Collectible collectible in collectibles)
         {
-            if (collectible.GetType().ToString() != "Collectible")
-            {
-                collectible.isUnlockCollectible = true;
-            }
-            else
-            {
-                collectible.isUnlockCollectible = false;
-            }
+            // if (collectible.GetType().ToString() != "Collectible")
+            // {
+            collectible.isUnlockCollectible = true;
+            // }
+            // else
+            // {
+            //     collectible.isUnlockCollectible = false;
+            // }
         }
     }
 
@@ -232,8 +232,10 @@ public class GameManager : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.currentScene == 1 || player.currentScene == 2 || player.currentScene == 3)
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            if (currentScene == 1 || currentScene == 2 || currentScene == 3)
             {
+                print("SAve position");
                 if (playerManager != null)
                 {
                     player.currentScene = SceneManager.GetActiveScene().buildIndex;
@@ -251,9 +253,9 @@ public class GameManager : MonoBehaviour
                         player.spacePositionZ = playerPosition.z;
                     }
                 }
+                player.ToJson();
 
             }
-            player.ToJson();
             playerQuest.ToJson();
             foreach (Collectible collectible in collectibles)
             {

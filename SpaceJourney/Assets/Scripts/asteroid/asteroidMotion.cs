@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class asteroidMotion : MonoBehaviour
 {
@@ -34,15 +35,15 @@ public class asteroidMotion : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-
         if (willDestroy)
         {
-            if (other.gameObject.tag == "Planets" || other.gameObject.tag == "Player")
+            if (gameObject.tag == "Asteroid")
             {
-                GameManager.instance.ChangeMessagePopupPanel(true, null, true);
-                Destroy(gameObject);
-
+                if (other.gameObject.tag == "Planets" || other.gameObject.tag == "Player")
+                {
+                    GameManager.instance.ChangeMessagePopupPanel(true, null, true);
+                    Destroy(gameObject);
+                }
             }
         }
 

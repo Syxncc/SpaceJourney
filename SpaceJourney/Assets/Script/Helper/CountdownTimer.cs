@@ -11,7 +11,6 @@ public class CountdownTimer : MonoBehaviour
     public bool timerIsRunning = false;
     public int timeCountType = 0; //0 stopwatch, 1 timer, 2 means count
 
-    [HideInInspector]
     public int tempCount = 0;
     public int limitCount = 6;
     public TMP_Text timeText;
@@ -123,12 +122,15 @@ public class CountdownTimer : MonoBehaviour
             }
             else
             {
+                print("!@$@$!@$");
                 startPanelButtonText.text = "START";
                 if (quest.currentHighScore < tempTimer || (timeCountType == 1 && quest.currentHighScore > tempTimer))
                 {
+                    startPanelButtonText.text = "TRY AGAIN";
                     tempTitle = "You achieve new high score!!!";
                     quest.currentHighScore = Mathf.Round(tempTimer);
                 }
+                isStart = true;
             }
             timeTitle.text = tempTitle;
             // SetActiveObject(false);

@@ -37,8 +37,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(newExplosion, 3);
                 Destroy(collision.gameObject);
-                Debug.Log(textShow.transform.childCount + " s");
-                if (textShow.transform.childCount < 3)
+                if (textShow != null && textShow.transform.childCount < 3)
                 {
 
                     GameObject newGemText = Instantiate(textGem, textShow.transform.position, Quaternion.identity);
