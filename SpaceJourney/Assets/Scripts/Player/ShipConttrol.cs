@@ -193,6 +193,13 @@ public class ShipConttrol : MonoBehaviour
     public void MoveNormal(bool isMoving)
     {
         moveButton = isMoving;
+        if(isMoving){
+            AudioManager.instance.PlayLoopSFX("SpaceshipNormal");
+        }
+        else
+        {
+            AudioManager.instance.StopSFXLoop("SpaceshipNormal");
+        }
     }
 
     public void ReleaseShoot()
@@ -203,6 +210,13 @@ public class ShipConttrol : MonoBehaviour
     public void isBoost(bool isBoost)
     {
         boostButton = isBoost;
+        if(isBoost){
+            AudioManager.instance.PlayLoopSFX("SpaceshipBoost");
+        }
+        else
+        {
+            AudioManager.instance.StopSFXLoop("SpaceshipBoost");
+        }
     }
 
     private void RegenFireStamina(float regenCost)

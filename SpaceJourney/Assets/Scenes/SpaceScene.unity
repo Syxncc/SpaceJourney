@@ -8574,6 +8574,26 @@ PrefabInstance:
       propertyPath: changeSceneAnimator
       value: 
       objectReference: {fileID: 1389536225}
+    - target: {fileID: 2928509648036739829, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2928509648036739829, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: sfxSounds.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1946255665d7d9942a82303d13fefe3e, type: 3}
+    - target: {fileID: 2928509648036739829, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: sfxSounds.Array.data[9].name
+      value: SpaceshipNormal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2928509648036739829, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: sfxSounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e369d54bae6badc44b0b169e0a5084b7, type: 3}
+    - target: {fileID: 2928509648036739829, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
+      propertyPath: sfxSounds.Array.data[10].name
+      value: SpaceshipBoost
+      objectReference: {fileID: 0}
     - target: {fileID: 3236153496400940165, guid: 6ab18b8743be3074399abc96de5d0c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
